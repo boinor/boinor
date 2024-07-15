@@ -27,10 +27,10 @@ order:
 
 ## Software
 
-poliastro wouldn\'t be possible without the tremendous, often unpaid and
+boinor wouldn\'t be possible without the tremendous, often unpaid and
 unrecognised effort of thousands of volunteers who devote a significant
 part of their lives to provide the best software money can buy, for
-free. This is a list of direct poliastro dependencies with a citeable
+free. This is a list of direct boinor dependencies with a citeable
 resource, which doesn\'t account for the fact that I have used and
 enjoyed free (as in freedom) operative systems, compilers, text editors,
 IDEs and browsers for my whole academic life.

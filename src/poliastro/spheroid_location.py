@@ -1,7 +1,7 @@
 import astropy.units as u
 import numpy as np
 
-from poliastro.core.spheroid_location import (
+from boinor.core.spheroid_location import (
     N as N_fast,
     cartesian_cords as cartesian_cords_fast,
     cartesian_to_ellipsoidal as cartesian_to_ellipsoidal_fast,
@@ -25,7 +25,7 @@ class SpheroidLocation:
             Geodetic latitude
         h : ~astropy.units.quantity.Quantity
             Geodetic height
-        body : ~poliastro.bodies.Body
+        body : ~boinor.bodies.Body
             Planetary body the spheroid location lies on
 
         """

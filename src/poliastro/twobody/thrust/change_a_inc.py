@@ -1,6 +1,6 @@
 from astropy import units as u
 
-from poliastro.core.thrust.change_a_inc import (
+from boinor.core.thrust.change_a_inc import (
     change_a_inc as change_a_inc_fast,
 )
 

@@ -3,16 +3,16 @@ import numpy as np
 from numpy.testing import assert_allclose
 import pytest
 
-from poliastro.bodies import Earth
-from poliastro.core.propagation import func_twobody
-from poliastro.core.thrust import (
+from boinor.bodies import Earth
+from boinor.core.propagation import func_twobody
+from boinor.core.thrust import (
     change_a_inc as change_a_inc_fast,
     change_argp as change_argp_fast,
 )
-from poliastro.core.thrust.change_ecc_inc import beta as beta_change_ecc_inc
-from poliastro.twobody import Orbit
-from poliastro.twobody.propagation import CowellPropagator
-from poliastro.twobody.thrust import (
+from boinor.core.thrust.change_ecc_inc import beta as beta_change_ecc_inc
+from boinor.twobody import Orbit
+from boinor.twobody.propagation import CowellPropagator
+from boinor.twobody.thrust import (
     change_a_inc,
     change_argp,
     change_ecc_inc,

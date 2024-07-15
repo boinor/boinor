@@ -2,7 +2,7 @@ from astropy import units as u
 from astropy.tests.helper import assert_quantity_allclose
 import pytest
 
-from poliastro.bodies import (
+from boinor.bodies import (
     Earth,
     Jupiter,
     Mars,
@@ -12,7 +12,7 @@ from poliastro.bodies import (
     Uranus,
     Venus,
 )
-from poliastro.threebody.soi import hill_radius, laplace_radius
+from boinor.threebody.soi import hill_radius, laplace_radius
 
 
 @pytest.mark.parametrize(

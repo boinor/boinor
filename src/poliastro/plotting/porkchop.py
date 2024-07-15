@@ -3,7 +3,7 @@ from astropy import coordinates as coord, units as u
 from matplotlib import pyplot as plt
 import numpy as np
 
-from poliastro.bodies import (
+from boinor.bodies import (
     Earth,
     Jupiter,
     Mars,
@@ -16,9 +16,9 @@ from poliastro.bodies import (
     Uranus,
     Venus,
 )
-from poliastro.maneuver import Maneuver
-from poliastro.twobody.orbit import Orbit
-from poliastro.util import norm
+from boinor.maneuver import Maneuver
+from boinor.twobody.orbit import Orbit
+from boinor.util import norm
 
 
 def _get_state(body, time):
@@ -37,7 +37,7 @@ def _get_state(body, time):
         Pluto,
     ]
 
-    # We check if body belongs to poliastro.bodies
+    # We check if body belongs to boinor.bodies
     if body in solar_system_bodies:
         rr, vv = coord.get_body_barycentric_posvel(body.name, time)
     else:
@@ -106,9 +106,9 @@ class PorkchopPlotter:
 
     Parameters
     ----------
-    departure_body: poliastro.bodies.Body
+    departure_body: boinor.bodies.Body
         Body from which departure is done
-    target_body: poliastro.bodies.Body
+    target_body: boinor.bodies.Body
         Body for targetting
     launch_span: astropy.time.Time
         Time span for launch
@@ -167,9 +167,9 @@ class PorkchopPlotter:
 
         Examples
         --------
-        >>> from poliastro.plotting.porkchop import PorkchopPlotter
-        >>> from poliastro.bodies import Earth, Mars
-        >>> from poliastro.util import time_range
+        >>> from boinor.plotting.porkchop import PorkchopPlotter
+        >>> from boinor.bodies import Earth, Mars
+        >>> from boinor.util import time_range
         >>> launch_span = time_range("2005-04-30", end="2005-10-07")
         >>> arrival_span = time_range("2005-11-16", end="2006-12-21")
         >>> porkchop_plot = PorkchopPlotter(Earth, Mars, launch_span, arrival_span)

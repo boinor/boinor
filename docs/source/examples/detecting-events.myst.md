@@ -23,7 +23,7 @@ critical scientific information and help us formulate efficient space strategies
 the potentially disastrous ones, like satellite collisions, could help us take further steps to prevent
 such contingencies.
 
-This notebook gives a glimpse of `poliastro`'s event detection capabilities. The procedure to track
+This notebook gives a glimpse of `boinor`'s event detection capabilities. The procedure to track
 an event during an orbit's propagation is fairly simple:
 
 1. Instantiate the desired event class/classes.
@@ -44,29 +44,29 @@ from astropy.coordinates import (
     get_body_barycentric_posvel,
 )
 
-from poliastro.bodies import Earth, Sun
+from boinor.bodies import Earth, Sun
 
-from poliastro.twobody.events import (
+from boinor.twobody.events import (
     AltitudeCrossEvent,
     LatitudeCrossEvent,
     NodeCrossEvent,
     PenumbraEvent,
     UmbraEvent,
 )
-from poliastro.twobody.orbit import Orbit
-from poliastro.twobody.propagation import CowellPropagator
-from poliastro.twobody.sampling import EpochsArray
+from boinor.twobody.orbit import Orbit
+from boinor.twobody.propagation import CowellPropagator
+from boinor.twobody.sampling import EpochsArray
 
-from poliastro.util import time_range
+from boinor.util import time_range
 ```
 
 ## Altitude Crossing Event
 Let's define some natural perturbation conditions for our orbit so that its altitude decreases with time.
 
 ```{code-cell}
-from poliastro.constants import H0_earth, rho0_earth
-from poliastro.core.perturbations import atmospheric_drag_exponential
-from poliastro.core.propagation import func_twobody
+from boinor.constants import H0_earth, rho0_earth
+from boinor.core.perturbations import atmospheric_drag_exponential
+from boinor.core.propagation import func_twobody
 
 R = Earth.R.to_value(u.km)
 
@@ -158,7 +158,7 @@ print(
 Let's plot the latitude varying with time:
 
 ```{code-cell}
-from poliastro.core.spheroid_location import cartesian_to_ellipsoidal
+from boinor.core.spheroid_location import cartesian_to_ellipsoidal
 
 latitudes = []
 for r in rr:
@@ -179,9 +179,9 @@ Since the attractor is `Earth`, we could use `GroundtrackPlotter` for showing th
 orbit on Earth.
 
 ```{code-cell}
-from poliastro.earth import EarthSatellite
-from poliastro.earth.plotting import GroundtrackPlotter
-from poliastro.plotting import OrbitPlotter
+from boinor.earth import EarthSatellite
+from boinor.earth.plotting import GroundtrackPlotter
+from boinor.plotting import OrbitPlotter
 
 es = EarthSatellite(orbit, None)
 
@@ -221,7 +221,7 @@ Users can detect umbra/penumbra crossings using the `UmbraEvent` and `PenumbraEv
 respectively. As seen from the above examples, the procedure doesn't change much.
 
 ```{code-cell}
-from poliastro.core.events import eclipse_function
+from boinor.core.events import eclipse_function
 
 attractor = Earth
 tof = 2 * u.d

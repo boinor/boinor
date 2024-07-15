@@ -2,8 +2,8 @@ from functools import cached_property
 
 from astropy import units as u
 
-from poliastro.core.elements import coe2mee, coe2rv, mee2coe, mee2rv, rv2coe
-from poliastro.twobody.elements import mean_motion, period, t_p
+from boinor.core.elements import coe2mee, coe2rv, mee2coe, mee2rv, rv2coe
+from boinor.twobody.elements import mean_motion, period, t_p
 
 
 class BaseState:
@@ -18,7 +18,7 @@ class BaseState:
             Main attractor.
         elements : tuple
             Six-tuple of orbital elements for this state.
-        plane : ~poliastro.frames.enums.Planes
+        plane : ~boinor.frames.enums.Planes
             Reference plane for the elements.
 
         """

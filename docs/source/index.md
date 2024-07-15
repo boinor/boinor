@@ -1,4 +1,4 @@
-# poliastro - Astrodynamics in Python
+# boinor - Astrodynamics in Python
 
 ```{image} _static/logo_text.png
 --- 
@@ -6,13 +6,13 @@ width: 675px
 align: center
 ---
 ```
-**poliastro** is an open source ([MIT](https://opensource.org/licenses/MIT)) pure Python library
+**boinor** is an open source ([MIT](https://opensource.org/licenses/MIT)) pure Python library
 for interactive Astrodynamics and Orbital Mechanics,
 with a focus on ease of use, speed, and quick visualization.
 It provides a simple and intuitive {ref}`API <api-reference>`,
 and handles physical quantities with units.
 
-View the [source code](https://github.com/poliastro/poliastro) of poliastro!
+View the [source code](https://github.com/boinor/boinor) of boinor!
 
 Some of its awesome features are:
 
@@ -28,10 +28,10 @@ Some of its awesome features are:
 
 And more to come!
 
-poliastro is developed by an open, international community. Release
+boinor is developed by an open, international community. Release
 announcements and general discussion take place on our [mailing
-list](https://groups.io/g/poliastro-dev) and
-[chat](http://chat.poliastro.space/).
+list](https://groups.io/g/boinor-dev) and
+[chat](http://chat.boinor.space/).
 
 ```{eval-rst}
 .. raw:: html
@@ -65,7 +65,7 @@ list](https://groups.io/g/poliastro-dev) and
       }
     </style>
     <div id="groupsio_embed_signup">
-    <form action="https://groups.io/g/poliastro-dev/signup?u=3341734695881558152" method="post" id="groupsio-embedded-subscribe-form" name="groupsio-embedded-subscribe-form" target="_blank">
+    <form action="https://groups.io/g/boinor-dev/signup?u=3341734695881558152" method="post" id="groupsio-embedded-subscribe-form" name="groupsio-embedded-subscribe-form" target="_blank">
         <div id="groupsio_embed_signup_scroll">
           <input value="" name="email" class="email" id="email" placeholder="email address" required="" type="email">
 
@@ -87,23 +87,23 @@ Plot of a [Molniya orbit](https://en.wikipedia.org/wiki/Molniya_orbit) around th
 ({math}`a = 26600~\mathrm{km}, e = 0.75, i = 63.4\mathrm{^\circ}`).
 ```
 
-The [source code](https://github.com/poliastro/poliastro), [issue
-tracker](https://github.com/poliastro/poliastro/issues) and
-[wiki](https://github.com/poliastro/poliastro/wiki/) are hosted on
+The [source code](https://github.com/boinor/boinor), [issue
+tracker](https://github.com/boinor/boinor/issues) and
+[wiki](https://github.com/boinor/boinor/wiki/) are hosted on
 GitHub, and all contributions and feedback are more than welcome. You
-can test poliastro in your browser using [Binder](https://mybinder.org/), a cloud Jupyter
+can test boinor in your browser using [Binder](https://mybinder.org/), a cloud Jupyter
 notebook server:
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/poliastro/poliastro/main?labpath=index.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/boinor/boinor/main?labpath=index.ipynb)
 
-See [benchmarks](https://benchmarks.poliastro.space/) for the
-performance analysis of poliastro.
+See [benchmarks](https://benchmarks.boinor.space/) for the
+performance analysis of boinor.
 
-poliastro works on the recent Python versions and is released under the
+boinor works on the recent Python versions and is released under the
 MIT license, allowing commercial use of the library.
 
 ```python
-from poliastro.examples import molniya
+from boinor.examples import molniya
 molniya.plot()
 ```
 
@@ -126,8 +126,8 @@ molniya.plot()
 > Urbana-Champaign, United States. We are currently working on a student
 > AIAA/AAS satellite competition to design a satellite perform some
 > science missions on asteroid (469219) 2016 HO3. We are using your
-> poliastro python package in designing and visualizing the trajectory
-> from GEO into asteroid's orbit. Thank you for your work on poliastro,
+> boinor python package in designing and visualizing the trajectory
+> from GEO into asteroid's orbit. Thank you for your work on boinor,
 > especially the APIs that are very clear and informational, which helps
 > us significantly.\"*
 >
@@ -194,7 +194,7 @@ background
 ```
 
 ```{note}
-Older versions of poliastro relied on some Fortran subroutines written
+Older versions of boinor relied on some Fortran subroutines written
 by David A. Vallado for his book \"Fundamentals of Astrodynamics and
 Applications\" and available on the Internet as the [companion software
 of the book](http://celestrak.com/software/vallado-sw.asp). The author

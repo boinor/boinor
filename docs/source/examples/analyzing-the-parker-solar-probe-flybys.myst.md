@@ -27,7 +27,7 @@ T_ref
 ```
 
 ```{code-cell} ipython3
-from poliastro.bodies import Earth, Sun, Venus
+from boinor.bodies import Earth, Sun, Venus
 ```
 
 ```{code-cell} ipython3
@@ -56,8 +56,8 @@ energy_ref
 ```{code-cell} ipython3
 from astropy.time import Time
 
-from poliastro.ephem import Ephem
-from poliastro.util import norm
+from boinor.ephem import Ephem
+from boinor.util import norm
 ```
 
 ```{code-cell} ipython3
@@ -100,7 +100,7 @@ tof = flyby_1_time - d_launch
 ```
 
 ```{code-cell} ipython3
-from poliastro import iod
+from boinor import iod
 ```
 
 ```{code-cell} ipython3
@@ -121,10 +121,10 @@ norm(v1_pre)
 
 ## 3. Flyby #1 around Venus
 
-We compute a flyby using poliastro with the default value of the entry angle, just to discover that the results do not match what we expected:
+We compute a flyby using boinor with the default value of the entry angle, just to discover that the results do not match what we expected:
 
 ```{code-cell} ipython3
-from poliastro.threebody.flybys import compute_flyby
+from boinor.threebody.flybys import compute_flyby
 ```
 
 ```{code-cell} ipython3
@@ -153,7 +153,7 @@ norm(V_2_v_)
 Now we will try to find the value of $\theta$ that satisfies our requirements:
 
 ```{code-cell} ipython3
-from poliastro.twobody import Orbit
+from boinor.twobody import Orbit
 ```
 
 ```{code-cell} ipython3
@@ -232,7 +232,7 @@ orb_1_b
 ```
 
 ```{code-cell} ipython3
-from poliastro.frames import Planes
+from boinor.frames import Planes
 ```
 
 ```{code-cell} ipython3
@@ -258,7 +258,7 @@ And, finally, we plot the solution:
 ```{code-cell} ipython3
 :tags: [nbsphinx-thumbnail]
 
-from poliastro.plotting import OrbitPlotter
+from boinor.plotting import OrbitPlotter
 
 frame = OrbitPlotter(plane=Planes.EARTH_ECLIPTIC)
 

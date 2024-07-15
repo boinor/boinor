@@ -2,15 +2,15 @@
     "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
     "@type": "SoftwareSourceCode",
     "license": "https://spdx.org/licenses/MIT",
-    "codeRepository": "https://github.com/poliastro/poliastro",
+    "codeRepository": "https://github.com/boinor/boinor",
     "datePublished": "2013-07-07",
     "dateModified": "2020-05-08",
-    "downloadUrl": "https://github.com/poliastro/poliastro.git",
-    "issueTracker": "https://github.com/poliastro/poliastro/issues",
-    "name": "poliastro",
+    "downloadUrl": "https://github.com/boinor/boinor.git",
+    "issueTracker": "https://github.com/boinor/boinor/issues",
+    "name": "boinor",
     "version": "0.14.0",
-    "description": "poliastro is an open-source pure Python package dedicated to problems arising in Astrodynamics and Orbital Mechanics, such as orbit propagation, solution of Lambert's problem, conversion between position and velocity vectors, and classical orbital elements and orbit plotting, focusing on interplanetary applications.",
-    "releaseNotes": "https://docs.poliastro.space/en/v0.14.0/changelog.html#poliastro-0-14-0-2020-05-08",
+    "description": "boinor is an open-source pure Python package dedicated to problems arising in Astrodynamics and Orbital Mechanics, such as orbit propagation, solution of Lambert's problem, conversion between position and velocity vectors, and classical orbital elements and orbit plotting, focusing on interplanetary applications.",
+    "releaseNotes": "https://docs.boinor.space/en/v0.14.0/changelog.html#boinor-0-14-0-2020-05-08",
     "programmingLanguage": [
         "Python3"
     ],
@@ -52,7 +52,7 @@
             "givenName": "Jorge",
             "affiliation": {
                 "@type": "Organization",
-                "name": "poliastro"
+                "name": "boinor"
             }
         },
         {

@@ -1,6 +1,6 @@
 # Contributing
 
-poliastro is a community project, all contributions are more than welcome!
+boinor is a community project, all contributions are more than welcome!
 
 ## What you can do
 
@@ -9,14 +9,14 @@ poliastro is a community project, all contributions are more than welcome!
 Not only things can break, but also different people have
 different use cases for the project. If you find anything that doesn't
 work as expected or have suggestions, please open a new issue on our
-[issue tracker](https://github.com/poliastro/poliastro/issues).
+[issue tracker](https://github.com/boinor/boinor/issues).
 
 ### Participate in the chat
 
-Most of the project discussions happen in [the project chat](http://chat.poliastro.space/),
+Most of the project discussions happen in [the project chat](http://chat.boinor.space/),
 where announcements are first made, newcomers ask questions,
 and in general project users exchange all sorts of information.
-[Join today!](http://chat.poliastro.space/)
+[Join today!](http://chat.boinor.space/)
 
 ### Improve the Documentation
 
@@ -28,13 +28,13 @@ in the form of docstrings.
 ### Contribute your research scripts
 
 We would love to give your Astrodynamics scripts a home!
-Please head to [our `contrib/` directory](https://github.com/poliastro/poliastro/tree/main/contrib)
+Please head to [our `contrib/` directory](https://github.com/boinor/boinor/tree/main/contrib)
 for further information.
 
 ### Fix bugs and add new features
 
 Code contributions are welcome! If you are looking for a place to start,
-check out the ["good-first-issue" label](https://github.com/poliastro/poliastro/labels/good%20first%20issue)
+check out the ["good-first-issue" label](https://github.com/boinor/boinor/labels/good%20first%20issue)
 on our issue tracker. Those tasks should be easier to fix than the others
 and require less knowledge about the library.
 
@@ -46,7 +46,7 @@ GitHub makes it very easy to make small contributions
 directly from your browser, without having to install any additional software.
 To get familiar with the process, you can do
 [this interactive GitHub training](https://lab.github.com/githubtraining/introduction-to-github).
-Once you have finished it, you can edit the poliastro source files
+Once you have finished it, you can edit the boinor source files
 straight from GitHub and open pull requests from your browser.
 
 ### Work locally
@@ -73,8 +73,8 @@ There are some cloud options that give you
 the flexibility of a powerful IDE with a terminal,
 all from your web browser so you don't have to install anything.
 Two popular cloud environments for development are
-[the GitHub web editor](https://github.dev/poliastro/poliastro)
-and [Gitpod](https://gitpod.io/#https://github.com/poliastro/poliastro/).
+[the GitHub web editor](https://github.dev/boinor/boinor)
+and [Gitpod](https://gitpod.io/#https://github.com/boinor/boinor/).
 
 ## Command line instructions
 
@@ -96,10 +96,10 @@ Start by setting up Git:
 
 1. [Install Git](https://git-scm.com/) on your computer.
 2. [Sign up to GitHub](https://github.com/).
-3. [Fork poliastro](https://help.github.com/articles/fork-a-repo/).
+3. [Fork boinor](https://help.github.com/articles/fork-a-repo/).
 4. [Clone your fork](https://help.github.com/articles/cloning-a-repository/)
    (remote name will be `origin`)
-5. Add an `upstream` remote with `git remote add upstream https://github.com/poliastro/poliastro.git`
+5. Add an `upstream` remote with `git remote add upstream https://github.com/boinor/boinor.git`
    and fetch its information with `git fetch upstream`
 6. Set your `main` branch to track `upstream` using `git branch --set-upstream-to=upstream/main`
 
@@ -117,7 +117,7 @@ And with this, you will be ready to start contributing!
 
 ### Pull request workflow
 
-Every time you want to contribute some code or documentation to poliastro,
+Every time you want to contribute some code or documentation to boinor,
 you will need to follow these steps:
 
 1. Make sure that your `main` branch is up to date: `git switch main`
@@ -182,7 +182,7 @@ And point your browser to <http://0.0.0.0:8000>.
 You want to contribute new features or fix existing behavior? You are awesome!
 Before rushing out though, make sure if the new feature you propose
 is within the scope of the library (best thing is to ask in
-[the chat](http://chat.poliastro.space/))
+[the chat](http://chat.boinor.space/))
 or that the fix you want to apply has a corresponding issue in the issue tracker.
 
 Apart from all the steps described above, you need to have these extra things in mind:

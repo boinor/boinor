@@ -3,8 +3,8 @@ from astropy.coordinates import get_sun
 from astropy.time import Time
 import numpy as np
 
-from poliastro import constants
-from poliastro.util import wrap_angle
+from boinor import constants
+from boinor.util import wrap_angle
 
 
 @u.quantity_input(ltan=u.hourangle)

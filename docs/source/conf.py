@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# poliastro documentation build configuration file.
+# boinor documentation build configuration file.
 #
 # This file is execfile()d with the current directory set to its
 # containing dir.
@@ -32,7 +32,7 @@ extensions = [
 ]
 
 # GitHub role config
-github_default_org_project = ("poliastro", "poliastro")
+github_default_org_project = ("boinor", "boinor")
 
 # MathJax config
 # See https://github.com/spatialaudio/nbsphinx/issues/572#issuecomment-853389268
@@ -51,8 +51,8 @@ myst_enable_extensions = [
     "substitution",
 ]
 myst_substitutions = {
-    "Ephem": "{py:class}`~poliastro.ephem.Ephem`",
-    "Orbit": "{py:class}`~poliastro.twobody.orbit.scalar.Orbit`",
+    "Ephem": "{py:class}`~boinor.ephem.Ephem`",
+    "Orbit": "{py:class}`~boinor.twobody.orbit.scalar.Orbit`",
 }
 
 # Hoverxref Extension
@@ -84,8 +84,8 @@ source_suffix = {
     ".md": "markdown",
 }
 
-project = "poliastro"
-copyright = "2013, Juan Luis Cano Rodríguez and the poliastro development team"
+project = "boinor"
+copyright = "2013, Juan Luis Cano Rodríguez and the boinor development team"
 
 project_ver = version(project)
 version = ".".join(project_ver.split(".")[:2])
@@ -124,23 +124,23 @@ html_context = {
     "sidebar_external_links": [
         (
             '<i class="fa fa-rss fa-fw"></i> Blog',
-            "https://www.poliastro.space",
+            "https://www.boinor.space",
         ),
         (
             '<i class="fa fa-github fa-fw"></i> Source code',
-            "https://github.com/poliastro/poliastro",
+            "https://github.com/boinor/boinor",
         ),
         (
             '<i class="fa fa-bug fa-fw"></i> Issue tracker',
-            "https://github.com/poliastro/poliastro/issues",
+            "https://github.com/boinor/boinor/issues",
         ),
         (
             '<i class="fa fa-envelope fa-fw"></i> Mailing list',
-            "https://groups.io/g/poliastro-dev",
+            "https://groups.io/g/boinor-dev",
         ),
         (
             '<i class="fa fa-comments fa-fw"></i> Chat',
-            "http://chat.poliastro.space",
+            "http://chat.boinor.space",
         ),
         (
             '<i class="fa fa-file-text fa-fw"></i> Citation',
@@ -156,7 +156,7 @@ html_js_files = ["language_data.js"]
 
 # Thumbnail selection for nbsphinx gallery
 nbsphinx_thumbnails = {
-    "examples/going-to-mars-with-python-using-poliastro": "_static/thumbnails/going_to_mars_thumbnail.png",
+    "examples/going-to-mars-with-python-using-boinor": "_static/thumbnails/going_to_mars_thumbnail.png",
     "examples/plotting-in-3D": "_static/thumbnails/3d_plotting_thumbnail.png",
     "examples/propagation-using-cowells-formulation": "_static/thumbnails/cowell_thumbnail.png",
     "examples/czml-tutorial": "_static/thumbnails/cesium_thumbnail.png",
@@ -186,7 +186,7 @@ autoapi_ignore = [
     "*_compat*",  # To avoid WARNING: more than one target found for cross-reference '__class__'
 ]
 
-exclude_patterns.extend(["autoapi/index.rst", "autoapi/poliastro/index.rst"])
+exclude_patterns.extend(["autoapi/index.rst", "autoapi/boinor/index.rst"])
 
 # Ignore sphinx-autoapi warnings on reimported objects
 # See https://github.com/readthedocs/sphinx-autoapi/issues/285

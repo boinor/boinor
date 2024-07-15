@@ -1,8 +1,8 @@
 from numba import njit as jit
 import numpy as np
 
-from poliastro._math.linalg import norm
-from poliastro.core.events import line_of_sight as line_of_sight_fast
+from boinor._math.linalg import norm
+from boinor.core.events import line_of_sight as line_of_sight_fast
 
 
 @jit
@@ -66,7 +66,7 @@ def J3_perturbation(t0, state, k, J3, R):
     -----
     The J3 accounts for the oblateness of the attractor. The formula is given in
     Howard Curtis, problem 12.8
-    This perturbation has not been fully validated, see https://github.com/poliastro/poliastro/pull/398
+    This perturbation has not been fully validated, see https://github.com/boinor/boinor/pull/398
 
     """
     r_vec = state[:3]
@@ -156,7 +156,7 @@ def atmospheric_drag(t0, state, k, C_D, A_over_m, rho):
     Notes
     -----
     This function provides the acceleration due to atmospheric drag, as
-    computed by a model from poliastro.earth.atmosphere
+    computed by a model from boinor.earth.atmosphere
 
     """
     v_vec = state[3:]

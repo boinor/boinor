@@ -1,7 +1,7 @@
 from astropy import units as u
 from astropy.tests.helper import assert_quantity_allclose
 
-from poliastro.twobody.elements import circular_velocity
+from boinor.twobody.elements import circular_velocity
 
 
 def test_simple_circular_velocity():

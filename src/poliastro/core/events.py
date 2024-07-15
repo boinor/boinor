@@ -1,9 +1,9 @@
 from numba import njit as jit
 import numpy as np
 
-from poliastro._math.linalg import norm
-from poliastro.core.elements import coe_rotation_matrix, rv2coe
-from poliastro.core.util import planetocentric_to_AltAz
+from boinor._math.linalg import norm
+from boinor.core.elements import coe_rotation_matrix, rv2coe
+from boinor.core.util import planetocentric_to_AltAz
 
 
 @jit

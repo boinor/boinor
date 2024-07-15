@@ -3,7 +3,7 @@ from astropy.tests.helper import assert_quantity_allclose
 import numpy as np
 import pytest
 
-from poliastro.earth.atmosphere.jacchia import Jacchia77
+from boinor.earth.atmosphere.jacchia import Jacchia77
 
 # SOLUTIONS DIRECTLY TAKEN FROM JACCHIA77 REPORT AND
 # https://git.mysmce.com/ccmc-share/modelwebarchive/-/raw/main/Jacchi-Reference-Atmosphere/t1000.out

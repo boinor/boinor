@@ -1,9 +1,9 @@
 from matplotlib import pyplot as plt
 import pytest
 
-from poliastro.bodies import Earth, Mars
-from poliastro.plotting.porkchop import PorkchopPlotter
-from poliastro.util import time_range
+from boinor.bodies import Earth, Mars
+from boinor.plotting.porkchop import PorkchopPlotter
+from boinor.util import time_range
 
 
 @pytest.mark.mpl_image_compare

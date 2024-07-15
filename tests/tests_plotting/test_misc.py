@@ -1,9 +1,9 @@
 from matplotlib import pyplot as plt
 import pytest
 
-from poliastro.plotting.misc import plot_solar_system
-from poliastro.plotting.orbit.backends import DEFAULT_ORBIT_PLOTTER_BACKENDS
-from poliastro.plotting.orbit.backends._base import OrbitPlotterBackend
+from boinor.plotting.misc import plot_solar_system
+from boinor.plotting.orbit.backends import DEFAULT_ORBIT_PLOTTER_BACKENDS
+from boinor.plotting.orbit.backends._base import OrbitPlotterBackend
 
 
 @pytest.mark.parametrize("outer, expected", [(True, 8), (False, 4)])

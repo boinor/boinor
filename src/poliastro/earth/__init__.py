@@ -5,11 +5,11 @@ from typing import Dict
 from astropy import units as u
 import numpy as np
 
-from poliastro.bodies import Earth
-from poliastro.core.perturbations import J2_perturbation
-from poliastro.core.propagation import func_twobody
-from poliastro.earth.enums import EarthGravity
-from poliastro.twobody.propagation import CowellPropagator
+from boinor.bodies import Earth
+from boinor.core.perturbations import J2_perturbation
+from boinor.core.propagation import func_twobody
+from boinor.earth.enums import EarthGravity
+from boinor.twobody.propagation import CowellPropagator
 
 
 class EarthSatellite:
@@ -61,7 +61,7 @@ class EarthSatellite:
         tof : ~astropy.units.Quantity, ~astropy.time.Time, ~astropy.time.TimeDelta
             Scalar time to propagate.
         atmosphere:
-            a callable model from poliastro.earth.atmosphere
+            a callable model from boinor.earth.atmosphere
         gravity : EarthGravity
             There are two possible values, SPHERICAL and J2. Only J2 is implemented at the moment. Default value is None.
         *args:

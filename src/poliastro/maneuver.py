@@ -1,13 +1,13 @@
 """Orbital maneuvers."""
 from astropy import units as u
 
-from poliastro.core.maneuver import (
+from boinor.core.maneuver import (
     bielliptic as bielliptic_fast,
     correct_pericenter as correct_pericenter_fast,
     hohmann as hohmann_fast,
 )
-from poliastro.iod.izzo import lambert as lambert_izzo
-from poliastro.util import norm
+from boinor.iod.izzo import lambert as lambert_izzo
+from boinor.util import norm
 
 
 class Maneuver:
@@ -79,7 +79,7 @@ class Maneuver:
 
         Parameters
         ----------
-        orbit_i : poliastro.twobody.orbit.Orbit
+        orbit_i : boinor.twobody.orbit.Orbit
             Initial orbit
         r_f : astropy.unit.Quantity
             Final orbital radius
@@ -114,7 +114,7 @@ class Maneuver:
 
         Parameters
         ----------
-        orbit_i : poliastro.twobody.orbit.Orbit
+        orbit_i : boinor.twobody.orbit.Orbit
             Initial orbit
         r_b : astropy.unit.Quantity
             Altitude of the intermediate orbit
@@ -164,9 +164,9 @@ class Maneuver:
 
         Parameters
         ----------
-        orbit_i : ~poliastro.twobody.Orbit
+        orbit_i : ~boinor.twobody.Orbit
             Initial orbit
-        orbit_f : ~poliastro.twobody.Orbit
+        orbit_f : ~boinor.twobody.Orbit
             Final orbit
         method : function
             Method for solving Lambert's problem

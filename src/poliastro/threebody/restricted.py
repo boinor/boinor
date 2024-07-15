@@ -7,8 +7,8 @@ Includes the computation of Lagrange points
 from astropy import units as u
 import numpy as np
 
-from poliastro._math.optimize import brentq
-from poliastro.util import norm
+from boinor._math.optimize import brentq
+from boinor.util import norm
 
 
 @u.quantity_input(r12=u.km, m1=u.kg, m2=u.kg)

@@ -16,7 +16,7 @@ from astropy.coordinates import (
 from astropy.coordinates.builtin_frames.utils import DEFAULT_OBSTIME
 import numpy as np
 
-from poliastro.bodies import (
+from boinor.bodies import (
     Jupiter,
     Mars,
     Mercury,

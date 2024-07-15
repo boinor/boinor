@@ -18,5 +18,5 @@ def propagate(*args, **kwargs):
         "or Orbit.to_ephem if you want to compute all the trajectory. "
         "This error message will be removed in a future release "
         "and you will get a 'ImportError: cannot import name 'propagate' "
-        "from 'poliastro.twobody.propagation''."
+        "from 'boinor.twobody.propagation''."
     )

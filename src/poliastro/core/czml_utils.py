@@ -1,7 +1,7 @@
 from numba import njit as jit
 import numpy as np
 
-from poliastro._math.linalg import norm
+from boinor._math.linalg import norm
 
 
 @jit

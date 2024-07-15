@@ -2,7 +2,7 @@
 # Visit https://bit.ly/cffinit to generate yours today!
 
 cff-version: 1.2.0
-title: poliastro
+title: boinor
 message: Please cite this software using these metadata.
 type: software
 authors:
@@ -17,11 +17,11 @@ authors:
 identifiers:
   - type: doi
     value: 10.5281/zenodo.6817189
-    description: poliastro v0.17.0
-repository-code: 'https://github.com/poliastro/poliastro/'
-url: 'https://www.poliastro.space/'
+    description: boinor v0.17.0
+repository-code: 'https://github.com/boinor/boinor/'
+url: 'https://www.boinor.space/'
 abstract: >-
-  poliastro is a pure Python library for interactive
+  boinor is a pure Python library for interactive
   astrodynamics.
 keywords:
   - astrodynamics

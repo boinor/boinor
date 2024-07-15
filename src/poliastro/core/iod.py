@@ -2,8 +2,8 @@ from numba import njit as jit
 import numpy as np
 from numpy import cross, pi
 
-from poliastro._math.linalg import norm
-from poliastro._math.special import hyp2f1b, stumpff_c2 as c2, stumpff_c3 as c3
+from boinor._math.linalg import norm
+from boinor._math.special import hyp2f1b, stumpff_c2 as c2, stumpff_c3 as c3
 
 
 @jit
@@ -29,7 +29,7 @@ def vallado(k, r0, r, tof, M, prograde, lowpath, numiter, rtol):
             \dot{g} = 1 - \frac{y}{r} \\
         \end{align}
 
-    Where y(z) is a function that depends on the :py:mod:`poliastro.core.stumpff` coefficients:
+    Where y(z) is a function that depends on the :py:mod:`boinor.core.stumpff` coefficients:
 
     .. math::
 
@@ -80,10 +80,10 @@ def vallado(k, r0, r, tof, M, prograde, lowpath, numiter, rtol):
 
     Examples
     --------
-    >>> from poliastro.core.iod import vallado
+    >>> from boinor.core.iod import vallado
     >>> from astropy import units as u
     >>> import numpy as np
-    >>> from poliastro.bodies import Earth
+    >>> from boinor.bodies import Earth
     >>> k = Earth.k.to(u.km ** 3 / u.s ** 2)
     >>> r1 = np.array([5000, 10000, 2100]) * u.km # Initial position vector
     >>> r2 = np.array([-14600, 2500, 7000]) * u.km # Final position vector
@@ -102,10 +102,10 @@ def vallado(k, r0, r, tof, M, prograde, lowpath, numiter, rtol):
 
     """
     # TODO: expand for the multi-revolution case.
-    # Issue: https://github.com/poliastro/poliastro/issues/858
+    # Issue: https://github.com/boinor/boinor/issues/858
     if M > 0:
         raise NotImplementedError(
-            "Multi-revolution scenario not supported for Vallado. See issue https://github.com/poliastro/poliastro/issues/858"
+            "Multi-revolution scenario not supported for Vallado. See issue https://github.com/boinor/boinor/issues/858"
         )
 
     t_m = 1 if prograde else -1
@@ -412,7 +412,7 @@ def _initial_guess(T, ll, M, lowpath):
             # elif T_1 < T < T_0
             # Corrected initial guess,
             # piecewise equation right after expression (30) in the original paper is incorrect
-            # See https://github.com/poliastro/poliastro/issues/1362
+            # See https://github.com/boinor/boinor/issues/1362
             x_0 = np.exp(np.log(2) * np.log(T / T_0) / np.log(T_1 / T_0)) - 1
 
         return x_0

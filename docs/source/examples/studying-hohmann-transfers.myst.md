@@ -19,10 +19,10 @@ from astropy import units as u
 from matplotlib import pyplot as plt
 import numpy as np
 
-from poliastro.bodies import Earth
-from poliastro.maneuver import Maneuver
-from poliastro.twobody import Orbit
-from poliastro.util import norm
+from boinor.bodies import Earth
+from boinor.maneuver import Maneuver
+from boinor.twobody import Orbit
+from boinor.util import norm
 ```
 
 ```{code-cell} ipython3

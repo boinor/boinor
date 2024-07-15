@@ -4,9 +4,9 @@ import numpy as np
 from numpy.testing import assert_allclose
 import pytest
 
-from poliastro.bodies import Earth
-from poliastro.core.elements import coe2mee, coe2rv, mee2coe, rv2coe
-from poliastro.twobody.angles import (
+from boinor.bodies import Earth
+from boinor.core.elements import coe2mee, coe2rv, mee2coe, rv2coe
+from boinor.twobody.angles import (
     E_to_M,
     E_to_nu,
     F_to_M,

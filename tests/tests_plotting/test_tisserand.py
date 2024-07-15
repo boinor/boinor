@@ -2,9 +2,9 @@ from astropy import units as u
 from matplotlib import pyplot as plt
 import pytest
 
-from poliastro.bodies import Earth, Mars, Venus
-from poliastro.plotting.tisserand import TisserandKind, TisserandPlotter
-from poliastro.plotting.util import BODY_COLORS
+from boinor.bodies import Earth, Mars, Venus
+from boinor.plotting.tisserand import TisserandKind, TisserandPlotter
+from boinor.plotting.util import BODY_COLORS
 
 
 @pytest.mark.mpl_image_compare

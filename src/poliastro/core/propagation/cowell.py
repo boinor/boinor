@@ -1,7 +1,7 @@
 import numpy as np
 
-from poliastro._math.ivp import DOP853, solve_ivp
-from poliastro.core.propagation.base import func_twobody
+from boinor._math.ivp import DOP853, solve_ivp
+from boinor.core.propagation.base import func_twobody
 
 
 def cowell(k, r, v, tofs, rtol=1e-11, *, events=None, f=func_twobody):

@@ -2,15 +2,15 @@ from astropy import units as u
 from astropy.tests.helper import assert_quantity_allclose
 import pytest
 
-from poliastro.core.propagation import (
+from boinor.core.propagation import (
     danby_coe,
     gooding_coe,
     markley_coe,
     mikkola_coe,
     pimienta_coe,
 )
-from poliastro.core.propagation.farnocchia import farnocchia_coe
-from poliastro.examples import iss
+from boinor.core.propagation.farnocchia import farnocchia_coe
+from boinor.examples import iss
 
 
 @pytest.mark.parametrize(

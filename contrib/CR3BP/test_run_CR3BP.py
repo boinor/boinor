@@ -22,7 +22,7 @@ from CR3BP import getChar_CR3BP, propagate, propagateSTM
 import matplotlib.pyplot as plt
 import numpy as np
 
-from poliastro.bodies import Earth, Moon
+from boinor.bodies import Earth, Moon
 
 # Earth-Moon system properties
 k1 = Earth.k.to(u.km**3 / u.s**2).value

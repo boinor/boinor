@@ -12,11 +12,11 @@ from astropy.time import Time
 import numpy as np
 import pytest
 
-from poliastro.bodies import Earth, Venus
-from poliastro.ephem import Ephem, SincInterpolator, SplineInterpolator
-from poliastro.frames import Planes
-from poliastro.twobody.orbit import Orbit
-from poliastro.warnings import TimeScaleWarning
+from boinor.bodies import Earth, Venus
+from boinor.ephem import Ephem, SincInterpolator, SplineInterpolator
+from boinor.frames import Planes
+from boinor.twobody.orbit import Orbit
+from boinor.warnings import TimeScaleWarning
 
 AVAILABLE_INTERPOLATORS = [SincInterpolator(), SplineInterpolator()]
 AVAILABLE_PLANES = Planes.__members__.values()
@@ -267,7 +267,7 @@ def test_from_body_scalar_epoch_uses_reshaped_epochs():
     assert ephem.epochs == expected_epochs
 
 
-@mock.patch("poliastro.ephem.Horizons")
+@mock.patch("boinor.ephem.Horizons")
 @pytest.mark.parametrize(
     "attractor,location_str",
     [(None, "@ssb"), (Earth, "500@399"), (Venus, "500@299")],
@@ -320,7 +320,7 @@ def test_ephem_from_horizons_calls_horizons_with_correct_parameters(
     assert_coordinates_allclose(coordinates, expected_coordinates)
 
 
-@mock.patch("poliastro.ephem.Horizons")
+@mock.patch("boinor.ephem.Horizons")
 def test_from_horizons_scalar_epoch_uses_reshaped_epochs(horizons_mock):
     unused_name = "Strange Object"
     unused_id_type = "id_type"

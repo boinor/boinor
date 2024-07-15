@@ -10,7 +10,7 @@ from astropy.coordinates import (
 from astropy.coordinates.builtin_frames.utils import DEFAULT_OBSTIME
 from astropy.coordinates.matrix_utilities import rotation_matrix
 
-from poliastro.bodies import (
+from boinor.bodies import (
     Jupiter,
     Mars,
     Mercury,
@@ -21,8 +21,8 @@ from poliastro.bodies import (
     Uranus,
     Venus,
 )
-from poliastro.constants import J2000
-from poliastro.core.fixed import (
+from boinor.constants import J2000
+from boinor.core.fixed import (
     jupiter_rot_elements_at_epoch as jupiter_rot_elements_at_epoch_fast,
     mars_rot_elements_at_epoch as mars_rot_elements_at_epoch_fast,
     mercury_rot_elements_at_epoch as mercury_rot_elements_at_epoch_fast,
@@ -33,7 +33,7 @@ from poliastro.core.fixed import (
     uranus_rot_elements_at_epoch as uranus_rot_elements_at_epoch_fast,
     venus_rot_elements_at_epoch as venus_rot_elements_at_epoch_fast,
 )
-from poliastro.frames.equatorial import (
+from boinor.frames.equatorial import (
     JupiterICRS,
     MarsICRS,
     MercuryICRS,

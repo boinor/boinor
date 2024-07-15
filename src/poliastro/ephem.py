@@ -10,12 +10,12 @@ from astropy.coordinates import (
 )
 from astroquery.jplhorizons import Horizons
 
-from poliastro._math.interpolate import interp1d, sinc_interp, spline_interp
-from poliastro.bodies import Earth
-from poliastro.frames import Planes
-from poliastro.frames.util import get_frame
-from poliastro.twobody.sampling import EpochsArray
-from poliastro.warnings import TimeScaleWarning
+from boinor._math.interpolate import interp1d, sinc_interp, spline_interp
+from boinor.bodies import Earth
+from boinor.frames import Planes
+from boinor.frames.util import get_frame
+from boinor.twobody.sampling import EpochsArray
+from boinor.warnings import TimeScaleWarning
 
 EPHEM_FORMAT = "Ephemerides at {num} epochs from {start} ({start_scale}) to {end} ({end_scale})"
 
@@ -28,8 +28,8 @@ def build_ephem_interpolant(body, epochs, attractor=Earth):
     body : Body
         Source body.
     epochs : ~astropy.time.Time
-        Array of time values, can be generated with poliastro.util.time_range.
-    attractor : ~poliastro.bodies.Body, optional
+        Array of time values, can be generated with boinor.util.time_range.
+    attractor : ~boinor.bodies.Body, optional
         Attractor, default to Earth.
 
     Returns
@@ -134,7 +134,7 @@ class Ephem:
         Coordinates with velocities.
     epochs : astropy.time.Time
         Epochs corresponding to the coordinates.
-    plane : ~poliastro.frames.Planes
+    plane : ~boinor.frames.Planes
         Reference plane of the coordinates.
 
     """
@@ -179,14 +179,14 @@ class Ephem:
 
         Parameters
         ----------
-        body : ~poliastro.bodies.SolarSystemPlanet
+        body : ~boinor.bodies.SolarSystemPlanet
             Body.
         epochs : ~astropy.time.Time
             Epochs to sample the body positions.
-        attractor : ~poliastro.bodies.SolarSystemPlanet, optional
+        attractor : ~boinor.bodies.SolarSystemPlanet, optional
             Body to use as central location,
             if not given the Solar System Barycenter will be used.
-        plane : ~poliastro.frames.Planes, optional
+        plane : ~boinor.frames.Planes, optional
             Fundamental plane of the frame, default to Earth Equator.
 
         """
@@ -236,10 +236,10 @@ class Ephem:
             Name of the body to query for.
         epochs : ~astropy.time.Time
             Epochs to sample the body positions.
-        attractor : ~poliastro.bodies.SolarSystemPlanet, optional
+        attractor : ~boinor.bodies.SolarSystemPlanet, optional
             Body to use as central location,
             if not given the Solar System Barycenter will be used.
-        plane : ~poliastro.frames.Planes, optional
+        plane : ~boinor.frames.Planes, optional
             Fundamental plane of the frame, default to Earth Equator.
         id_type : NoneType or str, optional
             Use "smallbody" for Asteroids and Comets and None (default) to first
@@ -298,11 +298,11 @@ class Ephem:
 
         Parameters
         ----------
-        orbit : ~poliastro.twobody.orbit.Orbit
+        orbit : ~boinor.twobody.orbit.Orbit
             Orbit.
         epochs : ~astropy.time.Time
             Epochs to sample the orbit positions.
-        plane : ~poliastro.frames.Planes, optional
+        plane : ~boinor.frames.Planes, optional
             Fundamental plane of the frame, default to Earth Equator.
 
         """
@@ -319,7 +319,7 @@ class Ephem:
         epochs : ~astropy.time.Time, optional
             Epochs to sample the ephemerides,
             if not given the original one from the object will be used.
-        interpolator : ~poliastro.ephem.BaseInterpolator, optional
+        interpolator : ~boinor.ephem.BaseInterpolator, optional
             Interpolation method to use for epochs outside of the original ones,
             default to splines.
 

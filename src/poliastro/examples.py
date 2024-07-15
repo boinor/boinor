@@ -1,8 +1,8 @@
 """Example data."""
 from astropy import time, units as u
 
-from poliastro.bodies import Earth, Sun
-from poliastro.twobody import Orbit
+from boinor.bodies import Earth, Sun
+from boinor.twobody import Orbit
 
 iss = Orbit.from_vectors(
     Earth,

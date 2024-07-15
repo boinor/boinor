@@ -3,22 +3,22 @@ from warnings import warn
 from astropy import units as u
 import numpy as np
 
-from poliastro.constants import J2000
-from poliastro.frames import Planes
-from poliastro.frames.util import get_frame
-from poliastro.twobody.elements import (
+from boinor.constants import J2000
+from boinor.frames import Planes
+from boinor.frames.util import get_frame
+from boinor.twobody.elements import (
     get_eccentricity_critical_argp,
     get_eccentricity_critical_inc,
     get_inclination_critical_argp,
     heliosynchronous,
 )
-from poliastro.twobody.mean_elements import get_mean_elements
-from poliastro.twobody.states import (
+from boinor.twobody.mean_elements import get_mean_elements
+from boinor.twobody.states import (
     ClassicalState,
     ModifiedEquinoctialState,
     RVState,
 )
-from poliastro.util import find_closest_value
+from boinor.util import find_closest_value
 
 
 class OrbitCreationMixin:
@@ -44,7 +44,7 @@ class OrbitCreationMixin:
             Velocity vector.
         epoch : ~astropy.time.Time, optional
             Epoch, default to J2000.
-        plane : ~poliastro.frames.Planes
+        plane : ~boinor.frames.Planes
             Fundamental plane of the frame.
 
         """
@@ -77,7 +77,7 @@ class OrbitCreationMixin:
         coord : ~astropy.coordinates.SkyCoord or ~astropy.coordinates.BaseCoordinateFrame
             Position and velocity vectors in any reference frame. Note that coord must have
             a representation and its differential with respect to time.
-        plane : ~poliastro.frames.Planes, optional
+        plane : ~boinor.frames.Planes, optional
             Final orbit plane, default to Earth Equator.
 
         """
@@ -148,7 +148,7 @@ class OrbitCreationMixin:
             True anomaly.
         epoch : ~astropy.time.Time, optional
             Epoch, default to J2000.
-        plane : ~poliastro.frames.Planes
+        plane : ~boinor.frames.Planes
             Fundamental plane of the frame.
 
         """
@@ -212,7 +212,7 @@ class OrbitCreationMixin:
             True longitude.
         epoch : ~astropy.time.Time, optional
             Epoch, default to J2000.
-        plane : ~poliastro.frames.Planes
+        plane : ~boinor.frames.Planes
             Fundamental plane of the frame.
 
         """
@@ -228,9 +228,9 @@ class OrbitCreationMixin:
 
         Parameters
         ----------
-        ephem : ~poliastro.ephem.Ephem
+        ephem : ~boinor.ephem.Ephem
             Ephemerides object to use.
-        attractor : ~poliastro.bodies.Body
+        attractor : ~boinor.bodies.Body
             Body to use as attractor.
         epoch : ~astropy.time.Time
             Epoch to retrieve the osculating orbit at.
@@ -253,16 +253,16 @@ class OrbitCreationMixin:
 
         Returns
         -------
-        ss: poliastro.twobody.orbit.Orbit
+        ss: boinor.twobody.orbit.Orbit
             Orbit corresponding to body_name
 
         Examples
         --------
-        >>> from poliastro.twobody.orbit import Orbit
+        >>> from boinor.twobody.orbit import Orbit
         >>> apophis_orbit = Orbit.from_sbdb('apophis')  # doctest: +REMOTE_DATA
 
         """
-        from poliastro.io import orbit_from_sbdb
+        from boinor.io import orbit_from_sbdb
 
         return orbit_from_sbdb(name, **kwargs)
 
@@ -294,7 +294,7 @@ class OrbitCreationMixin:
             Argument of latitude, default to 0 deg.
         epoch : ~astropy.time.Time, optional
             Epoch, default to J2000.
-        plane : ~poliastro.frames.Planes
+        plane : ~boinor.frames.Planes
             Fundamental plane of the frame.
 
         """
@@ -382,7 +382,7 @@ class OrbitCreationMixin:
             Argument of latitude, default to 0 deg.
         epoch : ~astropy.time.Time, optional
             Epoch, default to J2000.
-        plane : ~poliastro.frames.Planes
+        plane : ~boinor.frames.Planes
             Fundamental plane of the frame.
 
         Returns
@@ -460,7 +460,7 @@ class OrbitCreationMixin:
 
         Parameters
         ----------
-        attractor : ~poliastro.bodies.SolarSystemPlanet
+        attractor : ~boinor.bodies.SolarSystemPlanet
             Attractor.
         a : ~astropy.units.Quantity
             Semi-major axis.
@@ -476,7 +476,7 @@ class OrbitCreationMixin:
             True anomaly.
         epoch : ~astropy.time.Time, optional
             Epoch, default to J2000.
-        plane : ~poliastro.frames.Planes
+        plane : ~boinor.frames.Planes
             Fundamental plane of the frame.
 
         """
@@ -541,7 +541,7 @@ class OrbitCreationMixin:
             True anomaly.
         epoch : ~astropy.time.Time, optional
             Epoch, default to J2000.
-        plane : ~poliastro.frames.Planes
+        plane : ~boinor.frames.Planes
             Fundamental plane of the frame.
 
         """
@@ -627,7 +627,7 @@ class OrbitCreationMixin:
             Eccentricity, default to the eccentricity of the Moon's orbit around the Earth
         epoch : ~astropy.time.Time, optional
             Epoch, default to J2000.
-        plane : ~poliastro.frames.Planes
+        plane : ~boinor.frames.Planes
             Fundamental plane of the frame.
 
         """

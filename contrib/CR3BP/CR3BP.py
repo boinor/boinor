@@ -32,7 +32,7 @@ CR3BP MATLAB Library : https://github.com/JackCrusoe47/CR3BP_MATLAB_Library
 from numba import njit as jit
 import numpy as np
 
-from poliastro._math.ivp import DOP853, solve_ivp
+from boinor._math.ivp import DOP853, solve_ivp
 
 
 @jit

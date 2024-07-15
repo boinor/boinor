@@ -3,7 +3,7 @@ from astropy.tests.helper import assert_quantity_allclose
 from astropy.units import imperial
 import pytest
 
-from poliastro.earth.atmosphere import COESA62
+from boinor.earth.atmosphere import COESA62
 
 coesa62 = COESA62()
 

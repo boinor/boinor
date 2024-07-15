@@ -1,7 +1,7 @@
 """@author: Dhruv Jain, Multi-Body Dynamics Research Group, Purdue University."""
 from astropy import units as u
 
-from poliastro.core.threebody.cr3bp_quantities_calculations import (
+from boinor.core.threebody.cr3bp_quantities_calculations import (
     calculate_mu,
     calculate_tstar,
 )
@@ -40,8 +40,8 @@ class SystemChars:
 
         Parameters
         ----------
-        p1: ~poliastro.bodies.Body
-        p2: ~poliastro.bodies.Body
+        p1: ~boinor.bodies.Body
+        p2: ~boinor.bodies.Body
         """
         name, mu, lstar, tstar = cls.bodies_char_compute(p1, p2)
         return cls(name, mu, lstar, tstar)
@@ -54,8 +54,8 @@ class SystemChars:
 
         Parameters
         ----------
-        p1: ~poliastro.bodies.Body
-        p2: ~poliastro.bodies.Body
+        p1: ~boinor.bodies.Body
+        p2: ~boinor.bodies.Body
 
         Returns
         -------

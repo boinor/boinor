@@ -7,10 +7,10 @@ import numpy as np
 from numpy.testing import assert_allclose
 import pytest
 
-from poliastro.bodies import Earth, Mercury, Moon
-from poliastro.frames import Planes
-from poliastro.maneuver import Maneuver
-from poliastro.twobody import Orbit
+from boinor.bodies import Earth, Mercury, Moon
+from boinor.frames import Planes
+from boinor.maneuver import Maneuver
+from boinor.twobody import Orbit
 
 
 def test_maneuver_constructor_raises_error_if_invalid_delta_v():

@@ -19,7 +19,7 @@ from astropy.coordinates.matrix_utilities import (
 import erfa
 import numpy as np
 
-from poliastro.frames.equatorial import GCRS
+from boinor.frames.equatorial import GCRS
 
 __all__ = [
     "GeocentricSolarEcliptic",

@@ -1,6 +1,6 @@
 from astropy import units as u
 
-from poliastro.core.sensors import (
+from boinor.core.sensors import (
     ground_range_diff_at_azimuth as ground_range_diff_at_azimuth_fast,
     min_and_max_ground_range as min_and_max_ground_range_fast,
 )

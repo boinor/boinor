@@ -2,10 +2,10 @@ import sys
 
 from astropy import units as u
 
-from poliastro.core.propagation import cowell
-from poliastro.core.propagation.base import func_twobody
-from poliastro.twobody.propagation.enums import PropagatorKind
-from poliastro.twobody.states import RVState
+from boinor.core.propagation import cowell
+from boinor.core.propagation.base import func_twobody
+from boinor.twobody.propagation.enums import PropagatorKind
+from boinor.twobody.states import RVState
 
 from ._compat import OldPropagatorModule
 
@@ -65,7 +65,7 @@ class CowellPropagator:
         )
 
         # TODO: This should probably return a RVStateArray instead,
-        # see discussion at https://github.com/poliastro/poliastro/pull/1492
+        # see discussion at https://github.com/boinor/boinor/pull/1492
         return (
             rrs << u.km,
             vvs << (u.km / u.s),

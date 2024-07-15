@@ -11,9 +11,9 @@ kernelspec:
   name: python3
 ---
 
-# Going to Mars with Python using poliastro
+# Going to Mars with Python using boinor
 
-This is an example on how to use [poliastro](https://github.com/poliastro/poliastro), a little library I've been working on to use in my Astrodynamics lessons. It features conversion between **classical orbital elements** and position vectors, propagation of **Keplerian orbits**, initial orbit determination using the solution of the **Lambert's problem** and **orbit plotting**.
+This is an example on how to use [boinor](https://github.com/boinor/boinor), a little library I've been working on to use in my Astrodynamics lessons. It features conversion between **classical orbital elements** and position vectors, propagation of **Keplerian orbits**, initial orbit determination using the solution of the **Lambert's problem** and **orbit plotting**.
 
 In this example we're going to draw the trajectory of the mission [Mars Science Laboratory (MSL)](http://mars.jpl.nasa.gov/msl/), which carried the rover Curiosity to the surface of Mars in a period of something less than 9 months.
 
@@ -21,7 +21,7 @@ In this example we're going to draw the trajectory of the mission [Mars Science 
 
 +++
 
-First of all, we import the necessary modules. Apart from poliastro we will make use of astropy to deal with physical units and time definitions and jplephem to compute the positions and velocities of the planets:
+First of all, we import the necessary modules. Apart from boinor we will make use of astropy to deal with physical units and time definitions and jplephem to compute the positions and velocities of the planets:
 
 ```{code-cell} ipython3
 from astropy import units as u
@@ -29,12 +29,12 @@ from astropy import time
 
 import numpy as np
 
-from poliastro import iod
-from poliastro.bodies import Earth, Mars, Sun
-from poliastro.ephem import Ephem
-from poliastro.maneuver import Maneuver
-from poliastro.twobody import Orbit
-from poliastro.util import time_range
+from boinor import iod
+from boinor.bodies import Earth, Mars, Sun
+from boinor.ephem import Ephem
+from boinor.maneuver import Maneuver
+from boinor.twobody import Orbit
+from boinor.util import time_range
 ```
 
 We need a binary file from NASA called *SPICE kernel* to compute the position and velocities of the planets. Astropy downloads it for us:
@@ -53,7 +53,7 @@ date_launch = time.Time("2011-11-26 15:02", scale="utc").tdb
 date_arrival = time.Time("2012-08-06 05:17", scale="utc").tdb
 ```
 
-To compute the transfer orbit, we have the useful function `lambert` : according to a theorem with the same name, *the transfer orbit between two points in space only depends on those two points and the time it takes to go from one to the other*. We could make use of the raw algorithms available in `poliastro.iod` for solving this but working with the `poliastro.maneuvers` is even easier!
+To compute the transfer orbit, we have the useful function `lambert` : according to a theorem with the same name, *the transfer orbit between two points in space only depends on those two points and the time it takes to go from one to the other*. We could make use of the raw algorithms available in `boinor.iod` for solving this but working with the `boinor.maneuvers` is even easier!
 
 We just need to create the orbits for each one of the planets at the specific departure and arrival dates:
 
@@ -81,8 +81,8 @@ orb_trans, orb_target = orb_earth.apply_maneuver(man_lambert, intermediate=True)
 Let's plot this transfer orbit in 3D!
 
 ```{code-cell} ipython3
-from poliastro.plotting import OrbitPlotter
-from poliastro.plotting.orbit.backends import Plotly3D
+from boinor.plotting import OrbitPlotter
+from boinor.plotting.orbit.backends import Plotly3D
 ```
 
 ```{code-cell} ipython3

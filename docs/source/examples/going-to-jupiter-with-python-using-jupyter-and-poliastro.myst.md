@@ -11,13 +11,13 @@ kernelspec:
   name: python3
 ---
 
-# Going to Jupiter with Python using Jupyter and poliastro
+# Going to Jupiter with Python using Jupyter and boinor
 
 Let us recreate with real data the [Juno NASSA Mission](https://www.jpl.nasa.gov/news/press_kits/juno/overview/). The main objectives of Juno spacecraft is to study the Jupiter planet: how was its formation, its evolution along time, atmospheric characteristics...
 
 ![Juno Image](juno_spacecraft.png)
 
-First of all, let us import some of our favourite Python packages: numpy, astropy and poliastro!
+First of all, let us import some of our favourite Python packages: numpy, astropy and boinor!
 
 ```{code-cell} ipython3
 from astropy import units as u
@@ -28,16 +28,16 @@ solar_system_ephemeris.set("jpl")
 
 import numpy as np
 
-from poliastro.bodies import Sun, Earth, Jupiter
-from poliastro.ephem import Ephem
-from poliastro.frames import Planes
-from poliastro.maneuver import Maneuver
-from poliastro.plotting import OrbitPlotter
-from poliastro.twobody import Orbit
-from poliastro.util import norm, time_range
+from boinor.bodies import Sun, Earth, Jupiter
+from boinor.ephem import Ephem
+from boinor.frames import Planes
+from boinor.maneuver import Maneuver
+from boinor.plotting import OrbitPlotter
+from boinor.twobody import Orbit
+from boinor.util import norm, time_range
 ```
 
-All the data for Juno's mission is sorted [here](https://github.com/poliastro/poliastro/wiki/EuroPython:-Per-Python-ad-Astra). The main maneuvers that the spacecraft will perform are listed down:
+All the data for Juno's mission is sorted [here](https://github.com/boinor/boinor/wiki/EuroPython:-Per-Python-ad-Astra). The main maneuvers that the spacecraft will perform are listed down:
 
 * Inner cruise phase 1: This will set Juno in a new orbit around the sun.
 * Inner cruise phase 2: Fly-by around Earth. Gravity assist is performed.
@@ -178,7 +178,7 @@ ic3, orb_target = ic2_end.apply_maneuver(man_jupiter, intermediate=True)
 ic3_end = ic3.propagate(date_arrival)
 ```
 
-Finally, we can plot all the different phases of the mission. This shows the whole power of the *poliastro* package, since a beautiful image is created showing the whole maneuvering process:
+Finally, we can plot all the different phases of the mission. This shows the whole power of the *boinor* package, since a beautiful image is created showing the whole maneuvering process:
 
 ```{code-cell} ipython3
 :tags: [nbsphinx-thumbnail]

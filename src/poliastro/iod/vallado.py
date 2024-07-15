@@ -1,7 +1,7 @@
 """Initial orbit determination."""
 from astropy import units as u
 
-from poliastro.core.iod import vallado as vallado_fast
+from boinor.core.iod import vallado as vallado_fast
 
 kms = u.km / u.s
 

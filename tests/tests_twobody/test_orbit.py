@@ -17,7 +17,7 @@ import numpy as np
 from numpy.testing import assert_allclose, assert_array_equal
 import pytest
 
-from poliastro.bodies import (
+from boinor.bodies import (
     Body,
     Earth,
     Jupiter,
@@ -30,12 +30,12 @@ from poliastro.bodies import (
     Uranus,
     Venus,
 )
-from poliastro.constants import J2000, J2000_TDB
-from poliastro.ephem import Ephem
-from poliastro.examples import iss
-from poliastro.frames.ecliptic import HeliocentricEclipticJ2000
-from poliastro.frames.enums import Planes
-from poliastro.frames.equatorial import (
+from boinor.constants import J2000, J2000_TDB
+from boinor.ephem import Ephem
+from boinor.examples import iss
+from boinor.frames.ecliptic import HeliocentricEclipticJ2000
+from boinor.frames.enums import Planes
+from boinor.frames.equatorial import (
     GCRS,
     HCRS,
     JupiterICRS,
@@ -46,12 +46,12 @@ from poliastro.frames.equatorial import (
     UranusICRS,
     VenusICRS,
 )
-from poliastro.frames.util import get_frame
-from poliastro.plotting.orbit.backends import DEFAULT_ORBIT_PLOTTER_BACKENDS
-from poliastro.twobody.angles import E_to_M, nu_to_E
-from poliastro.twobody.orbit import Orbit
-from poliastro.twobody.sampling import TrueAnomalyBounds
-from poliastro.warnings import PatchedConicsWarning
+from boinor.frames.util import get_frame
+from boinor.plotting.orbit.backends import DEFAULT_ORBIT_PLOTTER_BACKENDS
+from boinor.twobody.angles import E_to_M, nu_to_E
+from boinor.twobody.orbit import Orbit
+from boinor.twobody.sampling import TrueAnomalyBounds
+from boinor.warnings import PatchedConicsWarning
 
 
 @pytest.fixture()
@@ -431,7 +431,7 @@ def test_sample_numpoints():
 
 
 def test_sample_big_orbits():
-    # See https://github.com/poliastro/poliastro/issues/265
+    # See https://github.com/boinor/boinor/issues/265
     ss = Orbit.from_vectors(
         Sun,
         [-9_018_878.6, -94_116_055, 22_619_059] * u.km,
@@ -1044,7 +1044,7 @@ def test_from_coord_if_coord_is_not_of_shape_zero():
 
 
 def test_propagate_to_anomaly_gives_expected_result():
-    # From "Going to Jupiter with Python using Jupyter and poliastro.ipynb"
+    # From "Going to Jupiter with Python using Jupyter and boinor.ipynb"
     ic1 = Orbit.from_vectors(
         Sun,
         [1.02465527e08, -1.02313505e08, -4.43533465e07] * u.km,
@@ -1059,7 +1059,7 @@ def test_propagate_to_anomaly_gives_expected_result():
 
 
 def test_sample_with_out_of_range_anomaly_works():
-    # From "Going to Jupiter with Python using Jupyter and poliastro.ipynb"
+    # From "Going to Jupiter with Python using Jupyter and boinor.ipynb"
     ic1 = Orbit.from_vectors(
         Sun,
         [1.02465527e08, -1.02313505e08, -4.43533465e07] << u.km,
@@ -1252,7 +1252,7 @@ def test_time_to_anomaly(expected_nu):
     # In some corner cases the resulting anomaly goes out of range,
     # and rather than trying to fix it right now
     # we will wait until we remove the round tripping,
-    # see https://github.com/poliastro/poliastro/issues/921
+    # see https://github.com/boinor/boinor/issues/921
     # FIXME: Add test that verifies that `orbit.nu` is always within range
     assert_quantity_allclose(
         iss_propagated.nu, expected_nu, atol=1e-12 * u.rad
@@ -1261,7 +1261,7 @@ def test_time_to_anomaly(expected_nu):
 
 @pytest.mark.xfail
 def test_can_set_iss_attractor_to_earth():
-    # See https://github.com/poliastro/poliastro/issues/798
+    # See https://github.com/boinor/boinor/issues/798
     epoch = Time("2019-11-10 12:00:00")
     ephem = Ephem.from_horizons(
         "International Space Station",
@@ -1290,7 +1290,7 @@ def test_issue_916(mock_query):
 
 
 def test_near_parabolic_M_does_not_hang(near_parabolic):
-    # See https://github.com/poliastro/poliastro/issues/907
+    # See https://github.com/boinor/boinor/issues/907
     expected_nu = -168.65 * u.deg
     orb = near_parabolic.propagate_to_anomaly(expected_nu)
 
@@ -1308,7 +1308,7 @@ def test_propagation_near_parabolic_orbits_zero_seconds_gives_same_anomaly(
 
 
 def test_propagation_near_parabolic_orbits_does_not_hang(near_parabolic):
-    # See https://github.com/poliastro/poliastro/issues/475
+    # See https://github.com/boinor/boinor/issues/475
     orb_final = near_parabolic.propagate(near_parabolic.period)
 
     # Smoke test

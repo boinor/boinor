@@ -1,4 +1,4 @@
-from poliastro.bodies import (
+from boinor.bodies import (
     Earth,
     Jupiter,
     Mars,
@@ -9,13 +9,13 @@ from poliastro.bodies import (
     Uranus,
     Venus,
 )
-from poliastro.constants import J2000
-from poliastro.frames.ecliptic import (
+from boinor.constants import J2000
+from boinor.frames.ecliptic import (
     GeocentricMeanEcliptic,
     HeliocentricEclipticJ2000,
 )
-from poliastro.frames.enums import Planes
-from poliastro.frames.equatorial import (
+from boinor.frames.enums import Planes
+from boinor.frames.equatorial import (
     GCRS,
     HCRS,
     JupiterICRS,
@@ -26,7 +26,7 @@ from poliastro.frames.equatorial import (
     UranusICRS,
     VenusICRS,
 )
-from poliastro.frames.fixed import (
+from boinor.frames.fixed import (
     ITRS,
     JupiterFixed,
     MarsFixed,
@@ -75,9 +75,9 @@ def get_frame(attractor, plane, obstime=J2000):
 
     Parameters
     ----------
-    attractor : ~poliastro.bodies.Body
+    attractor : ~boinor.bodies.Body
         Body that serves as the center of the frame.
-    plane : ~poliastro.frames.Planes
+    plane : ~boinor.frames.Planes
         Fundamental plane of the frame.
     obstime : ~astropy.time.Time
         Time of the frame.

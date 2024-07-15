@@ -10,9 +10,9 @@ from astropy.coordinates import (
 )
 import plotly.graph_objects as go
 
-from poliastro.bodies import Earth
-from poliastro.earth.plotting.utils import EARTH_PALETTE
-from poliastro.twobody.sampling import EpochsArray
+from boinor.bodies import Earth
+from boinor.earth.plotting.utils import EARTH_PALETTE
+from boinor.twobody.sampling import EpochsArray
 
 
 class GroundtrackPlotter:
@@ -82,7 +82,7 @@ class GroundtrackPlotter:
 
         Parameters
         ----------
-        orb : ~poliastro.twobody.Orbit
+        orb : ~boinor.twobody.Orbit
             Orbit to be propagated
         t_deltas : ~astropy.time.DeltaTime
             Desired observation time
@@ -137,7 +137,7 @@ class GroundtrackPlotter:
 
         Parameters
         ----------
-        orb : ~poliastro.twobody.Orbit
+        orb : ~boinor.twobody.Orbit
             EarthSatellite's associated Orbit
         t_deltas : ~astropy.time.DeltaTime
             Collection of epochs
@@ -173,7 +173,7 @@ class GroundtrackPlotter:
 
         Parameters
         ----------
-        ss : ~poliastro.twobody.Orbit
+        ss : ~boinor.twobody.Orbit
             EarthSatellite's orbit
         label : string
             Label for the orbit
@@ -211,7 +211,7 @@ class GroundtrackPlotter:
 
         Parameters
         ----------
-        earth_orb : ~poliastro.earth.EarthSatellite
+        earth_orb : ~boinor.earth.EarthSatellite
             Desired Earth's satellite to who's grountrack will be plotted
         t_span : ~astropy.time.TimeDelta
             A collection of epochs

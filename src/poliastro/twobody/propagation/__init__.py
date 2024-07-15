@@ -1,5 +1,5 @@
 """The following script holds the different high level functions for the
-different propagators available at poliastro:
+different propagators available at boinor:
 
 +-------------+------------+-----------------+-----------------+
 |  Propagator | Elliptical |    Parabolic    |    Hyperbolic   |
@@ -24,16 +24,16 @@ different propagators available at poliastro:
 +-------------+------------+-----------------+-----------------+
 
 """
-from poliastro.twobody.propagation.cowell import CowellPropagator
-from poliastro.twobody.propagation.danby import DanbyPropagator
-from poliastro.twobody.propagation.enums import PropagatorKind
-from poliastro.twobody.propagation.farnocchia import FarnocchiaPropagator
-from poliastro.twobody.propagation.gooding import GoodingPropagator
-from poliastro.twobody.propagation.markley import MarkleyPropagator
-from poliastro.twobody.propagation.mikkola import MikkolaPropagator
-from poliastro.twobody.propagation.pimienta import PimientaPropagator
-from poliastro.twobody.propagation.recseries import RecseriesPropagator
-from poliastro.twobody.propagation.vallado import ValladoPropagator
+from boinor.twobody.propagation.cowell import CowellPropagator
+from boinor.twobody.propagation.danby import DanbyPropagator
+from boinor.twobody.propagation.enums import PropagatorKind
+from boinor.twobody.propagation.farnocchia import FarnocchiaPropagator
+from boinor.twobody.propagation.gooding import GoodingPropagator
+from boinor.twobody.propagation.markley import MarkleyPropagator
+from boinor.twobody.propagation.mikkola import MikkolaPropagator
+from boinor.twobody.propagation.pimienta import PimientaPropagator
+from boinor.twobody.propagation.recseries import RecseriesPropagator
+from boinor.twobody.propagation.vallado import ValladoPropagator
 
 from ._compat import propagate
 

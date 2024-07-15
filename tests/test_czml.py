@@ -7,13 +7,13 @@ from astropy.time import Time
 # TODO: Should we have way to handle this configuration without importing numba?
 import pytest
 
-from poliastro.bodies import Mars
-from poliastro.examples import iss, molniya
+from boinor.bodies import Mars
+from boinor.examples import iss, molniya
 
 try:
     from czml3.core import Document
 
-    from poliastro.czml.extract_czml import CZMLExtractor
+    from boinor.czml.extract_czml import CZMLExtractor
 except ImportError:
     pass
 

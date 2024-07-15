@@ -41,13 +41,13 @@ from astropy.coordinates import solar_system_ephemeris
 
 solar_system_ephemeris.set("jpl")
 
-from poliastro.bodies import Sun, Earth, Moon
-from poliastro.ephem import Ephem
-from poliastro.frames import Planes
-from poliastro.plotting import OrbitPlotter
-from poliastro.plotting.misc import plot_solar_system
-from poliastro.twobody import Orbit
-from poliastro.util import norm, time_range
+from boinor.bodies import Sun, Earth, Moon
+from boinor.ephem import Ephem
+from boinor.frames import Planes
+from boinor.plotting import OrbitPlotter
+from boinor.plotting.misc import plot_solar_system
+from boinor.twobody import Orbit
+from boinor.util import norm, time_range
 
 EPOCH = Time("2017-09-01 12:05:50", scale="tdb")
 C_FLORENCE = "#000"

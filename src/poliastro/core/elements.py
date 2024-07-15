@@ -8,9 +8,9 @@ from numba import njit as jit, prange
 import numpy as np
 from numpy import cos, cross, sin, sqrt
 
-from poliastro._math.linalg import norm
-from poliastro.core.angles import E_to_nu, F_to_nu
-from poliastro.core.util import rotation_matrix
+from boinor._math.linalg import norm
+from boinor.core.angles import E_to_nu, F_to_nu
+from boinor.core.util import rotation_matrix
 
 
 @jit
@@ -97,7 +97,7 @@ def rv_pqw(k, p, ecc, nu):
 
     Examples
     --------
-    >>> from poliastro.constants import GM_earth
+    >>> from boinor.constants import GM_earth
     >>> k = GM_earth.value  # Earth gravitational parameter
     >>> ecc = 0.3  # Eccentricity
     >>> h = 60000e6  # Angular momentum of the orbit (m**2 / s)
@@ -360,7 +360,7 @@ def rv2coe(k, r, v, tol=1e-8):
 
     Examples
     --------
-    >>> from poliastro.bodies import Earth
+    >>> from boinor.bodies import Earth
     >>> from astropy import units as u
     >>> k = Earth.k.to_value(u.km ** 3 / u.s ** 2)
     >>> r = np.array([-6045., -3490., 2500.])

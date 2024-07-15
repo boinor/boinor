@@ -1,8 +1,8 @@
 """A sub-package collecting all support orbit plotter backends."""
 
 
-from poliastro.plotting.orbit.backends.matplotlib import Matplotlib2D
-from poliastro.plotting.orbit.backends.plotly import Plotly2D, Plotly3D
+from boinor.plotting.orbit.backends.matplotlib import Matplotlib2D
+from boinor.plotting.orbit.backends.plotly import Plotly2D, Plotly3D
 
 DEFAULT_ORBIT_PLOTTER_BACKENDS_2D = {
     "matplotlib2D": Matplotlib2D,

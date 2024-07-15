@@ -1,4 +1,4 @@
-from poliastro.constants.general import (
+from boinor.constants.general import (
     J2000,
     J2000_TDB,
     J2000_TT,
@@ -67,7 +67,7 @@ from poliastro.constants.general import (
     Wdivc_sun,
     rho0_earth,
 )
-from poliastro.constants.mean_elements import (
+from boinor.constants.mean_elements import (
     mean_a_charon,
     mean_a_deimos,
     mean_a_earth,
@@ -87,7 +87,7 @@ from poliastro.constants.mean_elements import (
     mean_a_uranus,
     mean_a_venus,
 )
-from poliastro.constants.rotational_elements import (
+from boinor.constants.rotational_elements import (
     rotational_period_earth,
     rotational_period_jupiter,
     rotational_period_mars,

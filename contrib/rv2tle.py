@@ -17,9 +17,9 @@ from astropy.time import Time
 import numpy as np
 from sgp4.api import SGP4_ERRORS, WGS84, Satrec
 
-from poliastro.bodies import Earth
-from poliastro.examples import iss
-from poliastro.twobody import Orbit, angles
+from boinor.bodies import Earth
+from boinor.examples import iss
+from boinor.twobody import Orbit, angles
 
 
 def unitv(v):
@@ -283,7 +283,7 @@ def rv2el(rr, vv, epoch):
 if __name__ == "__main__":
     # Display some initial data
     print(f" Orbit: {iss}")
-    print(" State vector [poliastro]")
+    print(" State vector [boinor]")
     print(f"     r = {iss.r}")
     print(f"     v = {iss.v}")
     print()
@@ -291,7 +291,7 @@ if __name__ == "__main__":
     # Reference epoch
     epoch = Time(iss.epoch, format="datetime", scale="utc")
 
-    # Store poliastro orbital elements (osculating)
+    # Store boinor orbital elements (osculating)
     ecc_anomaly = angles.nu_to_E(iss.nu, iss.ecc)
     mean_anomaly = angles.E_to_M(ecc_anomaly, iss.ecc)
 
@@ -349,7 +349,7 @@ if __name__ == "__main__":
     print(f"     v = {sv.v}")
     print()
 
-    print("State vector differences [poliastro - rv2el]")
+    print("State vector differences [boinor - rv2el]")
     print(f"    dr = {iss.r - sv.r}")
     print(f"    dv = {iss.v - sv.v}")
     print()

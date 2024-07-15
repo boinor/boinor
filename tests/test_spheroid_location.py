@@ -2,8 +2,8 @@ from astropy import units as u
 from astropy.tests.helper import assert_quantity_allclose
 from hypothesis import given, settings, strategies as st
 
-from poliastro.bodies import Earth
-from poliastro.spheroid_location import SpheroidLocation
+from boinor.bodies import Earth
+from boinor.spheroid_location import SpheroidLocation
 
 
 @st.composite

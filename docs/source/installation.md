@@ -2,7 +2,7 @@
 
 ## Requirements
 
-poliastro requires a number of Python packages, notably:
+boinor requires a number of Python packages, notably:
 
 - [Astropy](https://www.astropy.org/), for physical units and time handling
 - [NumPy](https://numpy.org/), for basic numerical routines
@@ -12,15 +12,15 @@ poliastro requires a number of Python packages, notably:
 - [Plotly](https://plotly.com/), for interactive orbit plotting
 - [SciPy](https://www.scipy.org/), for root finding and numerical propagation
 
-poliastro is supported on Linux, macOS and Windows on Python 3.8 to 3.10.
+boinor is supported on Linux, macOS and Windows on Python 3.8 to 3.10.
 
 ## Using conda
 
 The easiest and fastest way to get the package up and running is to
-install poliastro using [conda](https://conda.io/docs/):
+install boinor using [conda](https://conda.io/docs/):
 
 ```bash
-$ conda install -c conda-forge poliastro
+$ conda install -c conda-forge boinor
 ```
 
 or, better yet, using [mamba](https://mamba.readthedocs.io/),
@@ -28,7 +28,7 @@ which is a super fast replacement for `conda`:
 
 ```bash
 $ conda install -c conda-forge mamba
-$ mamba install -c conda-forge poliastro
+$ mamba install -c conda-forge boinor
 ```
 
 ```{note}
@@ -40,28 +40,28 @@ It is recommended to create a new environment.
 ```
 
 If the installation fails for any reason, please open an issue in the
-[issue tracker](https://github.com/poliastro/poliastro/issues).
+[issue tracker](https://github.com/boinor/boinor/issues).
 
 ## Alternative installation methods
 
-You can also [install poliastro from PyPI](https://pypi.python.org/pypi/poliastro/) using pip:
+You can also [install boinor from PyPI](https://pypi.python.org/pypi/boinor/) using pip:
 
 ```bash
-$ pip install poliastro
+$ pip install boinor
 ```
 
-Finally, you can also install the latest development version of poliastro
-[directly from GitHub](http://github.com/poliastro/poliastro):
+Finally, you can also install the latest development version of boinor
+[directly from GitHub](http://github.com/boinor/boinor):
 
 ```bash
-$ pip install https://github.com/poliastro/poliastro/archive/main.zip
+$ pip install https://github.com/boinor/boinor/archive/main.zip
 ```
 
 This is useful if there is some feature that you want to try,
 but we did not release it yet as a stable version.
 Although you might find some unpolished details,
 these development installations should work without problems.
-If you find any, please open an issue in the [issue tracker](https://github.com/poliastro/poliastro/issues).
+If you find any, please open an issue in the [issue tracker](https://github.com/boinor/boinor/issues).
 
 ```{warning}
 It is recommended that you
@@ -71,14 +71,14 @@ because you might seriously break your system
 Use [virtual environments](https://docs.python.org/3/library/venv.html) instead.
 ```
 
-## Making poliastro work in your editor
+## Making boinor work in your editor
 
 ### Jupyter notebook and JupyterLab
 
 To install the extra dependencies needed to make the interactive plots work on Jupyter, do
 
 ```bash
-$ pip install poliastro[jupyter]
+$ pip install boinor[jupyter]
 ```
 
 With Plotly versions older than 5 on JupyterLab,
@@ -91,5 +91,5 @@ for further information.
 
 If for any reason you get an unexpected error message or an incorrect result,
 or you want to let the developers know about your use case,
-please open a new issue in the [issue tracker](https://github.com/poliastro/poliastro/issues)
+please open a new issue in the [issue tracker](https://github.com/boinor/boinor/issues)
 and we will try to answer promptly.

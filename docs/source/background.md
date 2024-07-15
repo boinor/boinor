@@ -1,7 +1,7 @@
 # Background
 
 These notebooks contain more theoretical explanations
-about the Astrodynamics concepts used in poliastro.
+about the Astrodynamics concepts used in boinor.
 For further information,
 have a look at the books we recommend in the {ref}`bibliography`.
 

@@ -2,7 +2,7 @@
 
 import astropy.units as u
 
-from poliastro.core.earth_atmosphere.util import (
+from boinor.core.earth_atmosphere.util import (
     _check_altitude as _check_altitude_fast,
     _get_index as _get_index_fast,
 )

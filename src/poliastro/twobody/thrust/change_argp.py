@@ -9,7 +9,7 @@ References
 """
 from astropy import units as u
 
-from poliastro.core.thrust.change_argp import change_argp as change_a_inc_fast
+from boinor.core.thrust.change_argp import change_argp as change_a_inc_fast
 
 
 def change_argp(k, a, ecc, argp_0, argp_f, f):

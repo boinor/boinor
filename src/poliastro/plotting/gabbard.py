@@ -1,7 +1,7 @@
 from astropy import units as u
 from matplotlib import pyplot as plt
 
-from poliastro.plotting.util import generate_label
+from boinor.plotting.util import generate_label
 
 
 class GabbardPlotter:
@@ -39,7 +39,7 @@ class GabbardPlotter:
 
         Parameters
         ----------
-        orbits : ~poliastro.twobody.orbit.Orbit List
+        orbits : ~boinor.twobody.orbit.Orbit List
             The Orbits whose perigee and apogee will be plotted.
 
         """

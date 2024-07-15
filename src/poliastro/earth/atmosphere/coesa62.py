@@ -58,8 +58,8 @@ from astropy.units import imperial
 from astropy.utils.data import get_pkg_data_filename
 import numpy as np
 
-from poliastro._math.integrate import quad
-from poliastro.earth.atmosphere.base import COESA
+from boinor._math.integrate import quad
+from boinor.earth.atmosphere.base import COESA
 
 # Constants come from the original paper to achieve pure implementation
 r0 = 6356.766 * u.km

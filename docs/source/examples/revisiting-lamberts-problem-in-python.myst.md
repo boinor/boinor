@@ -13,7 +13,7 @@ kernelspec:
 
 # Revisiting Lambert's problem in Python
 
-The Izzo algorithm to solve the Lambert problem is available in poliastro and was implemented from [this paper](https://arxiv.org/abs/1403.2705).
+The Izzo algorithm to solve the Lambert problem is available in boinor and was implemented from [this paper](https://arxiv.org/abs/1403.2705).
 
 ```{code-cell}
 from cycler import cycler
@@ -21,8 +21,8 @@ from cycler import cycler
 from matplotlib import pyplot as plt
 import numpy as np
 
-from poliastro.core import iod
-from poliastro.iod import izzo
+from boinor.core import iod
+from boinor.iod import izzo
 ```
 
 ## Part 1: Reproducing the original figure
@@ -120,7 +120,7 @@ fig
 ```{code-cell}
 from astropy import units as u
 
-from poliastro.bodies import Earth
+from boinor.bodies import Earth
 ```
 
 ### Single revolution

@@ -8,7 +8,7 @@
 ##   FILE DESCRIPTION:                                                      ##
 ##                                                                          ##
 ##   This file is a prototype file for a newly proposed "Relative Orbit"    ##
-##   object in poliastro. The class 'relative' is defined by 02x instances  ##
+##   object in boinor. The class 'relative' is defined by 02x instances  ##
 ##   of the 'twobody' object - one chief, and one deputy spacecraft, and    ##
 ##   it takes in the classical elements from each of them. The class then   ##
 ##   automatically computes the states of relative motion by linearizing    ##
@@ -52,7 +52,7 @@
 ##############################################################################
 ##############################################################################
 
-# Import matplotlib (possibly change to plotly for poliastro?)
+# Import matplotlib (possibly change to plotly for boinor?)
 # Import the relevant AstroPy libraries.
 from astropy import units as u
 
@@ -64,9 +64,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Import the relevant PoliAstro libraries
-from poliastro.bodies import Earth
-from poliastro.twobody import Orbit
-from poliastro.twobody.angles import E_to_M, nu_to_E
+from boinor.bodies import Earth
+from boinor.twobody import Orbit
+from boinor.twobody.angles import E_to_M, nu_to_E
 
 # Below is the definition of the relative orbits class (RelativeOrb).
 # For the actual example script of how to use the class, scroll to the bottom!
@@ -84,7 +84,7 @@ from poliastro.twobody.angles import E_to_M, nu_to_E
 # Let us define a relative orbits class that can be defined by two orbits!
 class RelativeOrb:
     def __init__(self, satC, satD):
-        """When this class is initialized, it requires two poliastro twobody
+        """When this class is initialized, it requires two boinor twobody
         objects: a chief orbiter (satC) and a deputy orbiter (satD). After
         initialisation, a number of computations must be made.
 

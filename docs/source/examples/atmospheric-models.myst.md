@@ -29,7 +29,7 @@ Along history different models have been developed:
 * COESA 1976: up to 1000 km.
 * Jacchia-Roberts
 
-Since some of them are implemented in `poliastro`, let us compare the differences among them:
+Since some of them are implemented in `boinor`, let us compare the differences among them:
 
 ```{code-cell}
 from astropy import units as u
@@ -37,7 +37,7 @@ from astropy import units as u
 from matplotlib import pyplot as plt
 import numpy as np
 
-from poliastro.earth.atmosphere import COESA62, COESA76
+from boinor.earth.atmosphere import COESA62, COESA76
 ```
 
 ## Comparing coesa62 and coesa76

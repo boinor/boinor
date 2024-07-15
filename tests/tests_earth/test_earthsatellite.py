@@ -2,11 +2,11 @@ from astropy import units as u
 import numpy as np
 import pytest
 
-from poliastro.bodies import Earth, Mars
-from poliastro.earth import EarthSatellite
-from poliastro.earth.enums import EarthGravity
-from poliastro.spacecraft import Spacecraft
-from poliastro.twobody.orbit import Orbit
+from boinor.bodies import Earth, Mars
+from boinor.earth import EarthSatellite
+from boinor.earth.enums import EarthGravity
+from boinor.spacecraft import Spacecraft
+from boinor.twobody.orbit import Orbit
 
 
 def test_earth_satellite_orbit():

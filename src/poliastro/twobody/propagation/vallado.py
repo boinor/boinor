@@ -3,9 +3,9 @@ import sys
 from astropy import units as u
 import numpy as np
 
-from poliastro.core.propagation import vallado as vallado_fast
-from poliastro.twobody.propagation.enums import PropagatorKind
-from poliastro.twobody.states import RVState
+from boinor.core.propagation import vallado as vallado_fast
+from boinor.twobody.propagation.enums import PropagatorKind
+from boinor.twobody.states import RVState
 
 from ._compat import OldPropagatorModule
 

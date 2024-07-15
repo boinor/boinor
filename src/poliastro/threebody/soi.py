@@ -31,7 +31,7 @@ is:
     a\\left(\\frac{m}{3M}\\right)^{\\frac{1}{3}}
 
 """
-from poliastro.twobody.mean_elements import get_mean_elements
+from boinor.twobody.mean_elements import get_mean_elements
 
 
 def laplace_radius(body):
@@ -39,7 +39,7 @@ def laplace_radius(body):
 
     Parameters
     ----------
-    body : `~poliastro.bodies.Body`
+    body : `~boinor.bodies.Body`
         Astronomical body which the SOI's radius is computed for.
 
     Returns
@@ -59,7 +59,7 @@ def hill_radius(body):
 
     Parameters
     ----------
-    body : `~poliastro.bodies.Body`
+    body : `~boinor.bodies.Body`
         Astronomical body which the SOI's radius is computed for.
 
     Returns

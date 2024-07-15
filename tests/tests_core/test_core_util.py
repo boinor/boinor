@@ -8,22 +8,22 @@ import numpy as np
 from numpy.testing import assert_allclose, assert_array_equal
 import pytest
 
-from poliastro.core.util import (
+from boinor.core.util import (
     alinspace,
-    rotation_matrix as rotation_matrix_poliastro,
+    rotation_matrix as rotation_matrix_boinor,
     spherical_to_cartesian,
 )
 
 
 def _test_rotation_matrix_with_v(v, angle, axis):
     exp = rotation_matrix_astropy(np.degrees(-angle), "xyz"[axis]) @ v
-    res = rotation_matrix_poliastro(angle, axis) @ v
+    res = rotation_matrix_boinor(angle, axis) @ v
     assert_allclose(exp, res)
 
 
 def _test_rotation_matrix(angle, axis):
     expected = rotation_matrix_astropy(-np.rad2deg(angle), "xyz"[axis])
-    result = rotation_matrix_poliastro(angle, axis)
+    result = rotation_matrix_boinor(angle, axis)
     assert_allclose(expected, result)
 
 
@@ -37,15 +37,15 @@ def test_rotation_matrix():
 # These tests are adapted from astropy:
 # https://github.com/astropy/astropy/blob/main/astropy/coordinates/tests/test_matrix_utilities.py
 def test_rotation_matrix_astropy():
-    assert_array_equal(rotation_matrix_poliastro(0, 0), np.eye(3))
+    assert_array_equal(rotation_matrix_boinor(0, 0), np.eye(3))
     assert_allclose(
-        rotation_matrix_poliastro(np.deg2rad(-90), 1),
+        rotation_matrix_boinor(np.deg2rad(-90), 1),
         [[0, 0, -1], [0, 1, 0], [1, 0, 0]],
         atol=1e-12,
     )
 
     assert_allclose(
-        rotation_matrix_poliastro(np.deg2rad(90), 2),
+        rotation_matrix_boinor(np.deg2rad(90), 2),
         [[0, -1, 0], [1, 0, 0], [0, 0, 1]],
         atol=1e-12,
     )
@@ -53,7 +53,7 @@ def test_rotation_matrix_astropy():
     # make sure it also works for very small angles
     assert_allclose(
         rotation_matrix_astropy(-0.000001, "x"),
-        rotation_matrix_poliastro(np.deg2rad(0.000001), 0),
+        rotation_matrix_boinor(np.deg2rad(0.000001), 0),
     )
 
 

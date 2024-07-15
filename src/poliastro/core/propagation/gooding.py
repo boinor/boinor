@@ -1,8 +1,8 @@
 from numba import njit as jit
 import numpy as np
 
-from poliastro.core.angles import E_to_M, E_to_nu, nu_to_E
-from poliastro.core.elements import coe2rv, rv2coe
+from boinor.core.angles import E_to_M, E_to_nu, nu_to_E
+from boinor.core.elements import coe2rv, rv2coe
 
 
 @jit

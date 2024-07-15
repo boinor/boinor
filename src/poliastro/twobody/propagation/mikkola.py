@@ -2,9 +2,9 @@ import sys
 
 from astropy import units as u
 
-from poliastro.core.propagation import mikkola_coe as mikkola_fast
-from poliastro.twobody.propagation.enums import PropagatorKind
-from poliastro.twobody.states import ClassicalState
+from boinor.core.propagation import mikkola_coe as mikkola_fast
+from boinor.twobody.propagation.enums import PropagatorKind
+from boinor.twobody.states import ClassicalState
 
 from ._compat import OldPropagatorModule
 

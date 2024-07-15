@@ -3,9 +3,9 @@ from astropy.time import Time
 from astroquery.jplsbdb import SBDB
 import numpy as np
 
-from poliastro.bodies import Sun
-from poliastro.frames import Planes
-from poliastro.twobody.angles import (
+from boinor.bodies import Sun
+from boinor.frames import Planes
+from boinor.twobody.angles import (
     D_to_nu,
     E_to_nu,
     F_to_nu,
@@ -13,7 +13,7 @@ from poliastro.twobody.angles import (
     M_to_E,
     M_to_F,
 )
-from poliastro.twobody.orbit import Orbit
+from boinor.twobody.orbit import Orbit
 
 
 def orbit_from_sbdb(name, **kwargs):

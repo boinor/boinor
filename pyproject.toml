@@ -7,7 +7,7 @@ requires = [
 build-backend = "flit_core.buildapi"
 
 [project]
-name = "poliastro"
+name = "boinor"
 readme = "README.md"
 requires-python = ">=3.8"
 license = {file = "COPYING"}
@@ -61,12 +61,12 @@ dependencies = [
 dynamic = ["version", "description"]
 
 [project.urls]
-Homepage = "https://www.poliastro.space"
-Documentation = "https://docs.poliastro.space"
-Source = "https://github.com/poliastro/poliastro"
-Tracker = "https://github.com/poliastro/poliastro/issues"
-Funding = "https://opencollective.com/poliastro"
-Changelog = "https://docs.poliastro.space/en/stable/changelog.html"
+Homepage = "https://www.boinor.space"
+Documentation = "https://docs.boinor.space"
+Source = "https://github.com/boinor/boinor"
+Tracker = "https://github.com/boinor/boinor/issues"
+Funding = "https://opencollective.com/boinor"
+Changelog = "https://docs.boinor.space/en/stable/changelog.html"
 
 [project.optional-dependencies]
 jupyter = ["notebook", "ipywidgets>=7.6"]
@@ -107,10 +107,10 @@ test = [
 
 [tool.flit.sdist]
 include = [
-    "src/poliastro/atmosphere/data/coesa62.dat",
-    "src/poliastro/atmosphere/data/coesa76.dat",
-    "src/poliastro/atmosphere/data/coesa76_p.dat",
-    "src/poliastro/atmosphere/data/coesa76_rho.dat",
+    "src/boinor/atmosphere/data/coesa62.dat",
+    "src/boinor/atmosphere/data/coesa76.dat",
+    "src/boinor/atmosphere/data/coesa76_p.dat",
+    "src/boinor/atmosphere/data/coesa76_rho.dat",
     "setup.cfg"
 ]
 exclude = [
@@ -143,7 +143,7 @@ exclude = [
 [tool.ruff.isort]
 combine-as-imports = true
 force-sort-within-sections = true
-known-first-party = ["poliastro"]
+known-first-party = ["boinor"]
 
 [tool.ruff.mccabe]
 max-complexity = 18
@@ -167,13 +167,13 @@ show_missing = true
 [tool.importlinter]
 # Include Astropy to properly analyze external submodules,
 # see https://github.com/seddonym/import-linter/issues/111
-root_packages = ["poliastro", "astropy"]
+root_packages = ["boinor", "astropy"]
 include_external_packages = true
 
 [[tool.importlinter.contracts]]
-name = "poliastro.core does not import astropy.units"
+name = "boinor.core does not import astropy.units"
 type = "forbidden"
-source_modules = ["poliastro.core"]
+source_modules = ["boinor.core"]
 forbidden_modules = ["astropy.units"]
 
 [tool.pytest.ini_options]

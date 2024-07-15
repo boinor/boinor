@@ -2,7 +2,7 @@ from astropy import units as u
 from astropy.tests.helper import assert_quantity_allclose
 from astropy.time import Time
 
-from poliastro.earth.util import get_local_sidereal_time, raan_from_ltan
+from boinor.earth.util import get_local_sidereal_time, raan_from_ltan
 
 
 def test_raan_from_ltan_metopb():

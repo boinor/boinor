@@ -19,8 +19,8 @@ from czml3.types import IntervalValue, TimeInterval
 from erfa import gd2gce
 import numpy as np
 
-from poliastro.bodies import Earth
-from poliastro.core.czml_utils import (
+from boinor.bodies import Earth
+from boinor.core.czml_utils import (
     project_point_on_ellipsoid as project_point_on_ellipsoid_fast,
 )
 
@@ -66,7 +66,7 @@ class CZMLExtractor:
         N : int
             Default number of sample points. Unless otherwise specified, the
             number of sampled data points will be N when calling add_orbit()
-        attractor : poliastro.bodies.Body
+        attractor : boinor.bodies.Body
             Attractor of the orbits
         pr_map : str
             A URL to the projection of the defined ellipsoid (UV map).
@@ -354,7 +354,7 @@ class CZMLExtractor:
 
         Parameters
         ----------
-        orbit : poliastro.twobody.orbit.Orbit
+        orbit : boinor.twobody.orbit.Orbit
             Orbit to be added
         rtol : float
             Maximum relative error permitted

@@ -1,6 +1,6 @@
-# Code of Conduct for the poliastro community
+# Code of Conduct for the boinor community
 
-The community of participants in poliastro is made up of members from
+The community of participants in boinor is made up of members from
 around the globe with a diverse set of skills, personalities, and
 experiences. It is through these differences that our community
 experiences success and continued growth. We expect everyone in our
@@ -41,7 +41,7 @@ As members of the community,
 - We pledge to help the entire community follow the code of conduct,
   and to not remain silent when we see violations of the code of
   conduct. We will take action when members of our community violate
-  this code such as contacting <juanlu001+poliastro-coc@gmail.com>
+  this code such as contacting <juanlu001+boinor-coc@gmail.com>
   (all emails sent to this address will be treated with the strictest
   confidence) or talking privately with the person.
 
@@ -52,7 +52,7 @@ meetings, associated social events, and one-to-one interactions.
 Parts of this code of conduct have been adapted from the Astropy code of
 conduct.
 
-The Code of Conduct for the poliastro community is licensed under a
+The Code of Conduct for the boinor community is licensed under a
 Creative Commons Attribution 4.0 International License. We encourage
 other communities related to ours to use or adapt this code as they see
 fit.

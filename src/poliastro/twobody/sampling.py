@@ -2,10 +2,10 @@ from astropy import units as u
 from astropy.coordinates import CartesianDifferential, CartesianRepresentation
 import numpy as np
 
-from poliastro.twobody.angles import E_to_nu, nu_to_E
-from poliastro.twobody.elements import coe2rv_many, hyp_nu_limit, t_p
-from poliastro.twobody.propagation import FarnocchiaPropagator
-from poliastro.util import alinspace, wrap_angle
+from boinor.twobody.angles import E_to_nu, nu_to_E
+from boinor.twobody.elements import coe2rv_many, hyp_nu_limit, t_p
+from boinor.twobody.propagation import FarnocchiaPropagator
+from boinor.util import alinspace, wrap_angle
 
 
 @u.quantity_input(ecc=u.one, min_nu=u.rad, max_nu=u.rad)
@@ -93,7 +93,7 @@ class EpochsArray(SamplingStrategy):
         # However, we are also returning the epochs
         # (since computing them here is more efficient than doing it from the outside)
         # but there are open questions around StateArrays and epochs.
-        # See discussion at https://github.com/poliastro/poliastro/pull/1492
+        # See discussion at https://github.com/boinor/boinor/pull/1492
         cartesian = CartesianRepresentation(
             rr, differentials=CartesianDifferential(vv, xyz_axis=1), xyz_axis=1
         )
@@ -166,7 +166,7 @@ class TrueAnomalyBounds(SamplingStrategy):
         # However, we are also returning the epochs
         # (since computing them here is more efficient than doing it from the outside)
         # but there are open questions around StateArrays and epochs.
-        # See discussion at https://github.com/poliastro/poliastro/pull/1492
+        # See discussion at https://github.com/boinor/boinor/pull/1492
         cartesian = CartesianRepresentation(
             rr, differentials=CartesianDifferential(vv, xyz_axis=1), xyz_axis=1
         )

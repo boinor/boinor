@@ -1,6 +1,6 @@
 from astropy import units as u
 
-from poliastro.core.flybys import compute_flyby as compute_flyby_fast
+from boinor.core.flybys import compute_flyby as compute_flyby_fast
 
 
 @u.quantity_input(

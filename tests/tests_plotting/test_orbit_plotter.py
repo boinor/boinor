@@ -6,21 +6,21 @@ from astropy.time import Time
 from matplotlib import pyplot as plt
 import pytest
 
-from poliastro.bodies import Earth, Jupiter, Mars, Sun
-from poliastro.constants import J2000_TDB
-from poliastro.ephem import Ephem
-from poliastro.examples import churi, iss, molniya
-from poliastro.frames import Planes
-from poliastro.maneuver import Maneuver
-from poliastro.plotting import OrbitPlotter
-from poliastro.plotting.orbit.backends import (
+from boinor.bodies import Earth, Jupiter, Mars, Sun
+from boinor.constants import J2000_TDB
+from boinor.ephem import Ephem
+from boinor.examples import churi, iss, molniya
+from boinor.frames import Planes
+from boinor.maneuver import Maneuver
+from boinor.plotting import OrbitPlotter
+from boinor.plotting.orbit.backends import (
     DEFAULT_ORBIT_PLOTTER_BACKENDS,
     DEFAULT_ORBIT_PLOTTER_BACKENDS_2D,
     DEFAULT_ORBIT_PLOTTER_BACKENDS_3D,
     Matplotlib2D,
 )
-from poliastro.twobody import Orbit
-from poliastro.util import time_range
+from boinor.twobody import Orbit
+from boinor.util import time_range
 
 # @pytest.mark.parametrize("backend", SUPPORTED_ORBIT_PLOTTER_BACKENDS)
 # def test_get_figure_has_expected_properties(backend):
@@ -244,7 +244,7 @@ def test_set_frame_plots_same_colors():
 
 
 def test_redraw_keeps_trajectories():
-    # See https://github.com/poliastro/poliastro/issues/518
+    # See https://github.com/boinor/boinor/issues/518
     op = OrbitPlotter()
     trajectory = churi.sample()
     op.plot_body_orbit(Mars, J2000_TDB, label="Mars")
@@ -391,7 +391,7 @@ def test_plot_ephem_no_epoch():
 def test_body_frame_raises_warning_if_time_is_not_tdb_with_proper_time(
     recwarn,
 ):
-    from poliastro.warnings import TimeScaleWarning
+    from boinor.warnings import TimeScaleWarning
 
     body = Jupiter
     epoch = Time("2017-09-29 07:31:26", scale="utc")

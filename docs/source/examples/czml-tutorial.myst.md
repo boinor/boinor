@@ -19,22 +19,22 @@ Poliastro allows users to easily convert orbital data to CZML, a JSON format pri
 
 ## Dependencies
 
-You will only need poliastro (obviously) and czml3, a library for easily creating and using CZML packets:
+You will only need boinor (obviously) and czml3, a library for easily creating and using CZML packets:
 
-``pip install poliastro czml3``
+``pip install boinor czml3``
 
 +++
 
 ## Our first example: The Molniya orbit
 
-We'll start off by using one of the readily usable poliastro examples. Of course, you can use any poliastro ``Orbit`` object:
+We'll start off by using one of the readily usable boinor examples. Of course, you can use any boinor ``Orbit`` object:
 
 ```{code-cell}
-from poliastro.czml.extract_czml import CZMLExtractor
+from boinor.czml.extract_czml import CZMLExtractor
 ```
 
 ```{code-cell}
-from poliastro.examples import molniya
+from boinor.examples import molniya
 ```
 
 To initialize the extractor, you'll only need the starting and ending epoch of the time period you wish to visualize and the number of sample points. The larger the sample point size, the more accurate the trajectory and the bigger your packets. Finding that sweet spot between reasonable package size and visual accuracy depends on the specific orbit. Generally, you'll need a bigger sample for faster satellites. You could also "break" your orbit into different parts and define the sample size individually (for example, this could be useful when the satellite accelerates within a certain time interval).
@@ -101,7 +101,7 @@ extractor.add_orbit(
 )
 ```
 
-You can now export the extractor packets by simply calling ``extractor.packets`` and load it to the Cesium app as described [here](https://github.com/poliastro/cesium-app):
+You can now export the extractor packets by simply calling ``extractor.packets`` and load it to the Cesium app as described [here](https://github.com/boinor/cesium-app):
 
 ```{raw-cell}
   >>> extractor.packets
@@ -121,10 +121,10 @@ You can now export the extractor packets by simply calling ``extractor.packets``
 
 ## Landing on Mars
 
-You can customize the attractor of your orbit by defining any valid ellipsoid with the help of poliastro's ``Body`` class. For your convenience, poliastro offers a pre-defined list of all the major planetary bodies of the solar system so you can simply import them:
+You can customize the attractor of your orbit by defining any valid ellipsoid with the help of boinor's ``Body`` class. For your convenience, boinor offers a pre-defined list of all the major planetary bodies of the solar system so you can simply import them:
 
 ```{code-cell}
-from poliastro.bodies import Mars
+from boinor.bodies import Mars
 ```
 
 Of course, when defining a new attractor you want to be able to identify something other than it's shape. For this reason, the extractor allows you to easily set the UV map by simply providing a valid URL:

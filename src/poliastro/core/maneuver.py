@@ -4,8 +4,8 @@ from numba import njit as jit
 import numpy as np
 from numpy import cross
 
-from poliastro._math.linalg import norm
-from poliastro.core.elements import coe_rotation_matrix, rv2coe, rv_pqw
+from boinor._math.linalg import norm
+from boinor.core.elements import coe_rotation_matrix, rv2coe, rv_pqw
 
 
 @jit

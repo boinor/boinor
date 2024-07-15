@@ -7,14 +7,14 @@ from numpy.testing import assert_allclose
 import pytest
 from pytest import approx
 
-from poliastro.bodies import Earth, Moon, Sun
-from poliastro.constants import J2000
-from poliastro.core.elements import rv2coe
-from poliastro.core.propagation import func_twobody
-from poliastro.examples import iss
-from poliastro.frames import Planes
-from poliastro.twobody import Orbit
-from poliastro.twobody.propagation import (
+from boinor.bodies import Earth, Moon, Sun
+from boinor.constants import J2000
+from boinor.core.elements import rv2coe
+from boinor.core.propagation import func_twobody
+from boinor.examples import iss
+from boinor.frames import Planes
+from boinor.twobody import Orbit
+from boinor.twobody.propagation import (
     ALL_PROPAGATORS,
     ELLIPTIC_PROPAGATORS,
     HYPERBOLIC_PROPAGATORS,
@@ -27,7 +27,7 @@ from poliastro.twobody.propagation import (
     RecseriesPropagator,
     ValladoPropagator,
 )
-from poliastro.util import norm
+from boinor.util import norm
 
 
 @pytest.fixture(scope="module")
@@ -351,7 +351,7 @@ def test_propagate_to_date_has_proper_epoch():
 )
 def test_propagate_long_times_keeps_geometry(method):
     # TODO: Extend to other propagators?
-    # See https://github.com/poliastro/poliastro/issues/265
+    # See https://github.com/boinor/boinor/issues/265
     time_of_flight = 100 * u.year
 
     res = iss.propagate(time_of_flight, method=method)
@@ -444,7 +444,7 @@ def test_propagation_sets_proper_epoch():
 
 
 def test_sample_around_moon_works():
-    # See https://github.com/poliastro/poliastro/issues/649
+    # See https://github.com/boinor/boinor/issues/649
     orbit = Orbit.circular(Moon, 100 << u.km)
 
     coords = orbit.sample(10)
@@ -454,7 +454,7 @@ def test_sample_around_moon_works():
 
 
 def test_propagate_around_moon_works():
-    # See https://github.com/poliastro/poliastro/issues/649
+    # See https://github.com/boinor/boinor/issues/649
     orbit = Orbit.circular(Moon, 100 << u.km)
     new_orbit = orbit.propagate(1 << u.h)
 

@@ -28,7 +28,7 @@ kernelspec:
 
 +++
 
-However, it turns out that GP data in general, and TLEs in particular, are poorly understood even by professionals ([[1]](https://www.linkedin.com/posts/tom-johnson-32333a2_flawed-data-activity-6825845118990381056-yJX7), [[2]](https://twitter.com/flightclubio/status/1435303066085982209), [[3]](https://github.com/poliastro/poliastro/issues/1185)). The core issue is that TLEs and OMMs contain _Brouwer mean elements_, which **cannot be directly translated to osculating elements**.
+However, it turns out that GP data in general, and TLEs in particular, are poorly understood even by professionals ([[1]](https://www.linkedin.com/posts/tom-johnson-32333a2_flawed-data-activity-6825845118990381056-yJX7), [[2]](https://twitter.com/flightclubio/status/1435303066085982209), [[3]](https://github.com/boinor/boinor/issues/1185)). The core issue is that TLEs and OMMs contain _Brouwer mean elements_, which **cannot be directly translated to osculating elements**.
 
 From "Spacetrack Report #3":
 
@@ -58,7 +58,7 @@ Therefore, the **correct** way of using GP data is:
 As explained in the [Orbit Mean-Elements Messages (OMMs) support assessment](https://opensatcom.org/2020/12/28/omm-assessment-sgp4-benchmarks/) deliverable of OpenSatCom, OMM input/output support in open source libraries is somewhat scattered. Luckily, [python-sgp4](https://pypi.org/project/sgp4/) supports reading OMM in CSV and XML format, as well as usual TLE and 3LE formats. On the other hand, Astropy has accurate transformations from TEME to other reference frames.
 
 ```{code-cell} ipython3
-# From https://github.com/poliastro/poliastro/blob/main/contrib/satgpio.py
+# From https://github.com/boinor/boinor/blob/main/contrib/satgpio.py
 """
 Author: Juan Luis Cano Rodríguez
 
@@ -203,7 +203,7 @@ import numpy as np
 
 from astropy.coordinates import CartesianRepresentation, CartesianDifferential
 
-from poliastro.util import time_range
+from boinor.util import time_range
 ```
 
 ```{code-cell} ipython3
@@ -223,15 +223,15 @@ CartesianRepresentation(rs << u.km, xyz_axis=-1)
 CartesianDifferential(vs << (u.km / u.s), xyz_axis=-1)
 ```
 
-Mixing all together, and leveraging poliastro `Ephem` objects, we can compute ephemerides from GP orbital data:
+Mixing all together, and leveraging boinor `Ephem` objects, we can compute ephemerides from GP orbital data:
 
 ```{code-cell} ipython3
 from warnings import warn
 
 from astropy.coordinates import TEME, GCRS
 
-from poliastro.ephem import Ephem
-from poliastro.frames import Planes
+from boinor.ephem import Ephem
+from boinor.frames import Planes
 
 
 def ephem_from_gp(sat, times):
@@ -271,9 +271,9 @@ iss_ephem
 And plot it!
 
 ```{code-cell} ipython3
-from poliastro.bodies import Earth
-from poliastro.plotting import OrbitPlotter
-from poliastro.plotting.orbit.backends import Plotly3D
+from boinor.bodies import Earth
+from boinor.plotting import OrbitPlotter
+from boinor.plotting.orbit.backends import Plotly3D
 
 plotter = OrbitPlotter(backend=Plotly3D())
 plotter.set_attractor(Earth)

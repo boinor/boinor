@@ -1,13 +1,13 @@
 from astropy import units as u
 import numpy as np
 
-from poliastro.core.elements import (
+from boinor.core.elements import (
     circular_velocity as circular_velocity_fast,
     coe2rv as coe2rv_fast,
     coe2rv_many as coe2rv_many_fast,
     eccentricity_vector as eccentricity_vector_fast,
 )
-from poliastro.core.propagation.farnocchia import (
+from boinor.core.propagation.farnocchia import (
     delta_t_from_nu as delta_t_from_nu_fast,
 )
 

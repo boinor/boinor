@@ -1,10 +1,10 @@
-DOCKER_BASE_IMAGE := "poliastro:dev"
-DOCKER_CONTAINER_NAME := "poliastro-dev"
+DOCKER_BASE_IMAGE := "boinor:dev"
+DOCKER_CONTAINER_NAME := "boinor-dev"
 
 
 image: Dockerfile pyproject.toml
 	docker build \
-	  -t poliastro:dev \
+	  -t boinor:dev \
 	  .
 
 docker:

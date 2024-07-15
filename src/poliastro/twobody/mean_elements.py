@@ -2,9 +2,9 @@ from astropy import units as u
 from astropy.coordinates.solar_system import PLAN94_BODY_NAME_TO_PLANET_INDEX
 import erfa
 
-from poliastro.constants import J2000
-from poliastro.frames import Planes
-from poliastro.twobody.states import RVState
+from boinor.constants import J2000
+from boinor.frames import Planes
+from boinor.twobody.states import RVState
 
 
 def get_mean_elements(body, epoch=J2000):
@@ -12,7 +12,7 @@ def get_mean_elements(body, epoch=J2000):
 
     Parameters
     ----------
-    body : ~poliastro.bodies.SolarSystemPlanet
+    body : ~boinor.bodies.SolarSystemPlanet
         Body.
     epoch : astropy.time.Time
         Epoch.
@@ -36,7 +36,7 @@ def get_mean_elements(body, epoch=J2000):
 
     except KeyError as e:
         raise ValueError(
-            f"No available mean elements for {body}. It must be an instance of `poliastro.bodies.SolarSystemPlanet`"
+            f"No available mean elements for {body}. It must be an instance of `boinor.bodies.SolarSystemPlanet`"
         ) from e
 
     return RVState(

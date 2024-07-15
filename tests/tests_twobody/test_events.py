@@ -5,13 +5,13 @@ import numpy as np
 from numpy.linalg import norm
 import pytest
 
-from poliastro.bodies import Earth
-from poliastro.constants import H0_earth, rho0_earth
-from poliastro.core.events import line_of_sight
-from poliastro.core.perturbations import atmospheric_drag_exponential
-from poliastro.core.propagation import func_twobody
-from poliastro.twobody import Orbit
-from poliastro.twobody.events import (
+from boinor.bodies import Earth
+from boinor.constants import H0_earth, rho0_earth
+from boinor.core.events import line_of_sight
+from boinor.core.perturbations import atmospheric_drag_exponential
+from boinor.core.propagation import func_twobody
+from boinor.twobody import Orbit
+from boinor.twobody.events import (
     AltitudeCrossEvent,
     LatitudeCrossEvent,
     LithobrakeEvent,
@@ -20,7 +20,7 @@ from poliastro.twobody.events import (
     PenumbraEvent,
     UmbraEvent,
 )
-from poliastro.twobody.propagation import CowellPropagator
+from boinor.twobody.propagation import CowellPropagator
 
 
 @pytest.mark.slow

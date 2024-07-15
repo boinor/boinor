@@ -21,11 +21,11 @@ $$\ddot{\mathbb{r}} = -\frac{\mu}{|\mathbb{r}|^3} \mathbb{r} + \mathbb{a}_d$$
 
 +++
 
-<div class="alert alert-info">For an in-depth exploration of this topic, still to be integrated in poliastro, check out [this Master thesis](https://github.com/Juanlu001/pfc-uc3m).</div>
+<div class="alert alert-info">For an in-depth exploration of this topic, still to be integrated in boinor, check out [this Master thesis](https://github.com/Juanlu001/pfc-uc3m).</div>
 
 +++
 
-<div class="alert alert-info">An earlier version of this notebook allowed for more flexibility and interactivity, but was considerably more complex. Future versions of poliastro and plotly might bring back part of that functionality, depending on user feedback. You can still download the older version [here](https://github.com/poliastro/poliastro/blob/0.8.x/docs/source/examples/Propagation%20using%20Cowell's%20formulation.ipynb).</div>
+<div class="alert alert-info">An earlier version of this notebook allowed for more flexibility and interactivity, but was considerably more complex. Future versions of boinor and plotly might bring back part of that functionality, depending on user feedback. You can still download the older version [here](https://github.com/boinor/boinor/blob/0.8.x/docs/source/examples/Propagation%20using%20Cowell's%20formulation.ipynb).</div>
 
 +++
 
@@ -39,15 +39,15 @@ from astropy import units as u
 
 import numpy as np
 
-from poliastro.bodies import Earth
-from poliastro.core.propagation import func_twobody
-from poliastro.examples import iss
-from poliastro.plotting import OrbitPlotter
-from poliastro.plotting.orbit.backends import Plotly3D
-from poliastro.twobody import Orbit
-from poliastro.twobody.propagation import CowellPropagator
-from poliastro.twobody.sampling import EpochsArray
-from poliastro.util import norm
+from boinor.bodies import Earth
+from boinor.core.propagation import func_twobody
+from boinor.examples import iss
+from boinor.plotting import OrbitPlotter
+from boinor.plotting.orbit.backends import Plotly3D
+from boinor.twobody import Orbit
+from boinor.twobody.propagation import CowellPropagator
+from boinor.twobody.sampling import EpochsArray
+from boinor.util import norm
 ```
 
 To provide an acceleration depending on an extra parameter, we can use **closures** like this one:

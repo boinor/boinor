@@ -1,4 +1,4 @@
-from poliastro.frames.enums import Planes
+from boinor.frames.enums import Planes
 
 __all__ = [
     "Planes",

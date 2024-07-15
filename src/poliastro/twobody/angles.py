@@ -1,7 +1,7 @@
 """Angles and anomalies."""
 from astropy import units as u
 
-from poliastro.core.angles import (
+from boinor.core.angles import (
     D_to_M as D_to_M_fast,
     D_to_nu as D_to_nu_fast,
     E_to_M as E_to_M_fast,

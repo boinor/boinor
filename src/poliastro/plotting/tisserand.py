@@ -5,9 +5,9 @@ from astropy import units as u
 from matplotlib import pyplot as plt
 import numpy as np
 
-from poliastro.plotting.util import BODY_COLORS
-from poliastro.twobody.mean_elements import get_mean_elements
-from poliastro.util import norm
+from boinor.plotting.util import BODY_COLORS
+from boinor.twobody.mean_elements import get_mean_elements
+from boinor.util import norm
 
 
 class TisserandKind(Enum):
@@ -53,7 +53,7 @@ class TisserandPlotter:
 
         Parameters
         ----------
-        body : ~poliastro.bodies.Body
+        body : ~boinor.bodies.Body
             Body to be plotted Tisserand
         vinf_array : ~astropy.units.Quantity
             Desired Vinf for the flyby
@@ -131,7 +131,7 @@ class TisserandPlotter:
 
         Parameters
         ----------
-        body : ~poliastro.bodies.Body
+        body : ~boinor.bodies.Body
             Body to be plotted Tisserand
         vinf : ~astropy.units.Quantity
             Vinf velocity line
@@ -168,7 +168,7 @@ class TisserandPlotter:
 
         Parameters
         ----------
-        body : ~poliastro.bodies.Body
+        body : ~boinor.bodies.Body
             Body to be plotted Tisserand
         vinf_span : tuple
             Minimum and maximum Vinf velocities

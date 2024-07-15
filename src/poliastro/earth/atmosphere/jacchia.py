@@ -1,7 +1,7 @@
 from astropy import units as u
 import numpy as np
 
-from poliastro.core.earth_atmosphere.jacchia import (
+from boinor.core.earth_atmosphere.jacchia import (
     _altitude_profile as _altitude_profile_fast,
     _H_correction as _H_correction_fast,
     _O_and_O2_correction as _O_and_O2_correction_fast,

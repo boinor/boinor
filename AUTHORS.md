@@ -5,7 +5,7 @@ Originally devised and implemented by [Juan Luis Cano Rodríguez](mailto:hello@j
 
 # Maintainers
 
-poliastro is maintained thanks to:
+boinor is maintained thanks to:
 
 * [Juan Luis Cano Rodríguez](mailto:hello@juanlu.space)
 * [Jorge Martinez Garrido](mailto:contact@jorgemartinez.space)

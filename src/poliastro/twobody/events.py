@@ -4,12 +4,12 @@ from astropy import units as u
 from astropy.coordinates import get_body_barycentric_posvel
 import numpy as np
 
-from poliastro._math.linalg import norm
-from poliastro.core.events import (
+from boinor._math.linalg import norm
+from boinor.core.events import (
     eclipse_function as eclipse_function_fast,
     line_of_sight as line_of_sight_fast,
 )
-from poliastro.core.spheroid_location import (
+from boinor.core.spheroid_location import (
     cartesian_to_ellipsoidal as cartesian_to_ellipsoidal_fast,
 )
 
@@ -99,7 +99,7 @@ class LatitudeCrossEvent(Event):
 
     Parameters
     ----------
-    orbit: ~poliastro.twobody.orbit.Orbit
+    orbit: ~boinor.twobody.orbit.Orbit
         Orbit.
     lat: astropy.quantity.Quantity
         Threshold latitude.
@@ -134,7 +134,7 @@ class EclipseEvent(Event):
 
     Parameters
     ----------
-    orbit: poliastro.twobody.orbit.Orbit
+    orbit: boinor.twobody.orbit.Orbit
         Orbit of the satellite.
     terminal: bool, optional
         Whether to terminate integration when the event occurs, defaults to False.
@@ -169,7 +169,7 @@ class PenumbraEvent(EclipseEvent):
 
     Parameters
     ----------
-    orbit: poliastro.twobody.orbit.Orbit
+    orbit: boinor.twobody.orbit.Orbit
         Orbit of the satellite.
     terminal: bool, optional
         Whether to terminate integration when the event occurs, defaults to False.
@@ -203,7 +203,7 @@ class UmbraEvent(EclipseEvent):
 
     Parameters
     ----------
-    orbit: poliastro.twobody.orbit.Orbit
+    orbit: boinor.twobody.orbit.Orbit
         Orbit of the satellite.
     terminal: bool, optional
         Whether to terminate integration when the event occurs, defaults to False.
@@ -255,7 +255,7 @@ class LosEvent(Event):
 
     Parameters
     ----------
-    attractor: ~poliastro.bodies.body
+    attractor: ~boinor.bodies.body
         The central attractor with respect to which the position vectors of the satellites are defined.
     pos_coords: ~astropy.quantity.Quantity
         A list of position coordinates for the secondary body. These coordinates

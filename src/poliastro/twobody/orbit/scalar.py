@@ -10,16 +10,16 @@ from astropy.coordinates import (
 )
 import numpy as np
 
-from poliastro.bodies import Earth
-from poliastro.core.events import elevation_function as elevation_function_fast
-from poliastro.frames.util import get_frame
-from poliastro.threebody.soi import laplace_radius
-from poliastro.twobody.elements import eccentricity_vector, energy, t_p
-from poliastro.twobody.orbit.creation import OrbitCreationMixin
-from poliastro.twobody.propagation import FarnocchiaPropagator, PropagatorKind
-from poliastro.twobody.sampling import TrueAnomalyBounds
-from poliastro.util import norm, wrap_angle
-from poliastro.warnings import PatchedConicsWarning
+from boinor.bodies import Earth
+from boinor.core.events import elevation_function as elevation_function_fast
+from boinor.frames.util import get_frame
+from boinor.threebody.soi import laplace_radius
+from boinor.twobody.elements import eccentricity_vector, energy, t_p
+from boinor.twobody.orbit.creation import OrbitCreationMixin
+from boinor.twobody.propagation import FarnocchiaPropagator, PropagatorKind
+from boinor.twobody.sampling import TrueAnomalyBounds
+from boinor.util import norm, wrap_angle
+from boinor.warnings import PatchedConicsWarning
 
 ORBIT_FORMAT = "{r_p:.0f} x {r_a:.0f} x {inc:.1f} ({frame}) orbit around {body} at epoch {epoch} ({scale})"
 # String representation for orbits around bodies without predefined
@@ -209,14 +209,14 @@ class Orbit(OrbitCreationMixin):
 
         Parameters
         ----------
-        new_attractor : poliastro.bodies.Body
+        new_attractor : boinor.bodies.Body
             Desired new attractor.
         force : bool
             If `True`, changes attractor even if physically has no-sense.
 
         Returns
         -------
-        ss: poliastro.twobody.orbit.Orbit
+        ss: boinor.twobody.orbit.Orbit
             Orbit with new attractor
 
         """
@@ -269,7 +269,7 @@ class Orbit(OrbitCreationMixin):
 
         Parameters
         ----------
-        plane : ~poliastro.frames.Planes
+        plane : ~boinor.frames.Planes
             Fundamental plane of the frame.
 
         """
@@ -301,7 +301,7 @@ class Orbit(OrbitCreationMixin):
 
         Examples
         --------
-        >>> from poliastro.examples import iss
+        >>> from boinor.examples import iss
         >>> from astropy.coordinates import SphericalRepresentation
         >>> iss.represent_as(CartesianRepresentation)
         <CartesianRepresentation (x, y, z) in km
@@ -519,7 +519,7 @@ class Orbit(OrbitCreationMixin):
         .. versionadded:: 0.17.0
 
         """
-        from poliastro.ephem import Ephem
+        from boinor.ephem import Ephem
 
         coordinates, epochs = strategy.sample(self)
         return Ephem(coordinates, epochs, self.plane)
@@ -554,7 +554,7 @@ class Orbit(OrbitCreationMixin):
         Examples
         --------
         >>> from astropy import units as u
-        >>> from poliastro.examples import iss
+        >>> from boinor.examples import iss
         >>> iss.sample()  # doctest: +ELLIPSIS
         <CartesianRepresentation (x, y, z) in km ...
         >>> iss.sample(10)  # doctest: +ELLIPSIS
@@ -622,20 +622,20 @@ class Orbit(OrbitCreationMixin):
 
         Parameters
         ----------
-        backend : ~poliastro.plotting.orbit.backends._base.OrbitPlotterBackend
+        backend : ~boinor.plotting.orbit.backends._base.OrbitPlotterBackend
             An instance of ``OrbitPlotterBackend`` for rendendering the scene.
         label : str, optional
             Label for the orbit, defaults to empty.
 
         Returns
         -------
-        ~poliastro.plotting.orbit.OrbitPlotter
+        ~boinor.plotting.orbit.OrbitPlotter
             An object for plotting orbits.
 
         """
         # HACK: avoid circular dependency
-        from poliastro.plotting.orbit.backends import Matplotlib2D, Plotly2D
-        from poliastro.plotting.orbit.plotter import OrbitPlotter
+        from boinor.plotting.orbit.backends import Matplotlib2D, Plotly2D
+        from boinor.plotting.orbit.plotter import OrbitPlotter
 
         # Select the best backend depending if it is an interactive or batch
         # session
@@ -681,7 +681,7 @@ class Orbit(OrbitCreationMixin):
         Notes
         -----
         Local sideral time needs to be precomputed. If Earth is the attractor, it can
-        be computed using `poliastro.earth.util.get_local_sidereal_time`.
+        be computed using `boinor.earth.util.get_local_sidereal_time`.
         """
         if self.attractor != Earth:
             raise NotImplementedError(

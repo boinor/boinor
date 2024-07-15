@@ -4,7 +4,7 @@ from astropy.time import Time
 import astropy.units as u
 import erfa
 
-from poliastro.bodies import (
+from boinor.bodies import (
     Earth,
     Jupiter,
     Mars,
@@ -14,8 +14,8 @@ from poliastro.bodies import (
     Uranus,
     Venus,
 )
-from poliastro.frames import Planes
-from poliastro.plotting import OrbitPlotter
+from boinor.frames import Planes
+from boinor.plotting import OrbitPlotter
 
 
 def plot_solar_system(
@@ -37,14 +37,14 @@ def plot_solar_system(
         A list of strings containing the labels of the bodies.
     outer : bool, optional
         Whether to print the outer Solar System, default to True.
-    backend : ~poliastro.plotting.orbit.backends._base.OrbitPlotterBackend
+    backend : ~boinor.plotting.orbit.backends._base.OrbitPlotterBackend
         An instance of ``OrbitPlotterBackend`` for rendendering the scene.
     length_scale_units : ~astropy.units.Unit
         Desired units of lenght used for representing distances.
 
     Returns
     -------
-    ~poliastro.plotting.orbit.plotter.OrbitPlotter
+    ~boinor.plotting.orbit.plotter.OrbitPlotter
         An object for plotting orbits.
 
     """

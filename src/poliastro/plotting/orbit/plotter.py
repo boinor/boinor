@@ -7,13 +7,13 @@ from astropy.coordinates import CartesianRepresentation
 import astropy.units as u
 import numpy as np
 
-from poliastro.ephem import Ephem
-from poliastro.frames import Planes
-import poliastro.plotting.orbit.backends as orbit_plotter_backends
-from poliastro.plotting.util import BODY_COLORS, generate_label
-from poliastro.twobody.mean_elements import get_mean_elements
-from poliastro.twobody.sampling import EpochBounds
-from poliastro.util import norm, time_range
+from boinor.ephem import Ephem
+from boinor.frames import Planes
+import boinor.plotting.orbit.backends as orbit_plotter_backends
+from boinor.plotting.util import BODY_COLORS, generate_label
+from boinor.twobody.mean_elements import get_mean_elements
+from boinor.twobody.sampling import EpochBounds
+from boinor.util import norm, time_range
 
 
 class Trajectory(
@@ -47,11 +47,11 @@ class OrbitPlotter:
 
         Parameters
         ----------
-        backend : ~poliastro.plotting.orbit.backends._base.OrbitPlotterBackend
+        backend : ~boinor.plotting.orbit.backends._base.OrbitPlotterBackend
             An instance of ``OrbitPlotterBackend`` for rendendering the scene.
         num_points : int, optional
             Number of points to use when drawing trajectories. Default to 150.
-        plane : ~poliastro.frames.Plane, optional
+        plane : ~boinor.frames.Plane, optional
             Reference plane to be used when drawing the scene. Default to
             `EARTH_EQUATOR`.
         length_scale_units : ~astropy.units.Unit, optional
@@ -82,7 +82,7 @@ class OrbitPlotter:
 
         Returns
         -------
-        ~poliastro.plotting.orbit.backends._base.OrbitPlotterBackend
+        ~boinor.plotting.orbit.backends._base.OrbitPlotterBackend
             An instance of ``OrbitPlotterBackend`` used for rendendering the scene.
 
         """
@@ -94,7 +94,7 @@ class OrbitPlotter:
 
         Returns
         -------
-        ~poliastro.frames.Plane, optional
+        ~boinor.frames.Plane, optional
             Reference plane to be used when drawing the scene. Default to
 
         """
@@ -129,7 +129,7 @@ class OrbitPlotter:
 
         Parameters
         ----------
-        attractor : ~poliastro.bodies.Body
+        attractor : ~boinor.bodies.Body
             Central body.
 
         Raises
@@ -150,7 +150,7 @@ class OrbitPlotter:
 
         Parameters
         ----------
-        orbit : ~poliastro.twobody.Orbit
+        orbit : ~boinor.twobody.Orbit
             Orbit to use as frame.
 
         """
@@ -176,7 +176,7 @@ class OrbitPlotter:
 
         Parameters
         ----------
-        body : poliastro.bodies.SolarSystemPlanet
+        body : boinor.bodies.SolarSystemPlanet
             Body.
         epoch : astropy.time.Time, optional
             Epoch of current position.
@@ -187,9 +187,9 @@ class OrbitPlotter:
         from astropy import time
 
         # HACK: avoid circular dependency with ``Body.plot()``
-        from poliastro.bodies import Sun
-        from poliastro.twobody import Orbit
-        from poliastro.warnings import TimeScaleWarning
+        from boinor.bodies import Sun
+        from boinor.twobody import Orbit
+        from boinor.warnings import TimeScaleWarning
 
         if not epoch:
             epoch = time.Time.now().tdb
@@ -403,7 +403,7 @@ class OrbitPlotter:
 
         Parameters
         ----------
-        orbit : ~poliastro.twobody.orbit.Orbit
+        orbit : ~boinor.twobody.orbit.Orbit
             Orbit to plot.
         color : str, optional
             Color of the line and the position.
@@ -454,7 +454,7 @@ class OrbitPlotter:
 
         Parameters
         ----------
-        body : poliastro.bodies.SolarSystemPlanet
+        body : boinor.bodies.SolarSystemPlanet
             Body.
         epoch : astropy.time.Time
             Epoch of current position.
@@ -498,7 +498,7 @@ class OrbitPlotter:
 
         Parameters
         ----------
-        ephem : ~poliastro.ephem.Ephem
+        ephem : ~boinor.ephem.Ephem
             Ephemerides to plot.
         epoch : astropy.time.Time, optional
             Epoch of the current position, `None` is used if not given.
@@ -551,9 +551,9 @@ class OrbitPlotter:
 
         Parameters
         ----------
-        initial_orbit : ~poliastro.twobody.orbit.Orbit
+        initial_orbit : ~boinor.twobody.orbit.Orbit
             The base orbit for which the maneuver will be applied.
-        maneuver : ~poliastro.maneuver.Maneuver
+        maneuver : ~boinor.maneuver.Maneuver
             The maneuver to be plotted.
         label : str, optional
             Label of the trajectory.

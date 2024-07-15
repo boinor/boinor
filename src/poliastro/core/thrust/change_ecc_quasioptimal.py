@@ -1,7 +1,7 @@
 from numba import njit as jit
 import numpy as np
 
-from poliastro.core.elements import circular_velocity
+from boinor.core.elements import circular_velocity
 
 
 @jit

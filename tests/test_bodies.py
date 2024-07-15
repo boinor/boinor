@@ -4,8 +4,8 @@ from astropy import units as u
 from astropy.tests.helper import assert_quantity_allclose
 import pytest
 
-from poliastro.bodies import Body, Earth, Jupiter, Sun
-from poliastro.examples import iss
+from boinor.bodies import Body, Earth, Jupiter, Sun
+from boinor.examples import iss
 
 
 def test_body_has_k_given_in_constructor():

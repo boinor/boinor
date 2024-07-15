@@ -11,8 +11,8 @@ from numba import njit
 import numpy as np
 from numpy import cross
 
-from poliastro.core.thrust.change_ecc_quasioptimal import extra_quantities
-from poliastro.util import norm
+from boinor.core.thrust.change_ecc_quasioptimal import extra_quantities
+from boinor.util import norm
 
 
 def change_ecc_quasioptimal(orb_0, ecc_f, f):

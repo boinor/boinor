@@ -13,7 +13,7 @@ kernelspec:
 
 # Multiple revolutions on Lambert's problem
 
-After the implementation of Izzo's algorithm in *poliastro*, it is possible to solve the Lambert's problem within the multi-revolution scenario. Before introducing the usage of this feature, let us remember what is the Lambert's problem and explain some of the misconceptions behind the problem.
+After the implementation of Izzo's algorithm in *boinor*, it is possible to solve the Lambert's problem within the multi-revolution scenario. Before introducing the usage of this feature, let us remember what is the Lambert's problem and explain some of the misconceptions behind the problem.
 
 +++
 
@@ -54,7 +54,7 @@ $$
 \Delta \theta = \arccos{\left(\frac{\vec{r_0} \cdot \vec{r}}{r_0 \cdot r}\right)}
 $$
 
-The `arccos` function will return always the shortest angle between both position vectors. Therefore, what happens with transfer angles $180 < \Delta \theta < 360$? In this case, a boolean is required to correct the value of the transfer angle. In `poliastro` this variable is named `is_prograde` and it controls the value of the transfer angle such that:
+The `arccos` function will return always the shortest angle between both position vectors. Therefore, what happens with transfer angles $180 < \Delta \theta < 360$? In this case, a boolean is required to correct the value of the transfer angle. In `boinor` this variable is named `is_prograde` and it controls the value of the transfer angle such that:
 
 * When `is_prograde=True`, solution orbit has an inclination less than $\text{inc} < 180$ degrees (prograde orbit).
 * Otherwise, when `is_prograde=False`, solution orbit inclination has $\text{inc} > 180$ degrees (retrograde orbit.)
@@ -98,18 +98,18 @@ The minimum energy transfer orbit is used as a reference point by Lambert's prob
 
 +++
 
-## Exploring the single and multi-revolution scenarios using poliastro
+## Exploring the single and multi-revolution scenarios using boinor
 
-Now, let us present how to use poliastro to solve for the multiple revolutions scenario. The idea is to compute all possible transfer orbits between Earth and Mars. Therefore, we need first to compute the initial position of the Earth and the final position of times for a given desired amount of time.
+Now, let us present how to use boinor to solve for the multiple revolutions scenario. The idea is to compute all possible transfer orbits between Earth and Mars. Therefore, we need first to compute the initial position of the Earth and the final position of times for a given desired amount of time.
 
 ```{code-cell} ipython3
 from astropy import units as u
 from astropy.time import Time
 
-from poliastro.bodies import Sun, Earth, Mars
-from poliastro.ephem import Ephem
-from poliastro.twobody import Orbit
-from poliastro.util import time_range
+from boinor.bodies import Sun, Earth, Mars
+from boinor.ephem import Ephem
+from boinor.twobody import Orbit
+from boinor.util import time_range
 ```
 
 Computing the initial and final position orbits for each planet:
@@ -148,7 +148,7 @@ colors_and_styles = [
 We now define a function for solving all the possible solutions
 
 ```{code-cell} ipython3
-from poliastro.maneuver import Maneuver
+from boinor.maneuver import Maneuver
 
 
 def lambert_solution_orbits(orb_departure, orb_arrival, M):
@@ -170,8 +170,8 @@ Finally, we can plot all the different scenarios from $M=0$ up to $M=2$ revoluti
 ```{code-cell} ipython3
 from matplotlib import pyplot as plt
 
-from poliastro.plotting import OrbitPlotter
-from poliastro.plotting.orbit.backends import Matplotlib2D
+from boinor.plotting import OrbitPlotter
+from boinor.plotting.orbit.backends import Matplotlib2D
 ```
 
 ```{code-cell} ipython3

@@ -5,7 +5,7 @@ from astropy.time import Time
 import numpy as np
 import pytest
 
-from poliastro.bodies import (
+from boinor.bodies import (
     Earth,
     Jupiter,
     Mars,
@@ -17,9 +17,9 @@ from poliastro.bodies import (
     Uranus,
     Venus,
 )
-from poliastro.constants import J2000
-from poliastro.frames.ecliptic import GeocentricSolarEcliptic
-from poliastro.frames.equatorial import (
+from boinor.constants import J2000
+from boinor.frames.ecliptic import GeocentricSolarEcliptic
+from boinor.frames.equatorial import (
     GCRS,
     HCRS,
     ICRS,
@@ -31,7 +31,7 @@ from poliastro.frames.equatorial import (
     UranusICRS,
     VenusICRS,
 )
-from poliastro.frames.fixed import (
+from boinor.frames.fixed import (
     ITRS,
     JupiterFixed,
     MarsFixed,

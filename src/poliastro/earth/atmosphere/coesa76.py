@@ -48,7 +48,7 @@ from astropy.io import ascii
 from astropy.utils.data import get_pkg_data_filename
 import numpy as np
 
-from poliastro.earth.atmosphere.base import COESA
+from boinor.earth.atmosphere.base import COESA
 
 # Following constants come from original U.S Atmosphere 1962 paper so a pure
 # model of this atmosphere can be implemented

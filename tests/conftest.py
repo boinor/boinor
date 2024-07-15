@@ -3,8 +3,8 @@ from astropy.coordinates import solar_system_ephemeris
 from astropy.time import Time
 import pytest
 
-from poliastro.bodies import Earth, Sun
-from poliastro.twobody import Orbit
+from boinor.bodies import Earth, Sun
+from boinor.twobody import Orbit
 
 solar_system_ephemeris.set("builtin")
 

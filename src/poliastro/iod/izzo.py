@@ -1,7 +1,7 @@
 """Izzo's algorithm for Lambert's problem."""
 from astropy import units as u
 
-from poliastro.core.iod import izzo as izzo_fast
+from boinor.core.iod import izzo as izzo_fast
 
 kms = u.km / u.s
 

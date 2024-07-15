@@ -34,7 +34,7 @@ bodies for a variety of $V_{\infty}$ and $\alpha$, $\alpha$ being the pump angle
 * Phasing is not taken into account. That means only orbits are taken into
   account, not rendezvous between departure and target body.
 
-Please, note that **poliastro solves `mean orbital elements` for Solar System bodies. Although their orbital parameters do not have great variations among time, planet orbits are assumed not to be perfectly circular or coplanar.** However, Tisserand figures are still useful for quick-design gravity assisted maneuvers.
+Please, note that **boinor solves `mean orbital elements` for Solar System bodies. Although their orbital parameters do not have great variations among time, planet orbits are assumed not to be perfectly circular or coplanar.** However, Tisserand figures are still useful for quick-design gravity assisted maneuvers.
 
 +++
 
@@ -55,9 +55,9 @@ from astropy import units as u
 from matplotlib import pyplot as plt
 import numpy as np
 
-from poliastro.bodies import Venus, Earth, Mars
-from poliastro.plotting.tisserand import TisserandPlotter, TisserandKind
-from poliastro.plotting.util import BODY_COLORS
+from boinor.bodies import Venus, Earth, Mars
+from boinor.plotting.tisserand import TisserandPlotter, TisserandKind
+from boinor.plotting.util import BODY_COLORS
 ```
 
 Notice that we imported the `TisserandKind` class, which will help us to indicate the kind of Tisserand plot we want to generate:
@@ -115,7 +115,7 @@ More complex tisserand graphs can be developed, for example for the whole Solar 
 
 ```{code-cell}
 # Let us import the rest of the planets
-from poliastro.bodies import Mercury, Jupiter, Saturn, Uranus, Neptune
+from boinor.bodies import Mercury, Jupiter, Saturn, Uranus, Neptune
 
 SS_BODIES_INNER = [
     Mercury,

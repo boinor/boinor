@@ -1,7 +1,7 @@
 # Community contributions
 
 The `contrib` directory contains community contributions
-that are not yet ready to be part of the poliastro API,
+that are not yet ready to be part of the boinor API,
 but are nonetheless useful for Astrodynamics Python users.
 
 If you have a small script or set of them
@@ -28,8 +28,8 @@ please follow these steps:
   specifying any required dependencies.
 
 And if you have any questions,
-please [join our chat](http://chat.poliastro.space)
-or [open an issue](https://github.com/poliastro/poliastro/issues/new)!
+please [join our chat](http://chat.boinor.space)
+or [open an issue](https://github.com/boinor/boinor/issues/new)!
 
 Note that:
 
@@ -40,6 +40,6 @@ Note that:
   so either they should be pure Python
   or be written in a compiled language with a Python wrapper.
 - All contributions will be permissively licensed with the MIT license,
-  the one that poliastro uses.
+  the one that boinor uses.
   If you don't agree with this,
   we ask you to find a different place to share your contribution.

@@ -8,10 +8,10 @@ import numpy as np
 from numpy.linalg import norm
 import pytest
 
-from poliastro.bodies import Earth, Moon, Sun
-from poliastro.constants import H0_earth, Wdivc_sun, rho0_earth
-from poliastro.core.elements import rv2coe
-from poliastro.core.perturbations import (
+from boinor.bodies import Earth, Moon, Sun
+from boinor.constants import H0_earth, Wdivc_sun, rho0_earth
+from boinor.core.elements import rv2coe
+from boinor.core.perturbations import (
     J2_perturbation,
     J3_perturbation,
     atmospheric_drag,
@@ -19,13 +19,13 @@ from poliastro.core.perturbations import (
     radiation_pressure,
     third_body,
 )
-from poliastro.core.propagation import func_twobody
-from poliastro.earth.atmosphere import COESA76
-from poliastro.ephem import build_ephem_interpolant
-from poliastro.twobody import Orbit
-from poliastro.twobody.events import LithobrakeEvent
-from poliastro.twobody.propagation import CowellPropagator
-from poliastro.util import time_range
+from boinor.core.propagation import func_twobody
+from boinor.earth.atmosphere import COESA76
+from boinor.ephem import build_ephem_interpolant
+from boinor.twobody import Orbit
+from boinor.twobody.events import LithobrakeEvent
+from boinor.twobody.propagation import CowellPropagator
+from boinor.util import time_range
 
 
 @pytest.mark.slow

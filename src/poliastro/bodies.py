@@ -26,7 +26,7 @@ Contains some predefined bodies of the Solar System:
 
 and a way to define new bodies (:py:class:`~Body` class).
 
-Data references can be found in :py:mod:`~poliastro.constants`
+Data references can be found in :py:mod:`~boinor.constants`
 """
 from collections import namedtuple
 import math
@@ -35,8 +35,8 @@ from astropy import units as u
 from astropy.constants import G
 from astropy.units import Quantity
 
-from poliastro import constants
-from poliastro.frames import Planes
+from boinor import constants
+from boinor.frames import Planes
 
 
 # HACK: Constants cannot be hashed
@@ -145,15 +145,15 @@ class SolarSystemPlanet(Body):
             Epoch of current position.
         label : str, optional
             Label for the orbit, defaults to empty.
-        plane : ~poliastro.frames.Planes
+        plane : ~boinor.frames.Planes
             Reference plane of the coordinates.
-        backend : ~poliastro.plotting.orbit.backends._base.OrbitPlotterBackend
+        backend : ~boinor.plotting.orbit.backends._base.OrbitPlotterBackend
             An instance of ``OrbitPlotterBackend`` for rendendering the scene.
 
         """
         # HACK: import here the OrbitPlotter to avoid a circular dependency
         # between bodies.py and misc.py
-        from poliastro.plotting.orbit.plotter import OrbitPlotter
+        from boinor.plotting.orbit.plotter import OrbitPlotter
 
         return OrbitPlotter(backend=backend, plane=plane).plot_body_orbit(
             self, epoch=epoch, label=label

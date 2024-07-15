@@ -6,8 +6,8 @@ import numpy as np
 import plotly
 import plotly.graph_objects as go
 
-from poliastro.plotting.orbit.backends._base import OrbitPlotterBackend
-from poliastro.plotting.util import generate_sphere
+from boinor.plotting.orbit.backends._base import OrbitPlotterBackend
+from boinor.plotting.util import generate_sphere
 
 
 class BasePlotly(OrbitPlotterBackend):

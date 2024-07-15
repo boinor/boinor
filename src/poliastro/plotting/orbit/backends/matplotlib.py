@@ -5,7 +5,7 @@ from matplotlib.collections import LineCollection
 from matplotlib.colors import LinearSegmentedColormap, to_rgba
 import numpy as np
 
-from poliastro.plotting.orbit.backends._base import OrbitPlotterBackend
+from boinor.plotting.orbit.backends._base import OrbitPlotterBackend
 
 
 def _segments_from_arrays(x, y):

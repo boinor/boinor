@@ -1,17 +1,17 @@
 # What's new
 
-## poliastro 0.17.0 - 2022-07-10
+## boinor 0.17.0 - 2022-07-10
 
 ### Highlights
 
-- **poliastro at SciPy US 2022**:
+- **boinor at SciPy US 2022**:
   [Juan Luis](https://github.com/astrojuanlu/) and [Jorge](https://github.com/jorgepiloto/)
-  have co-authored [a scientific paper about poliastro] that will appear in the proceedings of
+  have co-authored [a scientific paper about boinor] that will appear in the proceedings of
   the 21st annual Scientific Computing with Python conference (SciPy US 2022).
   In addition, Juan Luis will deliver a talk titled
-  "Per Python ad astra: interactive Astrodynamics with poliastro" at the conference.
+  "Per Python ad astra: interactive Astrodynamics with boinor" at the conference.
   After almost a decade of work, it will be the first time that
-  poliastro is presented at the most important conference about Scientific Python.
+  boinor is presented at the most important conference about Scientific Python.
 - **Refactored propagators**:
   Propagation methods are no longer plain functions and have become classes instead.
   This allows them to share a common interface and perform more efficient calculations.
@@ -19,32 +19,32 @@
   a custom propoagator: for example, to propagate using Cowell's method, you now have to write
 
 ```python
-from poliastro.twobody.propagation import CowellPropagator
+from boinor.twobody.propagation import CowellPropagator
 
 new_orbit = orbit.propagate(1 << u.day, method=CowellPropagator())
 ```
 
-- **New {py:meth}`~poliastro.twobody.orbit.scalar.Orbit.to_ephem` to retrieve propagation time histories**:
-  The {py:meth}`~poliastro.twobody.orbit.scalar.Orbit.propagate` method that allows users to
-  return a propagated {{ Orbit }} at a new epoch has been available in poliastro for a very long time.
+- **New {py:meth}`~boinor.twobody.orbit.scalar.Orbit.to_ephem` to retrieve propagation time histories**:
+  The {py:meth}`~boinor.twobody.orbit.scalar.Orbit.propagate` method that allows users to
+  return a propagated {{ Orbit }} at a new epoch has been available in boinor for a very long time.
   However, many users were interested in retrieving the full time history of the propagation
-  in the intermediate time steps, and historically poliastro has struggled to provide a consistent API for it.
-  The new {py:meth}`~poliastro.twobody.orbit.scalar.Orbit.to_ephem` aims to replace the old
-  `poliastro.twobody.propagation.propagate` function, which was difficult to discover and too low-level.
+  in the intermediate time steps, and historically boinor has struggled to provide a consistent API for it.
+  The new {py:meth}`~boinor.twobody.orbit.scalar.Orbit.to_ephem` aims to replace the old
+  `boinor.twobody.propagation.propagate` function, which was difficult to discover and too low-level.
 
-[a scientific paper about poliastro]: https://github.com/scipy-conference/scipy_proceedings/blob/2022/papers/juanluis_cano_poliastro/juanluis_cano_poliastro.rst
+[a scientific paper about boinor]: https://github.com/scipy-conference/scipy_proceedings/blob/2022/papers/juanluis_cano_boinor/juanluis_cano_boinor.rst
 
 ### New features
 
-- New {py:meth}`~poliastro.twobody.orbit.scalar.Orbit.to_ephem` method
+- New {py:meth}`~boinor.twobody.orbit.scalar.Orbit.to_ephem` method
   that generates an {{ Ephem }} instances from {{ Orbit }} objects using a variety of strategies
-  available in {py:mod}`poliastro.twobody.sampling`:
-  minimum and maximum anomalies with {py:class}`~poliastro.twobody.sampling.TrueAnomalyBounds`,
-  minimum and maximum epochs with {py:class}`~poliastro.twobody.sampling.EpochsBounds`,
-  or explicit array of epochs with {py:class}`~poliastro.twobody.sampling.EpochsArray`.
-- The Lambert problem algorithms in {py:mod}`poliastro.iod` now accept `prograde` and `lowpath`
+  available in {py:mod}`boinor.twobody.sampling`:
+  minimum and maximum anomalies with {py:class}`~boinor.twobody.sampling.TrueAnomalyBounds`,
+  minimum and maximum epochs with {py:class}`~boinor.twobody.sampling.EpochsBounds`,
+  or explicit array of epochs with {py:class}`~boinor.twobody.sampling.EpochsArray`.
+- The Lambert problem algorithms in {py:mod}`boinor.iod` now accept `prograde` and `lowpath`
   parameters to disambiguate solutions.
-- New {py:class}`poliastro.plotting.gabbard.GabbardPlotter` to plot
+- New {py:class}`boinor.plotting.gabbard.GabbardPlotter` to plot
   [Gabbard diagrams](https://en.wiktionary.org/wiki/Gabbard_diagram):
 
 ```{image} _static/gabbard.png
@@ -54,17 +54,17 @@ align: center
 ```
 
 - New recursive series Kepler solver for elliptical orbits
-  {py:class}`poliastro.twobody.propagation.RecseriesPropagator` based on Charls
+  {py:class}`boinor.twobody.propagation.RecseriesPropagator` based on Charls
   "Recursive solution to Kepler’s problem for elliptical orbits -
   application in robust Newton-Raphson and co-planar closest approach estimation".
-- New {py:meth}`~poliastro.twobody.orbit.scalar.Orbit.elevation` of {{ Orbit }} objects
+- New {py:meth}`~boinor.twobody.orbit.scalar.Orbit.elevation` of {{ Orbit }} objects
   to determine the elevation of the object over a specific observation point on the attractor
   defined by latitude `lat` and longitude `theta`.
-- New {py:meth}`poliastro.earth.util.get_local_sidereal_time`.
+- New {py:meth}`boinor.earth.util.get_local_sidereal_time`.
 
 In addition, we have new community-contributed scripts:
 
-- [Circular restricted three-body problem](https://github.com/poliastro/poliastro/blob/main/contrib/CR3BP/CR3BP.py)
+- [Circular restricted three-body problem](https://github.com/boinor/boinor/blob/main/contrib/CR3BP/CR3BP.py)
 
 ### Performance improvements
 
@@ -74,30 +74,30 @@ In addition, we have new community-contributed scripts:
 ### Bugs fixed
 
 - Compatibility with newer versions of astroquery ({github}`Issue #1405 <#1405>`)
-- {py:class}`poliastro.maneuver.Maneuver.lambert` sometimes generated negative times of flight
+- {py:class}`boinor.maneuver.Maneuver.lambert` sometimes generated negative times of flight
   and crashed ({github}`Issue #1397 <#1397>`)
 - Attractor singletons now behave correctly upon pickling and unpickling
   ({github}`Issue #1395 <#1395>`)
-- {py:meth}`poliastro.earth.atmosphere.jacchia.Jacchia77.density()` returned value
+- {py:meth}`boinor.earth.atmosphere.jacchia.Jacchia77.density()` returned value
   in incorrect units ({github}`Issue #1509 <#1509>`)
 - `atmospheric_drag` had incorrect units in its docstring ({github}`Issue #1513 <#1513>`)
 - `radiation_pressure` had incorrect units in its docstring ({github}`Issue #1515 <#1515>`)
 - Typo in `coesa76` table ({github}`Issue #1518 <#1518>`)
-- {py:class}`poliastro.maneuver.Maneuver.lambert` had lousy time comparisons.
+- {py:class}`boinor.maneuver.Maneuver.lambert` had lousy time comparisons.
 - {py:meth}`build_ephem_interpolant`
 
 ### Backwards incompatible changes
 
-- The propagators in {py:mod}`poliastro.twobody.propagation` are no longer functions, but classes:
-  hence `cowell` becomes {py:class}`poliastro.twobody.propagation.CowellPropagator`,
-  `farnocchia` becomes {py:class}`poliastro.twobody.propagation.FarnocchiaPropagator`, and so forth.
-- The state classes in {py:mod}`poliastro.twobody.states` no longer accept elements as keyword arguments,
+- The propagators in {py:mod}`boinor.twobody.propagation` are no longer functions, but classes:
+  hence `cowell` becomes {py:class}`boinor.twobody.propagation.CowellPropagator`,
+  `farnocchia` becomes {py:class}`boinor.twobody.propagation.FarnocchiaPropagator`, and so forth.
+- The state classes in {py:mod}`boinor.twobody.states` no longer accept elements as keyword arguments,
   but instead they take 6-tuples.
-- Interpolation methods in {py:mod}`poliastro.ephem` are no longer enumeration values, but classes:
+- Interpolation methods in {py:mod}`boinor.ephem` are no longer enumeration values, but classes:
   hence `ephem.sample(method=InterpolationMethods.SPLINES)` becomes `ephem.sample(interpolator=SplineInterpolator())`.
-- The Lambert problem methods in {py:mod}`poliastro.iod` do not yield pairs of velocities anymore,
+- The Lambert problem methods in {py:mod}`boinor.iod` do not yield pairs of velocities anymore,
   and instead they always return departure and arrival velocity.
-- Module `poliastro.earth.sensors` was moved to {py:mod}`poliastro.sensors`.
+- Module `boinor.earth.sensors` was moved to {py:mod}`boinor.sensors`.
 
 ### Contributors
 
@@ -123,15 +123,15 @@ release, with a + sign indicating first contribution.
 - Varenyam Bhardwaj+
 - Yash Gondhalekar
 
-## poliastro 0.16.3 - 2022-05-09
+## boinor 0.16.3 - 2022-05-09
 
 This release adds support for Astropy 5.0
 and fixes some dependency issues.
 
 ### Bugs fixed
 
-- Cannot install poliastro on Python 3.10 ({github}`Issue #1496 <#1496>`)
-- Cannot import `poliastro.twobody.Orbit` ({github}`Issue #1493 <#1493>`)
+- Cannot install boinor on Python 3.10 ({github}`Issue #1496 <#1496>`)
+- Cannot import `boinor.twobody.Orbit` ({github}`Issue #1493 <#1493>`)
 
 ### Contributors
 
@@ -141,11 +141,11 @@ release, with a + sign indicating first contribution.
 - Jorge Martínez Garrido
 - Juan Luis Cano Rodríguez
 
-## poliastro 0.16.2 - 2022-02-10
+## boinor 0.16.2 - 2022-02-10
 
 Same as 0.16.1, but fixes the documentation building process.
 
-## poliastro 0.16.1 - 2022-02-10
+## boinor 0.16.1 - 2022-02-10
 
 This release adds support for Python 3.10,
 fixes some bugs found after 0.16.0,
@@ -184,7 +184,7 @@ release, with a + sign indicating first contribution.
 - Varenyam Bhardwaj+
 - Yash Gondhalekar
 
-## poliastro 0.16.0 - 2021-12-08
+## boinor 0.16.0 - 2021-12-08
 
 This new major release includes lots of API changes and enhancements,
 including numerous performance improvements
@@ -197,10 +197,10 @@ as well as the results from Google Summer of Code 2021.
   as part of his Google Summer of Code 2021.
   Have a look at {doc}`/examples/detecting-events` guide to learn more.
 - **New ``.plot_maneuver`` method**
-  The interactive orbit plotters {py:class}`~poliastro.plotting.OrbitPlotter2D`
-  and {py:class}`~poliastro.plotting.OrbitPlotter3D`
+  The interactive orbit plotters {py:class}`~boinor.plotting.OrbitPlotter2D`
+  and {py:class}`~boinor.plotting.OrbitPlotter3D`
   now have a new method to easily display impulsive burns.
-  See {doc}`/examples/going-to-jupiter-with-python-using-jupyter-and-poliastro`
+  See {doc}`/examples/going-to-jupiter-with-python-using-jupyter-and-boinor`
   for an example.
 - **Many performance improvements**
   Several contributors have helped accelerate more algorithms
@@ -209,22 +209,22 @@ as well as the results from Google Summer of Code 2021.
 
 ### New features
 
-- New {py:class}`poliastro.twobody.events.AltitudeCrossEvent`,
-  {py:class}`poliastro.twobody.events.LatitudeCrossEvent`,
-  {py:class}`poliastro.twobody.events.EclipseEvent`,
-  {py:class}`poliastro.twobody.events.NodeCrossEvent`,
-  and {py:class}`poliastro.twobody.events.LosEvent` classes.
-- Now {py:meth}`poliastro.core.util.alinspace` accepts angle differences beyond $2\pi$ - Compatibility with Plotly 5 and Astropy 4.3.
-- New ``unit`` parameter of {py:class}`poliastro.plotting.OrbitPlotter2D`
-  and {py:class}`poliastro.plotting.OrbitPlotter3D`
+- New {py:class}`boinor.twobody.events.AltitudeCrossEvent`,
+  {py:class}`boinor.twobody.events.LatitudeCrossEvent`,
+  {py:class}`boinor.twobody.events.EclipseEvent`,
+  {py:class}`boinor.twobody.events.NodeCrossEvent`,
+  and {py:class}`boinor.twobody.events.LosEvent` classes.
+- Now {py:meth}`boinor.core.util.alinspace` accepts angle differences beyond $2\pi$ - Compatibility with Plotly 5 and Astropy 4.3.
+- New ``unit`` parameter of {py:class}`boinor.plotting.OrbitPlotter2D`
+  and {py:class}`boinor.plotting.OrbitPlotter3D`
   that allow changing the axis units.
-- New util functions {py:meth}`poliastro.core.util.spherical_to_cartesian`
-  and {py:meth}`poliastro.core.util.eccentricity_vector`.
+- New util functions {py:meth}`boinor.core.util.spherical_to_cartesian`
+  and {py:meth}`boinor.core.util.eccentricity_vector`.
 
 In addition, we have new community-contributed scripts:
 
-- [Relative orbits](https://github.com/poliastro/poliastro/blob/main/contrib/relative.py).
-- [Mean elements](https://github.com/poliastro/poliastro/blob/main/contrib/rv2tle.py).
+- [Relative orbits](https://github.com/boinor/boinor/blob/main/contrib/relative.py).
+- [Mean elements](https://github.com/boinor/boinor/blob/main/contrib/rv2tle.py).
 
 ### Performance improvements
 
@@ -265,7 +265,7 @@ In addition, we have new community-contributed scripts:
 - Replaced some assertions by proper errors ({github}`PR #1367 <#1367>`)
 - Replaced `atmospheric_drag_model` by `atmospheric_drag` with a simpler signature ({github}`PR #1375 <#1375>`)
 - Disable atmosphere perturbation in `EarthSatellite` ({github}`PR #1375 <#1375>`)
-- Made continuous thrust guidance laws from {py:mod}`poliastro.twobody.thrust`
+- Made continuous thrust guidance laws from {py:mod}`boinor.twobody.thrust`
   unit-safe.
 
 ### Contributors
@@ -293,24 +293,24 @@ release, with a + sign indicating first contribution.
 - Syed Osama Hussain
 - Yash Gondhalekar
 
-## poliastro 0.15.2 - 2021-06-27
+## boinor 0.15.2 - 2021-06-27
 
 Same as 0.15.1, but fixes error in release artifact.
 
-## poliastro 0.15.1 - 2021-06-27
+## boinor 0.15.1 - 2021-06-27
 
 This release fixes some bugs found after 0.15.0.
 
 ### Bugs fixed
 
-- [Issue \#1229](https://github.com/poliastro/poliastro/issues/1229):
+- [Issue \#1229](https://github.com/boinor/boinor/issues/1229):
   Unit conversion error when using newer astroquery
-- [Issue \#1245](https://github.com/poliastro/poliastro/issues/1245):
+- [Issue \#1245](https://github.com/boinor/boinor/issues/1245):
   Fix incorrect dependency specification for extras
 - \[No issue number\] Allow Plotly 5.0
 - \[No issue number\] Enable intersphinx support for sphinx-hoverxref
 
-Do you want to help with the remaining ones? [Check the current list here!](https://github.com/poliastro/poliastro/issues?q=is%3Aopen+is%3Aissue+label%3Abug)
+Do you want to help with the remaining ones? [Check the current list here!](https://github.com/boinor/boinor/issues?q=is%3Aopen+is%3Aissue+label%3Abug)
 
 ### Contributors
 
@@ -321,7 +321,7 @@ release, with a + sign indicating first contribution.
 - Jero Bado+
 - Juan Luis Cano
 
-## poliastro 0.15.0 - 2021-05-14
+## boinor 0.15.0 - 2021-05-14
 
 This new major release includes lots of API changes and enhancements,
 as well as the fruitful results from Google Summer of Code 2020.
@@ -330,16 +330,16 @@ as well as the fruitful results from Google Summer of Code 2020.
 
 - **Numerous new Earth-specific capabilities!**
   María Eugenia (Meuge) contributed lots of new features useful for studying artificial satellites,
-  including formulas to compute the field of view and ground range in {py:mod}`poliastro.twobody.orbit`,
-  and new experimental {py:class}`poliastro.earth.EarthSatellite`
-  and {py:class}`~poliastro.earth.Spacecraft` classes.
-- **poliastro is now validated!**
+  including formulas to compute the field of view and ground range in {py:mod}`boinor.twobody.orbit`,
+  and new experimental {py:class}`boinor.earth.EarthSatellite`
+  and {py:class}`~boinor.earth.Spacecraft` classes.
+- **boinor is now validated!**
   Thanks to a [NumFOCS Small Development Grant](https://numfocus.org/programs/small-development-grants),
-  we created a [validation framework for poliastro](https://github.com/poliastro/validation/)
+  we created a [validation framework for boinor](https://github.com/boinor/validation/)
   to compare our results with GMAT and Orekit.
 - **Revamped website!**
   We reorganized our domains
-  and [gave poliastro a nice front page](https://www.poliastro.space).
+  and [gave boinor a nice front page](https://www.boinor.space).
 - **Support for Python 3.9!**
   We also dropped support for Python 3.6, as anticipated.
   The next release will add support for Python 3.10,
@@ -351,51 +351,51 @@ as well as the fruitful results from Google Summer of Code 2020.
   Markdown has much wider adoption than reStructuredText,
   so we made the decision to switch to Markedly Structured Text,
   a superset of CommonMark that adds some nice features.
-  We hope that this will make contributing to poliastro documentation easier.
+  We hope that this will make contributing to boinor documentation easier.
 - **Added a community contributions procedure!**
   We now have a top-level `contrib/` directory
-  for community contributions that are not yet ready to be part of the poliastro API.
-  Check out [the instructions](https://github.com/poliastro/poliastro/tree/main/contrib)
+  for community contributions that are not yet ready to be part of the boinor API.
+  Check out [the instructions](https://github.com/boinor/boinor/tree/main/contrib)
   and make yours!
 
 ### New features
 
-- New {py:meth}`poliastro.twobody.Orbit.stationary` and {py:meth}`~poliastro.twobody.Orbit.synchronous`
+- New {py:meth}`boinor.twobody.Orbit.stationary` and {py:meth}`~boinor.twobody.Orbit.synchronous`
   methods for all attractors.
-- New experimental {py:class}`poliastro.earth.EarthSatellite` class
+- New experimental {py:class}`boinor.earth.EarthSatellite` class
   containing a specialized `propagate` method
   with some preconfigured perturbations.
-- New experimental {py:class}`poliastro.spacecraft.Spacecraft` class
+- New experimental {py:class}`boinor.spacecraft.Spacecraft` class
   containing physical attributes like area, drag coefficient, and mass.
-- New {py:class}`poliastro.plotting.tisserand.TisserandPlotter` class.
-- New {py:meth}`poliastro.maneuver.Maneuver.correct_pericenter` maneuver.
-- New {py:mod}`poliastro.earth.sensors` module
+- New {py:class}`boinor.plotting.tisserand.TisserandPlotter` class.
+- New {py:meth}`boinor.maneuver.Maneuver.correct_pericenter` maneuver.
+- New {py:mod}`boinor.earth.sensors` module
   with ground range and field of view calculations,
-  like {py:meth}`~poliastro.earth.sensors.min_and_max_ground_range`
-  and {py:meth}`~poliastro.earth.sensors.ground_range_diff_at_azimuth`.
-- New {py:class}`poliastro.earth.plotting.groundtrack.GroundtrackPlotter` class.
-- New {py:meth}`poliastro.ephem.Ephem.from_orbit` method.
+  like {py:meth}`~boinor.earth.sensors.min_and_max_ground_range`
+  and {py:meth}`~boinor.earth.sensors.ground_range_diff_at_azimuth`.
+- New {py:class}`boinor.earth.plotting.groundtrack.GroundtrackPlotter` class.
+- New {py:meth}`boinor.ephem.Ephem.from_orbit` method.
 
 ### Bugs fixed
 
-- [Issue \#740](https://github.com/poliastro/poliastro/issues/740): Incorrect Hohmann maneuver when not at pericenter
-- [Issue \#957](https://github.com/poliastro/poliastro/issues/957): poliastro description on PyPI is wrong
-- [Issue \#992](https://github.com/poliastro/poliastro/issues/992): Units error in COESA amtospheric models
-- [Issue \#1021](https://github.com/poliastro/poliastro/issues/1021): Uncaught error in plotting
-- [Issue \#1192](https://github.com/poliastro/poliastro/issues/1192): Wrong W angle for Moon IAU pole
+- [Issue \#740](https://github.com/boinor/boinor/issues/740): Incorrect Hohmann maneuver when not at pericenter
+- [Issue \#957](https://github.com/boinor/boinor/issues/957): boinor description on PyPI is wrong
+- [Issue \#992](https://github.com/boinor/boinor/issues/992): Units error in COESA amtospheric models
+- [Issue \#1021](https://github.com/boinor/boinor/issues/1021): Uncaught error in plotting
+- [Issue \#1192](https://github.com/boinor/boinor/issues/1192): Wrong W angle for Moon IAU pole
 
 And many more smaller documentation and rendering issues
 introduced during the migration to MyST.
 
 ### Backwards incompatible changes
 
-- [We refactored the {py:meth}`poliastro.twobody.propagation.cowell` method](https://github.com/poliastro/poliastro/pull/1053)
+- [We refactored the {py:meth}`boinor.twobody.propagation.cowell` method](https://github.com/boinor/boinor/pull/1053)
   and rewrote its signature to make it easier to maintain and to use.
   Code using it will need adjustment,
   see our {ref}`quickstart` and our {ref}`gallery` for guidance.
-- [The method `Orbit.from_body_ephem` has been removed](https://github.com/poliastro/poliastro/pull/1110),
-  use {py:meth}`poliastro.twobody.Orbit.from_ephem`
-  and {py:class}`poliastro.ephem.Ephem` instead.
+- [The method `Orbit.from_body_ephem` has been removed](https://github.com/boinor/boinor/pull/1110),
+  use {py:meth}`boinor.twobody.Orbit.from_ephem`
+  and {py:class}`boinor.ephem.Ephem` instead.
 
 ### Contributors
 
@@ -441,7 +441,7 @@ and therefore the contributors list is larger than ever!
 - Yash Gondhalekar+
 - Zeke Sikelianos+
 
-## poliastro 0.14.0 - 2020-05-08
+## boinor 0.14.0 - 2020-05-08
 
 This major release contains crucial new features and bug fixes that have
 been years in the making, and is by far the most exciting release in the
@@ -451,22 +451,22 @@ history of the project.
 
 ```{eval-rst}
 * **New API to retrieve ephemerides**: After a lot of iteration we introduced
-  a new object, :py:class:`poliastro.ephem.Ephem`, to retrieve and represent
+  a new object, :py:class:`boinor.ephem.Ephem`, to retrieve and represent
   **ephemerides**, as opposed to osculating orbits. Besides, we added convenience
   methods to plot them so they can be combined with
-  :py:class:`~poliastro.twobody.orbit.Orbit` objects.
+  :py:class:`~boinor.twobody.orbit.Orbit` objects.
 * **Simple API to retrieve mean elements of Solar System planets**: There are
   many use cases for approximate, mean Keplerian elements for planet orbits:
   computing Spheres of Influence, designing specialized orbits... We introduced
-  a new function :py:meth:`poliastro.twobody.mean_elements.get_mean_elements`
+  a new function :py:meth:`boinor.twobody.mean_elements.get_mean_elements`
   that makes it way easier.
 * **Avoid mixing ephemerides and osculating orbits**: The ``Orbit.from_body_ephem``
   method was very convenient and it was used everywhere
-  in poliastro examples because it was the simplest way to plot and analyze
+  in boinor examples because it was the simplest way to plot and analyze
   the orbits of the planets. However, it introduced a lot of confusion about the
   nature of osculating orbits and planetary ephemerides. With the introduction of
-  :py:class:`~poliastro.ephem.Ephem` objects and
-  :py:meth:`~poliastro.twobody.mean_elements.get_mean_elements`, this convenience
+  :py:class:`~boinor.ephem.Ephem` objects and
+  :py:meth:`~boinor.twobody.mean_elements.get_mean_elements`, this convenience
   method is no longer necessary, we removed almost all references to it
   (both in source code and examples) and we will remove it in the next release.
 * **Robust propagation in all eccentricity regimes**: Two years ago we started
@@ -476,7 +476,7 @@ history of the project.
   other propagation algorithms, but none of them worked correctly in all
   eccentricity regimes. With a big effort and a few sleepless nights
   we finally fixed the implementation of our default propagator
-  :py:meth:`poliastro.twobody.propagation.farnocchia`, and is now working
+  :py:meth:`boinor.twobody.propagation.farnocchia`, and is now working
   correctly for very extreme cases and long term propagations. Give it a try!
 * **New color palette**: We introduced a new color palette to improve the
   appearance of plots that include the orbits of the planets of the Solar System.
@@ -492,82 +492,82 @@ align: center
 
 ```{eval-rst}
 * **New plotting methods**: Check out
-  :py:meth:`~poliastro.plotting.static.StaticOrbitPlotter.plot_body_orbit` and
-  :py:meth:`~poliastro.plotting.static.StaticOrbitPlotter.plot_ephem`,
+  :py:meth:`~boinor.plotting.static.StaticOrbitPlotter.plot_body_orbit` and
+  :py:meth:`~boinor.plotting.static.StaticOrbitPlotter.plot_ephem`,
   available in all orbit plotter classes (both static and interactive).
 * **New CZML methods**: Simple API to retrieve the document
-  :py:meth:`poliastro.czml.extract_czml.CZMLExtractor.get_document` and method to add
-  trajectories :py:meth:`~poliastro.czml.extract_czml.CZMLExtractor.add_trajectory`
+  :py:meth:`boinor.czml.extract_czml.CZMLExtractor.get_document` and method to add
+  trajectories :py:meth:`~boinor.czml.extract_czml.CZMLExtractor.add_trajectory`
 * **Propagation events**: We added basic support for event detection when propagation
-  with the Cowell method and created a :py:class:`~poliastro.twobody.events.LithobrakeEvent`
+  with the Cowell method and created a :py:class:`~boinor.twobody.events.LithobrakeEvent`
   that detects impact with the surface of an attractor. We will be adding more events
   in the future.
 * **Extended atmospheric properties beyond 90 kilometers**: We completed the
   implementation of our atmospheric models,
-  :py:class:`poliastro.earth.atmosphere.coesa62.COESA62` and
-  :py:class:`~poliastro.earth.atmosphere.coesa76.COESA76`, to compute physical properties
+  :py:class:`boinor.earth.atmosphere.coesa62.COESA62` and
+  :py:class:`~boinor.earth.atmosphere.coesa76.COESA76`, to compute physical properties
   beyond 90 kilometers, and tested them up to approximately 700 kilometers.
 ```
 
 ### Bugs fixed
 
--  [Issue \#475](https://github.com/poliastro/poliastro/issues/475): 🎉
-  Propagator mean_motion hangs for some r, v vectors around Earth (seethe gory details at the [Farnocchia propagator pullrequest](https://github.com/poliastro/poliastro/pull/908))
-- [Issue \#716](https://github.com/poliastro/poliastro/issues/716):
+-  [Issue \#475](https://github.com/boinor/boinor/issues/475): 🎉
+  Propagator mean_motion hangs for some r, v vectors around Earth (seethe gory details at the [Farnocchia propagator pullrequest](https://github.com/boinor/boinor/pull/908))
+- [Issue \#716](https://github.com/boinor/boinor/issues/716):
   Prevent Orbit creation with non scalar quantities
-- [Issue \#726](https://github.com/poliastro/poliastro/issues/726):
+- [Issue \#726](https://github.com/boinor/boinor/issues/726):
   Strange behaviour when plotting some orbits
-- [Issue \#817](https://github.com/poliastro/poliastro/issues/817):
+- [Issue \#817](https://github.com/boinor/boinor/issues/817):
   CZML extractor: timezone issues (clock.Interval and currentTime not
   tz-aware)
-- [Issue \#824](https://github.com/poliastro/poliastro/issues/824):
+- [Issue \#824](https://github.com/boinor/boinor/issues/824):
   Properly plot orbits in different planes
-- [Issue \#829](https://github.com/poliastro/poliastro/issues/829):
+- [Issue \#829](https://github.com/boinor/boinor/issues/829):
   Long standing typo in equinoctial elements documentation
-- [Issue \#837](https://github.com/poliastro/poliastro/issues/837):
+- [Issue \#837](https://github.com/boinor/boinor/issues/837):
   Fix `R_polar_jupiter`{.interpreted-text role="const"} value
-- [Issue \#840](https://github.com/poliastro/poliastro/issues/840):
+- [Issue \#840](https://github.com/boinor/boinor/issues/840):
   vallado.lambert fails for long way transfers
-- [Issue \#841](https://github.com/poliastro/poliastro/issues/841):
+- [Issue \#841](https://github.com/boinor/boinor/issues/841):
   RAAN from LTAN calculation off by 180 degrees
-- [Issue \#849](https://github.com/poliastro/poliastro/issues/849):
+- [Issue \#849](https://github.com/boinor/boinor/issues/849):
   Changed ss.frame to ss.get_frame in documentation
-- [Issue \#850](https://github.com/poliastro/poliastro/issues/850):
+- [Issue \#850](https://github.com/boinor/boinor/issues/850):
   Duplicated sphinx extension
-- [Issue \#859](https://github.com/poliastro/poliastro/issues/859):
+- [Issue \#859](https://github.com/boinor/boinor/issues/859):
   Fix Binder
-- [Issue \#861](https://github.com/poliastro/poliastro/issues/861):
+- [Issue \#861](https://github.com/boinor/boinor/issues/861):
   Make from_sbdb tests more robust against external changes
-- [Issue \#862](https://github.com/poliastro/poliastro/issues/862):
+- [Issue \#862](https://github.com/boinor/boinor/issues/862):
   CZML tests failing locally because of non-UTC timezones
-- [Issue \#892](https://github.com/poliastro/poliastro/issues/892):
+- [Issue \#892](https://github.com/boinor/boinor/issues/892):
   Error in porkchop docstrings
-- [Issue \#901](https://github.com/poliastro/poliastro/issues/901):
+- [Issue \#901](https://github.com/boinor/boinor/issues/901):
   Fix sampling logic for closed orbits
-- [Issue \#902](https://github.com/poliastro/poliastro/issues/902):
+- [Issue \#902](https://github.com/boinor/boinor/issues/902):
   Error while reading Halley\'s comet from DASTCOM5
-- [Issue \#907](https://github.com/poliastro/poliastro/issues/907):
+- [Issue \#907](https://github.com/boinor/boinor/issues/907):
   Orbit.propagate_to_anomaly freezes
-- [Issue \#911](https://github.com/poliastro/poliastro/issues/911):
+- [Issue \#911](https://github.com/boinor/boinor/issues/911):
   CZMLExtractor has no API documentation
-- [Issue \#916](https://github.com/poliastro/poliastro/issues/916):
+- [Issue \#916](https://github.com/boinor/boinor/issues/916):
   Orbit.from_sbdb raises unhelpful error if no object was found
 
 ### Backwards incompatible changes
 
 ```{eval-rst}
-* poliastro frames now must be imported from the specific submodule.
-* Renamed ``kepler`` to :py:meth:`poliastro.twobody.propagation.vallado`
-  and ``mean_motion`` to :py:meth:`poliastro.twobody.propagation.farnocchia`.
+* boinor frames now must be imported from the specific submodule.
+* Renamed ``kepler`` to :py:meth:`boinor.twobody.propagation.vallado`
+  and ``mean_motion`` to :py:meth:`boinor.twobody.propagation.farnocchia`.
 * Removed ``nu_to_M`` and ``M_to_nu`` functions, see the
   `Farnocchia propagator pull request`_ for discussion. We recommend users to
   use the mean anomaly only for elliptic orbits using
-  :py:meth:`~poliastro.twobody.angles.E_to_M`, :py:meth:`~poliastro.twobody.angles.nu_to_E`
+  :py:meth:`~boinor.twobody.angles.E_to_M`, :py:meth:`~boinor.twobody.angles.nu_to_E`
   and the converse functions.
-* Renamed ``SolarSystemBody`` to :py:class:`poliastro.bodies.SolarSystemPlanet`.
-* Removed unused ``poliastro.coordinates`` module.
+* Renamed ``SolarSystemBody`` to :py:class:`boinor.bodies.SolarSystemPlanet`.
+* Removed unused ``boinor.coordinates`` module.
 
-.. _`Farnocchia propagator pull request`: https://github.com/poliastro/poliastro/pull/908
+.. _`Farnocchia propagator pull request`: https://github.com/boinor/boinor/pull/908
 
 ```
 
@@ -575,13 +575,13 @@ align: center
 
 - Support for Python 3.8! The next release will add support for Python
   3.9 and remove support for 3.6, following [NEP29](https://numpy.org/neps/nep-0029-deprecation_policy.html).
-- [Benchmarks](https://benchmarks.poliastro.space/) moved to a new
+- [Benchmarks](https://benchmarks.boinor.space/) moved to a new
   location!
 - Switched to Azure Pipelines, so we are again testing in all
   operative systems.
-- [Huge internal refactor of orbit plotters](https://github.com/poliastro/poliastro/pull/876).
+- [Huge internal refactor of orbit plotters](https://github.com/boinor/boinor/pull/876).
 - We do not ship tests anymore! To run the tests, you will now need to
-  [clone poliastro repository](https://github.com/poliastro/poliastro/).
+  [clone boinor repository](https://github.com/boinor/boinor/).
 
 ### Contributors
 
@@ -605,26 +605,26 @@ release, with a + sign indicating first contribution.
 - Tomek Mrugalski+
 - Priyanshu Rohilla+
 
-## poliastro 0.13.1 - 2019-12-20
+## boinor 0.13.1 - 2019-12-20
 
 This release fixes some bugs found after 0.13.0.
 
 ### Bugs fixed
 
-- [Issue \#715](https://github.com/poliastro/poliastro/issues/715):
+- [Issue \#715](https://github.com/boinor/boinor/issues/715):
   Fix docs and dependencies for most recent nbsphinx release
-- [Issue \#761](https://github.com/poliastro/poliastro/issues/761):
+- [Issue \#761](https://github.com/boinor/boinor/issues/761):
   Fix unnoticed doctest failures due to unit problems
-- [Issue \#776](https://github.com/poliastro/poliastro/issues/776):
+- [Issue \#776](https://github.com/boinor/boinor/issues/776):
   Fix typing error in test
-- [Issue \#781](https://github.com/poliastro/poliastro/issues/781):
+- [Issue \#781](https://github.com/boinor/boinor/issues/781):
   Fix broken binder embedded hyperlinks
-- [Issue \#821](https://github.com/poliastro/poliastro/issues/821):
+- [Issue \#821](https://github.com/boinor/boinor/issues/821):
   Fix timezone issues in CZML extraction
 - \[No issue number\] Avoid looking for tests in virtual environments
 - \[No issue number\] Remove executable bit from some Python sources
 
-Do you want to help with the remaining ones? [Check the current list here!](https://github.com/poliastro/poliastro/issues?q=is%3Aopen+is%3Aissue+label%3Abug)
+Do you want to help with the remaining ones? [Check the current list here!](https://github.com/boinor/boinor/issues?q=is%3Aopen+is%3Aissue+label%3Abug)
 
 ### Contributors
 
@@ -635,7 +635,7 @@ release, with a + sign indicating first contribution.
 - Ole Streicher
 - Shreyas Bapat
 
-## poliastro 0.13.0 - 2019-08-05
+## boinor 0.13.0 - 2019-08-05
 
 This major release is packed with new features, especially the new CZML
 exporting capabilities and miscellaneous additions and important fixes
@@ -646,8 +646,8 @@ contributors, which makes us extremely proud and thankful!
 
 ```{eval-rst}
 * **Export Orbit objects to CZML**: There is new experimental functionality to
-  export :py:class:`~poliastro.twobody.orbit.Orbit` to CZML, the JSON format used
-  by the Cesium visualization system. This complements poliastro capabilities
+  export :py:class:`~boinor.twobody.orbit.Orbit` to CZML, the JSON format used
+  by the Cesium visualization system. This complements boinor capabilities
   and allows users to produce gorgeous visualizations, like the one below.
   We also kickstarted a new project called `czml3`_ a Python 3 interface to CZML,
   to support all these new capabilities, and created a `base Cesium application`_
@@ -660,11 +660,11 @@ contributors, which makes us extremely proud and thankful!
   while allowing more proficient users to install all the necessary components
   to have interactive visualizations going. If you still find issues, tell us!
 * **New Lambert maneuver**: After a long time, Lambert transfers are finally
-  a :py:class:`~poliastro.maneuver.Maneuver`, which means it shares the same API
+  a :py:class:`~boinor.maneuver.Maneuver`, which means it shares the same API
   as Hohmann and bielliptic transfers among others, making it easier to use.
 * **Lots of new propagators**: And when we say _lots_, we mean it! Lots of
   authors claim their propagator is "universal", but to our knowledge this is
-  almost always a slight overstatement. To enrich poliastro with new propagation
+  almost always a slight overstatement. To enrich boinor with new propagation
   methods and allow users to test them with all kinds of crazy orbits
   (especially quasy-parabolic ones) we implemented a ton of new propagators,
   all sharing the same API. You have more information in this article about
@@ -672,16 +672,16 @@ contributors, which makes us extremely proud and thankful!
 * **Python 3.6+ only**: Python 3.5 has done a great service and will still be
   supported by Astropy a few more months, but we already wanted to move on
   and embrace fixed-order dictionaries, f-strings, and decimal separators,
-  among others. This release of poliastro requires Python 3.6 or higher to work.
+  among others. This release of boinor requires Python 3.6 or higher to work.
   We are also getting ready for Python 3.8!
 
 .. image:: _static/cesium.gif
    :width: 675px
    :align: center
 
-.. _`czml3`: https://github.com/poliastro/czml3/
-.. _`base Cesium application`: https://github.com/poliastro/cesium-app
-.. _`the new propagators`: https://blog.poliastro.space/2019/07/16/2019-07-16-new-propagators/
+.. _`czml3`: https://github.com/boinor/czml3/
+.. _`base Cesium application`: https://github.com/boinor/cesium-app
+.. _`the new propagators`: https://blog.boinor.space/2019/07/16/2019-07-16-new-propagators/
 
 ```
 
@@ -689,9 +689,9 @@ contributors, which makes us extremely proud and thankful!
 
 ```{eval-rst}
 * **More orbit creation methods**: Both to interface with external systems
-  (:py:meth:`~poliastro.twobody.orbit.Orbit.from_sbdbs`) and to build new special orbits
-  (:py:meth:`~poliastro.twobody.orbit.Orbit.frozen`).
-* **Non-planar transfer maneuvers**: https://github.com/poliastro/poliastro/pull/599
+  (:py:meth:`~boinor.twobody.orbit.Orbit.from_sbdbs`) and to build new special orbits
+  (:py:meth:`~boinor.twobody.orbit.Orbit.frozen`).
+* **Non-planar transfer maneuvers**: https://github.com/boinor/boinor/pull/599
 * **Arrival velocity contour lines in porkchop plots**: Now porkchop plots are a bit richer
   and display arrival velocity as well.
 * **Experimental Geocentric Solar Ecliptic frame**: We introduced an experimental
@@ -701,12 +701,12 @@ contributors, which makes us extremely proud and thankful!
   it's easier to visualize the actual direction of the orbit using :code:`trail=True`.
 * **New :code:`change_attractor` method**: Now it's easier to translate the origin
   of an orbit (withing the patched conics framework) to study it from a different perspective
-  using the :py:meth:`~poliastro.twobody.orbit.Orbit.change_attractor` method.
+  using the :py:meth:`~boinor.twobody.orbit.Orbit.change_attractor` method.
 * **New :code:`SpheroidLocation`**: We also added a experimental
-  :py:class:`poliastro.spheroid_location.SpheroidLocation`, which tries to generalize
+  :py:class:`boinor.spheroid_location.SpheroidLocation`, which tries to generalize
   :py:class:`astropy.coordinates.EarthLocation` to other bodies.
 * **New orbital properties**: Angular momentum, mean anomaly, time of perifocal passage
-  of :py:class:`~poliastro.twobody.orbit.Orbit` are now very easy to compute.
+  of :py:class:`~boinor.twobody.orbit.Orbit` are now very easy to compute.
 
 ```
 
@@ -722,38 +722,38 @@ contributors, which makes us extremely proud and thankful!
   in Plotly batch mode
 * `Issue #590`_: Confusion between semimajor axis and semilatus rectum
   in docstring
-* `Issue #609`_: Raise error in :py:meth:`~poliastro.twobody.orbit.Orbit.from_sbdb`
+* `Issue #609`_: Raise error in :py:meth:`~boinor.twobody.orbit.Orbit.from_sbdb`
 * `Issue #652`_: Editable installs now work with modern pip
   when more than one orbit is returned
 * `Issue #654`_: Orbits around custom bodies can be propagated again
 
-.. _`Issue #348`: https://github.com/poliastro/poliastro/issues/348
-.. _`Issue #495`: https://github.com/poliastro/poliastro/issues/495
-.. _`Issue #530`: https://github.com/poliastro/poliastro/issues/530
-.. _`Issue #542`: https://github.com/poliastro/poliastro/issues/542
-.. _`Issue #572`: https://github.com/poliastro/poliastro/issues/572
-.. _`Issue #585`: https://github.com/poliastro/poliastro/issues/585
-.. _`Issue #590`: https://github.com/poliastro/poliastro/issues/590
-.. _`Issue #609`: https://github.com/poliastro/poliastro/issues/609
-.. _`Issue #629`: https://github.com/poliastro/poliastro/issues/629
-.. _`Issue #652`: https://github.com/poliastro/poliastro/issues/652
-.. _`Issue #654`: https://github.com/poliastro/poliastro/issues/654
+.. _`Issue #348`: https://github.com/boinor/boinor/issues/348
+.. _`Issue #495`: https://github.com/boinor/boinor/issues/495
+.. _`Issue #530`: https://github.com/boinor/boinor/issues/530
+.. _`Issue #542`: https://github.com/boinor/boinor/issues/542
+.. _`Issue #572`: https://github.com/boinor/boinor/issues/572
+.. _`Issue #585`: https://github.com/boinor/boinor/issues/585
+.. _`Issue #590`: https://github.com/boinor/boinor/issues/590
+.. _`Issue #609`: https://github.com/boinor/boinor/issues/609
+.. _`Issue #629`: https://github.com/boinor/boinor/issues/629
+.. _`Issue #652`: https://github.com/boinor/boinor/issues/652
+.. _`Issue #654`: https://github.com/boinor/boinor/issues/654
 ```
 
 ### Backwards incompatible changes
 
 ```{eval-rst}
-* The :py:mod:`poliastro.neos.neows` module is gone, use
-  :py:meth:`~poliastro.twobody.orbit.Orbit.from_horizons`
-  or :py:meth:`~poliastro.twobody.orbit.Orbit.from_sbdb` instead.
+* The :py:mod:`boinor.neos.neows` module is gone, use
+  :py:meth:`~boinor.twobody.orbit.Orbit.from_horizons`
+  or :py:meth:`~boinor.twobody.orbit.Orbit.from_sbdb` instead.
   We were pioneers in implementing it, but now the same functionality
   can be found elsewhere, with better support.
-* We removed :py:class:`~poliastro.plotting.OrbitPlotter2D.savefig`,
+* We removed :py:class:`~boinor.plotting.OrbitPlotter2D.savefig`,
   check out the `Plotly exporting documentation`_ for the best way
   of doing the same thing.
 * We removed the :code:`method` parameter from
-  :py:meth:`~poliastro.twobody.orbit.Orbit.sample`,
-  use :py:meth:`poliastro.twobody.propagation.propagate` for lower
+  :py:meth:`~boinor.twobody.orbit.Orbit.sample`,
+  use :py:meth:`boinor.twobody.propagation.propagate` for lower
   level control instead.
   We wanted to simplify the :code:`sample` method to avoid making
   it a catch-all function.
@@ -766,7 +766,7 @@ contributors, which makes us extremely proud and thankful!
 
 ```{eval-rst}
 * Updated minimum Astropy version to 3.2 and Plotly to 4.0.
-* Updated planetary :py:mod:`poliastro.constants`, plan to add more.
+* Updated planetary :py:mod:`boinor.constants`, plan to add more.
 * Better development workflow, issue templates on GitHub,
   tools to reformat the code.
 ```
@@ -797,7 +797,7 @@ all-time high number of contributors, thanks everybody ❤️
 - Vedang Naik+
 - Emily Selwood
 
-## poliastro 0.12.0 - 2019-02-21
+## boinor 0.12.0 - 2019-02-21
 
 This major release brings lots of new features, several breaking changes
 that improve the overall consistency of the library, and a stronger bet
@@ -816,25 +816,25 @@ proud and also busier!
   aspect ratio still, so we ask for user feedback.
 * **Reorganization of propagation capabilities**: We made some changes to the propagation
   APIs to be more coherent and flexible and simpler to understand for new contributors.
-  We removed some features from :py:meth:`~poliastro.twobody.orbit.Orbit.sample` to
+  We removed some features from :py:meth:`~boinor.twobody.orbit.Orbit.sample` to
   keep it simpler while moving some of them to
-  :py:meth:`poliastro.twobody.propagation.propagate`, and we splitted
-  :py:meth:`~poliastro.twobody.orbit.Orbit.propagate` by adding
-  :py:meth:`~poliastro.twobody.orbit.Orbit.propagate_to_anomaly`. At the cost of
+  :py:meth:`boinor.twobody.propagation.propagate`, and we splitted
+  :py:meth:`~boinor.twobody.orbit.Orbit.propagate` by adding
+  :py:meth:`~boinor.twobody.orbit.Orbit.propagate_to_anomaly`. At the cost of
   some breakage, we think this is a positive change that will make the library
   more maintainable in the future and reduce the number of bugs.
 * **Better integration with reference frames**: We took one step further in our
   endeavor to integrate better with Astropy reference frames by adding a
-  :py:meth:`~poliastro.twobody.orbit.Orbit.from_coords` method that accepts
+  :py:meth:`~boinor.twobody.orbit.Orbit.from_coords` method that accepts
   any frame, be it inertial or not.
-* **Refactor of Orbit objects**: The :py:class:`~poliastro.twobody.orbit.Orbit`
+* **Refactor of Orbit objects**: The :py:class:`~boinor.twobody.orbit.Orbit`
   was designed a long time ago and some design choices prevented all its
   orbital properties to appear in the documentation, while also making people
   think that they had to use an internal property. After a simple refactor
   this is no longer the case, and the code is still fast while being
   much simpler to understand. Did you know that you can compute the
   *semilatus rectum*, the modified equinoctial elements, the eccentricity vector
-  or the mean motion of an :py:class:`~poliastro.twobody.orbit.Orbit`?
+  or the mean motion of an :py:class:`~boinor.twobody.orbit.Orbit`?
   Now there are no excuses!
 ```
 
@@ -842,29 +842,29 @@ proud and also busier!
 
 ```{eval-rst}
 * **New orbit creation methods**: We can create an
-  :py:class:`~poliastro.twobody.orbit.Orbit` directly from JPL HORIZONS data using
-  :py:meth:`~poliastro.twobody.orbit.Orbit.from_horizons`, from Astropy
+  :py:class:`~boinor.twobody.orbit.Orbit` directly from JPL HORIZONS data using
+  :py:meth:`~boinor.twobody.orbit.Orbit.from_horizons`, from Astropy
   :code:`SkyCoord` and :code:`BaseCoordinateFrame` objects using
-  :py:meth:`~poliastro.twobody.orbit.Orbit.from_coords`, and Geostationary orbits
-  around an attractor using :py:meth:`~poliastro.twobody.orbit.Orbit.geostationary`.
+  :py:meth:`~boinor.twobody.orbit.Orbit.from_coords`, and Geostationary orbits
+  around an attractor using :py:meth:`~boinor.twobody.orbit.Orbit.geostationary`.
   We plan to keep adding more in the coming releases.
 * **New propagation methods**: We now have more specific methods for certain
-  tasks, like :py:meth:`~poliastro.twobody.orbit.Orbit.propagate_to_anomaly` to
-  propagate an :py:class:`~poliastro.twobody.orbit.Orbit` to a certain anomaly,
+  tasks, like :py:meth:`~boinor.twobody.orbit.Orbit.propagate_to_anomaly` to
+  propagate an :py:class:`~boinor.twobody.orbit.Orbit` to a certain anomaly,
   and we can specify the anomaly limits when using
-  :py:meth:`~poliastro.twobody.orbit.Orbit.sample`.
+  :py:meth:`~boinor.twobody.orbit.Orbit.sample`.
 * **New simple plotting method**: We added a
-  :py:meth:`~poliastro.twobody.orbit.Orbit.plot` to quickly plot an
-  :py:class:`~poliastro.twobody.orbit.Orbit` without additional imports, in 2D or 3D.
+  :py:meth:`~boinor.twobody.orbit.Orbit.plot` to quickly plot an
+  :py:class:`~boinor.twobody.orbit.Orbit` without additional imports, in 2D or 3D.
 * **Dark theme for Plotly plots**: It is now possible to create Plotly plots
   with a dark background, perfect for recreating our Solar System!
 * **Computation of the Hill radius**: To complement the existing Laplace
   sphere of influence (or just Sphere of Influence) available with
-  :py:meth:`poliastro.threebody.soi.laplace_radius`, we added the Hill radius
-  as well with the function :py:meth:`poliastro.threebody.soi.hill_radius`.
+  :py:meth:`boinor.threebody.soi.laplace_radius`, we added the Hill radius
+  as well with the function :py:meth:`boinor.threebody.soi.hill_radius`.
 * **Porkchop plots**: By popular demand, we can now produce *gorgeous*
   `Porkchop plots`_ to analyze launch opportunities between origin and
-  destination bodies by using :py:meth:`poliastro.plotting.porkchop.porkchop`.
+  destination bodies by using :py:meth:`boinor.plotting.porkchop.porkchop`.
   We plan to expand its capabilities by being able to target any body of
   the Solar System. Stay tuned!
 
@@ -880,42 +880,42 @@ align: center
 ### Bugs fixed
 
 ```{eval-rst}
-* `Issue #435`_: :py:class:`~poliastro.twobody.orbit.Orbit` properties were not
+* `Issue #435`_: :py:class:`~boinor.twobody.orbit.Orbit` properties were not
   discoverable
 * `Issue #469`_: Better error for collinear points in Lambert problem
 * `Issue #476`_: Representation of orbits with no frame
 * `Issue #477`_: Propagator crashed when propagating a hyperbolic orbit 0 seconds
-* `Issue #480`_: :py:class:`~poliastro.plotting.OrbitPlotter2D` did not have
-  a :py:meth:`~poliastro.plotting.OrbitPlotter2D.set_frame` method
-* `Issue #483`_: :py:class:`~poliastro.plotting.OrbitPlotter2D`OrbitPlotter2D`
+* `Issue #480`_: :py:class:`~boinor.plotting.OrbitPlotter2D` did not have
+  a :py:meth:`~boinor.plotting.OrbitPlotter2D.set_frame` method
+* `Issue #483`_: :py:class:`~boinor.plotting.OrbitPlotter2D`OrbitPlotter2D`
   results were not correct
 * `Issue #518`_: Trajectories were not redrawn when the frame was changed
 * `Issue #548`_: Improve installation instructions to include interactive and test
   dependencies
 * `Issue #573`_: Fix outdated matplotlib version limits
 
-.. _`Issue #435`: https://github.com/poliastro/poliastro/issues/435
-.. _`Issue #477`: https://github.com/poliastro/poliastro/issues/477
-.. _`Issue #480`: https://github.com/poliastro/poliastro/issues/480
-.. _`Issue #483`: https://github.com/poliastro/poliastro/issues/483
-.. _`Issue #518`: https://github.com/poliastro/poliastro/issues/518
-.. _`Issue #548`: https://github.com/poliastro/poliastro/issues/548
-.. _`Issue #573`: https://github.com/poliastro/poliastro/issues/573
+.. _`Issue #435`: https://github.com/boinor/boinor/issues/435
+.. _`Issue #477`: https://github.com/boinor/boinor/issues/477
+.. _`Issue #480`: https://github.com/boinor/boinor/issues/480
+.. _`Issue #483`: https://github.com/boinor/boinor/issues/483
+.. _`Issue #518`: https://github.com/boinor/boinor/issues/518
+.. _`Issue #548`: https://github.com/boinor/boinor/issues/548
+.. _`Issue #573`: https://github.com/boinor/boinor/issues/573
 ```
 
 ### Backwards incompatible changes
 
 ```{eval-rst}
 * The old :code:`OrbitPlotter` has been renamed to
-  :py:class:`poliastro.plotting.static.StaticOrbitPlotter`, please adjust
+  :py:class:`boinor.plotting.static.StaticOrbitPlotter`, please adjust
   your imports accordingly.
-* :py:meth:`~poliastro.twobody.orbit.Orbit.propagate`,
-  :py:meth:`~poliastro.twobody.orbit.Orbit.sample`,
-  :py:meth:`poliastro.twobody.propagation.propagate` and all propagators in
-  :py:mod:`poliastro.twobody.propagation` now have different signatures,
+* :py:meth:`~boinor.twobody.orbit.Orbit.propagate`,
+  :py:meth:`~boinor.twobody.orbit.Orbit.sample`,
+  :py:meth:`boinor.twobody.propagation.propagate` and all propagators in
+  :py:mod:`boinor.twobody.propagation` now have different signatures,
   and the first two lost some functionality. Check out the notebooks
   and their respective documentation.
-* The :py:mod:`poliastro.threebody` has been reorganized and some functions
+* The :py:mod:`boinor.threebody` has been reorganized and some functions
   moved there.
 ```
 
@@ -925,9 +925,9 @@ align: center
   😎
 - The API docs are now more organized and should be easier to browse
   and understand.
-- We are working towards documenting how to use poliastro in
+- We are working towards documenting how to use boinor in
   JupyterLab, please tell us about anything we may have missed.
-- poliastro will be presented at the [fifth PyCon Namibia](https://na.pycon.org/speakers/) 🇳🇦
+- boinor will be presented at the [fifth PyCon Namibia](https://na.pycon.org/speakers/) 🇳🇦
 
 ### Contributors
 
@@ -943,7 +943,7 @@ release, with a + sign indicating first contribution.
 - Antonina Geryak
 - Aditya Vikram+
 
-## poliastro 0.11.1 - 2018-12-27
+## boinor 0.11.1 - 2018-12-27
 
 This release fixes some bugs found in 0.11.0 and prepares the ground for
 bigger API and code changes.
@@ -957,16 +957,16 @@ bigger API and code changes.
 * `Issue #482`_: Non deterministic legend layout
 * `Issue #492`_: Better error for collinear orbits in Lambert and corner case arithmetic
 
-.. _`Issue #281`: https://github.com/poliastro/poliastro/issues/281
-.. _`Issue #469`: https://github.com/poliastro/poliastro/issues/469
-.. _`Issue #476`: https://github.com/poliastro/poliastro/issues/476
-.. _`Issue #482`: https://github.com/poliastro/poliastro/issues/482
-.. _`Issue #492`: https://github.com/poliastro/poliastro/issues/492
+.. _`Issue #281`: https://github.com/boinor/boinor/issues/281
+.. _`Issue #469`: https://github.com/boinor/boinor/issues/469
+.. _`Issue #476`: https://github.com/boinor/boinor/issues/476
+.. _`Issue #482`: https://github.com/boinor/boinor/issues/482
+.. _`Issue #492`: https://github.com/boinor/boinor/issues/492
 ```
 
 Do you want to help with the remaining ones? Check the current list
 here!
-`<https://github.com/poliastro/poliastro/issues?q=is%3Aopen+is%3Aissue+label%3Abug>`
+`<https://github.com/boinor/boinor/issues?q=is%3Aopen+is%3Aissue+label%3Abug>`
 
 ### Contributors
 
@@ -978,11 +978,11 @@ release, with a + sign indicating first contribution.
 - Ole Streicher+
 - Antoniya Karpova+
 
-## poliastro 0.11.0 - 2018-09-21
+## boinor 0.11.0 - 2018-09-21
 
 This short cycle release brought some new features related to the three
 body problem, as well as important changes related to how reference
-frames are handled in poliastro.
+frames are handled in boinor.
 
 ### Highlights
 
@@ -993,38 +993,38 @@ frames are handled in poliastro.
 ### New features
 
 ```{eval-rst}
-* **Lagrange points**: The new experimental module :py:mod:`poliastro.threebody.restricted`
+* **Lagrange points**: The new experimental module :py:mod:`boinor.threebody.restricted`
   contains functions to compute the Lagrange points in the circular restricted three body
   problem (CR3BP). It has been validated only approximately, so use it at your own risk.
 * **Flybys**: New functions to compute the exit velocity and turn angle have been added to
-  the new module :py:mod:`poliastro.threebody.flybys`. The B-plane aim point can be specified
+  the new module :py:mod:`boinor.threebody.flybys`. The B-plane aim point can be specified
   and the result will be returned in the correct reference frame. This feature was motivated
   by the Parker Solar Probe mission, and you can read an example on `how to analyze parts of
-  its trajectory using poliastro`_.
-* **Reference frames**: We addded experimental support for reference frames in poliastro objects.
-  So far, the :py:class:`~poliastro.twobody.orbit.Orbit` objects were in some assumed reference
+  its trajectory using boinor`_.
+* **Reference frames**: We addded experimental support for reference frames in boinor objects.
+  So far, the :py:class:`~boinor.twobody.orbit.Orbit` objects were in some assumed reference
   frame that could not be controlled, leading to some confusion by people that wanted some
   specific coordinates. Now, **the reference frame is made out explicit**, and there is also
   the possibility to make a limited set of transformations. This framework will be further
   developed in the next release and transformations to arbitrary frames will be allowed.
-  Check out the :py:mod:`poliastro.frames` module for more information.
+  Check out the :py:mod:`boinor.frames` module for more information.
 
-.. _`how to analyze parts of its trajectory using poliastro`: http://docs.poliastro.space/en/latest/examples/Analyzing%20the%20Parker%20Solar%20Probe%20flybys.html
+.. _`how to analyze parts of its trajectory using boinor`: http://docs.boinor.space/en/latest/examples/Analyzing%20the%20Parker%20Solar%20Probe%20flybys.html
 ```
 
 ### Bugs fixed
 
-- [Issue \#450](https://github.com/poliastro/poliastro/issues/450):
+- [Issue \#450](https://github.com/boinor/boinor/issues/450):
   Angles function of safe API have wrong docstrings
 
 Do you want to help with the remaining ones? Check the current list
 here!
-`<https://github.com/poliastro/poliastro/issues?q=is%3Aopen+is%3Aissue+label%3Abug>`
+`<https://github.com/boinor/boinor/issues?q=is%3Aopen+is%3Aissue+label%3Abug>`
 
 ### Backwards incompatible changes
 
 ```{eval-rst}
-* The :py:meth:`poliastro.twobody.Orbit.sample` method returns one single object again that
+* The :py:meth:`boinor.twobody.Orbit.sample` method returns one single object again that
   contains the positions and the corresponding times.
 ```
 
@@ -1039,7 +1039,7 @@ release, with a + sign indicating first contribution.
 - Daniel Lubián+
 - Emily Selwood+
 
-## poliastro 0.10.0 - 2018-07-21
+## boinor 0.10.0 - 2018-07-21
 
 This major release brings important changes from the code perspective
 (including a major change in the structure of the library), several
@@ -1049,7 +1049,7 @@ benchmarks, as well as some new features and bug fixes.
 ### Highlights
 
 ```{eval-rst}
-* **Major change in the structure of poliastro codebase**: We separated the high level,
+* **Major change in the structure of boinor codebase**: We separated the high level,
   units safe functions from the low level, fast ones, with the subsequent improvement
   in code quality. With this change we effectively communicate where "core" algorithms
   should go, make easier for future contributors to add numerical functions, and
@@ -1057,18 +1057,18 @@ benchmarks, as well as some new features and bug fixes.
 * **Upgrade to new SciPy ODE solvers**: We wrote our own version of Dormand-Prince 8(5,3)
   based on the new IVP framework in SciPy 1.0 to take advantage of event detection,
   dense output and other fancy features. In particular,
-  the :py:meth:`~poliastro.twobody.orbit.Orbit.sample` method now uses dense output when available,
+  the :py:meth:`~boinor.twobody.orbit.Orbit.sample` method now uses dense output when available,
   therefore removing the need to propagate the orbit repeatedly.
 * **New infrastructure for benchmarks**: We started publishing timing benchmarks results
   using `Airspeed Velocity`_, a Python framework for writing, running, studying and
   publishing benchmarks. Besides, we bought a dedicated machine to run them with
   as much precision as we can.
-  Please `check them out <https://poliastro.github.io/benchmarks/>`_
+  Please `check them out <https://boinor.github.io/benchmarks/>`_
   and consider `adding new benchmarks`_ as well!
 * **Several performance improvements**: Now that we are tracking performance, we dedicated
   some time during this release to fix some performance regressions that appeared in
   propagation, improving the behavior near parabolic orbits, and accelerating (even more!)
-  the Izzo algorithm for the Lambert problem as well as some poliastro utilities.
+  the Izzo algorithm for the Lambert problem as well as some boinor utilities.
 * **New Continuous Integration infrastructure**: We started to use CircleCI for the
   Linux tests, the coverage measurements and the documentation builds. This service
   has faster machines and better support for workflows, which significantly reduced
@@ -1079,7 +1079,7 @@ benchmarks, as well as some new features and bug fixes.
   and prepared the ground for the new interactive widgets that Plotly 3.0 brings.
 
 .. _`Airspeed Velocity`: https://asv.readthedocs.io/
-.. _`adding new benchmarks`: https://github.com/poliastro/benchmarks/
+.. _`adding new benchmarks`: https://github.com/boinor/benchmarks/
 ```
 
 ### New features
@@ -1094,10 +1094,10 @@ benchmarks, as well as some new features and bug fixes.
 * **More natural perturbations**: We finished adding the most common orbital perturbations,
   namely Solar radiation pressure and J3 perturbation. We could not reach agreement with
   the paper for the latter, so if you are considering using it please read the discussion
-  `in the original pull request <https://github.com/poliastro/poliastro/pull/398>`_ and
+  `in the original pull request <https://github.com/boinor/boinor/pull/398>`_ and
   consider lending us a hand to validate it properly!
 * **New dark mode for matplotlib plots**: We added a :code:`dark` parameter to
-  :py:class:`~poliastro.plotting.OrbitPlotter` objects so the background is black.
+  :py:class:`~boinor.plotting.OrbitPlotter` objects so the background is black.
   Handy for astronomical purposes!
 ```
 
@@ -1106,18 +1106,18 @@ benchmarks, as well as some new features and bug fixes.
 Besides some installation issues due to the evolution of dependencies,
 these code bugs were fixed:
 
-- [Issue \#345](https://github.com/poliastro/poliastro/issues/345):
+- [Issue \#345](https://github.com/boinor/boinor/issues/345):
   Bodies had incorrect aspect ratio in OrbitPlotter2D
-- [Issue \#369](https://github.com/poliastro/poliastro/issues/369):
+- [Issue \#369](https://github.com/boinor/boinor/issues/369):
   Orbit objects cannot be unpickled
-- [Issue \#382](https://github.com/poliastro/poliastro/issues/382):
+- [Issue \#382](https://github.com/boinor/boinor/issues/382):
   Orbit.from_body_ephem returns wrong orbit for the Moon
-- [Issue \#385](https://github.com/poliastro/poliastro/issues/385):
+- [Issue \#385](https://github.com/boinor/boinor/issues/385):
   Sun Incorrectly plotted in plot_solar_system
 
 ### Backward incompatible changes
 
-- Some functions have been moved to :py:mod\`:poliastro.core\`.
+- Some functions have been moved to :py:mod\`:boinor.core\`.
 
 ### Contributors
 
@@ -1129,16 +1129,16 @@ release, with a + sign indicating first contribution.
 - Shreyas Bapat
 - jmerskine1+
 
-## poliastro 0.9.1 - 2018-05-11
+## boinor 0.9.1 - 2018-05-11
 
 This is a minor release that fixes one single issue:
 
-- [Issue \#369](https://github.com/poliastro/poliastro/issues/369):
+- [Issue \#369](https://github.com/boinor/boinor/issues/369):
   Orbit objects cannot be unpickled
 
 Thanks to Joan Fort Alsina for reporting.
 
-## poliastro 0.9.0 - 2018-04-25
+## boinor 0.9.0 - 2018-04-25
 
 This major release received lots of improvements in the 2D plotting code
 and propagation functions, introduced the new perturbation framework and
@@ -1147,29 +1147,29 @@ paved the way for the [Python in Astronomy 2018](https://openastronomy.org/pyast
 ### New features
 
 ```{eval-rst}
-* **New experimental 2D Plotly backend**: A new :py:class:`~poliastro.plotting.OrbitPlotter2D`
+* **New experimental 2D Plotly backend**: A new :py:class:`~boinor.plotting.OrbitPlotter2D`
   class was introduced that uses Plotly instead of matplotlib for the rendering. There are
   still some issues that should be resolved when we take advantage of the latest Plotly version,
   hence the "experimental" nature.
-* **New propagators**: A new Keplerian propagator :py:meth:`~poliastro.twobody.propagation.mean_motion`
-  was introduced that has better convergence properties than :py:meth:`~poliastro.twobody.propagation.kepler`,
+* **New propagators**: A new Keplerian propagator :py:meth:`~boinor.twobody.propagation.mean_motion`
+  was introduced that has better convergence properties than :py:meth:`~boinor.twobody.propagation.kepler`,
   so now the user can choose.
-* **New perturbation functions**: A new module :py:mod:`poliastro.twobody.perturbations` was introduced
+* **New perturbation functions**: A new module :py:mod:`boinor.twobody.perturbations` was introduced
   that contains perturbation accelerations that can be readily used with
-  :py:meth:`~poliastro.twobody.propagation.cowell`. So far we implemented J2 and atmospheric drag effects,
+  :py:meth:`~boinor.twobody.propagation.cowell`. So far we implemented J2 and atmospheric drag effects,
   and we will add more during the summer. Check out the User Guide for examples!
 * **Support for different propagators in sampling**: With the introduction of new propagators and perturbation
   accelerations, now the user can easily sample over a period of time using any of them. We are eager to see
   what experiments you come up with!
-* **Easy plotting of the Solar System**: A new function :py:meth:`~poliastro.plotting.plot_solar_system` was
+* **Easy plotting of the Solar System**: A new function :py:meth:`~boinor.plotting.plot_solar_system` was
   added to easily visualize our inner or complete Solar System in 2D plots.
 ```
 
 ### Other highlights
 
-- **poliastro participates in Google Summer of Code thanks to
-  OpenAstronomy!** More information [in the poliastro blog](https://blog.poliastro.space/2018/02/22/2018-02-22-join-poliastro-google-summer-of-code/).
-- **poliastro will be presented at the Python in Astronomy 2018
+- **boinor participates in Google Summer of Code thanks to
+  OpenAstronomy!** More information [in the boinor blog](https://blog.boinor.space/2018/02/22/2018-02-22-join-boinor-google-summer-of-code/).
+- **boinor will be presented at the Python in Astronomy 2018
   workshop** to be held at Center for Computational Astrophysics at
   the Flatiron Institute in New York, USA. You can read [more details about the event here](https://openastronomy.org/pyastro/2018/).
 
@@ -1187,18 +1187,18 @@ release, with a + sign indicating first contribution.
 
 ### Bugs fixed:
 
-- [Issue \#294](https://github.com/poliastro/poliastro/issues/294):
+- [Issue \#294](https://github.com/boinor/boinor/issues/294):
   Default steps 2D plots were too visible
 
 ### Backward incompatible changes
 
 ```{eval-rst}
-* Now the :py:meth:`poliastro.twobody.Orbit.sample` method returns a tuple of (times, positions).
+* Now the :py:meth:`boinor.twobody.Orbit.sample` method returns a tuple of (times, positions).
 * All the propagator methods changed their signature
-  and now accept :py:class:`~poliastro.twobody.Orbit` objects.
+  and now accept :py:class:`~boinor.twobody.Orbit` objects.
 ```
 
-## poliastro 0.8.0 - 2017-11-18
+## boinor 0.8.0 - 2017-11-18
 
 This is a new major release, focused on bringing 3D plotting functions
 and preparing the material for the Open Source Cubesat Workshop.
@@ -1206,27 +1206,27 @@ and preparing the material for the Open Source Cubesat Workshop.
 ### New features
 
 ```{eval-rst}
-* **Sampling method** for :py:class:`~poliastro.twobody.Orbit` objects that returns
+* **Sampling method** for :py:class:`~boinor.twobody.Orbit` objects that returns
   an array of positions. This was already done in the plotting functions and will
   help providing other applications, such as exporting an Orbit to other formats.
-* **3D plotting functions**: finally poliastro features a new high level object,
-  :py:class:`poliastro.plotting.OrbitPlotter3D`, that uses Plotly to represent
+* **3D plotting functions**: finally boinor features a new high level object,
+  :py:class:`boinor.plotting.OrbitPlotter3D`, that uses Plotly to represent
   orbit and trajectories in 3D. The venerable notebook about the trajectory of
   rover Curiosity has been updated accordingly.
 * **Propagation to a certain date**: now apart from specifying the total elapsed
   time for propagation or time of flight, we can directly specify a target date
-  in :py:meth:`poliastro.twobody.orbit.Orbit.propagate`.
+  in :py:meth:`boinor.twobody.orbit.Orbit.propagate`.
 * **Hyperbolic anomaly conversion**: we implemented the conversion of hyperbolic
   to mean and true anomaly to complement the existing eccentric anomaly functions
-  and improve the handling of hyperbolic orbits in :py:mod:`poliastro.twobody.angles`.
+  and improve the handling of hyperbolic orbits in :py:mod:`boinor.twobody.angles`.
 ```
 
 ### Other highlights
 
-- **poliastro is now an Astropy affiliated package**, which gives the
+- **boinor is now an Astropy affiliated package**, which gives the
   project a privileged position in the Python ecosystem. Thank you,
-  Astropy core developers! You can read [the evaluation here](https://github.com/poliastro/poliastro/issues/279).
-- **poliastro will be presented at the first Open Source Cubesat
+  Astropy core developers! You can read [the evaluation here](https://github.com/boinor/boinor/issues/279).
+- **boinor will be presented at the first Open Source Cubesat
   Workshop** to be held at the European Space Operations Centre in
   Darmstadt, Germany. You can read [the full program of the event here](http://oscw.space/).
 
@@ -1242,7 +1242,7 @@ release, with a + sign indicating first contribution.
 
 ### Bugs fixed:
 
--   [Issue \#275](https://github.com/poliastro/poliastro/issues/275):
+-   [Issue \#275](https://github.com/boinor/boinor/issues/275):
     Converting from true to mean anomaly fails for hyperbolic orbits
 
 ### Backward incompatible changes
@@ -1252,7 +1252,7 @@ release, with a + sign indicating first contribution.
   :code:`astropy.coordinates.get_body_barycentric_posvel` function.
 ```
 
-## poliastro 0.7.0 - 2017-09-15
+## boinor 0.7.0 - 2017-09-15
 
 This is a new major release, which adds new packages and modules,
 besides fixing several issues.
@@ -1260,7 +1260,7 @@ besides fixing several issues.
 ### New features:
 
 ```{eval-rst}
-* **NEOS package**: a new package has been added to poliastro, :py:mod:`~poliastro.neos`
+* **NEOS package**: a new package has been added to boinor, :py:mod:`~boinor.neos`
   package. It provides several ways of getting NEOs (Near Earth Objects) data from NASA
   databases, online and offline.
 * **New patched conics module**. New module containing a function to compute
@@ -1270,15 +1270,15 @@ besides fixing several issues.
   allows the user to select a builtin ephemerides that does not require
   external downloads. See `Issue #131`_ for details.
 * **Coordinates and frames modules**: new modules containing transformations between ICRS
-  and body-centered frame, and perifocal to body_centered, :py:mod:`~poliastro.coordinates`
-  as well as Heliocentric coordinate frame in :py:mod:`~poliastro.frames` based on Astropy
+  and body-centered frame, and perifocal to body_centered, :py:mod:`~boinor.coordinates`
+  as well as Heliocentric coordinate frame in :py:mod:`~boinor.frames` based on Astropy
   for NEOs.
 * **Pip packaging**: troublesome dependencies have been released in wheel format,
-  so poliastro can now be installed using pip from all platforms.
+  so boinor can now be installed using pip from all platforms.
 * **Legend plotting**: now label and epoch are in a figure legend, which ends with
   the ambiguity of the epochs when having several plots in the same figure.
 
-.. _`Issue #131`: https://github.com/poliastro/poliastro/issues/131
+.. _`Issue #131`: https://github.com/boinor/boinor/issues/131
 
 ```
 
@@ -1288,11 +1288,11 @@ besides fixing several issues.
 * **Joined Open Astronomy**: we are now part of `Open Astronomy`_, a
   collaboration between open source astronomy and astrophysics projects
   to share resources, ideas, and to improve code.
-* **New constants module**: poliastro has now a :py:mod:`~poliastro.constants` module,
+* **New constants module**: boinor has now a :py:mod:`~boinor.constants` module,
   with GMs and radii of solar system bodies.
-* **Added Jupyter examples**: poliastro examples are now available in the
+* **Added Jupyter examples**: boinor examples are now available in the
   documentation as Jupyter notebooks, thanks to `nbsphinx`_.
-* **New Code of Conduct**: poliastro community now has a Code of conduct.
+* **New Code of Conduct**: boinor community now has a Code of conduct.
 * **Documentation update**: documentation has been updated with new installation
   ways, propagation and NEOs examples, "refactored" code and images, improved contribution
   guidelines and intersphinx extension.
@@ -1310,7 +1310,7 @@ besides fixing several issues.
 ### New contributors
 
 Thanks to the generous SOCIS grant from the European Space Agency,
-Antonio Hidalgo has devoted three months developing poliastro full time
+Antonio Hidalgo has devoted three months developing boinor full time
 and gained write access to the repository.
 
 This is the complete list of the people that contributed to this
@@ -1325,13 +1325,13 @@ release, with a + sign indicating first contribution.
 
 ### Bugs fixed:
 
-- [Issue \#205](https://github.com/poliastro/poliastro/issues/205):
+- [Issue \#205](https://github.com/boinor/boinor/issues/205):
   Bug when plotting orbits with different epochs.
-- [Issue \#128](https://github.com/poliastro/poliastro/issues/128):
+- [Issue \#128](https://github.com/boinor/boinor/issues/128):
   Missing ephemerides if no files on import time.
-- [Issue \#131](https://github.com/poliastro/poliastro/issues/131):
+- [Issue \#131](https://github.com/boinor/boinor/issues/131):
   Slightly incorrect ephemerides results due to improper time scale.
-- [Issue \#130](https://github.com/poliastro/poliastro/issues/130):
+- [Issue \#130](https://github.com/boinor/boinor/issues/130):
   Wrong attractor size when plotting different orbits.
 
 ### Backward incompatible changes:
@@ -1342,7 +1342,7 @@ release, with a + sign indicating first contribution.
   replaced.
 ```
 
-## poliastro 0.6.0 - 2017-02-12
+## boinor 0.6.0 - 2017-02-12
 
 This major release was focused on refactoring some internal core parts
 and improving the propagation functionality.
@@ -1350,17 +1350,17 @@ and improving the propagation functionality.
 ### Highlights:
 
 - **Support Python 3.6**. See
-  [\#144](https://github.com/poliastro/poliastro/pull/144).
+  [\#144](https://github.com/boinor/boinor/pull/144).
 - **Introduced \`\`Orbit\`\` objects** to replace `State` ones. The
   latter has been simplified, reducing some functionality, now their
   API has been moved to the former. See the User Guide and the
   examples for updated explanations. See
-  [\#135](https://github.com/poliastro/poliastro/pull/135).
+  [\#135](https://github.com/boinor/boinor/pull/135).
 - **Allow propagation functions to receive a callback**. This paves
   the way for better plotting and storage of results. See
-  [\#140](https://github.com/poliastro/poliastro/pull/140).
+  [\#140](https://github.com/boinor/boinor/pull/140).
 
-## poliastro 0.5.0 - 2016-03-06
+## boinor 0.5.0 - 2016-03-06
 
 This is a new major release, focused on expanding the initial orbit
 determination capabilities and solving some infrastructure challenges.
@@ -1376,36 +1376,36 @@ determination capabilities and solving some infrastructure challenges.
 - **Documentation on Read the Docs**: You can now browse previous
   releases of the package and easily switch between released and
   development versions.
-- **Mailing list**: poliastro now has a mailing list hosted on
+- **Mailing list**: boinor now has a mailing list hosted on
   groups.io. Come and join!
-- **Clarified scope**: poliastro will now be focused on interplanetary
+- **Clarified scope**: boinor will now be focused on interplanetary
   applications, leaving other features to the new
   [python-astrodynamics](http://python-astrodynamics.org/) project.
 
 ### Bugs fixed:
 
-- [Issue \#110](https://github.com/poliastro/poliastro/issues/110):
+- [Issue \#110](https://github.com/boinor/boinor/issues/110):
   Bug when plotting State with non canonical units
 
 ### Backward incompatible changes:
 
-- **Drop Legacy Python**: poliastro 0.5.x and later will support only
+- **Drop Legacy Python**: boinor 0.5.x and later will support only
   Python 3.x. We recommend our potential users to create dedicated
   virtual environments using conda or virtualenv or to contact the
   developers to fund Python 2 support.
 - **Change \`\`lambert\`\` function API**: The functions for solving
   Lambert\'s problem are now \[generators](), even in the single
   revolution case. Check out the User Guide for specific examples.
-- **Creation of orbits from classical elements**: poliastro has
+- **Creation of orbits from classical elements**: boinor has
   reverted the switch to the *semilatus rectum* \\(p\\) instead of the
   semimajor axis \\(a\\) made in 0.4.0, so \\(a\\) must be used again.
   This change is definitive.
 
-## poliastro 0.4.2 - 2015-12-24
+## boinor 0.4.2 - 2015-12-24
 
 Fixed packaging problems.
 
-## poliastro 0.4.0 - 2015-12-13
+## boinor 0.4.0 - 2015-12-13
 
 This is a new major release, focused on improving stability and code
 quality. New angle conversion and modified equinoctial elements
@@ -1414,48 +1414,48 @@ introduced related to classical orbital elements.
 
 ### New features:
 
-- **Angle conversion functions**: Finally brought back from poliastro
+- **Angle conversion functions**: Finally brought back from boinor
   0.1, new functions were added to convert between true \\(\\nu\\),
   eccentric \\(E\\) and mean \\(M\\) anomaly, see
-  [\#45](https://github.com/poliastro/poliastro/pull/45).
+  [\#45](https://github.com/boinor/boinor/pull/45).
 - **Equinoctial elements**: Now it\'s possible to convert between
   classical and equinoctial elements, as well as from/to position and
   velocity vectors, see
-  [\#61](https://github.com/poliastro/poliastro/pull/61).
+  [\#61](https://github.com/boinor/boinor/pull/61).
 - **Numerical propagation**: A new propagator using SciPy Dormand &
   Prince 8(5,3) integrator was added, see
-  [\#64](https://github.com/poliastro/poliastro/pull/64).
+  [\#64](https://github.com/boinor/boinor/pull/64).
 
 ### Other highlights:
 
 - **MIT license**: The project has been relicensed to a more popular
-  license. poliastro remains commercial-friendly through a permissive,
+  license. boinor remains commercial-friendly through a permissive,
   OSI-approved license.
-- **Python 3.5 and NumPy 1.10 compatibility**. poliastro retains
+- **Python 3.5 and NumPy 1.10 compatibility**. boinor retains
   compatibility with legacy Python (Python 2) and NumPy 1.9. *Next
   version will be Python 3 only*.
 
 ### Bugs fixed:
 
-- [Issue \#62](https://github.com/poliastro/poliastro/issues/62):
+- [Issue \#62](https://github.com/boinor/boinor/issues/62):
   Conversion between coe and rv is not transitive
-- [Issue \#69](https://github.com/poliastro/poliastro/issues/69):
+- [Issue \#69](https://github.com/boinor/boinor/issues/69):
   Incorrect plotting of certain closed orbits
 
 ### Backward incompatible changes:
 
 ```{eval-rst}
-* **Creation of orbits from classical elements**: poliastro has
+* **Creation of orbits from classical elements**: boinor has
   switched to the *semilatus rectum* \\(p\\) instead of the semimajor
   axis \\(a\\) to define ``State`` objects, and the function has been renamed
-  to :py:meth:`~poliastro.twobody.State.from_classical`. Please update your
+  to :py:meth:`~boinor.twobody.State.from_classical`. Please update your
   programs accordingly.
 * Removed specific angular momentum \\(h\\) property to avoid a name clash
   with the fourth modified equinoctial element, use ``norm(ss.h_vec)``
   instead.
 ```
 
-## poliastro 0.3.1 - 2015-06-30
+## boinor 0.3.1 - 2015-06-30
 
 This is a new minor release, with some bug fixes backported from the
 main development branch.
@@ -1463,12 +1463,12 @@ main development branch.
 ### Bugs fixed:
 
 - Fixed installation problem in Python 2.
-- [Issue \#49](https://github.com/poliastro/poliastro/issues/49): Fix
+- [Issue \#49](https://github.com/boinor/boinor/issues/49): Fix
   velocity units in `ephem`.
-- [Issue \#50](https://github.com/poliastro/poliastro/issues/50):
+- [Issue \#50](https://github.com/boinor/boinor/issues/50):
   Fixed `ZeroDivisionError` when propagating with time zero.
 
-## poliastro 0.3.0 - 2015-05-09
+## boinor 0.3.0 - 2015-05-09
 
 This is a new major release, focused on switching to a pure Python
 codebase. Lambert problem solving and ephemerides computation came back,
@@ -1478,42 +1478,42 @@ and a couple of bugs were fixed.
 
 ```{eval-rst}
 * **Pure Python codebase**: Forget about Fortran linking problems and
-  nightmares on Windows, because now poliastro is a pure Python package.
+  nightmares on Windows, because now boinor is a pure Python package.
   A new dependency, numba, was introduced to accelerate the algorithms,
-  but poliastro will use it only if it is installed.
-* **Lambert problem solving**: New module :py:mod:`~poliastro.iod` to
+  but boinor will use it only if it is installed.
+* **Lambert problem solving**: New module :py:mod:`~boinor.iod` to
   determine an orbit given two position vectors and the time of flight.
 * `PR #42`_: **Planetary ephemerides computation**: New module
-  :py:mod:`~poliastro.ephem` with functions to deal with SPK files and
+  :py:mod:`~boinor.ephem` with functions to deal with SPK files and
   compute position and velocity vectors of the planets.
-* `PR #38`_: New method :py:meth:`~poliastro.twobody.State.parabolic` to create parabolic orbits.
-* New conda package: visit `poliastro binstar channel`_!
+* `PR #38`_: New method :py:meth:`~boinor.twobody.State.parabolic` to create parabolic orbits.
+* New conda package: visit `boinor binstar channel`_!
 * New organization and logo.
 
-.. _`PR #42`: https://github.com/poliastro/poliastro/pull/42
-.. _`PR #38`: https://github.com/poliastro/poliastro/pull/38
+.. _`PR #42`: https://github.com/boinor/boinor/pull/42
+.. _`PR #38`: https://github.com/boinor/boinor/pull/38
 
-.. _`poliastro binstar channel`: https://binstar.org/poliastro
+.. _`boinor binstar channel`: https://binstar.org/boinor
 
 ```
 
 ### Bugs fixed:
 
-- [Issue \#19](https://github.com/poliastro/poliastro/issues/19):
+- [Issue \#19](https://github.com/boinor/boinor/issues/19):
   Fixed plotting region for parabolic orbits.
-- [Issue \#37](https://github.com/poliastro/poliastro/issues/37):
+- [Issue \#37](https://github.com/boinor/boinor/issues/37):
   Fixed creation of parabolic orbits.
 
-## poliastro 0.2.1 - 2015-04-26
+## boinor 0.2.1 - 2015-04-26
 
 This is a bugfix release, no new features were introduced since 0.2.0.
 
-- Fixed [\#35](https://github.com/poliastro/poliastro/issues/35)
+- Fixed [\#35](https://github.com/boinor/boinor/issues/35)
   (failing tests with recent astropy versions), thanks to Sam Dupree
   for the bug report.
 - Updated for recent Sphinx versions.
 
-## poliastro 0.2 - 2014-08-16
+## boinor 0.2 - 2014-08-16
 
 ```{eval-rst}
 * **Totally refactored code** to provide a more pythonic API (see `PR #14`_
@@ -1521,25 +1521,25 @@ This is a bugfix release, no new features were introduced since 0.2.0.
   Helge Eichhorn.
 
   * Mandatory use of **physical units** through :code:`astropy.units`.
-  * Object-oriented approach: :py:class:`~poliastro.twobody.State` and
-    :py:class:`~poliastro.maneuver.Maneuver` classes.
+  * Object-oriented approach: :py:class:`~boinor.twobody.State` and
+    :py:class:`~boinor.maneuver.Maneuver` classes.
   * Vector quantities: results not only have magnitude now, but also direction
     (see for example maneuvers).
 
 * Easy plotting of orbits in two dimensions using matplotlib.
 * Module :code:`example` with sample data to start testing the library.
 
-.. _`PR #14`: https://github.com/poliastro/poliastro/pull/14
-.. _wiki: https://github.com/poliastro/poliastro/wiki
+.. _`PR #14`: https://github.com/boinor/boinor/pull/14
+.. _wiki: https://github.com/boinor/boinor/wiki
 .. _Plyades: https://github.com/helgee/Plyades
 
 ```
 
 These features were removed temporarily not to block the release and
-will see the light again in poliastro 0.3:
+will see the light again in boinor 0.3:
 
 - Conversion between anomalies.
 - Ephemerides calculations, will look into Skyfield and the JPL
-  ephemerides prepared by Brandon Rhodes (see [issue \#4](https://github.com/poliastro/poliastro/issues/4)).
+  ephemerides prepared by Brandon Rhodes (see [issue \#4](https://github.com/boinor/boinor/issues/4)).
 - Lambert problem solving.
 - Perturbation analysis.

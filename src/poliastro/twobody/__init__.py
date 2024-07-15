@@ -1,3 +1,3 @@
-from poliastro.twobody.orbit import Orbit
+from boinor.twobody.orbit import Orbit
 
 __all__ = ["Orbit"]

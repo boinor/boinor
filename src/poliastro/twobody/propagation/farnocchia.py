@@ -3,12 +3,12 @@ import sys
 from astropy import units as u
 import numpy as np
 
-from poliastro.core.propagation.farnocchia import (
+from boinor.core.propagation.farnocchia import (
     farnocchia_coe as farnocchia_coe_fast,
     farnocchia_rv as farnocchia_rv_fast,
 )
-from poliastro.twobody.propagation.enums import PropagatorKind
-from poliastro.twobody.states import ClassicalState
+from boinor.twobody.propagation.enums import PropagatorKind
+from boinor.twobody.states import ClassicalState
 
 from ._compat import OldPropagatorModule
 
@@ -55,7 +55,7 @@ class FarnocchiaPropagator:
         rv0 = state.to_value()
 
         # TODO: This should probably return a ClassicalStateArray instead,
-        # see discussion at https://github.com/poliastro/poliastro/pull/1492
+        # see discussion at https://github.com/boinor/boinor/pull/1492
         results = np.array(
             [farnocchia_rv_fast(k, *rv0, tof) for tof in tofs.to_value(u.s)]
         )
