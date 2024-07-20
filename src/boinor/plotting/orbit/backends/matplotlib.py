@@ -71,8 +71,8 @@ class Matplotlib2D(OrbitPlotterBackend):
         if color is None:
             # prop_cycler is no longer available
             ## HACK: https://stackoverflow.com/a/13831816/554319
-            #color = next(self.ax._get_lines.prop_cycler)["color"]
-            color = 'blue'
+            # color = next(self.ax._get_lines.prop_cycler)["color"]
+            color = "blue"
 
         colors = [color, to_rgba(color, 0)] if trail else [color]
         return colors
