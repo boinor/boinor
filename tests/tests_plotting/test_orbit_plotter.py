@@ -208,9 +208,9 @@ def test_color():
     op.plot(ss, label="ISS", color=c)
     ax = plt.gca()
 
-    assert ax.get_legend().get_lines()[0].get_c() == c
+    assert ax.get_legend().get_lines()[0].get_color() == c
     for element in ax.get_lines():
-        assert element.get_c() == c
+        assert element.get_color() == c
 
 
 def test_plot_coordinates_sets_label():
