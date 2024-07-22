@@ -108,6 +108,14 @@ jobs:
     environment:
       TOXENV: tests311
 
+  tests312:
+    <<: *test-template
+    description: Tests - Python 3.12
+    docker:
+      - image: python:3.12
+    environment:
+      TOXENV: tests312
+
 workflows:
   version: 2
   build_and_test:
