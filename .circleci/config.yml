@@ -60,30 +60,40 @@ jobs:
   tests39-fast:
     <<: *test-template
     description: Tests fast - Python 3.9
+    docker:
+      - image: python:3.9
     environment:
       TOXENV: tests39-fast
 
   tests39-online:
     <<: *test-template
     description: Tests online - Python 3.9
+    docker:
+      - image: python:3.9
     environment:
       TOXENV: tests39-online
 
   tests39-slow:
     <<: *test-template
     description: Tests slow - Python 3.9
+    docker:
+      - image: python:3.9
     environment:
       TOXENV: tests39-slow
 
   tests39-images:
     <<: *test-template
     description: Tests images - Python 3.9
+    docker:
+      - image: python:3.9
     environment:
       TOXENV: tests39-images
 
   tests39-coverage:
     <<: *test-template
     description: Tests coverage - Python 3.9
+    docker:
+      - image: python:3.9
     environment:
       TOXENV: tests39-coverage
     steps:
