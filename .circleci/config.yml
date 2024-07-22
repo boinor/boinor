@@ -139,9 +139,27 @@ workflows:
       - tests39:
           requires:
             - quality
+      - tests39-fast:
+          requires:
+            - quality
+      - tests39-online:
+          requires:
+            - quality
+      - tests39-slow:
+          requires:
+            - quality
+      - tests39-images:
+          requires:
+            - quality
+      - tests39-coverage:
+          requires:
+            - quality
       - tests310:
           requires:
             - quality
       - tests311:
+          requires:
+            - quality
+      - tests312:
           requires:
             - quality
