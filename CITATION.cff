@@ -6,14 +6,10 @@ title: boinor
 message: Please cite this software using these metadata.
 type: software
 authors:
-  - given-names: Juan Luis
-    family-names: Cano Rodriguez
-    email: hello@juanlu.space
-    orcid: 'https://orcid.org/0000-0002-2187-161X'
-  - given-names: Jorge
-    family-names: Martínez Garrido
-    email: contact@jorgemartinez.space
-    orcid: 'https://orcid.org/0000-0001-9622-2369'
+  - given-names: Thorsten
+    family-names: Alteholz
+    email: boinor@alteholz.dev
+    orcid: 'https://orcid.org/0000-0002-9570-7046'
 identifiers:
   - type: doi
     value: 10.5281/zenodo.6817189
