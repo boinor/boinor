@@ -1,0 +1,175 @@
+version: 2.1
+
+jobs:
+  quality: &test-template
+    description: Code style
+    docker:
+      - image: python:3.8
+    environment:
+      PIP_PREFER_BINARY: true
+      PIP_PROGRESS_BAR: "off"
+      TOXENV: style
+    steps:
+      - checkout
+      - run: python -m pip install tox
+      - run: tox
+
+  tests38-fast:
+    <<: *test-template
+    description: Tests fast - Python 3.8
+    environment:
+      TOXENV: tests38-fast
+
+  tests38-online:
+    <<: *test-template
+    description: Tests online - Python 3.8
+    environment:
+      TOXENV: tests38-online
+
+  tests38-slow:
+    <<: *test-template
+    description: Tests slow - Python 3.8
+    environment:
+      TOXENV: tests38-slow
+
+  tests38-images:
+    <<: *test-template
+    description: Tests images - Python 3.8
+    environment:
+      TOXENV: tests38-images
+
+  tests38-coverage:
+    <<: *test-template
+    description: Tests coverage - Python 3.8
+    environment:
+      TOXENV: tests38-coverage
+    steps:
+      - checkout
+      - run: python -m pip install tox
+      - run: tox
+      - run: python -m pip install codecov && codecov
+
+  tests39:
+    <<: *test-template
+    description: Tests - Python 3.9
+    docker:
+      - image: python:3.9
+    environment:
+      TOXENV: tests39
+
+  tests39-fast:
+    <<: *test-template
+    description: Tests fast - Python 3.9
+    docker:
+      - image: python:3.9
+    environment:
+      TOXENV: tests39-fast
+
+  tests39-online:
+    <<: *test-template
+    description: Tests online - Python 3.9
+    docker:
+      - image: python:3.9
+    environment:
+      TOXENV: tests39-online
+
+  tests39-slow:
+    <<: *test-template
+    description: Tests slow - Python 3.9
+    docker:
+      - image: python:3.9
+    environment:
+      TOXENV: tests39-slow
+
+  tests39-images:
+    <<: *test-template
+    description: Tests images - Python 3.9
+    docker:
+      - image: python:3.9
+    environment:
+      TOXENV: tests39-images
+
+  tests39-coverage:
+    <<: *test-template
+    description: Tests coverage - Python 3.9
+    docker:
+      - image: python:3.9
+    environment:
+      TOXENV: tests39-coverage
+    steps:
+      - checkout
+      - run: python -m pip install tox
+      - run: tox
+      - run: python -m pip install codecov && codecov
+
+  tests310:
+    <<: *test-template
+    description: Tests - Python 3.10
+    docker:
+      - image: python:3.10
+    environment:
+      TOXENV: tests310
+
+  tests311:
+    <<: *test-template
+    description: Tests - Python 3.11
+    docker:
+      - image: python:3.11
+    environment:
+      TOXENV: tests311
+
+  tests312:
+    <<: *test-template
+    description: Tests - Python 3.12
+    docker:
+      - image: python:3.12
+    environment:
+      TOXENV: tests312
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - quality
+      - tests38-fast:
+          requires:
+            - quality
+      - tests38-online:
+          requires:
+            - quality
+      - tests38-slow:
+          requires:
+            - quality
+      - tests38-images:
+          requires:
+            - quality
+      - tests38-coverage:
+          requires:
+            - quality
+      - tests39:
+          requires:
+            - quality
+      - tests39-fast:
+          requires:
+            - quality
+      - tests39-online:
+          requires:
+            - quality
+      - tests39-slow:
+          requires:
+            - quality
+      - tests39-images:
+          requires:
+            - quality
+      - tests39-coverage:
+          requires:
+            - quality
+      - tests310:
+          requires:
+            - quality
+      - tests311:
+          requires:
+            - quality
+      - tests312:
+          requires:
+            - quality
