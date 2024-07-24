@@ -9,21 +9,21 @@
 [![CircleCI](https://dl.circleci.com/status-badge/img/circleci/9wE8FEEBmTs6KrznLADUmx/EX84xKHFPudDeazG3q2XVw/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/circleci/9wE8FEEBmTs6KrznLADUmx/EX84xKHFPudDeazG3q2XVw/tree/main)
 [![license_badge]](https://opensource.org/licenses/MIT)
 [![python_badge]](https://pypi.org/project/boinor) 
-
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/boinor/boinor/main.svg)](https://results.pre-commit.ci/latest/github/boinor/boinor/main)
 [![code_badge]]()
-
-<!--
-[![docs_badge]](https://docs.boinor.space/en/latest/?badge=latest)
-[![coverage_badge]](https://codecov.io/github/boinor/boinor?branch=main) 
-[![pre_commit_badge]](https://results.pre-commit.ci/latest/github/boinor/boinor/main) 
-[![python_badge]](https://pypi.org/project/boinor) 
 [![pypi_badge]](https://pypi.org/project/boinor) 
-[![doi_badge]](https://zenodo.org/badge/latestdoi/11178845) 
-[![astropy_badge]](https://zenodo.org/badge/latestdoi/11178845) 
 [![mailing_badge]](https://groups.io/g/boinor-dev) 
-[![chat_badge]](http://chat.boinor.space/) 
+[![docs_badge]](https://docs.boinor.space/en/latest/?badge=latest)
+<!--
 [![backers_badge]](https://opencollective.com/boinor/) 
 [![sponsors_badge]](https://opencollective.com/boinor/) 
+-->
+
+<!--
+[![coverage_badge]](https://codecov.io/github/boinor/boinor?branch=main) 
+[![doi_badge]](https://zenodo.org/badge/latestdoi/11178845) 
+[![astropy_badge]](https://zenodo.org/badge/latestdoi/11178845) 
+[![chat_badge]](http://chat.boinor.space/) 
 [![binder_badge]](https://mybinder.org/v2/gh/boinor/boinor/main?labpath=index.ipynb) 
 -->
 
