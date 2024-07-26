@@ -77,14 +77,15 @@ doc = [
     "ipywidgets>=7.6",
     "jupyter-client",
     "jupytext",
-    "myst-parser>=0.13.1",
+    "jupyter",
+    "myst-parser", #>=0.13.1,<1.0.0",
     "nbsphinx>=0.8.6",
     "nbconvert>=5.5",
     "sgp4",
     "sphinx", #!=3.5,!=4.0,<5.1",  # https://github.com/readthedocs/sphinx-hoverxref/issues/119
-    "sphinx-autoapi",
+    "sphinx-autoapi>=3.0.0",
     "sphinx-gallery<=0.7.0",  # Just to avoid the jupytext warning
-    "sphinx_rtd_theme~=1.0.0",
+    "sphinx_rtd_theme", # ~=1.0.0",
     "sphinx-hoverxref==0.7b1",
     "sphinx-notfound-page",
     "sphinx-copybutton>0.2.9",
