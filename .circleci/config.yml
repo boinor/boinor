@@ -143,3 +143,6 @@ workflows:
       - tests312:
           requires:
             - quality
+      - tests313:
+          requires:
+            - quality
