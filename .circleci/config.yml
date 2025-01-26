@@ -99,6 +99,15 @@ jobs:
     environment:
       TOXENV: tests312
 
+  tests313:
+    <<: *test-template
+    description: Tests - Python 3.13
+    docker:
+      - image: python:3.13
+    environment:
+      TOXENV: tests313
+
+
 workflows:
   version: 2
   build_and_test:
