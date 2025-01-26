@@ -1,9 +1,5 @@
 version: 2
 
-sphinx:
-  # Path to your Sphinx configuration file.
-  configuration: docs/source/conf.py
-
 build:
   os: "ubuntu-22.04"
   tools:
@@ -23,3 +19,6 @@ python:
 sphinx:
   # fail_on_warning: true  # Too hard, maybe one day?
   fail_on_warning: false
+  # Path to your Sphinx configuration file.
+  configuration: docs/source/conf.py
+
