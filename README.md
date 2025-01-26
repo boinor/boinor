@@ -234,8 +234,10 @@ If you would like to support boinor, consider [becoming a backer] or
 
 <!-- Badges -->
 
+<!--
 [CircleCI_badge]: https://dl.circleci.com/status-badge/img/circleci/9wE8FEEBmTs6KrznLADUmx/EX84xKHFPudDeazG3q2XVw/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/circleci/9wE8FEEBmTs6KrznLADUmx/EX84xKHFPudDeazG3q2XVw/tree/main "CircleCI badge"
 [orcid_badge]: https://img.shields.io/badge/id-0000--0002--2187--161X-a6ce39.svg "orcid badge"
+-->
 
 [python_badge]: https://img.shields.io/pypi/pyversions/boinor?logo=pypi&logoColor=white "python badge"
 [license_badge]: https://img.shields.io/badge/license-MIT-blue.svg?logo=open%20source%20initiative&logoColor=white "license badge"
