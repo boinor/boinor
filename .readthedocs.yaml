@@ -1,10 +1,10 @@
 version: 2
 
-# does not work with 3.12
+# does not work with 3.12, 3.11; poliastro did it with 3.9
 build:
   os: "ubuntu-22.04"
   tools:
-    python: "3.11"
+    python: "3.9"
 
 formats:
   - epub
