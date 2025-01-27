@@ -11,12 +11,19 @@ name = "boinor"
 readme = "README.md"
 requires-python = ">=3.8"
 license = {file = "COPYING"}
+## former authors/maintainers for poliastro
+#authors = [
+#    {name = "Juan Luis Cano Rodríguez", email = "hello@juanlu.space"}
+#]
+#maintainers = [
+#    {name = "Juan Luis Cano Rodríguez", email = "hello@juanlu.space"},
+#    {name = "Jorge Martinez Garrido", email = "contact@jorgemartinez.space"}
+#]
 authors = [
-    {name = "Juan Luis Cano Rodríguez", email = "hello@juanlu.space"}
+    {name = "Thorsten Alteholz", email = "boinor@alteholz.dev"}
 ]
 maintainers = [
-    {name = "Juan Luis Cano Rodríguez", email = "hello@juanlu.space"},
-    {name = "Jorge Martinez Garrido", email = "contact@jorgemartinez.space"}
+    {name = "Thorsten Alteholz", email = "boinor@alteholz.dev"}
 ]
 keywords = [
     "aero",
@@ -83,13 +90,13 @@ doc = [
     "nbconvert>=5.5",
     "sgp4",
     "sphinx", #!=3.5,!=4.0,<5.1",  # https://github.com/readthedocs/sphinx-hoverxref/issues/119
-    "sphinx-autoapi>=3.0.0",
+    "sphinx-autoapi", # >=3.0.0",
     "sphinx-gallery<=0.7.0",  # Just to avoid the jupytext warning
     "sphinx_rtd_theme", # ~=1.0.0",
-    "sphinx-hoverxref==0.7b1",
+    "sphinx-hoverxref", # ==0.7b1",
     "sphinx-notfound-page",
-    "sphinx-copybutton>0.2.9",
-    "sphinx-github-role~=0.1.0",
+    "sphinx-copybutton", # >0.2.9",
+    "sphinx-github-role", # ~=0.1.0",
 ]
 test = [
     "coverage",
