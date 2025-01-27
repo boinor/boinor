@@ -46,51 +46,6 @@ jobs:
     environment:
       TOXENV: tests311
 
-  tests311-fast:
-    <<: *test-template
-    description: Tests fast - Python 3.11
-    docker:
-      - image: python:3.11
-    environment:
-      TOXENV: tests311-fast
-
-  tests311-online:
-    <<: *test-template
-    description: Tests online - Python 3.11
-    docker:
-      - image: python:3.11
-    environment:
-      TOXENV: tests311-online
-
-  tests311-slow:
-    <<: *test-template
-    description: Tests slow - Python 3.11
-    docker:
-      - image: python:3.11
-    environment:
-      TOXENV: tests311-slow
-
-  tests311-images:
-    <<: *test-template
-    description: Tests images - Python 3.11
-    docker:
-      - image: python:3.11
-    environment:
-      TOXENV: tests311-images
-
-  tests311-coverage:
-    <<: *test-template
-    description: Tests coverage - Python 3.11
-    docker:
-      - image: python:3.11
-    environment:
-      TOXENV: tests311-coverage
-    steps:
-      - checkout
-      - run: python -m pip install tox
-      - run: tox
-      - run: python -m pip install codecov && codecov
-
   tests312:
     <<: *test-template
     description: Tests - Python 3.12
@@ -98,6 +53,51 @@ jobs:
       - image: python:3.12
     environment:
       TOXENV: tests312
+
+  tests312-fast:
+    <<: *test-template
+    description: Tests fast - Python 3.12
+    docker:
+      - image: python:3.12
+    environment:
+      TOXENV: tests312-fast
+
+  tests312-online:
+    <<: *test-template
+    description: Tests online - Python 3.12
+    docker:
+      - image: python:3.12
+    environment:
+      TOXENV: tests312-online
+
+  tests311-slow:
+    <<: *test-template
+    description: Tests slow - Python 3.12
+    docker:
+      - image: python:3.12
+    environment:
+      TOXENV: tests312-slow
+
+  tests311-images:
+    <<: *test-template
+    description: Tests images - Python 3.12
+    docker:
+      - image: python:3.12
+    environment:
+      TOXENV: tests312-images
+
+  tests311-coverage:
+    <<: *test-template
+    description: Tests coverage - Python 3.12
+    docker:
+      - image: python:3.12
+    environment:
+      TOXENV: tests312-coverage
+    steps:
+      - checkout
+      - run: python -m pip install tox
+      - run: tox
+      - run: python -m pip install codecov && codecov
 
   tests313:
     <<: *test-template
@@ -125,21 +125,21 @@ workflows:
       - tests311:
           requires:
             - quality
-      - tests311-fast:
-          requires:
-            - quality
-      - tests311-online:
-          requires:
-            - quality
-      - tests311-slow:
-          requires:
-            - quality
-      - tests311-images:
-          requires:
-            - quality
-      - tests311-coverage:
-          requires:
-            - quality
       - tests312:
+          requires:
+            - quality
+      - tests312-fast:
+          requires:
+            - quality
+      - tests312-online:
+          requires:
+            - quality
+      - tests312-slow:
+          requires:
+            - quality
+      - tests312-images:
+          requires:
+            - quality
+      - tests312-coverage:
           requires:
             - quality
