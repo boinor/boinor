@@ -5,7 +5,6 @@
 | boinor | [https://www.boinor.space](https://www.boinor.space) | [Thorsten Alteholz](https://orcid.org/0000-0002-9570-7046) | [boinor development team](https://github.com/boinor/boinor/blob/main/AUTHORS.md) | [0.19XXX](https://github.com/boinor/boinor/) |
 
 [![boinor_badge]](https://github.com/boinor/boinor)
-[![ci_badge]](https://circleci.com/gh/boinor/boinor/?branch=main)
 [![CircleCI](https://dl.circleci.com/status-badge/img/circleci/9wE8FEEBmTs6KrznLADUmx/EX84xKHFPudDeazG3q2XVw/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/circleci/9wE8FEEBmTs6KrznLADUmx/EX84xKHFPudDeazG3q2XVw/tree/main)
 [![license_badge]](https://opensource.org/licenses/MIT)
 [![python_badge]](https://pypi.org/project/boinor) 
@@ -14,6 +13,8 @@
 [![pypi_badge]](https://pypi.org/project/boinor) 
 [![mailing_badge]](https://groups.io/g/boinor-dev) 
 [![docs_badge]](https://docs.boinor.space/en/latest/?badge=latest)
+[![docs_badge]](https://readthedocs.org/projects/bbboinor/badge/?version=latest)
+
 <!--
 [![backers_badge]](https://opencollective.com/boinor/) 
 [![sponsors_badge]](https://opencollective.com/boinor/) 
