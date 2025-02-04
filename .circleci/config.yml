@@ -99,9 +99,6 @@ jobs:
     environment:
       TOXENV: tests313
 
-orbs:
-  codecov: codecov/codecov@5
-
 workflows:
   version: 2
   build_and_test:
@@ -134,7 +131,3 @@ workflows:
       - tests312-coverage:
           requires:
             - quality
-  upload-to-codecov:
-    jobs:
-      - checkout 
-      - codecov/upload
