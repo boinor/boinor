@@ -62,7 +62,7 @@ jobs:
     environment:
       TOXENV: tests312-online
 
-  tests311-slow:
+  tests312-slow:
     <<: *test-template
     description: Tests slow - Python 3.12
     docker:
@@ -70,7 +70,7 @@ jobs:
     environment:
       TOXENV: tests312-slow
 
-  tests311-images:
+  tests312-images:
     <<: *test-template
     description: Tests images - Python 3.12
     docker:
@@ -78,7 +78,7 @@ jobs:
     environment:
       TOXENV: tests312-images
 
-  tests311-coverage:
+  tests312-coverage:
     <<: *test-template
     description: Tests coverage - Python 3.12
     docker:
