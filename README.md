@@ -14,14 +14,11 @@
 [![mailing_badge]](https://groups.io/g/boinor-dev) 
 [![docs_badge]](https://docs.boinor.space/en/latest/?badge=latest)
 [![docs_badge]](https://readthedocs.org/projects/bbboinor/badge/?version=latest)
+[![coverage_badge]](https://codecov.io/github/boinor/boinor?branch=main) 
 
 <!--
 [![backers_badge]](https://opencollective.com/boinor/) 
 [![sponsors_badge]](https://opencollective.com/boinor/) 
--->
-
-<!--
-[![coverage_badge]](https://codecov.io/github/boinor/boinor?branch=main) 
 [![doi_badge]](https://zenodo.org/badge/latestdoi/11178845) 
 [![astropy_badge]](https://zenodo.org/badge/latestdoi/11178845) 
 [![chat_badge]](http://chat.boinor.space/) 
@@ -182,8 +179,7 @@ If you would like to support boinor, consider [becoming a backer] or
 
 * **What's up with the name?**
 
-  boinor comes from Polimi, which is the shortened name of the Politecnico di
-  Milano, see the [acknowledgement from the original author]. *Grazie mille!*
+  boinor comes from BOdies IN ORbit.
 
 * **Is boinor validated?**
 
