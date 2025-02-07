@@ -12,8 +12,7 @@
 [![code_badge]]()
 [![pypi_badge]](https://pypi.org/project/boinor) 
 [![mailing_badge]](https://groups.io/g/boinor-dev) 
-[![docs_badge]](https://docs.boinor.space/en/latest/?badge=latest)
-[![docs_badge]](https://readthedocs.org/projects/bbboinor/badge/?version=latest)
+[![docs_badge]](https://readthedocs.org/projects/boinor/badge/?version=latest)
 [![coverage_badge]](https://codecov.io/github/boinor/boinor?branch=main) 
 
 <!--
