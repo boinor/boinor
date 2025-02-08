@@ -1,6 +1,3 @@
-Install latest sphinx-hoverxref dependency for docs
-#1641 opened Aug 29, 2023 by humitos
-1
 Starting to get rid of {eval-rst} blocks on documentation files
 #1633 opened Jun 30, 2023 by junietoc • Draft
 2 of 6 tasks
