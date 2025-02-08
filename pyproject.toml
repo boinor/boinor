@@ -53,13 +53,13 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Astronomy",
 ]
 dependencies = [
-    "astropy >=5.0,<6",
+    "astropy >=6.0, <7",
     "astroquery >=0.3.9",
     "jplephem",
     "matplotlib >=2.0,!=3.0.1",
     "numba >=0.46 ; python_version<'3.9'",
     "numba >=0.53.0 ; python_version>='3.9'",
-    "numpy",
+    "numpy <= 1.30",
     "pandas",
     "plotly >=4.0,<6",
     "pyerfa",
