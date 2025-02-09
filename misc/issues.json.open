@@ -16,11 +16,6 @@
   },
   {
     "state": "OPEN",
-    "title": "Update citation information",
-    "url": "https://github.com/poliastro/poliastro/issues/1636"
-  },
-  {
-    "state": "OPEN",
     "title": "Help propagating Asteroid perturbed orbit",
     "url": "https://github.com/poliastro/poliastro/issues/1635"
   },
