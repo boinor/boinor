@@ -48,6 +48,11 @@ class GeocentricSolarEcliptic(BaseEclipticFrame):
     DynamicMatrixTransform, GCRS, GeocentricSolarEcliptic
 )
 def gcrs_to_geosolarecliptic(gcrs_coo, to_frame):
+    """Convert coordinates from the Geocentric Celestial Reference System
+    to the Earth-centered ecliptic coordinates.
+
+    """
+
     if not to_frame.obstime.isscalar:
         raise ValueError(
             "To perform this transformation the obstime Attribute must be a scalar."
@@ -80,6 +85,10 @@ def gcrs_to_geosolarecliptic(gcrs_coo, to_frame):
     DynamicMatrixTransform, GeocentricSolarEcliptic, GCRS
 )
 def geosolarecliptic_to_gcrs(from_coo, gcrs_frame):
+    """Convert Earth-centered ecliptic coordinates to the
+    Geocentric Celestial Reference System
+
+    """
     return matrix_transpose(gcrs_to_geosolarecliptic(gcrs_frame, from_coo))
 
 
