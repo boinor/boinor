@@ -104,6 +104,7 @@ class Body(
 
     @property
     def angular_velocity(self):
+        """Return angular velocity of Body."""
         return (2 * math.pi * u.rad) / self.rotational_period.to(u.s)
 
     def __str__(self):

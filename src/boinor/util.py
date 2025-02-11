@@ -102,4 +102,5 @@ def alinspace(start, stop=None, *, num=50, endpoint=True):
 
 @u.quantity_input(angle=u.rad, limit=u.rad)
 def wrap_angle(angle, limit=180 * u.deg):
+    """Scale angle into interval from 0 to 180 degree."""
     return Angle(angle).wrap_at(limit)
