@@ -3,26 +3,32 @@
 This module complements constants defined in `astropy.constants`,
 with gravitational paremeters and radii.
 
-Note that `GM_jupiter` and `GM_neptune` are both referred to the whole planetary system gravitational parameter.
+Note that `GM_jupiter` and `GM_neptune` are both referred to the whole planetary system
+gravitational parameter.
 
 Unless otherwise specified, gravitational and mass parameters were obtained from:
 
-* Luzum, Brian et al. “The IAU 2009 System of Astronomical Constants: The Report of the IAU Working Group on Numerical
-  Standards for Fundamental Astronomy.” Celestial Mechanics and Dynamical Astronomy 110.4 (2011): 293–304.
+* Luzum, Brian et al. 
+  “The IAU 2009 System of Astronomical Constants: The Report of the IAU Working Group on Numerical
+  Standards for Fundamental Astronomy.”
+  Celestial Mechanics and Dynamical Astronomy 110.4 (2011): 293–304.
   Crossref. Web. `DOI: 10.1007/s10569-011-9352-4`_
 
 radii were obtained from:
 
-* Archinal, B. A. et al. “Report of the IAU Working Group on Cartographic Coordinates and Rotational Elements: 2009.”
-  Celestial Mechanics and Dynamical Astronomy 109.2 (2010): 101–135. Crossref. Web. `DOI: 10.1007/s10569-010-9320-4`_
+* Archinal, B. A. et al.
+  “Report of the IAU Working Group on Cartographic Coordinates and Rotational Elements: 2009.”
+  Celestial Mechanics and Dynamical Astronomy 109.2 (2010):
+  101–135. Crossref. Web. `DOI: 10.1007/s10569-010-9320-4`_
 
 .. _`DOI: 10.1007/s10569-011-9352-4`: http://dx.doi.org/10.1007/s10569-011-9352-4
 .. _`DOI: 10.1007/s10569-010-9320-4`: http://dx.doi.org/10.1007/s10569-010-9320-4
 
 J2 for the Sun was obtained from:
 
-* https://hal.archives-ouvertes.fr/hal-00433235/document (New values of gravitational moments J2 and J4 deduced
-  from helioseismology, Redouane Mecheri et al)
+* https://hal.archives-ouvertes.fr/hal-00433235/document
+  (New values of gravitational moments J2 and J4 deduced from helioseismology,
+   Redouane Mecheri et al)
 
 """
 
@@ -106,13 +112,19 @@ __all__ = [
 
 # HACK: sphinx-autoapi variable definition
 M_earth = _M_earth
+"""mass of Earth"""
 M_jupiter = _M_jupiter
+"""mass of Jupiter"""
 M_sun = _M_sun
+"""mass of Sun"""
 
 # See for example USNO Circular 179
 J2000_TT = time.Time("J2000", scale="tt")
+"""standard epoche year 2000 on the Terrestial Time (TT) scale"""
 J2000_TDB = time.Time("J2000", scale="tdb")
+"""standard epoche year 2000 on the Barycentric Dynamical Time (TDB = Temps Dynamique Barycentrique) scale"""
 J2000 = J2000_TT
+"""standard epoche year 2000 is the same as J2000_TT here"""
 
 GM_sun = Constant(
     "GM_sun",
@@ -123,6 +135,7 @@ GM_sun = Constant(
     "IAU 2009 system of astronomical constants",
     system="si",
 )
+"""Heliocentric gravitational constant from the IAU 2009 system of astronomical constants"""
 
 GM_earth = Constant(
     "GM_earth",
@@ -133,6 +146,7 @@ GM_earth = Constant(
     "IAU 2009 system of astronomical constants",
     system="si",
 )
+"""Geocentric gravitational constant from the IAU 2009 system of astronomical constants"""
 
 # Anderson, John D. et al. “The Mass, Gravity Field, and Ephemeris of Mercury.” Icarus 71.3 (1987): 337–349.
 # Crossref. Web. DOI: 10.1016/0019-1035(87)90033-9
@@ -145,6 +159,7 @@ GM_mercury = Constant(
     "IAU 2009 system of astronomical constants",
     system="si",
 )
+"""Mercury gravitational constant from the IAU 2009 system of astronomical constants"""
 
 # Konopliv, A.S., W.B. Banerdt, and W.L. Sjogren. “Venus Gravity: 180th Degree and Order Model.”
 # Icarus 139.1 (1999): 3–18. Crossref. Web. DOI: 10.1006/icar.1999.6086
@@ -157,6 +172,7 @@ GM_venus = Constant(
     "IAU 2009 system of astronomical constants",
     system="si",
 )
+"""Venus gravitational constant from the IAU 2009 system of astronomical constants"""
 
 # Konopliv, Alex S. et al. “A Global Solution for the Mars Static and Seasonal Gravity, Mars Orientation, Phobos and
 # Deimos Masses, and Mars Ephemeris.” Icarus 182.1 (2006): 23–50.
@@ -170,6 +186,7 @@ GM_mars = Constant(
     "IAU 2009 system of astronomical constants",
     system="si",
 )
+"""Mars gravitational constant from the IAU 2009 system of astronomical constants"""
 
 # Jacobson, R. A. et al. “A comprehensive orbit reconstruction for the galileo prime mission in the JS200 system.”
 # The Journal of the Astronautical Sciences 48.4 (2000): 495–516.
@@ -183,6 +200,7 @@ GM_jupiter = Constant(
     "IAU 2009 system of astronomical constants",
     system="si",
 )
+"""Jupiter gravitational constant from the IAU 2009 system of astronomical constants"""
 
 # Jacobson, R. A. et al. “The Gravity Field of the Saturnian System from Satellite Observations and Spacecraft
 # Tracking Data.” The Astronomical Journal 132.6 (2006): 2520–2526.
@@ -196,6 +214,7 @@ GM_saturn = Constant(
     "IAU 2009 system of astronomical constants",
     system="si",
 )
+"""Saturn gravitational constant from the IAU 2009 system of astronomical constants"""
 
 # Jacobson, R. A. et al. “The Masses of Uranus and Its Major Satellites from Voyager Tracking Data and Earth-Based
 # Uranian Satellite Data.” The Astronomical Journal 103 (1992): 2068.
@@ -209,6 +228,7 @@ GM_uranus = Constant(
     "IAU 2009 system of astronomical constants",
     system="si",
 )
+"""Uranus gravitational constant from the IAU 2009 system of astronomical constants"""
 
 # Jacobson, R. A. “THE ORBITS OF THE NEPTUNIAN SATELLITES AND THE ORIENTATION OF THE POLE OF NEPTUNE.”
 # The Astronomical Journal 137.5 (2009): 4322–4329. Crossref. Web. DOI:
@@ -222,6 +242,7 @@ GM_neptune = Constant(
     "IAU 2009 system of astronomical constants",
     system="si",
 )
+"""Neptune gravitational constant from the IAU 2009 system of astronomical constants"""
 
 # Tholen, David J. et al. “MASSES OF NIX AND HYDRA.” The Astronomical Journal 135.3 (2008): 777–784. Crossref. Web.
 # DOI: 10.1088/0004-6256/135/3/777
@@ -234,6 +255,7 @@ GM_pluto = Constant(
     "IAU 2009 system of astronomical constants",
     system="si",
 )
+"""Pluto gravitational constant from the IAU 2009 system of astronomical constants"""
 
 # Lemoine, Frank G. et al. “High-Degree Gravity Models from GRAIL Primary Mission Data.”
 # Journal of Geophysical Research: Planets 118.8 (2013): 1676–1698.
@@ -247,6 +269,7 @@ GM_moon = Constant(
     "Journal of Geophysical Research: Planets 118.8 (2013)",
     system="si",
 )
+"""Moon gravitational constant from the Journal of Geophysical Research Planets 118.8 (2013)"""
 
 # NASA. (n.d.). Planetary satellite physical parameters. NASA.
 # from https://ssd.jpl.nasa.gov/sats/phys_par/sep.html
@@ -259,6 +282,7 @@ GM_phobos = Constant(
     "NASA Planetary Satellite Physical Parameters",
     system="si",
 )
+"""Phobos gravitational constant from the NASA Planetary Satellite Physical Parameters"""
 
 # NASA. (n.d.). Planetary satellite physical parameters. NASA.
 # from https://ssd.jpl.nasa.gov/sats/phys_par/sep.html
@@ -271,6 +295,7 @@ GM_deimos = Constant(
     "NASA Planetary Satellite Physical Parameters",
     system="si",
 )
+"""Deimos gravitational constant from the NASA Planetary Satellite Physical Parameters"""
 
 # NASA. (n.d.). Planetary satellite physical parameters. NASA.
 # from https://ssd.jpl.nasa.gov/sats/phys_par/sep.html
@@ -283,6 +308,7 @@ GM_europa = Constant(
     "NASA Planetary Satellite Physical Parameters",
     system="si",
 )
+"""Europa gravitational constant from the NASA Planetary Satellite Physical Parameters"""
 
 # NASA. (n.d.). Planetary satellite physical parameters. NASA.
 # from https://ssd.jpl.nasa.gov/sats/phys_par/sep.html
@@ -295,6 +321,7 @@ GM_ganymede = Constant(
     "NASA Planetary Satellite Physical Parameters",
     system="si",
 )
+"""Ganymede gravitational constant from the NASA Planetary Satellite Physical Parameters"""
 
 # NASA. (n.d.). Planetary satellite physical parameters. NASA.
 # from https://ssd.jpl.nasa.gov/sats/phys_par/sep.html
@@ -307,6 +334,7 @@ GM_enceladus = Constant(
     "NASA Planetary Satellite Physical Parameters",
     system="si",
 )
+"""Eceladus gravitational constant from the NASA Planetary Satellite Physical Parameters"""
 
 # NASA. (n.d.). Planetary satellite physical parameters. NASA.
 # from https://ssd.jpl.nasa.gov/sats/phys_par/sep.html
@@ -319,6 +347,7 @@ GM_titan = Constant(
     "NASA Planetary Satellite Physical Parameters",
     system="si",
 )
+"""Titan gravitational constant from the NASA Planetary Satellite Physical Parameters"""
 
 # NASA. (n.d.). Planetary satellite physical parameters. NASA.
 # from https://ssd.jpl.nasa.gov/sats/phys_par/sep.html
@@ -331,6 +360,7 @@ GM_titania = Constant(
     "NASA Planetary Satellite Physical Parameters",
     system="si",
 )
+"""Titania gravitational constant from the NASA Planetary Satellite Physical Parameters"""
 
 # NASA. (n.d.). Planetary satellite physical parameters. NASA.
 # from https://ssd.jpl.nasa.gov/sats/phys_par/sep.html
@@ -343,6 +373,7 @@ GM_triton = Constant(
     "NASA Planetary Satellite Physical Parameters",
     system="si",
 )
+"""Triton gravitational constant from the NASA Planetary Satellite Physical Parameters"""
 
 # NASA. (n.d.). Planetary satellite physical parameters. NASA.
 # from https://ssd.jpl.nasa.gov/sats/phys_par/sep.html
@@ -355,6 +386,7 @@ GM_charon = Constant(
     "NASA Planetary Satellite Physical Parameters",
     system="si",
 )
+"""Charon gravitational constant from the NASA Planetary Satellite Physical Parameters"""
 
 # Archinal, B. A., Acton, C. H., A’Hearn, M. F., Conrad, A., Consolmagno,
 # G. J., Duxbury, T., … Williams, I. P. (2018). Report of the IAU Working
