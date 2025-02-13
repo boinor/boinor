@@ -136,11 +136,6 @@
   },
   {
     "state": "OPEN",
-    "title": "Add docstrings for constants",
-    "url": "https://github.com/poliastro/poliastro/issues/1568"
-  },
-  {
-    "state": "OPEN",
     "title": "`poliastro.core.elements.mee2rv` code is broken",
     "url": "https://github.com/poliastro/poliastro/issues/1564"
   },
