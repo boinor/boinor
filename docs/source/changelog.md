@@ -15,6 +15,7 @@
 ### Bugs fixed
 
 - add docstrings for constants ({github}`poliastro issue #1568 <poliastro/poliastro#1405>`)
+- fix usage of time_range() in quickstart.md ({github}`poliastro issue #1639 <poliastro/poliastro#1639>`)
 
 
 ### Contributors

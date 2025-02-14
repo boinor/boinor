@@ -1,11 +1,6 @@
 [
   {
     "state": "OPEN",
-    "title": "time_range is not working as described in the quickstart documentation",
-    "url": "https://github.com/poliastro/poliastro/issues/1639"
-  },
-  {
-    "state": "OPEN",
     "title": "Errors of mee2rv",
     "url": "https://github.com/poliastro/poliastro/issues/1638"
   },
