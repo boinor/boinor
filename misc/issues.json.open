@@ -1,11 +1,6 @@
 [
   {
     "state": "OPEN",
-    "title": "Errors of mee2rv",
-    "url": "https://github.com/poliastro/poliastro/issues/1638"
-  },
-  {
-    "state": "OPEN",
     "title": "Unexpected results from `Orbit.from_vectors` with shared initial position",
     "url": "https://github.com/poliastro/poliastro/issues/1637"
   },

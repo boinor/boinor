@@ -527,9 +527,9 @@ def mee2rv(p, f, g, h, k, L):
     s2 = 1 + h**2 + k**2
     alpha2 = h**2 - k**2
 
-    rx = (r / s2)(np.cos(L) + alpha2**2 * np.cos(L) + 2 * h * k * np.sin(L))
-    ry = (r / s2)(np.sin(L) - alpha2**2 * np.sin(L) + 2 * h * k * np.cos(L))
-    rz = (2 * r / s2)(h * np.sin(L) - k * np.cos(L))
+    rx = (r / s2) * (np.cos(L) + alpha2 * np.cos(L) + 2 * h * k * np.sin(L))
+    ry = (r / s2) * (np.sin(L) - alpha2 * np.sin(L) + 2 * h * k * np.cos(L))
+    rz = (2 * r / s2) * (h * np.sin(L) - k * np.cos(L))
 
     vx = (
         (-1 / s2)
