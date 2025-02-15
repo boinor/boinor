@@ -85,7 +85,7 @@ source_suffix = {
 }
 
 project = "boinor"
-copyright = "2013, Juan Luis Cano Rodríguez and the boinor development team"
+copyright = "2024, Thorsten Alteholz and the boinor development team (forked from poliastro)"
 
 project_ver = version(project)
 version = ".".join(project_ver.split(".")[:2])
