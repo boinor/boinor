@@ -2221,9 +2221,9 @@ src/boinor/frames/equatorial.py:147:0: C0115: Missing class docstring (missing-c
 src/boinor/frames/equatorial.py:151:0: C0115: Missing class docstring (missing-class-docstring)
 ************* Module boinor.frames.ecliptic
 src/boinor/frames/ecliptic.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-src/boinor/frames/ecliptic.py:50:29: W0613: Unused argument 'gcrs_coo' (unused-argument)
-src/boinor/frames/ecliptic.py:108:4: C0103: Variable name "A" doesn't conform to snake_case naming style (invalid-name)
-src/boinor/frames/ecliptic.py:109:4: C0103: Variable name "B" doesn't conform to snake_case naming style (invalid-name)
+src/boinor/frames/ecliptic.py:52:29: W0613: Unused argument 'gcrs_coo' (unused-argument)
+src/boinor/frames/ecliptic.py:110:4: C0103: Variable name "A" doesn't conform to snake_case naming style (invalid-name)
+src/boinor/frames/ecliptic.py:111:4: C0103: Variable name "B" doesn't conform to snake_case naming style (invalid-name)
 src/boinor/frames/ecliptic.py:1:0: R0801: Similar lines in 2 files
 ==boinor.constants.__init__:[103:171]
 ==boinor.constants.general:[36:104]
@@ -2395,7 +2395,7 @@ src/boinor/frames/ecliptic.py:1:0: R0801: Similar lines in 2 files
         return rho.to(u.kg / u.m**3)
 
     def properties(self, alt, geometric=True):
-        """Solves density at given height.
+        """Solves temperature, pressure, density at given height.
 
         Parameters
         ----------
@@ -2446,9 +2446,9 @@ kms = u.km / u.s
 def lambert(
     k, r0, r, tof, M=0, prograde=True, lowpath=True, numiter=35, rtol=1e-8
 ):
-    """Solves the Lambert problem using the Izzo algorithm.
+    """Solves the Lambert problem.
 
-    .. versionadded:: 0.5.0
+    .. versionadded:: 0.3.0
 
     Parameters
     ----------
@@ -2477,6 +2477,17 @@ def lambert(
     v0, v : tuple
         Pair of velocity solutions.
 
+    Raises
+    ------
+    RuntimeError
+        If it was not possible to compute the orbit.
+
+    Notes
+    -----
+    This uses the universal variable approach found in Battin, Mueller & White
+    with the bisection iteration suggested by Vallado. Multiple revolutions
+    not supported.
+
     """
     k_ = k.to_value(u.km**3 / u.s**2)
     r0_ = r0.to_value(u.km)
@@ -2486,11 +2497,11 @@ def lambert(
 src/boinor/frames/ecliptic.py:1:0: R0801: Similar lines in 2 files
 ==boinor.io:[64:69]
 ==boinor.twobody.orbit.creation:[422:427]
-            ecc=ecc,
-            inc=inc,
-            raan=raan,
-            argp=argp,
-            nu=nu, (duplicate-code)
+        ecc=ecc,
+        inc=inc,
+        raan=raan,
+        argp=argp,
+        nu=nu, (duplicate-code)
 src/boinor/frames/ecliptic.py:1:0: R0801: Similar lines in 2 files
 ==boinor.io:[63:68]
 ==boinor.twobody.orbit.creation:[308:313]
@@ -2499,17 +2510,18 @@ src/boinor/frames/ecliptic.py:1:0: R0801: Similar lines in 2 files
             inc=inc,
             raan=raan,
             argp=argp, (duplicate-code)
-src/boinor/frames/ecliptic.py:1:0: R0401: Cyclic import (boinor.bodies -> boinor.plotting.orbit.plotter) (cyclic-import)
 src/boinor/frames/ecliptic.py:1:0: R0401: Cyclic import (boinor.plotting.orbit.plotter -> boinor.twobody -> boinor.twobody.orbit -> boinor.twobody.orbit.scalar) (cyclic-import)
+src/boinor/frames/ecliptic.py:1:0: R0401: Cyclic import (boinor.bodies -> boinor.plotting.orbit.plotter -> boinor.twobody -> boinor.twobody.orbit -> boinor.twobody.orbit.scalar -> boinor.frames.util -> boinor.frames.fixed -> boinor.frames.equatorial) (cyclic-import)
 src/boinor/frames/ecliptic.py:1:0: R0401: Cyclic import (boinor.io -> boinor.twobody.orbit -> boinor.twobody.orbit.scalar -> boinor.twobody.orbit.creation) (cyclic-import)
-src/boinor/frames/ecliptic.py:1:0: R0401: Cyclic import (boinor.bodies -> boinor.plotting.orbit.plotter -> boinor.ephem) (cyclic-import)
 src/boinor/frames/ecliptic.py:1:0: R0401: Cyclic import (boinor.bodies -> boinor.plotting.orbit.plotter -> boinor.twobody -> boinor.twobody.orbit -> boinor.twobody.orbit.scalar -> boinor.twobody.orbit.creation -> boinor.io) (cyclic-import)
+src/boinor/frames/ecliptic.py:1:0: R0401: Cyclic import (boinor.bodies -> boinor.plotting.orbit.plotter -> boinor.twobody -> boinor.twobody.orbit -> boinor.twobody.orbit.scalar -> boinor.ephem -> boinor.frames.util -> boinor.frames.fixed -> boinor.frames.equatorial) (cyclic-import)
+src/boinor/frames/ecliptic.py:1:0: R0401: Cyclic import (boinor.bodies -> boinor.plotting.orbit.plotter) (cyclic-import)
+src/boinor/frames/ecliptic.py:1:0: R0401: Cyclic import (boinor.bodies -> boinor.plotting.orbit.plotter -> boinor.twobody -> boinor.twobody.orbit -> boinor.twobody.orbit.scalar -> boinor.twobody.orbit.creation -> boinor.frames.util -> boinor.frames.fixed -> boinor.frames.equatorial) (cyclic-import)
 src/boinor/frames/ecliptic.py:1:0: R0401: Cyclic import (boinor.bodies -> boinor.plotting.orbit.plotter -> boinor.twobody -> boinor.twobody.orbit -> boinor.twobody.orbit.scalar) (cyclic-import)
-src/boinor/frames/ecliptic.py:1:0: R0401: Cyclic import (boinor.bodies -> boinor.plotting.orbit.plotter -> boinor.ephem -> boinor.frames.util) (cyclic-import)
-src/boinor/frames/ecliptic.py:1:0: R0401: Cyclic import (boinor.bodies -> boinor.plotting.orbit.plotter -> boinor.twobody -> boinor.twobody.orbit -> boinor.twobody.orbit.scalar -> boinor.twobody.orbit.creation -> boinor.frames.util) (cyclic-import)
-src/boinor/frames/ecliptic.py:1:0: R0401: Cyclic import (boinor.bodies -> boinor.plotting.orbit.plotter -> boinor.ephem -> boinor.frames.util -> boinor.frames.fixed) (cyclic-import)
-src/boinor/frames/ecliptic.py:1:0: R0401: Cyclic import (boinor.bodies -> boinor.plotting.orbit.plotter -> boinor.ephem -> boinor.frames.util -> boinor.frames.ecliptic -> boinor.frames.equatorial) (cyclic-import)
-src/boinor/frames/ecliptic.py:1:0: R0401: Cyclic import (boinor.bodies -> boinor.plotting.orbit.plotter -> boinor.ephem -> boinor.frames.util -> boinor.frames.fixed -> boinor.frames.equatorial) (cyclic-import)
+src/boinor/frames/ecliptic.py:1:0: R0401: Cyclic import (boinor.bodies -> boinor.plotting.orbit.plotter -> boinor.twobody -> boinor.twobody.orbit -> boinor.twobody.orbit.scalar -> boinor.frames.util -> boinor.frames.equatorial) (cyclic-import)
+src/boinor/frames/ecliptic.py:1:0: R0401: Cyclic import (boinor.bodies -> boinor.plotting.orbit.plotter -> boinor.twobody -> boinor.twobody.orbit -> boinor.twobody.orbit.scalar -> boinor.frames.util) (cyclic-import)
+src/boinor/frames/ecliptic.py:1:0: R0401: Cyclic import (boinor.bodies -> boinor.plotting.orbit.plotter -> boinor.twobody -> boinor.twobody.orbit -> boinor.twobody.orbit.scalar -> boinor.frames.util -> boinor.frames.fixed) (cyclic-import)
+src/boinor/frames/ecliptic.py:1:0: R0401: Cyclic import (boinor.bodies -> boinor.plotting.orbit.plotter -> boinor.twobody -> boinor.twobody.orbit -> boinor.twobody.orbit.scalar -> boinor.frames.util -> boinor.frames.ecliptic -> boinor.frames.equatorial) (cyclic-import)
 
 ------------------------------------------------------------------
 Your code has been rated at 4.85/10 (previous run: 4.85/10, +0.00)
