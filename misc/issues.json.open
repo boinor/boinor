@@ -31,11 +31,6 @@
   },
   {
     "state": "OPEN",
-    "title": "Installation error, cannot retrieve package",
-    "url": "https://github.com/poliastro/poliastro/issues/1628"
-  },
-  {
-    "state": "OPEN",
     "title": "OrbitPlotter2D & 3D not working",
     "url": "https://github.com/poliastro/poliastro/issues/1624"
   },
