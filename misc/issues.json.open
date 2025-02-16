@@ -11,11 +11,6 @@
   },
   {
     "state": "OPEN",
-    "title": "[doc] Misleading documentation for Orbit.from_ephem",
-    "url": "https://github.com/poliastro/poliastro/issues/1634"
-  },
-  {
-    "state": "OPEN",
     "title": "Orbit.from_ephem error",
     "url": "https://github.com/poliastro/poliastro/issues/1632"
   },

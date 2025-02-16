@@ -25,6 +25,7 @@ The code coverage increased from 91.1% to XXX
 - fix errors of mee2rv() ({github}`poliastro issue #1638 <poliastro/poliastro#1638>`)
   This is only a partial fix for two of three mentioned bugs.
   Bug number 3 will be handled in {github}`boinor issue #1 <boinor/boinor#1>`.
+- different order of parameter in documentation ({github}`poliastro issue #1634 <poliastro/poliastro#1634>`)
 
 
 ### Contributors
@@ -34,7 +35,7 @@ release, with a + sign indicating first contribution.
 
 - Thorsten Alteholz
 - gaowutong
-
+- Elle
 
 ## versions before
 

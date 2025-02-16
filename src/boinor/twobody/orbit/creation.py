@@ -228,10 +228,10 @@ class OrbitCreationMixin:
 
         Parameters
         ----------
-        ephem : ~boinor.ephem.Ephem
-            Ephemerides object to use.
         attractor : ~boinor.bodies.Body
             Body to use as attractor.
+        ephem : ~boinor.ephem.Ephem
+            Ephemerides object to use.
         epoch : ~astropy.time.Time
             Epoch to retrieve the osculating orbit at.
 
