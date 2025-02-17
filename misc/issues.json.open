@@ -246,11 +246,6 @@
   },
   {
     "state": "OPEN",
-    "title": "Adding a pylintrc file to the project",
-    "url": "https://github.com/poliastro/poliastro/issues/1387"
-  },
-  {
-    "state": "OPEN",
     "title": "geo json output from ground track plotter",
     "url": "https://github.com/poliastro/poliastro/issues/1385"
   },

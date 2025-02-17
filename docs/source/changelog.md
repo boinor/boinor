@@ -26,6 +26,7 @@ The code coverage increased from 91.1% to XXX
   This is only a partial fix for two of three mentioned bugs.
   Bug number 3 will be handled in {github}`boinor issue #1 <boinor/boinor#1>`.
 - different order of parameter in documentation ({github}`poliastro issue #1634 <poliastro/poliastro#1634>`)
+- add .pylintrc file ({github}`poliastro issue #1387 <poliastro/poliastro#1387>`)
 
 
 ### Contributors
