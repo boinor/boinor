@@ -1,14 +1,14 @@
 # What's new
 
-## boinor 0.18.0
+## boinor 0.18.6
 
 ### Highlights
 
 - **boinor**
   After poliastro has been archived, a fork has been created that is called **boinor*
   BOdies IN Orbit.
-  Thanks a log to [Juan Luis](https://github.com/astrojuanlu/) and [Jorge](https://github.com/jorgepiloto/)
-  for creating such a great software.
+  Thanks a lot to [Juan Luis](https://github.com/astrojuanlu/), [Jorge Martinez](https://github.com/jorgepiloto/)
+  and the poliastro development team for creating such a great software.
   Hopefully I can maintain their high standards so that this software keeps alive.
 
 ### Coverage
@@ -16,7 +16,7 @@
 New tests have been added or improved:
  - tests/tests_core/test_core_elements.py
 
-The code coverage increased from 91.1% to XXX
+The code coverage increased from 91.1% to 91.45%.
 
 ### Bugs fixed
 
