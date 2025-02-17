@@ -108,8 +108,8 @@ the library. Please refer to the [COPYING] file.
 
     The MIT License (MIT)
     
-    Copyright (c) 2012-2023 Juan Luis Cano Rodríguez, Jorge Martínez Garrido, and the boinor development team
-    Copyright (c) 2024 Thorsten Alteholz
+    Copyright (c) 2012-2023 Juan Luis Cano Rodríguez, Jorge Martínez Garrido, and the poliastro development team
+    Copyright (c) 2024-2025 Thorsten Alteholz, and the boinor development team
     
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
