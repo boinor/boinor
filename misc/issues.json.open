@@ -81,11 +81,6 @@
   },
   {
     "state": "OPEN",
-    "title": "Unexpected/incompatible cartesian frame for Spheroid Location",
-    "url": "https://github.com/poliastro/poliastro/issues/1599"
-  },
-  {
-    "state": "OPEN",
     "title": "VenusFixed frame can't be transformed to ICRS",
     "url": "https://github.com/poliastro/poliastro/issues/1598"
   },
