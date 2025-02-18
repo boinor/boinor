@@ -3,7 +3,7 @@ name: New release
 about: Checklist for new release (development only)
 title: Release X.Y.Z checklist
 labels: development
-assignees: astrojuanlu
+assignees: boinor
 ---
 
 ## Preparing the release
@@ -11,9 +11,9 @@ assignees: astrojuanlu
 * [ ] Rerun all notebooks (pay special attention to new features)
 * [ ] Review documentation, optionally improving the user guide or adding new notebooks showcasing new functionality
 * [ ] Write the changelog and list of contributors
-  - Commits since last release branch https://github.com/poliastro/poliastro/compare/X.Y.Z...main
-  - Issues closed in this milestone https://github.com/poliastro/poliastro/milestone/N?closed=1 (note that there might be issues without milestone!)
-  - Pull requests merged since last branching https://github.com/poliastro/poliastro/pulls?q=is%3Apr+is%3Amerged+merged%3A%3E%3D2019-02-09+sort%3Aupdated-asc
+  - Commits since last release branch https://github.com/boinor/boinor/compare/X.Y.Z...main
+  - Issues closed in this milestone https://github.com/boinor/boinor/milestone/N?closed=1 (note that there might be issues without milestone!)
+  - Pull requests merged since last branching https://github.com/boinor/boinor/pulls?q=is%3Apr+is%3Amerged+merged%3A%3E%3D2019-02-09+sort%3Aupdated-asc
   - List of contributors: `git shortlog --summary --email ${BRANCHING_COMMIT}..`
 
 ## Before the beta release
@@ -57,6 +57,6 @@ assignees: astrojuanlu
 * [ ] Check Read the Docs
 * [ ] Create GitHub release
 * [ ] Add Zenodo badge to GitHub release
-* [ ] Send announcement email with subject "ANN: poliastro X.Y.Z released 🚀"
+* [ ] Send announcement email with subject "ANN: boinor X.Y.Z released 🚀"
 * [ ] Cherry pick release date to main
 * [ ] Close milestone
