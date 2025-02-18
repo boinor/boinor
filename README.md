@@ -14,11 +14,11 @@
 [![mailing_badge]](https://groups.io/g/boinor-dev) 
 [![docs_badge]](https://readthedocs.org/projects/boinor/badge/?version=latest)
 [![coverage_badge]](https://codecov.io/github/boinor/boinor?branch=main) 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.12809725.svg)](https://doi.org/10.5281/zenodo.12809725)
 
 <!--
 [![backers_badge]](https://opencollective.com/boinor/) 
 [![sponsors_badge]](https://opencollective.com/boinor/) 
-[![doi_badge]](https://zenodo.org/badge/latestdoi/11178845) 
 [![astropy_badge]](https://zenodo.org/badge/latestdoi/11178845) 
 [![chat_badge]](http://chat.boinor.space/) 
 [![binder_badge]](https://mybinder.org/v2/gh/boinor/boinor/main?labpath=index.ipynb) 
@@ -35,7 +35,6 @@ conversion between position and velocity vectors and classical orbital elements
 and orbit plotting, among others.  It focuses on interplanetary applications,
 but can also be used to analyze artificial satellites in Low-Earth Orbit (LEO).
 
-<!--
 If you use boinor on your project, please [let us know]. Use the DOI to cite
 boinor in your publications:
 
@@ -58,7 +57,6 @@ boinor requires the following Python packages:
 
 boinor is supported on Linux, macOS and Windows on Python 3.9 to 3.12.
 
-<!--
 ## Installation
 
 Multiple installation methods are supported by boinor, including:
@@ -88,8 +86,11 @@ boinor. Examples can be accessed in various ways:
 
 * Examples source code collected in the [examples directory]
 * Rendered [gallery of examples] presented in the documentation
+<!--
 * Interactive examples powered by [binder] so users can try boinor without installing it
+-->
 
+<!--
 boinor is also promoted through conferences and talks. These are the latest
 talks in some of the most popular conferences about scientific software:
 
@@ -139,7 +140,6 @@ If for any reason you get an unexpected error message or an incorrect result,
 or you want to let the developers know about your use case, please open a new
 issue in the [issue tracker] and we will try to answer promptly.
 
-<!--
 ## Contributing and community support
 
 This project exists thanks to all the people who contribute! boinor is a
@@ -148,10 +148,10 @@ information, head to the [CONTRIBUTING.md] file.
 
 Release announcements and general discussion take place on our [mailing list].
 
+<!--
 For further clarifications and discussions, feel free to join boinor's [chat
 room].
-
-![Contributors image](https://opencollective.com/boinor/contributors.svg?width=890&button=false)
+-->
 
 
 ## Backers and sponsors
@@ -160,6 +160,7 @@ boinor requires finnacial support to mantain its high quality standars. The
 money is used to renew the web domain and updating the documentation hosting
 subscription among others.
 
+<!--
 If you would like to support boinor, consider [becoming a backer] or
 [becoming a sponsor]. 
 
@@ -169,9 +170,7 @@ If you would like to support boinor, consider [becoming a backer] or
 
 
 **Thanks to all our sponsors!**
-
-[![Sponsors](https://opencollective.com/boinor/sponsor/0/avatar.svg)](https://opencollective.com/boinor/sponsor/0/website)
-[![Sponsors](https://opencollective.com/boinor/sponsor/1/avatar.svg)](https://opencollective.com/boinor/sponsor/0/website)
+-->
 
 
 ## Frequently asked questions
@@ -197,8 +196,6 @@ If you would like to support boinor, consider [becoming a backer] or
   thanks to the generous sponsorship of Google, the European Space Agency, and
   NumFOCUS. The best way to get an idea of the roadmap is to see the
   [milestones] of the project.
-
--->
 
 <!-- LINKS AND REFERENCES -->
 
