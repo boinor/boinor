@@ -38,14 +38,26 @@ def test_lstar(p1, p2, expected_lstar):
 
 
 @pytest.mark.parametrize(
-    "p1, p2, expected_tstar",
+    "p1, p2, expected_tstar, expected_name",
     [
-        (Earth, Moon, calculate_tstar(Earth.k, Moon.k, Moon.mean_a)),
+        (
+            Earth,
+            Moon,
+            calculate_tstar(Earth.k, Moon.k, Moon.mean_a),
+            Earth.name + Moon.name,
+        ),
+        (
+            Moon,
+            Earth,
+            calculate_tstar(Earth.k, Moon.k, Moon.mean_a),
+            Earth.name + Moon.name,
+        ),
         # Compares value from SystemChars class with the preivously tested expected_tstar()
     ],
 )
-def test_tstar(p1, p2, expected_tstar):
+def test_tstar(p1, p2, expected_tstar, expected_name):
     "Test cr3bp_char_quant -> SystemChars.tstar with expected tstar."
     Systemp1p2 = SystemChars.from_primaries(p1, p2)
 
+    assert Systemp1p2.name == expected_name
     assert_quantity_allclose(Systemp1p2.tstar, expected_tstar, 1e-5)

@@ -11,6 +11,10 @@ def test_spacecraft_init():
     m = 100 * u.kg
     spacecraft = Spacecraft(A, C_D, m)
     assert isinstance(spacecraft, Spacecraft)
+    assert C_D == spacecraft.C_D
+    assert A == spacecraft.A
+    assert m == spacecraft.m
+    assert m != spacecraft.m * 2
 
 
 def test_balistic_coefficient():

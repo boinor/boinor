@@ -172,7 +172,9 @@ def get_inclination_critical_argp(R, J2, J3, a, ecc):
         Eccentricity.
 
     """
-    inc = np.arcsin(-ecc * a * J2 * 2 / R / J3) * u.rad
+    value = -ecc * a * J2 * 2 / R / J3
+    value = value * np.pi / 360
+    inc = np.arcsin(value)
     return inc
 
 
