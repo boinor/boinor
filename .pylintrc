@@ -475,8 +475,7 @@ disable=raw-checker-failed,
         keyword-arg-before-vararg,
         bad-classmethod-argument,
         use-implicit-booleaness-not-len,
-        undefined-loop-variable,
-        unidiomatic-typecheck
+        undefined-loop-variable
 
 
 # Enable the message, report, category or checker with the given id(s). You can

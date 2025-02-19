@@ -76,7 +76,7 @@ class _PlanetaryFixed(BaseRADecFrame):
     @staticmethod
     def to_equatorial(fixed_coo, equatorial_frame):
         # TODO replace w/ something smart (Sun/Earth special cased)
-        if fixed_coo.body == Sun and type(equatorial_frame) != HCRS:
+        if fixed_coo.body == Sun and not isinstance(equatorial_frame, HCRS):
             raise ValueError(
                 f"Equatorial coordinates must be of type `HCRS`, got `{type(equatorial_frame)}` instead."
             )
@@ -99,7 +99,7 @@ class _PlanetaryFixed(BaseRADecFrame):
     @staticmethod
     def from_equatorial(equatorial_coo, fixed_frame):
         # TODO replace w/ something smart (Sun/Earth special cased)
-        if fixed_frame.body == Sun and type(equatorial_coo) != HCRS:
+        if fixed_frame.body == Sun and not isinstance(equatorial_coo, HCRS):
             raise ValueError(
                 f"Equatorial coordinates must be of type `HCRS`, got `{type(equatorial_coo)}` instead."
             )
