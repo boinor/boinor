@@ -16,7 +16,7 @@
 New tests have been added or improved:
  - tests/tests_core/test_core_elements.py
 
-The code coverage increased from 91.1% to 91.45%.
+The code coverage increased from 91.1% to 91.66%.
 
 ### Bugs fixed
 

@@ -2,18 +2,18 @@
 
 | **Name**  |                        **Website**                         |                                                         **Authors**                                                       |                                      **Maintainers**                                      |                     **Version**                      |
 |:---------:|:----------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------:|:----------------------------------------------------:|
-| boinor | [https://www.boinor.space](https://www.boinor.space) | [Thorsten Alteholz](https://orcid.org/0000-0002-9570-7046) | [boinor development team](https://github.com/boinor/boinor/blob/1.8.6/AUTHORS.md) | [0.18.6](https://github.com/boinor/boinor/) |
+| boinor | [https://www.boinor.space](https://www.boinor.space) | [Thorsten Alteholz](https://orcid.org/0000-0002-9570-7046) | [boinor development team](https://github.com/boinor/boinor/blob/0.18.6/AUTHORS.md) | [0.18.6](https://github.com/boinor/boinor/) |
 
 [![boinor_badge]](https://github.com/boinor/boinor)
 [![CircleCI](https://dl.circleci.com/status-badge/img/circleci/9wE8FEEBmTs6KrznLADUmx/EX84xKHFPudDeazG3q2XVw/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/circleci/9wE8FEEBmTs6KrznLADUmx/EX84xKHFPudDeazG3q2XVw/tree/main)
 [![license_badge]](https://opensource.org/licenses/MIT)
 [![python_badge]](https://pypi.org/project/boinor) 
-[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/boinor/boinor/main.svg)](https://results.pre-commit.ci/latest/github/boinor/boinor/1.8.6)
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/boinor/boinor/main.svg)](https://results.pre-commit.ci/latest/github/boinor/boinor/0.18.6)
 [![code_badge]]()
 [![pypi_badge]](https://pypi.org/project/boinor) 
 [![mailing_badge]](https://groups.io/g/boinor-dev) 
 [![docs_badge]](https://readthedocs.org/projects/boinor/badge/?version=latest)
-[![coverage_badge]](https://codecov.io/github/boinor/boinor?branch=1.8.6) 
+[![coverage_badge]](https://codecov.io/github/boinor/boinor?branch=0.18.6) 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.12809725.svg)](https://doi.org/10.5281/zenodo.12809725)
 
 <!--
@@ -21,7 +21,7 @@
 [![sponsors_badge]](https://opencollective.com/boinor/) 
 [![astropy_badge]](https://zenodo.org/badge/latestdoi/11178845) 
 [![chat_badge]](http://chat.boinor.space/) 
-[![binder_badge]](https://mybinder.org/v2/gh/boinor/boinor/1.8.6?labpath=index.ipynb) 
+[![binder_badge]](https://mybinder.org/v2/gh/boinor/boinor/0.18.6?labpath=index.ipynb) 
 -->
 
 
@@ -41,7 +41,7 @@ boinor in your publications:
     Thorsten Alteholz, et al.. (2025). boinor: boinor 0.18.6. Zenodo. 10.5281/zenodo.12809724
 
 
-![Multiple examples image](https://github.com/boinor/boinor/raw/1.8.6/docs/source/_static/examples.png)
+![Multiple examples image](https://github.com/boinor/boinor/raw/0.18.6/docs/source/_static/examples.png)
 -->
 
 ## Requirements
@@ -206,12 +206,12 @@ If you would like to support boinor, consider [becoming a backer] or
 [binder]: https://mybinder.org/
 [alternative installation methods]: https://docs.boinor.space/en/stable/installation.html#alternative-installation-methods
 [issue tracker]: https://github.com/boinor/boinor/issues 
-[CONTRIBUTING.md]: https://github.com/boinor/boinor/blob/1.8.6/CONTRIBUTING.md
-[COPYING]: https://github.com/boinor/boinor/blob/1.8.6/COPYING
+[CONTRIBUTING.md]: https://github.com/boinor/boinor/blob/0.18.6/CONTRIBUTING.md
+[COPYING]: https://github.com/boinor/boinor/blob/0.18.6/COPYING
 [mailing list]: https://groups.io/g/boinor-dev
 [chat room]: http://chat.boinor.space/
 [let us know]: mailto:boinor@alteholz.dev
-[examples directory]: https://github.com/boinor/boinor/tree/1.8.6/docs/source/examples
+[examples directory]: https://github.com/boinor/boinor/tree/0.18.6/docs/source/examples
 [become a sponsor]: https://opencollective.com/boinor/sponsor/0/website
 [docs_stable]: https://docs.boinor.space/en/stable/
 [docs_latest]: https://docs.boinor.space/en/latest/
@@ -229,7 +229,7 @@ If you would like to support boinor, consider [becoming a backer] or
 <!-- Badges -->
 
 <!--
-[CircleCI_badge]: https://dl.circleci.com/status-badge/img/circleci/9wE8FEEBmTs6KrznLADUmx/EX84xKHFPudDeazG3q2XVw/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/circleci/9wE8FEEBmTs6KrznLADUmx/EX84xKHFPudDeazG3q2XVw/tree/1.8.6 "CircleCI badge"
+[CircleCI_badge]: https://dl.circleci.com/status-badge/img/circleci/9wE8FEEBmTs6KrznLADUmx/EX84xKHFPudDeazG3q2XVw/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/circleci/9wE8FEEBmTs6KrznLADUmx/EX84xKHFPudDeazG3q2XVw/tree/0.18.6 "CircleCI badge"
 [orcid_badge]: https://img.shields.io/badge/id-0000--0002--2187--161X-a6ce39.svg "orcid badge"
 -->
 
@@ -237,7 +237,7 @@ If you would like to support boinor, consider [becoming a backer] or
 [license_badge]: https://img.shields.io/badge/license-MIT-blue.svg?logo=open%20source%20initiative&logoColor=white "license badge"
 
 [boinor_badge]: https://img.shields.io/badge/boinor-gray.svg?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAbxJREFUOE+Vk79LAmEYx7/njzulHKLQQIKwiyLuohykxqJBaHMNwvorcmltbG6LhnBqrMiWlmYl0SydaoqgwbLz9DS/B++heUI98A73vs/zfZ7n8zwndXsGF6tUKojFYvD7/W7Pzp00SiCXyyGTySCZTCKVSiEej7sKjRSgdzqdRq1WQzabRTQa/b8Ag8vlMsLhMBKJxN8F2u02LMtyAur1OqqFe+jaEsYi6oDQUAuGYcDn89nHsR7nq+N9zKxsQdvcGS3QbDYhyzJYQafTGSzZMvBQeoau61AUZXgKLJkTZaDX64XH40Gr1bIdKWqaJorFIjRNs995aE4LIjsdOXsGK9YT0HqHoawjEAggf3OJ2eUVBCcmnSoGBEQ2BsteA6juAY08unNn+HgN4fboEItqDAsHR6MF2B+rkMnwcRtov6E7fwGzM42781PEdQ2h1TV3AZInB6nX/8l1AbsbixhXJBgmUCqV7GWKRCJguwKk0wLhESQnEAwGcVd8wZTnE9+NLxuoqqo2B0mSHMgDEPnB0kmXDPp3gfesjHCZgFMRNrRIdKYxq9hGESgg9y+I68/EdsQOCGeKUPS3/QDL/fnRmszmsAAAAABJRU5ErkJggg== "boinor"
-[ci_badge]: https://img.shields.io/circleci/build/gh/boinor/boinor/1.8.6?logo=CircleCi "ci badge"
+[ci_badge]: https://img.shields.io/circleci/build/gh/boinor/boinor/0.18.6?logo=CircleCi "ci badge"
 [docs_badge]: https://img.shields.io/readthedocs/boinor/stable.svg?logo=read%20the%20docs&logoColor=white&label=docs&version=stable "docs badge"
 [coverage_badge]:  https://img.shields.io/codecov/c/github/boinor/boinor.svg?logo=Codecov&logoColor=white "coverage badge"
 [pre_commit_badge]: https://results.pre-commit.ci/badge/github/boinor/boinor/main.svg "pre-commit badge"
