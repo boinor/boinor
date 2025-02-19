@@ -1,6 +1,6 @@
 # What's new
 
-## boinor 0.18.6
+## boinor 0.18.6 - 2025-02-20
 
 ### Highlights
 
