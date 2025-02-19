@@ -209,7 +209,7 @@ If you would like to support boinor, consider [becoming a backer] or
 [COPYING]: https://github.com/boinor/boinor/blob/main/COPYING
 [mailing list]: https://groups.io/g/boinor-dev
 [chat room]: http://chat.boinor.space/
-[let us know]: mailto:hello@juanlu.space
+[let us know]: mailto:boinor@alteholz.dev
 [examples directory]: https://github.com/boinor/boinor/tree/main/docs/source/examples
 [become a sponsor]: https://opencollective.com/boinor/sponsor/0/website
 [docs_stable]: https://docs.boinor.space/en/stable/
