@@ -1,4 +1,4 @@
-[![boinor Logo](https://raw.githubusercontent.com/boinor/boinor/main/docs/source/_static/logo_readme.png)](https://docs.boinor.space/en/stable/)
+[![boinor Logo](https://raw.githubusercontent.com/boinor/boinor/main/docs/source/_static/logo_readme.png)](https://docs.boinor.space/en/0.18.6/)
 
 | **Name**  |                        **Website**                         |                                                         **Authors**                                                       |                                      **Maintainers**                                      |                     **Version**                      |
 |:---------:|:----------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------:|:----------------------------------------------------:|
@@ -12,14 +12,14 @@
 [![code_badge]]()
 [![pypi_badge]](https://pypi.org/project/boinor) 
 [![mailing_badge]](https://groups.io/g/boinor-dev) 
-[![docs_badge]](https://readthedocs.org/projects/boinor/badge/?version=latest)
+[![docs_badge]](https://readthedocs.org/projects/boinor/badge/?version=0.18.6)
 [![coverage_badge]](https://codecov.io/github/boinor/boinor?branch=0.18.6) 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.12809725.svg)](https://doi.org/10.5281/zenodo.12809725)
 
 <!--
 [![backers_badge]](https://opencollective.com/boinor/) 
 [![sponsors_badge]](https://opencollective.com/boinor/) 
-[![astropy_badge]](https://zenodo.org/badge/latestdoi/11178845) 
+[![astropy_badge]](https://zenodo.org/badge/doi/11178845) 
 [![chat_badge]](http://chat.boinor.space/) 
 [![binder_badge]](https://mybinder.org/v2/gh/boinor/boinor/0.18.6?labpath=index.ipynb) 
 -->
@@ -77,7 +77,7 @@ Complete documentation, including a [quickstart guide] and an [API reference], c
 be read on the wonderful [Read the Docs]. Multi-version documentation includes:
 
 * [Development documentation](https://docs.boinor.space/en/latest/)
-* [Stable documentation](https://docs.boinor.space/en/stable/)
+* [0.18.6 documentation](https://docs.boinor.space/en/0.18.6/)
 
 
 ## Examples, background and talks
@@ -200,11 +200,11 @@ If you would like to support boinor, consider [becoming a backer] or
 
 <!-- LINKS AND REFERENCES -->
 
-[quickstart guide]: https://docs.boinor.space/en/stable/quickstart.html
-[API reference]: https://docs.boinor.space/en/latest/api.html
+[quickstart guide]: https://docs.boinor.space/en/0.18.6/quickstart.html
+[API reference]: https://docs.boinor.space/en/0.18.6/api.html
 [Read the docs]: https://readthedocs.org
 [binder]: https://mybinder.org/
-[alternative installation methods]: https://docs.boinor.space/en/stable/installation.html#alternative-installation-methods
+[alternative installation methods]: https://docs.boinor.space/en/0.18.6/installation.html#alternative-installation-methods
 [issue tracker]: https://github.com/boinor/boinor/issues 
 [CONTRIBUTING.md]: https://github.com/boinor/boinor/blob/0.18.6/CONTRIBUTING.md
 [COPYING]: https://github.com/boinor/boinor/blob/0.18.6/COPYING
@@ -213,17 +213,16 @@ If you would like to support boinor, consider [becoming a backer] or
 [let us know]: mailto:boinor@alteholz.dev
 [examples directory]: https://github.com/boinor/boinor/tree/0.18.6/docs/source/examples
 [become a sponsor]: https://opencollective.com/boinor/sponsor/0/website
-[docs_stable]: https://docs.boinor.space/en/stable/
 [docs_latest]: https://docs.boinor.space/en/latest/
 [that are validated]: https://github.com/boinor/validation/
-[commonly used Astrodynamics software]: https://docs.boinor.space/en/stable/related.html
+[commonly used Astrodynamics software]: https://docs.boinor.space/en/0.18.6/related.html
 [open an issue]: https://github.com/boinor/validation/issues/new
 [milestones]: https://github.com/boinor/boinor/milestones
 [Want to be a backer]: https://opencollective.com/boinor#backer
-[gallery of examples]: https://docs.boinor.space/en/latest/gallery.html
+[gallery of examples]: https://docs.boinor.space/en/0.18.6/gallery.html
 [becoming a backer]: https://opencollective.com/boinor#backer
 [becoming a sponsor]: https://opencollective.com/boinor#sponsor
-[acknowledgement from the original author]: https://docs.boinor.space/en/stable/history.html#acknowledgement-from-the-original-author
+[acknowledgement from the original author]: https://docs.boinor.space/en/latest/history.html#acknowledgement-from-the-original-author
 
 
 <!-- Badges -->
@@ -238,7 +237,7 @@ If you would like to support boinor, consider [becoming a backer] or
 
 [boinor_badge]: https://img.shields.io/badge/boinor-gray.svg?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAbxJREFUOE+Vk79LAmEYx7/njzulHKLQQIKwiyLuohykxqJBaHMNwvorcmltbG6LhnBqrMiWlmYl0SydaoqgwbLz9DS/B++heUI98A73vs/zfZ7n8zwndXsGF6tUKojFYvD7/W7Pzp00SiCXyyGTySCZTCKVSiEej7sKjRSgdzqdRq1WQzabRTQa/b8Ag8vlMsLhMBKJxN8F2u02LMtyAur1OqqFe+jaEsYi6oDQUAuGYcDn89nHsR7nq+N9zKxsQdvcGS3QbDYhyzJYQafTGSzZMvBQeoau61AUZXgKLJkTZaDX64XH40Gr1bIdKWqaJorFIjRNs995aE4LIjsdOXsGK9YT0HqHoawjEAggf3OJ2eUVBCcmnSoGBEQ2BsteA6juAY08unNn+HgN4fboEItqDAsHR6MF2B+rkMnwcRtov6E7fwGzM42781PEdQ2h1TV3AZInB6nX/8l1AbsbixhXJBgmUCqV7GWKRCJguwKk0wLhESQnEAwGcVd8wZTnE9+NLxuoqqo2B0mSHMgDEPnB0kmXDPp3gfesjHCZgFMRNrRIdKYxq9hGESgg9y+I68/EdsQOCGeKUPS3/QDL/fnRmszmsAAAAABJRU5ErkJggg== "boinor"
 [ci_badge]: https://img.shields.io/circleci/build/gh/boinor/boinor/0.18.6?logo=CircleCi "ci badge"
-[docs_badge]: https://img.shields.io/readthedocs/boinor/stable.svg?logo=read%20the%20docs&logoColor=white&label=docs&version=stable "docs badge"
+[docs_badge]: https://img.shields.io/readthedocs/boinor/stable.svg?logo=read%20the%20docs&logoColor=white&label=docs&version=0.18.6 "docs badge"
 [coverage_badge]:  https://img.shields.io/codecov/c/github/boinor/boinor.svg?logo=Codecov&logoColor=white "coverage badge"
 [pre_commit_badge]: https://results.pre-commit.ci/badge/github/boinor/boinor/main.svg "pre-commit badge"
 [doi_badge]: https://zenodo.org/badge/11178845.svg "doi badge" 
