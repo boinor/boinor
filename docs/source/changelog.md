@@ -1,5 +1,29 @@
 # What's new
 
+## boinor 0.18.7
+
+### Highlights
+
+- **boinor**
+
+### Coverage
+
+New tests have been added or improved:
+ - 
+
+### Bugs fixed
+
+ - 
+
+### Contributors
+
+This is the complete list of the people that contributed to this
+release, with a + sign indicating first contribution.
+
+- Thorsten Alteholz
+
+
+
 ## boinor 0.18.6
 
 ### Highlights
