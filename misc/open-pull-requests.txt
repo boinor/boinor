@@ -42,9 +42,6 @@ Add M_to_nu_elliptic
 A few minor improvements and WIP experiments that may be forgotten otherwise
 #1392 opened Nov 6, 2021 by MLopez-Ibanez • Draft
 2
-Add cartesian_to_spherical().
-#1365 opened Oct 26, 2021 by MLopez-Ibanez
-6
 Satellite visibility
 #1299 opened Aug 5, 2021 by Yash-10 • Draft
 6

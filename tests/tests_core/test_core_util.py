@@ -10,6 +10,7 @@ import pytest
 
 from boinor.core.util import (
     alinspace,
+    cartesian_to_spherical,
     rotation_matrix as rotation_matrix_boinor,
     spherical_to_cartesian,
 )
@@ -69,22 +70,38 @@ def test_rotation_matrix_z():
     _test_rotation_matrix(0.218, 2)
 
 
-def test_spherical_to_cartesian():
-    result = spherical_to_cartesian(np.array([0.5, np.pi / 4, -np.pi / 4]))
-    expected = np.array([0.25, -0.25, 0.35355339])
-    assert np.allclose(expected, result)
-
-    result = spherical_to_cartesian(np.array([0.5, -np.pi / 4, np.pi / 4]))
-    expected = np.array([-0.25, -0.25, 0.35355339])
-    assert np.allclose(expected, result)
-
-    result = spherical_to_cartesian(
-        np.array([[0.5, np.pi / 4, -np.pi / 4], [0.5, -np.pi / 4, np.pi / 4]])
-    )
-    expected = np.array(
-        [[0.25, -0.25, 0.35355339], [-0.25, -0.25, 0.35355339]]
-    )
-    assert np.allclose(expected, result)
+# TODO: according to poliastro PR#1365 this test could be better done with Hypothesis
+@pytest.mark.parametrize(
+    "sph, car",
+    [
+        (
+            np.array([0.5, np.pi / 4, -np.pi / 4]),
+            np.array([0.25, -0.25, 0.35355339]),
+        ),
+        (
+            np.array([0.5, -np.pi / 4, np.pi / 4]),
+            np.array([-0.25, -0.25, 0.35355339]),
+        ),
+        (
+            np.array(
+                [[0.5, np.pi / 4, -np.pi / 4], [0.5, -np.pi / 4, np.pi / 4]]
+            ),
+            np.array([[0.25, -0.25, 0.35355339], [-0.25, -0.25, 0.35355339]]),
+        ),
+        (
+            np.array([2.60564963, 1.75305207, 4.4458828]),
+            np.array([-0.674864797187, -2.472029259161, -0.472269863940]),
+        ),
+    ],
+)
+def test_spherical_to_cartesian(sph, car):
+    result = spherical_to_cartesian(sph)
+    assert np.allclose(car, result)
+    result = cartesian_to_spherical(result)
+    expect = cartesian_to_spherical(car)
+    assert np.allclose(result, expect)
+    result = spherical_to_cartesian(cartesian_to_spherical(car))
+    assert np.allclose(car, result)
 
 
 angles = partial(st.floats, min_value=-2 * np.pi, max_value=2 * np.pi)
