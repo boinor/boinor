@@ -13,7 +13,11 @@ New tests have been added or improved:
 
 ### Bugs fixed
 
- - 
+-
+
+### Pull requests
+
+- add cartesion_to_spherical ({github}`poliastro pull request #1365 <poliastro/poliastro#1365>`)
 
 ### Contributors
 
@@ -21,7 +25,7 @@ This is the complete list of the people that contributed to this
 release, with a + sign indicating first contribution.
 
 - Thorsten Alteholz
-
+- @MLopez-Ibanez
 
 
 ## boinor 0.18.6
