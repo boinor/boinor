@@ -18,9 +18,6 @@ Strip units within states
 Enable faster parallel testing
 #1556 opened Jul 23, 2022 by s-m-e
 2
-fix pylint warning for super init not called on mixin class (no init there)
-#1554 opened Jul 23, 2022 by s-m-e
-2
 Add debugging information to OMM notebook
 #1539 opened Jul 16, 2022 by astrojuanlu
 1

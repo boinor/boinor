@@ -38,7 +38,10 @@ class Orbit(OrbitCreationMixin):
 
     """
 
-    def __init__(self, state, epoch):
+    # class Orbit is derived from the mixin class OrbitCreationMixin.
+    # pylint does not understand this concept and complains, so it is silenced here
+    # more info at PR#1554 created by @s-m-e
+    def __init__(self, state, epoch):  # pylint: disable=super-init-not-called
         """Constructor.
 
         Parameters
