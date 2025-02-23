@@ -18,6 +18,7 @@ New tests have been added or improved:
 ### Pull requests
 
 - add cartesion_to_spherical ({github}`poliastro pull request #1365 <poliastro/poliastro#1365>`)
+- no more pylint warning for super init not called on mixin class ({github}`poliastro pull request #1554 <poliastro/poliastro#1554>`)
 
 ### Contributors
 
@@ -26,6 +27,7 @@ release, with a + sign indicating first contribution.
 
 - Thorsten Alteholz
 - @MLopez-Ibanez
+- @s-m-e
 
 
 ## boinor 0.18.6
