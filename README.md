@@ -55,7 +55,7 @@ boinor requires the following Python packages:
 - [plotly](https://plotly.com/) for 2D and 3D interactive orbit plotting
 - [scipy](https://scipy.org/) for root finding and numerical propagation
 
-boinor is supported on Linux, macOS and Windows on Python 3.9 to 3.12.
+boinor is supported on Linux, macOS and Windows on Python 3.9 to 3.13.
 
 ## Installation
 
