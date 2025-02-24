@@ -11,6 +11,8 @@
 New tests have been added or improved:
  - 
 
+The code coverage increased from 91.45% to 91.67%.
+
 ### Bugs fixed
 
 -
