@@ -13,12 +13,18 @@ import numpy as np
 import pytest
 
 from boinor.bodies import Earth, Venus
-from boinor.ephem import Ephem, SincInterpolator, SplineInterpolator
+from boinor.ephem import (
+    BaseInterpolator,
+    Ephem,
+    SincInterpolator,
+    SplineInterpolator,
+)
 from boinor.frames import Planes
 from boinor.twobody.orbit import Orbit
 from boinor.warnings import TimeScaleWarning
 
 AVAILABLE_INTERPOLATORS = [SincInterpolator(), SplineInterpolator()]
+INCOMPLETE_INTERPOLATORS = [BaseInterpolator()]
 AVAILABLE_PLANES = Planes.__members__.values()
 
 
@@ -99,6 +105,22 @@ def test_ephem_sample_no_arguments_returns_exactly_same_input(
 
     # Exactly the same
     assert np.all(result_coordinates == coordinates)
+
+
+@pytest.mark.parametrize("interpolator", INCOMPLETE_INTERPOLATORS)
+def test_ephem_sample_no_arguments_returns_exactly_same_input_incomplete_interpolators(
+    epochs, coordinates, interpolator
+):
+    unused_plane = Planes.EARTH_EQUATOR
+    ephem = Ephem(coordinates, epochs, unused_plane)
+
+    result_coordinates = ephem.sample(interpolator=interpolator)
+
+    ip = BaseInterpolator()
+
+    with pytest.raises(NotImplementedError) as excinfo:
+        ip.interpolate(epochs, epochs, result_coordinates)
+    assert "NotImplementedError" in excinfo.exconly()
 
 
 @pytest.mark.parametrize("interpolator", AVAILABLE_INTERPOLATORS)
