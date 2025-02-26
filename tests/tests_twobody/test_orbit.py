@@ -899,11 +899,30 @@ def test_perifocal_points_to_perigee():
     _d = 1.0 * u.AU  # Unused distance
     _ = 0.5 * u.one  # Unused dimensionless value
     _a = 1.0 * u.deg  # Unused angle
+    pOne = [1, 0, 0] * u.one
     ss = Orbit.from_classical(
         attractor=Sun, a=_d, ecc=_, inc=_a, raan=_a, argp=_a, nu=_a
     )
     p, _, _ = ss.pqw()
     assert_allclose(p, ss.e_vec / ss.ecc)
+
+    ss = Orbit.from_classical(
+        attractor=Sun, a=-_d, ecc=2.0 * u.one, inc=_a, raan=_a, argp=_a, nu=_a
+    )
+    p, _, _ = ss.pqw()
+    assert_allclose(p, ss.e_vec / ss.ecc)
+
+    ss = Orbit.from_classical(
+        attractor=Sun,
+        a=_d,
+        ecc=1e-9 * u.one,
+        inc=1e-7 * u.deg,
+        raan=_a,
+        argp=_a,
+        nu=_a,
+    )
+    p, _, _ = ss.pqw()
+    assert_allclose(p, pOne)
 
 
 def test_arglat_within_range():

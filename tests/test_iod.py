@@ -1,9 +1,11 @@
 from astropy import constants as c, units as u
 from astropy.tests.helper import assert_quantity_allclose
+import numpy as np
 import pytest
 
 from boinor.bodies import Earth
 from boinor.core import iod
+from boinor.core.iod import _compute_psi, _compute_T_min
 from boinor.iod import izzo, vallado
 
 
@@ -176,3 +178,31 @@ def test_vallado_not_implemented_multirev():
         "Multi-revolution scenario not supported for Vallado. See issue https://github.com/boinor/boinor/issues/858"
         in excinfo.exconly()
     )
+
+
+@pytest.mark.parametrize(
+    "x, y, ll, expected_psi",
+    [
+        [0.5, 0.5, 1.0, 0.0],
+        [1.5, 0.5, 1.0, -0.9624236501192069],
+        [-1.5, 0.5, 1.0, 0],
+    ],  # Reverse-engineered from results
+)
+def test_compute_iod(x, y, ll, expected_psi):
+    psi = _compute_psi(x, y, ll)
+    assert_quantity_allclose(psi, expected_psi, rtol=1e-6)
+
+
+@pytest.mark.parametrize(
+    "ll, M, expected_x_T_min, expected_T_min",
+    [
+        [1, 0.5, 0.0, 1.570796],
+        [0, 1, 0.14552, 4.566665],
+        [0, 0, np.inf, 0],
+    ],  # Reverse-engineered from results
+)
+def test_compute_t_min(ll, M, expected_x_T_min, expected_T_min):
+    rtol = 1e-6
+    x_T_min, T_min = _compute_T_min(ll, M, 10, rtol)
+    assert_quantity_allclose(x_T_min, expected_x_T_min, rtol=rtol)
+    assert_quantity_allclose(T_min, expected_T_min, rtol=rtol)
