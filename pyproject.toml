@@ -55,11 +55,13 @@ classifiers = [
 ]
 dependencies = [
     "astropy >=6.0, <7",
-    "astroquery >=0.3.9",
+    "astroquery",
     "jplephem",
-    "matplotlib >=2.0,!=3.0.1",
-    "numba >=0.53.0 ; python_version>='3.9'",
-    "numpy <= 1.30",
+#    "matplotlib >=2.0,!=3.0.1",
+    "matplotlib",
+    "numba >= 0.59.0 ",
+#    "numpy <= 1.30",
+    "numpy >= 1.26.4",
     "pandas",
     "plotly >=4.0,<6",
     "pyerfa",
@@ -112,7 +114,6 @@ test = [
     "pytest-mypy",
     "pytest-remotedata",
     "pytest-xdist[psutil]",
-    "pytest-timestamps",
     "tox",
     "vulture",
 ]

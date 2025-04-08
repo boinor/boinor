@@ -393,9 +393,15 @@ def rv2coe(k, r, v, tol=1e-8):
 
     circular = ecc < tol
     print("XXX inc: ", inc)
+    if hasattr(inc, "value"):
+        val = inc.value
+    else:
+        val = inc
+    print("XXX val: ", val)
     print("XXX abs(inc): ", abs(inc))
+    print("XXX abs(val): ", abs(val))
     print("XXX tol: ", tol)
-    equatorial = abs(inc) < tol
+    equatorial = abs(val) < tol
 
     if equatorial and not circular:
         raan = 0
