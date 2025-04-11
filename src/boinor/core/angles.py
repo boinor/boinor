@@ -257,6 +257,8 @@ def F_to_nu(F, ecc):
         \in (-\pi, \pi]
 
     """
+    print("XXX F_to_nu: F: ", F)
+    print("XXX F_to_nu: ecc: ", ecc)
     nu = 2 * np.arctan(np.sqrt((ecc + 1) / (ecc - 1)) * np.tanh(F / 2))
     return nu
 

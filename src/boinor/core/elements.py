@@ -423,6 +423,8 @@ def rv2coe(k, r, v, tol=1e-8):
         else:
             e_sh = (r @ v) / sqrt(-ka)
             e_ch = norm(r) * (norm(v) ** 2) / k - 1
+            print("XXX  F ", np.log((e_ch + e_sh) / (e_ch - e_sh)) / 2)
+            print("XXX ecc: ", ecc)
             nu = F_to_nu(np.log((e_ch + e_sh) / (e_ch - e_sh)) / 2, ecc)
 
         raan = np.arctan2(n[1], n[0]) % (2 * np.pi)
