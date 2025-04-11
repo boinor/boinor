@@ -420,6 +420,8 @@ def rv2coe(k, r, v, tol=1e-8):
     else:
         a = p / (1 - (ecc**2))
         ka = k * a
+        print("XXX a: ", a)
+        print("XXX ka: ", ka)
         if a > 0:
             e_se = (r @ v) / sqrt(ka)
             e_ce = norm(r) * (v @ v) / k - 1
@@ -427,6 +429,9 @@ def rv2coe(k, r, v, tol=1e-8):
         else:
             e_sh = (r @ v) / sqrt(-ka)
             e_ch = norm(r) * (norm(v) ** 2) / k - 1
+            print("XXX e_sh: ", e_sh)
+            print("XXX e_ch: ", e_ch)
+            print("XXX ecc: ", ecc)
             nu = F_to_nu(np.log((e_ch + e_sh) / (e_ch - e_sh)) / 2, ecc)
 
         raan = np.arctan2(n[1], n[0]) % (2 * np.pi)
