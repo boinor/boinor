@@ -387,8 +387,18 @@ def rv2coe(k, r, v, tol=1e-8):
     p = (h @ h) / k
     inc = np.arccos(h[2] / norm(h))
 
+    if hasattr(inc, "value"):
+        val = inc.value
+    else:
+        val = inc
+
+    print("XXX inc: ", inc)
+    print("XXX val: ", val)
+
     circular = ecc < tol
-    equatorial = abs(inc) < tol
+    equatorial = abs(val) < tol
+    print("XXX circular: ", circular)
+    print("XXX equatorial: ", equatorial)
 
     if equatorial and not circular:
         raan = 0

@@ -2,12 +2,14 @@ from astropy import units as u
 from astropy.tests.helper import assert_quantity_allclose
 import pytest
 
+from boinor.bodies import Earth
 from boinor.core.propagation import (
     danby_coe,
     gooding_coe,
     markley_coe,
     mikkola_coe,
     pimienta_coe,
+    recseries,
 )
 from boinor.core.propagation.farnocchia import (
     M_to_D_near_parabolic,
@@ -98,27 +100,22 @@ def test_farnocchia_stuff():
 
 
 def test_kepler_algorithm():
-    print("need to be fixed before usage")
+    k = Earth.k
+    r0 = [5000.0, 10000.0, 2100.0] * u.km
+    v0 = [15.0, 110.0, 12.0] * u.km / u.s
+    tof = 1.0 * u.h
+    expected_r = [2532.06252977, 5067.56395212, 1063.7112836]
+    expected_v = [-114809.18251688, -229616.31786688, -48219.71079645]
+
+    # todo: all these functions calculate the same and should get the same results
+    #       some result diverge, why??
+
+    value_recseries = recseries(k, r0, v0, tof)
+    print("recseries: ", value_recseries)
+    assert_quantity_allclose(expected_r, value_recseries[0])
+    assert_quantity_allclose(expected_v, value_recseries[1])
 
 
-#    k = Earth.k
-#    r0 = [5000.0, 10000.0, 2100.0] * u.km
-#    v0 = [15.0, 110.0, 12.0] * u.km / u.s
-#    tof = 1.0 * u.h
-#    numiter = 100
-#    expected_r = [2532.06252977, 5067.56395212, 1063.7112836]
-#    expected_v = [-114809.18251688, -229616.31786688, -48219.71079645]
-
-# todo: all these functions calculate the same and should get the same results
-#       some result diverge, why??
-
-# todo: for whatever reason this does not work in the circleci coverage job
-#      I am trying to fix this in branch fix-circleci-coverage
-#    value_recseries = recseries(k, r0, v0, tof)
-#    print("recseries: ", value_recseries)
-#    assert_quantity_allclose(expected_r, value_recseries[0])
-#    assert_quantity_allclose(expected_v, value_recseries[1])
-#
 #    value=pimienta(k, r0, v0, tof)
 #    print("pimienta: ", value)
 #    assert_quantity_allclose(expected_r, value[0])
