@@ -402,6 +402,7 @@ def rv2coe(k, r, v, tol=1e-8):
     print("XXX abs(val): ", abs(val))
     print("XXX tol: ", tol)
     equatorial = abs(val) < tol
+    print("XXX equatorial: ", equatorial)
 
     if equatorial and not circular:
         raan = 0
