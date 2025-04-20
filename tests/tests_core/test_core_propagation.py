@@ -100,7 +100,7 @@ def test_farnocchia_stuff():
 
 
 def test_kepler_algorithm():
-    k = Earth.k
+    k = Earth.k.to_value()
     r0 = [5000.0, 10000.0, 2100.0] * u.km
     v0 = [15.0, 110.0, 12.0] * u.km / u.s
     tof = 1.0 * u.h
