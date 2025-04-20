@@ -149,6 +149,7 @@ def F_to_nu(F, ecc):
         True anomaly.
 
     """
+    print("XXX F_to_nu_fast: ", F)
     return (F_to_nu_fast(F.to_value(u.rad), ecc.value) * u.rad).to(F.unit)
 
 

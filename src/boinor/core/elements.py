@@ -380,6 +380,7 @@ def rv2coe(k, r, v, tol=1e-8):
     nu: 28.445804984192122 [deg]
 
     """
+    print("XXX k: ", k)
     h = cross(r, v)
     n = cross([0, 0, 1], h)
     e = ((v @ v - k / norm(r)) * r - (r @ v) * v) / k
