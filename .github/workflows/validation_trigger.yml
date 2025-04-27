@@ -22,8 +22,8 @@ jobs:
     steps:
       - name: Trigger boinor/validation
         run: |
-          curl -XPOST -u "${{ secrets.VALIDATION_USER }}:${{ secrets.VALIDATION_PASS }}" \
+          curl -XPOST -u "${{ secrets.VALIDATION_TOKEN_LOGIN }}" \
           -H "Accept: application/vnd.github.v3+json" \
-          -H "Content-Type: application/json" https://api.github.com/repos/boinor/validation/actions/workflows/ci_actions.yml/dispatches \
+          -H "Content-Type: application/json" https://api.github.com/repos/boinor/validation/actions/workflows/158547455/dispatches \
           --data '{"ref": "main"}' \
           --fail
