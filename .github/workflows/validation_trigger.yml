@@ -5,7 +5,7 @@ name: Validation test cases
 on:
   # A collection of events which trigger the validation action
   push:
-    branches: [ main ]
+    branches: [ main, actions ]
   release:
 
   # Enable manually to execute the actions
