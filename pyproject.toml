@@ -2,7 +2,7 @@
 requires = [
     "flit_core >=3.4,<4",
     "wheel",
-    "oldest-supported-numpy",
+    "numpy >= 2.0.2",
 ]
 build-backend = "flit_core.buildapi"
 
@@ -59,7 +59,7 @@ dependencies = [
     "jplephem",
     "matplotlib >=2.0,!=3.0.1",
     "numba >=0.53.0 ; python_version>='3.9'",
-    "numpy <= 1.30",
+    "numpy >= 2.0.2",
     "pandas",
     "plotly >=4.0,<6",
     "pyerfa",
