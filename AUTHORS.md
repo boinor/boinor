@@ -1,7 +1,7 @@
 # Contributors
 
 * [Thorsten Alteholz](mailto:boinor@alteholz.dev)
-* [Manuel López-Ibáñez]
+* Manuel López-Ibáñez
 
 
 This project is a fork of poliastro.
