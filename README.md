@@ -1,4 +1,4 @@
-[![boinor Logo](https://raw.githubusercontent.com/boinor/boinor/0.18.7/docs/source/_static/logo_readme.png)](https://docs.boinor.space/en/stable/)
+[![boinor Logo](https://raw.githubusercontent.com/boinor/boinor/main/docs/source/_static/logo_readme.png)](https://docs.boinor.space/en/0.18.7/)
 
 | **Name**  |                        **Website**                         |                                                         **Authors**                                                       |                                      **Maintainers**                                      |                     **Version**                      |
 |:---------:|:----------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------:|:----------------------------------------------------:|
@@ -13,9 +13,10 @@
 [![pypi_badge]](https://pypi.org/project/boinor) 
 [![mailing_badge]](https://groups.io/g/boinor-dev) 
 [![docs_badge]](https://readthedocs.org/projects/boinor/badge/?version=0.18.7)
-[![coverage_badge]](https://codecov.io/github/boinor/boinor?branch=0.18.7) 
+[![coverage_badge]](https://codecov.io/github/boinor/boinor?branch=0.18.77) 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.12809725.svg)](https://doi.org/10.5281/zenodo.12809725)
-[![FAIR](https://cdnstatic.imctransfer.com/static_01/137000/137762/preview_320.mp4)]
+[![FAIR checklist badge](https://fairsoftwarechecklist.net/badge.svg)](https://fairsoftwarechecklist.net/v0.2?f=31&a=32112&i=32311&r=132)
+
 
 <!--
 [![backers_badge]](https://opencollective.com/boinor/) 
@@ -76,8 +77,8 @@ For other installation methods, see the [alternative installation methods].
 Complete documentation, including a [quickstart guide] and an [API reference], can
 be read on the wonderful [Read the Docs]. Multi-version documentation includes:
 
-* [Development documentation](https://docs.boinor.space/en/0.18.7/)
-* [Stable documentation](https://docs.boinor.space/en/stable/)
+* [Development documentation](https://docs.boinor.space/en/latest/)
+* [0.18.7 documentation](https://docs.boinor.space/en/0.18.7/)
 
 
 ## Examples, background and talks
@@ -238,7 +239,7 @@ If you would like to support boinor, consider [becoming a backer] or
 
 [boinor_badge]: https://img.shields.io/badge/boinor-gray.svg?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAbxJREFUOE+Vk79LAmEYx7/njzulHKLQQIKwiyLuohykxqJBaHMNwvorcmltbG6LhnBqrMiWlmYl0SydaoqgwbLz9DS/B++heUI98A73vs/zfZ7n8zwndXsGF6tUKojFYvD7/W7Pzp00SiCXyyGTySCZTCKVSiEej7sKjRSgdzqdRq1WQzabRTQa/b8Ag8vlMsLhMBKJxN8F2u02LMtyAur1OqqFe+jaEsYi6oDQUAuGYcDn89nHsR7nq+N9zKxsQdvcGS3QbDYhyzJYQafTGSzZMvBQeoau61AUZXgKLJkTZaDX64XH40Gr1bIdKWqaJorFIjRNs995aE4LIjsdOXsGK9YT0HqHoawjEAggf3OJ2eUVBCcmnSoGBEQ2BsteA6juAY08unNn+HgN4fboEItqDAsHR6MF2B+rkMnwcRtov6E7fwGzM42781PEdQ2h1TV3AZInB6nX/8l1AbsbixhXJBgmUCqV7GWKRCJguwKk0wLhESQnEAwGcVd8wZTnE9+NLxuoqqo2B0mSHMgDEPnB0kmXDPp3gfesjHCZgFMRNrRIdKYxq9hGESgg9y+I68/EdsQOCGeKUPS3/QDL/fnRmszmsAAAAABJRU5ErkJggg== "boinor"
 [ci_badge]: https://img.shields.io/circleci/build/gh/boinor/boinor/0.18.7?logo=CircleCi "ci badge"
-[docs_badge]: https://img.shields.io/readthedocs/boinor/stable.svg?logo=read%20the%20docs&logoColor=white&label=docs&version=stable "docs badge"
+[docs_badge]: https://readthedocs.org/projects/boinor/badge/?version=0.18.7 "docs badge"
 [coverage_badge]:  https://img.shields.io/codecov/c/github/boinor/boinor.svg?logo=Codecov&logoColor=white "coverage badge"
 [pre_commit_badge]: https://results.pre-commit.ci/badge/github/boinor/boinor/main.svg "pre-commit badge"
 [doi_badge]: https://zenodo.org/badge/11178845.svg "doi badge" 
