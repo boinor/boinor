@@ -53,7 +53,7 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Astronomy",
 ]
 dependencies = [
-    "astropy >=6.1",
+    "astropy >=7.0.1",
     "astroquery >=0.3.9",
     "jplephem",
     "matplotlib >=2.0,!=3.0.1",
