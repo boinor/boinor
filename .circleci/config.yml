@@ -4,7 +4,7 @@ jobs:
   quality: &test-template
     description: Code style
     docker:
-      - image: python:3.10
+      - image: python:3.11
     environment:
       PIP_PREFER_BINARY: true
       PIP_PROGRESS_BAR: "off"
@@ -13,14 +13,6 @@ jobs:
       - checkout
       - run: python -m pip install tox
       - run: tox
-
-  tests310:
-    <<: *test-template
-    description: Tests - Python 3.10
-    docker:
-      - image: python:3.10
-    environment:
-      TOXENV: tests310
 
   tests311:
     <<: *test-template
@@ -96,9 +88,6 @@ workflows:
   build_and_test:
     jobs:
       - quality
-      - tests310:
-          requires:
-            - quality
       - tests311:
           requires:
             - quality
