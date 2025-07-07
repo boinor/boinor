@@ -6,12 +6,31 @@ from boinor.core.elements import coe2rv, rv2coe
 
 
 @jit
-def gooding_coe(k, p, ecc, inc, raan, argp, nu, tof, numiter=150, rtol=1e-8):
-    # TODO: parabolic and hyperbolic not implemented cases
-    if ecc >= 1.0:
-        raise NotImplementedError(
-            "Parabolic/Hyperbolic cases still not implemented in gooding."
-        )
+def gooding_coe_parabolic(
+    k, p, ecc, inc, raan, argp, nu, tof, numiter=150, rtol=1e-8
+):
+    raise NotImplementedError(
+        "Parabolic/Hyperbolic cases still not implemented in gooding."
+    )
+
+
+@jit
+def gooding_coe_hyperbolic(
+    k, p, ecc, inc, raan, argp, nu, tof, numiter=150, rtol=1e-8
+):
+    raise NotImplementedError(
+        "Parabolic/Hyperbolic cases still not implemented in gooding."
+    )
+
+
+@jit
+def gooding_coe_elliptic(
+    k, p, ecc, inc, raan, argp, nu, tof, numiter=150, rtol=1e-8
+):
+    """This function contains EKEPL1 from appendix A of :cite:t:`Walker1985`
+    As mentioned in this paper, it uses a Legendre based starter and a
+    Halley iterator
+    """
 
     M0 = E_to_M(nu_to_E(nu, ecc), ecc)
     semi_axis_a = p / (1 - ecc**2)
@@ -35,6 +54,26 @@ def gooding_coe(k, p, ecc, inc, raan, argp, nu, tof, numiter=150, rtol=1e-8):
 
     E = M + psi
     return E_to_nu(E, ecc)
+
+
+@jit
+def gooding_coe(k, p, ecc, inc, raan, argp, nu, tof, numiter=150, rtol=1e-8):
+    """This function is just a wrapper for the correct ecc handling."""
+
+    if ecc < 1.0:
+        return gooding_coe_elliptic(
+            k, p, ecc, inc, raan, argp, nu, tof, numiter, rtol
+        )
+    if ecc == 1.0:
+        return gooding_coe_parabolic(
+            k, p, ecc, inc, raan, argp, nu, tof, numiter, rtol
+        )
+    if ecc > 1.0:
+        return gooding_coe_hyperbolic(
+            k, p, ecc, inc, raan, argp, nu, tof, numiter, rtol
+        )
+
+    raise NotImplementedError("Something is gone wrong.")
 
 
 @jit
@@ -67,6 +106,7 @@ def gooding(k, r0, v0, tof, numiter=150, rtol=1e-8):
     Note
     ----
     Original paper for the algorithm: https://doi.org/10.1007/BF01238923
+    This is :cite:t:`Walker1985`.
     """
     # Solve first for eccentricity and mean anomaly
     p, ecc, inc, raan, argp, nu = rv2coe(k, r0, v0)
