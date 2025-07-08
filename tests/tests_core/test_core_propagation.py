@@ -115,6 +115,7 @@ def test_kepler_algorithm():
     #    expected_v = [-114809.18251688, -229616.31786688, -48219.71079645]
 
     tof = 1.0 * u.h
+    tof = tof.to_value(u.h)
     numiter = 100
     expected_r = [866.444902, -4135.118792, 5296.005316]
     expected_v = [7.371786, 2.087538, 0.433211]
