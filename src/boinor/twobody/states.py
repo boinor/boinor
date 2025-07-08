@@ -254,9 +254,27 @@ class RVState(BaseState):
         )
 
     def to_equinoctial(self):
-        # TODO: gives pylint abstract_method but what shall we do here?
-        # this is nonsense
-        return self
+        """Converts to modified equinoctial elements representation."""
+        (p_coe, ecc_coe, inc_coe, raan_coe, argp_coe, nu_coe) = rv2coe(
+            self.attractor.k.to_value(u.km**3 / u.s**2),
+            *self.to_value(),
+        )
+        (p_mee, f_mee, g_mee, h_mee, k_mee, L_mee) = coe2mee(
+            p_coe, ecc_coe, inc_coe, raan_coe, argp_coe, nu_coe
+        )
+
+        return ModifiedEquinoctialState(
+            self.attractor,
+            (
+                p_mee << u.km,
+                f_mee << u.one,
+                g_mee << u.rad,
+                h_mee << u.rad,
+                k_mee << u.rad,
+                L_mee << u.rad,
+            ),
+            self.plane,
+        )
 
 
 class ModifiedEquinoctialState(BaseState):

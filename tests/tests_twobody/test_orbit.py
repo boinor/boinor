@@ -1443,29 +1443,24 @@ def test_orbit_object():
 
     # TODO due to pylint:abstract-method, those functions need to be implemented
     #      for to_equinoctial() before being tested
-    # with pytest.raises(NotImplementedError, match=""):
-    #    f = orbit.f
-    #    assert f == f  # just needed to not tweak away some code
-    #
-    #    with pytest.raises(NotImplementedError, match=""):
-    #        g = orbit.g
-    #        assert g == g  # just needed to not tweak away some code
-    #
-    #    with pytest.raises(NotImplementedError, match=""):
-    #        h = orbit.h
-    #        assert h == h  # just needed to not tweak away some code
-    #
-    #    with pytest.raises(NotImplementedError, match=""):
-    #        k = orbit.k
-    #        assert k == k  # just needed to not tweak away some code
+
+    expected_f = 2573.6351895322036
+    assert_quantity_allclose(expected_f, orbit.f)
+
+    expected_g = 1944.31824891431 * u.rad
+    assert_quantity_allclose(expected_g, orbit.g)
+
+    expected_h = 0.6969652274284632 * u.rad
+    assert_quantity_allclose(expected_h, orbit.h)
+
+    expected_k = 1.9040322142087245 * u.rad
+    assert_quantity_allclose(expected_k, orbit.k)
 
     expected_L = 6.494977004500326 * u.rad
-    L = orbit.L
-    assert_quantity_allclose(L, expected_L)
+    assert_quantity_allclose(expected_L, orbit.L)
 
     expected_n = 78.73646041349888 * u.rad / u.s
-    n = orbit.n
-    assert_quantity_allclose(n, expected_n)
+    assert_quantity_allclose(expected_n, orbit.n)
 
     # new Orbit object
     r = [1e09, -4e09, -1e09] * u.km
@@ -1516,6 +1511,48 @@ def test_orbit_object():
         match="Can not use an elliptic/parabolic propagator for hyperbolic orbits.",
     ):
         oc.propagate(1.0 * u.h, method=TestDummyPropagatorElliptic())
+
+    # next test with data from Vallado, example 2.6
+    # check whether from_classical() creates MEE values
+    attractor = Earth
+    p = 11_067.790 * u.km
+    ecc = 0.83285 * u.one
+    inc = 87.87 * u.deg
+    raan = 227.89 * u.deg
+    argp = 53.38 * u.deg
+    nu = 92.335 * u.deg
+    expected_f = 0.1 * u.rad
+    expected_g = 0.1 * u.rad
+    expected_h = 0.1 * u.rad
+    expected_k = 0.1 * u.rad
+
+    orbit = Orbit.from_classical(
+        attractor=attractor,
+        a=p / (1 - ecc**2),
+        ecc=ecc,
+        inc=inc,
+        raan=raan,
+        argp=argp,
+        nu=nu,
+    )
+
+    expected_f = 0.162766
+    assert_quantity_allclose(expected_f, orbit.f, rtol=1e-06)
+
+    expected_g = -0.81679 * u.rad
+    assert_quantity_allclose(expected_g, orbit.g, rtol=1e-06)
+
+    expected_h = -0.64608 * u.rad
+    assert_quantity_allclose(expected_h, orbit.h, rtol=1e-06)
+
+    expected_k = -0.71478 * u.rad
+    assert_quantity_allclose(expected_k, orbit.k, rtol=1e-06)
+
+    expected_L = 6.520637 * u.rad
+    assert_quantity_allclose(expected_L, orbit.L, rtol=1e-06)
+
+    expected_n = 9.194487e-05 * u.rad / u.s
+    assert_quantity_allclose(expected_n, orbit.n, rtol=1e-06)
 
 
 # todo: test does not work due to check in other function
