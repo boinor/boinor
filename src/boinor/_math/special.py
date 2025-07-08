@@ -6,7 +6,7 @@ import numpy as np
 
 @jit
 def hyp2f1b(x):
-    """Hypergeometric function 2F1(3, 1, 5/2, x), see [Battin].
+    """Hypergeometric function 2F1(3, 1, 5/2, x), see :cite:t:`Battin1999`.
 
     .. todo::
         Add more information about this function

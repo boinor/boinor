@@ -34,9 +34,7 @@ def D_to_nu(D):
 
     Notes
     -----
-    Taken from Farnocchia, Davide, Davide Bracali Cioci, and Andrea Milani.
-    "Robust resolution of Kepler’s equation in all eccentricity regimes."
-    Celestial Mechanics and Dynamical Astronomy 116, no. 1 (2013): 21-34.
+    Taken from :cite:t:`Farnocchia2013`.
     """
     return (D_to_nu_fast(D.to_value(u.rad)) * u.rad).to(D.unit)
 
@@ -57,9 +55,7 @@ def nu_to_D(nu):
 
     Notes
     -----
-    Taken from Farnocchia, Davide, Davide Bracali Cioci, and Andrea Milani.
-    "Robust resolution of Kepler’s equation in all eccentricity regimes."
-    Celestial Mechanics and Dynamical Astronomy 116, no. 1 (2013): 21-34.
+    Taken from :cite:t:`Farnocchia2013`.
     """
     return (nu_to_D_fast(nu.to_value(u.rad)) * u.rad).to(nu.unit)
 
@@ -104,7 +100,7 @@ def nu_to_F(nu, ecc):
 
     Notes
     -----
-    Taken from Curtis, H. (2013). *Orbital mechanics for engineering students*. 167
+    Taken from :cite:t:`Curtis2013{p. 167}`.
 
     """
     return (nu_to_F_fast(nu.to_value(u.rad), ecc.value) * u.rad).to(nu.unit)

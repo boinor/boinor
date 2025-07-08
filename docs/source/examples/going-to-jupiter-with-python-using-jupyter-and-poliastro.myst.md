@@ -59,7 +59,7 @@ With previous dates we can create the different orbits that define the position 
 
 ```{code-cell} ipython3
 # Plot initial Earth's position
-Earth.plot(date_launch, label="Initial Earth's position")
+Earth.plot(date_launch, label="Initial Earth's position");
 ```
 
 Since both Earth states have been obtained (initial and flyby) we can now solve for Juno's maneuvers. The first one sets Juno into an elliptical orbit around the Sun so that it applies a gravity assist around the Earth:
@@ -95,10 +95,10 @@ plotter = OrbitPlotter()
 plotter.plot_body_orbit(Earth, ic1_end.epoch, label="Earth at end of flyby")
 plotter.plot_maneuver(orb_e0, man, color="C1", label="Initial impulse")
 plotter.plot_trajectory(
-    ic1.sample(max_anomaly=180 * u.deg),
+    ic1.sample_with_anomaly(max_anomaly=180 * u.deg),
     label="Inner cruise 1",
     color="C1",
-)
+);
 ```
 
 We can check that the period of the orbit is similar to the one stated in the mission's documentation. Remember that in the previous plot we only plotter half of the orbit for Juno's first maneuver and the period is the time that would take Juno to complete one full revolution around this new orbit.
@@ -142,14 +142,14 @@ plotter.plot_body_orbit(
 )
 plotter.plot_maneuver(orb_e0, man, color="C1", label="Initial impulse")
 plotter.plot_trajectory(
-    ic1.sample(max_anomaly=180 * u.deg), label="Inner cruise 1", color="C1"
+    ic1.sample_with_anomaly(max_anomaly=180 * u.deg), label="Inner cruise 1", color="C1"
 )
 plotter.plot_maneuver(
     ic1_end,
     man_flyby,
     label="Inner cruise 2 maneuver",
     color="C2",
-)
+);
 ```
 
 We can now start solving for the maneuver that will take Juno to Jupiter. Another Lambert maneuver is required but first let us solve for Jupiter position on arrival:
@@ -193,7 +193,7 @@ plotter.plot_body_orbit(
 )
 plotter.plot_maneuver(orb_e0, man, color="C1", label="Initial impulse")
 plotter.plot_trajectory(
-    ic1.sample(max_anomaly=180 * u.deg), label="Inner cruise 1", color="C1"
+    ic1.sample_with_anomaly(max_anomaly=180 * u.deg), label="Inner cruise 1", color="C1"
 )
 plotter.plot_maneuver(
     ic1_end,
@@ -209,5 +209,5 @@ plotter.plot_maneuver(
 )
 plotter.plot_body_orbit(
     Jupiter, date_arrival, label="Jupiter's position at arrival", trail=True
-)
+);
 ```

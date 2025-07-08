@@ -171,8 +171,8 @@ from matplotlib import pyplot as plt
 
 ```{code-cell} ipython3
 theta_range = np.linspace(0, 2 * np.pi)
-plt.plot(theta_range, [func(theta) for theta in theta_range])
-plt.axhline(0, color="k", linestyle="dashed")
+plt.plot(theta_range, [func(theta) for theta in theta_range]);
+plt.axhline(0, color="k", linestyle="dashed");
 ```
 
 ```{code-cell} ipython3
@@ -265,5 +265,5 @@ frame = OrbitPlotter(plane=Planes.EARTH_ECLIPTIC)
 frame.plot_body_orbit(Earth, d_launch)
 frame.plot_body_orbit(Venus, flyby_1_time)
 frame.plot(ss01, label="#0 to #1", color="C2")
-frame.plot(orb_1_a, label="#1 to #2", color="C3")
+frame.plot(orb_1_a, label="#1 to #2", color="C3");
 ```

@@ -31,7 +31,7 @@ def J2_perturbation(t0, state, k, J2, R):
     Notes
     -----
     The J2 accounts for the oblateness of the attractor. The formula is given in
-    Howard Curtis, (12.30)
+    :cite:t:`Curtis2013{Eq. 12.30}`.
 
     """
     r_vec = state[:3]
@@ -65,8 +65,8 @@ def J3_perturbation(t0, state, k, J3, R):
     Notes
     -----
     The J3 accounts for the oblateness of the attractor. The formula is given in
-    Howard Curtis, problem 12.8
-    This perturbation has not been fully validated, see https://github.com/boinor/boinor/pull/398
+    :cite:t:`Curtis2013`, problem 12.8
+    This perturbation has not been fully validated, see https://github.com/poliastro/poliastro/pull/398
 
     """
     r_vec = state[:3]
@@ -114,8 +114,8 @@ def atmospheric_drag_exponential(t0, state, k, R, C_D, A_over_m, H0, rho0):
     -----
     This function provides the acceleration due to atmospheric drag
     using an overly-simplistic exponential atmosphere model. We follow
-    Howard Curtis, section 12.4
-    the atmospheric density model is rho(H) = rho0 x exp(-H / H0)
+    :cite:t:`Curtis2013`, section 12.4
+    the atmospheric density model is ``rho(H) = rho0 * exp(-H / H0)``
 
     """
     H = norm(state[:3])
@@ -189,7 +189,7 @@ def third_body(t0, state, k, k_third, perturbation_body):
 
     Notes
     -----
-    This formula is taken from Howard Curtis, section 12.10. As an example, a third body could be
+    This formula is taken from :cite:t:`Curtis2013`, section 12.10. As an example, a third body could be
     the gravity from the Moon acting on a small satellite.
 
     """
@@ -231,7 +231,7 @@ def radiation_pressure(t0, state, k, R, C_R, A_over_m, Wdivc_s, star):
     Notes
     -----
     This function provides the acceleration due to star light pressure. We follow
-    Howard Curtis, section 12.9
+    :cite:t:`Curtis2013`, section 12.9
 
     """
     r_star = star(t0)

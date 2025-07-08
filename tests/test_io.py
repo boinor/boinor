@@ -19,7 +19,7 @@ def patch_sbdb_getData(name, **kwargs):
                     "om": 4.0 * u.deg,
                     "w": 5.0 * u.deg,
                 },
-                "epoch": 1 * u.d,
+                "epoch": 2460800.5 * u.d,
             },
         }
     if name == "test2":
@@ -33,7 +33,7 @@ def patch_sbdb_getData(name, **kwargs):
                     "om": 4.0 * u.deg,
                     "w": 5.0 * u.deg,
                 },
-                "epoch": 1 * u.d,
+                "epoch": 2460800.5 * u.d,
             }
         }
     if name == "test3":
@@ -48,7 +48,7 @@ def patch_sbdb_getData(name, **kwargs):
                     "om": 4.0 * u.deg,
                     "w": 5.0 * u.deg,
                 },
-                "epoch": 1 * u.d,
+                "epoch": 2460800.5 * u.d,
             },
         }
 
@@ -64,7 +64,7 @@ def patch_sbdb_getData(name, **kwargs):
                     "om": 4.0 * u.deg,
                     "w": 5.0 * u.deg,
                 },
-                "epoch": 1 * u.d,
+                "epoch": 2460800.5 * u.d,
             },
         }
     if name == "test5":
@@ -79,7 +79,7 @@ def patch_sbdb_getData(name, **kwargs):
                     "om": 4.0 * u.deg,
                     "w": 5.0 * u.deg,
                 },
-                "epoch": 1 * u.d,
+                "epoch": 2460800.5 * u.d,
             },
         }
     if name == "test6":
@@ -94,7 +94,7 @@ def patch_sbdb_getData(name, **kwargs):
                     "om": 4.0 * u.deg,
                     "w": 5.0 * u.deg,
                 },
-                "epoch": 1 * u.d,
+                "epoch": 2460800.5 * u.d,
             },
         }
     if name == "test7":
@@ -111,7 +111,7 @@ def patch_sbdb_getData(name, **kwargs):
                     "om": 4.0 * u.deg,
                     "w": 5.0 * u.deg,
                 },
-                "epoch": 1 * u.d,
+                "epoch": 2460800.5 * u.d,
             },
         }
 

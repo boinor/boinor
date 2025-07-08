@@ -31,7 +31,7 @@ class Trajectory(
 
     """
 
-    pass
+    pass  # pylint: disable=unnecessary-pass
 
 
 class OrbitPlotter:

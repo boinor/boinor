@@ -2,14 +2,14 @@
 requires = [
     "flit_core >=3.4,<4",
     "wheel",
-    "oldest-supported-numpy",
+    "numpy >= 2.0.2",
 ]
 build-backend = "flit_core.buildapi"
 
 [project]
 name = "boinor"
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 license = {file = "COPYING"}
 ## former authors/maintainers for poliastro
 #authors = [
@@ -43,7 +43,6 @@ classifiers = [
     "Operating System :: OS Independent",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
@@ -54,12 +53,12 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Astronomy",
 ]
 dependencies = [
-    "astropy >=6.0, <7",
+    "astropy >=6.1",
     "astroquery >=0.3.9",
     "jplephem",
     "matplotlib >=2.0,!=3.0.1",
-    "numba >=0.53.0 ; python_version>='3.9'",
-    "numpy <= 1.30",
+    "numba >=0.61.0 ; python_version>='3.10'",
+    "numpy >= 2.0.2",
     "pandas",
     "plotly >=4.0,<6",
     "pyerfa",
@@ -97,6 +96,7 @@ doc = [
     "sphinx-notfound-page",
     "sphinx-copybutton", # >0.2.9",
     "sphinx-github-role", # ~=0.1.0",
+    "sphinxcontrib-bibtex",
 ]
 test = [
     "coverage",
@@ -132,12 +132,13 @@ exclude = [
 [tool.black]
 line-length = 79
 
-[tool.ruff]
-select = [
-    "E",  # pycodestyle, see https://github.com/charliermarsh/ruff#pycodestyle-e-w
-#    "D",  # pydocstyle, see https://github.com/charliermarsh/ruff#pydocstyle-d
-    "F",  # pyflakes, see https://github.com/charliermarsh/ruff#pyflakes-f
-    "I"   # isort, see https://github.com/charliermarsh/ruff#isort-i
+[tool.ruff.lint]
+extend-select = [
+    "E",  # pycodestyle, see https://docs.astral.sh/ruff/rules/#pycodestyle-e-w
+#    "D",  # pydocstyle, see https://docs.astral.sh/ruff/rules/#pydocstyle-d
+    "F",  # pyflakes, see https://docs.astral.sh/ruff/rules/#pyflakes-f
+    "I",   # isort, see https://docs.astral.sh/ruff/rules/#isort-i
+    "NPY201", "NPY003",
 ]
 
 ignore = [
@@ -152,12 +153,12 @@ exclude = [
     "dist",
 ]
 
-[tool.ruff.isort]
+[tool.ruff.lint.isort]
 combine-as-imports = true
 force-sort-within-sections = true
 known-first-party = ["boinor"]
 
-[tool.ruff.mccabe]
+[tool.ruff.lint.mccabe]
 max-complexity = 18
 
 [tool.mypy]

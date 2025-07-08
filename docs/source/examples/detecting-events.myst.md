@@ -120,7 +120,7 @@ altitudes = np.apply_along_axis(
 plt.plot(tofs[: len(rr)].to_value(u.s), altitudes)
 plt.title("Altitude variation")
 plt.ylabel("Altitude (in km)")
-plt.xlabel("Time (in s)")
+plt.xlabel("Time (in s)");
 ```
 
 Refer to the API documentation of the events to check the default values for `terminal` and `direction` and change it as required.
@@ -170,7 +170,7 @@ for r in rr:
 plt.plot(tofs[: len(rr)].to_value(u.s), latitudes)
 plt.title("Latitude variation")
 plt.ylabel("Latitude (in degrees)")
-plt.xlabel("Time (in days)")
+plt.xlabel("Time (in days)");
 ```
 
 The orbit's latitude would not change after the event was detected since we had set `terminal=True`.
@@ -278,7 +278,7 @@ for i in range(len(rr)):
 plt.xlabel("Time (s)")
 plt.ylabel("Eclipse function")
 plt.title("Eclipse function vs time")
-plt.plot(tofs[: len(rr)].to_value(u.s), eclipses)
+plt.plot(tofs[: len(rr)].to_value(u.s), eclipses);
 ```
 
 <div class="alert alert-info">For simplicity, here we compute the position vector of the primary and the secondary body only once, at the orbit epoch. However, the eclipse events internally recompute the position vectors at each desired instant.</div>
@@ -301,7 +301,7 @@ plotter.set_orbit_frame(orbit)
 coords = CartesianRepresentation(
     rr[:, 0] << u.km, rr[:, 1] << u.km, rr[:, 2] << u.km
 )
-plotter.plot_trajectory(coords, color="orange")
+plotter.plot_trajectory(coords, color="orange");
 ```
 
 It seems our satellite is exiting the umbra region, as is evident from the orange colored trajectory!
@@ -343,7 +343,7 @@ z_coords = [r[-1].to_value(u.km) for r in rr]
 plt.xlabel("Time (s)")
 plt.ylabel("Z coordinate of the position vector")
 plt.title("Node Crossing")
-plt.plot(tofs[: len(rr)].to_value(u.s), z_coords)
+plt.plot(tofs[: len(rr)].to_value(u.s), z_coords);
 ```
 
 We could do the same plotting done in `LatitudeCrossEvent` to check for equatorial crossings:

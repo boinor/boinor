@@ -167,5 +167,5 @@ op = OrbitPlotter(plane=Planes.EARTH_ECLIPTIC)
 op.plot_body_orbit(Jupiter, nh_flyby_date)
 op.plot_body_orbit(Earth, nh_date)
 
-op.plot(nh, label="New Horizons", color="k")
+op.plot(nh, label="New Horizons", color="k");
 ```

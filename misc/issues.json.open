@@ -91,16 +91,6 @@
   },
   {
     "state": "OPEN",
-    "title": "Extracting velocity vectors from Orbit object ",
-    "url": "https://github.com/poliastro/poliastro/issues/1586"
-  },
-  {
-    "state": "OPEN",
-    "title": "AttributeError: gooding has no attribute 'kind'",
-    "url": "https://github.com/poliastro/poliastro/issues/1578"
-  },
-  {
-    "state": "OPEN",
     "title": "`poliastro.core.elements.mee2rv` code is broken",
     "url": "https://github.com/poliastro/poliastro/issues/1564"
   },

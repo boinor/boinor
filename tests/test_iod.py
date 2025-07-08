@@ -175,7 +175,7 @@ def test_vallado_not_implemented_multirev():
     with pytest.raises(NotImplementedError) as excinfo:
         vallado.lambert(k, r0, r, tof, M=1)
     assert (
-        "Multi-revolution scenario not supported for Vallado. See issue https://github.com/boinor/boinor/issues/858"
+        "Multi-revolution scenario not supported for Vallado. See issue https://github.com/poliastro/poliastro/issues/858"
         in excinfo.exconly()
     )
 

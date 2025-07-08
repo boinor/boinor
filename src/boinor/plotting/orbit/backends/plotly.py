@@ -56,6 +56,78 @@ class BasePlotly(OrbitPlotterBackend):
         """
         return self._layout
 
+    def draw_marker(self, position, *, color, label, marker_symbol, size):
+        """Draw desired marker into the scene.
+
+        Parameters
+        ----------
+        position : list[float, float, float]
+            A list containing the x, y and z coordinates of the point.
+        color : str
+            A string representing the hexadecimal color for the point.
+        label : str
+            The name to be used in the legend for the marker.
+        marker_symbol : str
+            The marker symbol to be used when drawing the point.
+        size : float
+            The size of the marker.
+
+        """
+        raise NotImplementedError(
+            "This method is expected to be overridden by a plotting backend class."
+        )
+
+    def draw_sphere(self, position, *, color, label, radius):
+        """Draw an sphere into the scene.
+
+        Parameters
+        ----------
+        position : list[float, float, float]
+            A list containing the x, y and z coordinates of the sphere location.
+        color : str
+            A string representing the hexadecimal color for the sphere.
+        label : str
+            The name to be used in the legend for the marker.
+        radius : float
+            The radius of the sphere.
+
+        """
+        raise NotImplementedError(
+            "This method is expected to be overridden by a plotting backend class."
+        )
+
+    def draw_coordinates(self, coordinates, *, colors, label, size):
+        """Draw desired coordinates into the scene.
+
+        Parameters
+        ----------
+        position : list[list[float, float, float], ...]
+            A set of lists containing the x, y and z coordinates of the sphere location.
+        colors : list[str]
+            A string representing the hexadecimal color for the coordinates.
+        label : str
+            The name to be used in the legend for the marker.
+        size : float
+            The size of the marker for drawing the coordinates.
+
+        """
+        raise NotImplementedError(
+            "This method is expected to be overridden by a specific plotting backend."
+        )
+
+    def draw_axes_labels_with_length_scale_units(self, length_scale_units):
+        """Draw the desired label into the specified axis.
+
+        Parameters
+        ----------
+        lenght_scale_units : ~astropy.units.Unit
+            Desired units of lenght used for representing distances.
+
+        """
+        raise NotImplementedError(
+            "This method is expected to be overridden by a specific plotting backend."
+        )
+
     def update_layout(self, layout):
         """Update the layout of the figure scene.
 
@@ -88,7 +160,7 @@ class BasePlotly(OrbitPlotterBackend):
 
     def undraw_attractor(self):
         """Removes the attractor from the scene."""
-        pass
+        pass  # pylint: disable=unnecessary-pass
 
     def draw_position(self, position, *, color, label, size):
         """Draw the position of a body in the scene.
@@ -140,11 +212,11 @@ class BasePlotly(OrbitPlotterBackend):
 
     def update_legend(self):
         """Update the legend of the scene."""
-        pass
+        pass  # pylint: disable=unnecessary-pass
 
     def resize_limits(self):
         """Resize the limits of the scene."""
-        pass
+        pass  # pylint: disable=unnecessary-pass
 
     def show(self):
         """Display the scene."""
@@ -194,10 +266,12 @@ class Plotly2D(BasePlotly):
         theme = "plotly_dark" if use_dark_theme is True else "plotly"
 
         # Declare the layout and attach it to the figure
+        # XXX original: xaxis=dict(constrain="domain")
+        # XXX original: yaxis=dict(scaleanchor="x")
         layout = go.Layout(
             autosize=True,
-            xaxis=dict(constrain="domain"),
-            yaxis=dict(scaleanchor="x"),
+            xaxis={"constrain": "domain"},
+            yaxis={"scaleanchor": "x"},
             template=theme,
         )
         super().__init__(figure, layout)
@@ -224,13 +298,14 @@ class Plotly2D(BasePlotly):
             An object representing the trace of the marker in the scene.
 
         """
-        marker_style = dict(size=size, color=color, symbol=marker_symbol)
+        marker_style = {"size": size, "color": color, "symbol": marker_symbol}
         marker_trace = go.Scatter(
             x=position[0],
             y=position[1],
             marker=marker_style,
             name=label,
-            showlegend=False if label is None else True,
+            # XXX showlegend=False if label is None else True,
+            showlegend=label is not None,
         )
         self.figure.add_trace(marker_trace)
         return marker_trace
@@ -270,7 +345,7 @@ class Plotly2D(BasePlotly):
             x1=(position[0] + radius),
             y1=(position[1] + radius),
             fillcolor=color,
-            line=dict(color=color),
+            line={"color": color},
             opacity=1,
         )
         self.layout.shapes += (shape,)
@@ -306,10 +381,11 @@ class Plotly2D(BasePlotly):
         coordinates_trace = go.Scatter(
             x=x,
             y=y,
-            line=dict(color=colors[0], width=5, dash=linestyle),
+            line={"color": colors[0], "width": 5, "dash": linestyle},
             mode="lines",
             name=label,
-            showlegend=False if label is None else True,
+            # XXX showlegend=False if label is None else True,
+            showlegend=label is not None,
         )
         self.figure.add_trace(coordinates_trace)
         return coordinates_trace
@@ -352,9 +428,7 @@ class Plotly3D(BasePlotly):
         # Declare the layout and attach it to the figure
         layout = go.Layout(
             autosize=True,
-            scene=dict(
-                aspectmode="data",
-            ),
+            scene={"aspectmode": "data"},
             template=theme,
         )
         super().__init__(figure, layout)
@@ -381,14 +455,15 @@ class Plotly3D(BasePlotly):
             An object representing the trace of the marker in the scene.
 
         """
-        marker_style = dict(size=size, color=color, symbol=marker_symbol)
+        marker_style = {"size": size, "color": color, "symbol": marker_symbol}
         marker_trace = go.Scatter3d(
             x=position[0],
             y=position[1],
             z=position[2],
             marker=marker_style,
             name=label,
-            showlegend=False if label is None else True,
+            # XXX showlegend=False if label is None else True,
+            showlegend=label is not None,
         )
         self.figure.add_trace(marker_trace)
         return marker_trace
@@ -424,7 +499,8 @@ class Plotly3D(BasePlotly):
             cmax=1,
             showscale=False,
             name=label,
-            showlegend=False if label is None else True,
+            # XXX showlegend=False if label is None else True,
+            showlegend=label is not None,
         )
         self.figure.add_trace(sphere)
         return sphere
@@ -457,10 +533,11 @@ class Plotly3D(BasePlotly):
             x=coordinates[0],
             y=coordinates[1],
             z=coordinates[2],
-            line=dict(color=colors[0], width=5, dash=linestyle),
+            line={"color": colors[0], "width": 5, "dash": linestyle},
             mode="lines",
             name=label,
-            showlegend=False if label is None else True,
+            # XXX showlegend=False if label is None else True,
+            showlegend=label is not None,
         )
         self.figure.add_trace(coordinates_trace)
         return coordinates_trace
@@ -476,9 +553,9 @@ class Plotly3D(BasePlotly):
         """
         self.figure.update_layout(
             scene=dict(
-                xaxis=dict(title=f"x ({length_scale_units.name})"),
-                yaxis=dict(title=f"y ({length_scale_units.name})"),
-                zaxis=dict(title=f"z ({length_scale_units.name})"),
+                xaxis={"title": f"x ({length_scale_units.name})"},
+                yaxis={"title": f"y ({length_scale_units.name})"},
+                zaxis={"title": f"z ({length_scale_units.name})"},
             )
         )
 

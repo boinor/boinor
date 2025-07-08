@@ -12,18 +12,23 @@ order:
 - Vallado, David A., and Wayne D. McClain. *Fundamentals of
   astrodynamics and applications*. Vol. 12. Springer Science &
   Business Media, 2001.
+  {cite:p}`Vallado2001`
 - Curtis, Howard. *Orbital mechanics for engineering students*.
-  Butterworth-Heinemann, 2013.
+  Butterworth-Heinemann, 2013 {cite:p}`Curtis2013`.
 - Bate, Roger R., Donald D. Mueller, William W. Saylor, and Jerry E.
   White. *Fundamentals of astrodynamics: (dover books on physics)*.
-  Dover publications, 2013.
+  Dover publications, 2013. {cite:p}`Bate_et_al2020`
 - Battin, Richard H. *An introduction to the mathematics and methods
-  of astrodynamics*. Aiaa, 1999.
+  of astrodynamics*. Aiaa, 1999. {cite:p}`Battin1999`
 - Edelbaum, Theodore N. \"Propulsion requirements for controllable
-  satellites.\" *ARS Journal* 31, no. 8 (1961): 1079-1089.
+  satellites.\" *ARS Journal* 31, no. 8 (1961): 1079-1089. {cite:p}`Edelbaum1961`
 - Walker, M. J. H., B. Ireland, and Joyce Owens. \"A set modified
   equinoctial orbit elements.\" *Celestial Mechanics* 36.4 (1985):
-  409-419.
+  409-419. {cite:p}`Walker1985`
+
+```{bibliography} boinor.bib
+:all:
+```
 
 ## Software
 

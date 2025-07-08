@@ -17,8 +17,7 @@ def lagrange_points(r12, m1, m2):
 
     Computes the Lagrangian points of CR3BP given the distance between two
     bodies and their masses.
-    It uses the formulation found in Eq. (2.204) of Curtis, Howard. 'Orbital
-    mechanics for engineering students'. Elsevier, 3rd Edition.
+    It uses the formulation found in Eq. (2.204) of :cite:t:`Curtis2013`, 3rd Edition.
 
     Parameters
     ----------

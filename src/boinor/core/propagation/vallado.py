@@ -26,20 +26,20 @@ def vallado(k, r0, v0, tof, numiter):
 
     .. math::
 
-        \begin{align}
+        \begin{aligned}
             f &= 1 \frac{\chi^{2}}{r_{o}}C(\alpha \chi^{2}) \\
             g &= \Delta t - \frac{1}{\sqrt{\mu}}\chi^{3}S(\alpha \chi^{2}) \\
             \dot{f} &= \frac{\sqrt{\mu}}{rr_{o}}(\alpha \chi^{3}S(\alpha \chi^{2}) - \chi) \\
             \dot{g} &= 1 - \frac{\chi^{2}}{r}C(\alpha \chi^{2}) \\
-        \end{align}
+        \end{aligned}
 
     Lagrange coefficients can be related then with the position and velocity vectors:
 
     .. math::
-        \begin{align}
+        \begin{aligned}
             \vec{r} &= f\vec{r_{o}} + g\vec{v_{o}} \\
             \vec{v} &= \dot{f}\vec{r_{o}} + \dot{g}\vec{v_{o}} \\
-        \end{align}
+        \end{aligned}
 
     Parameters
     ----------
@@ -67,7 +67,7 @@ def vallado(k, r0, v0, tof, numiter):
 
     Notes
     -----
-    The theoretical procedure is explained in section 3.7 of Curtis in really
+    The theoretical procedure is explained in section 3.7 of :cite:t:`Curtis2013` in really
     deep detail. For analytical example, check in the same book for example 3.6.
 
     """

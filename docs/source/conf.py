@@ -29,6 +29,7 @@ extensions = [
     "hoverxref.extension",
     "myst_parser",
     "sphinx_github_role",
+    "sphinxcontrib.bibtex",
 ]
 
 # GitHub role config
@@ -110,7 +111,7 @@ intersphinx_mapping = {
 # Warning suppresses
 suppress_warnings = ["image.nonlocal_uri"]
 
-if os.environ.get("POLIASTRO_SKIP_NOTEBOOKS") == "True":
+if os.environ.get("BOINOR_SKIP_NOTEBOOKS") == "True":
     nbsphinx_execute = "never"
     suppress_warnings.append("nbsphinx.thumbnail")
 else:
@@ -191,3 +192,33 @@ exclude_patterns.extend(["autoapi/index.rst", "autoapi/boinor/index.rst"])
 # Ignore sphinx-autoapi warnings on reimported objects
 # See https://github.com/readthedocs/sphinx-autoapi/issues/285
 suppress_warnings.append("autoapi.python_import_resolution")
+
+nbsphinx_allow_errors = True
+
+latex_engine = "xelatex"
+
+# FreeSerif needed for xelatex
+latex_elements = {
+    "fontpkg": """
+\setmainfont{FreeSerif}[
+  UprightFont    = *,
+  ItalicFont     = *Italic,
+  BoldFont       = *Bold,
+  BoldItalicFont = *BoldItalic
+]
+\setsansfont{FreeSans}[
+  UprightFont    = *,
+  ItalicFont     = *Oblique,
+  BoldFont       = *Bold,
+  BoldItalicFont = *BoldOblique,
+]
+\setmonofont{FreeMono}[
+  UprightFont    = *,
+  ItalicFont     = *Oblique,
+  BoldFont       = *Bold,
+  BoldItalicFont = *BoldOblique,
+]
+""",
+}
+
+bibtex_bibfiles = ["boinor.bib"]

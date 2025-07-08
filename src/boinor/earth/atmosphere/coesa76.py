@@ -160,16 +160,16 @@ class COESA76(COESA):
             # TODO: Apply air mean molecular weight ratio factor
             Tm = Tb + Lb * (h - hb)
             T = Tm
-        elif self.zb_levels[7] <= z and z < self.zb_levels[8]:
+        elif self.zb_levels[7] <= z < self.zb_levels[8]:
             # [86km, 91km)
             T = 186.87 * u.K
-        elif self.zb_levels[8] <= z and z < self.zb_levels[9]:
+        elif self.zb_levels[8] <= z < self.zb_levels[9]:
             # [91km, 110km]
             Tc = 263.1905 * u.K
             A = -76.3232 * u.K
             a = -19.9429 * u.km
             T = Tc + A * (1 - ((z - self.zb_levels[8]) / a) ** 2) ** 0.5
-        elif self.zb_levels[9] <= z and z < self.zb_levels[10]:
+        elif self.zb_levels[9] <= z < self.zb_levels[10]:
             # [110km, 120km]
             T = 240 * u.K + Lb * (z - self.zb_levels[9])
         else:
@@ -220,7 +220,15 @@ class COESA76(COESA):
 
             # A 4th order polynomial is used to approximate pressure.  This was
             # directly taken from: http://www.braeunig.us/space/atmmodel.htm
-            A, B, C, D, E = self._get_coefficients_avobe_86(z, p_coeff)
+            (  # pylint: disable=W0632   # there is a dynamical list of return values
+                A,
+                B,
+                C,
+                D,
+                E,
+            ) = self._get_coefficients_avobe_86(
+                z, p_coeff
+            )
 
             # Solve the polynomial
             z = z.to_value(u.km)
@@ -244,7 +252,7 @@ class COESA76(COESA):
             Density at given height.
         """
         # Test if altitude is inside valid range
-        z, h = self._check_altitude(alt, r0, geometric=geometric)
+        z, _h = self._check_altitude(alt, r0, geometric=geometric)
 
         # Solve temperature and pressure
         if z <= 86 * u.km:
@@ -256,7 +264,15 @@ class COESA76(COESA):
 
             # A 4th order polynomial is used to approximate pressure.  This was
             # directly taken from: http://www.braeunig.us/space/atmmodel.htm
-            A, B, C, D, E = self._get_coefficients_avobe_86(z, rho_coeff)
+            (  # pylint: disable=W0632   # there is a dynamical list of return values
+                A,
+                B,
+                C,
+                D,
+                E,
+            ) = self._get_coefficients_avobe_86(
+                z, rho_coeff
+            )
 
             # Solve the polynomial
             z = z.to_value(u.km)
@@ -309,7 +325,7 @@ class COESA76(COESA):
             Speed of Sound at given height.
         """
         # Check if valid range and convert to geopotential
-        z, h = self._check_altitude(alt, r0, geometric=geometric)
+        z, _h = self._check_altitude(alt, r0, geometric=geometric)
 
         if z > 86 * u.km:
             raise ValueError(
@@ -337,7 +353,7 @@ class COESA76(COESA):
             Dynamic viscosity at given height.
         """
         # Check if valid range and convert to geopotential
-        z, h = self._check_altitude(alt, r0, geometric=geometric)
+        z, _h = self._check_altitude(alt, r0, geometric=geometric)
 
         if z > 86 * u.km:
             raise ValueError(
@@ -365,7 +381,7 @@ class COESA76(COESA):
             coefficient of thermal conductivity at given height.
         """
         # Check if valid range and convert to geopotential
-        z, h = self._check_altitude(alt, r0, geometric=geometric)
+        z, _h = self._check_altitude(alt, r0, geometric=geometric)
 
         if z > 86 * u.km:
             raise ValueError(
@@ -373,8 +389,8 @@ class COESA76(COESA):
             )
         T = self.temperature(alt, geometric=geometric).value
         # Using eqn-(53)
-        k = (2.64638e-3 * T**1.5 / (T + 245.4 * (10 ** (-12.0 / T)))) * (
+        kk = (2.64638e-3 * T**1.5 / (T + 245.4 * (10 ** (-12.0 / T)))) * (
             u.J / u.m / u.s / u.K
         )
 
-        return k
+        return kk

@@ -31,14 +31,8 @@ def change_a_inc(k, a_0, a_f, inc_0, inc_f, f):
 
     Notes
     -----
-    Edelbaum theory, reformulated by Kéchichian.
+    Edelbaum theory :cite:p:`Edelbaum1961`, reformulated by :cite:t:`Kechichian1997`.
 
-    References
-    ----------
-    * Edelbaum, T. N. "Propulsion Requirements for Controllable
-      Satellites", 1961.
-    * Kéchichian, J. A. "Reformulation of Edelbaum's Low-Thrust
-      Transfer Problem Using Optimal Control Theory", 1997.
     """
     a_d, delta_V, t_f = change_a_inc_fast(
         k=k.to_value(u.km**3 / u.s**2),

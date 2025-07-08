@@ -104,8 +104,7 @@ class OrbitCreationMixin:
             )
         if coord.size != 1:
             raise ValueError(
-                "Coordinate instance must represents exactly 1 position, found: %d"
-                % coord.size
+                f"Coordinate instance must represents exactly 1 position, found: {coord.size}"
             )
 
         # Reshape coordinate to 0 dimension if it is not already dimensionless.
@@ -471,11 +470,11 @@ class OrbitCreationMixin:
         Relationships among them are given by:
 
         .. math::
-            \begin{align}
+            \begin{aligned}
                 a &= \left (\frac{-3R_{\bigoplus}J_{2}\sqrt{\mu}\cos(i)}{2\dot{\Omega}(1-e^2)^2}  \right ) ^ {\frac{2}{7}}\\
                 e &= \sqrt{1 - \sqrt{\frac{-3R_{\bigoplus}J_{2}\sqrt{\mu}cos(i)}{2a^{\frac{7}{2}}\dot{\Omega}}}}\\
                 i &= \arccos{\left ( \frac{-2a^{\frac{7}{2}}\dot{\Omega}(1-e^2)^2}{3R_{\bigoplus}J_{2}\sqrt{\mu}} \right )}\\
-            \end{align}
+            \end{aligned}
 
         Parameters
         ----------
@@ -510,10 +509,10 @@ class OrbitCreationMixin:
             a, ecc, inc = heliosynchronous(
                 attractor.k, attractor.R, attractor.J2, n_sunsync, a, ecc, inc
             )
-        except FloatingPointError:
+        except FloatingPointError as e:
             raise ValueError(
                 "No SSO orbit with given parameters can be found."
-            )
+            ) from e
 
         ss = cls.from_classical(
             attractor=attractor,

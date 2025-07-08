@@ -37,7 +37,7 @@ epoch = Time("2018-08-17 12:05:50", scale="tdb")
 plotter = OrbitPlotter(plane=Planes.EARTH_ECLIPTIC)
 plotter.plot_body_orbit(Earth, epoch, label="Earth")
 plotter.plot_body_orbit(Mars, epoch, label="Mars")
-plotter.plot_body_orbit(Jupiter, epoch, label="Jupiter")
+plotter.plot_body_orbit(Jupiter, epoch, label="Jupiter");
 ```
 
 ```{code-cell} ipython3
@@ -56,7 +56,7 @@ earth_plots_pos.set_marker("H")  # Hexagon
 earth_plots_pos.set_markersize(15)
 
 mars_plots = plotter.plot_body_orbit(Mars, epoch, label=Mars)
-jupiter_plots = plotter.plot_body_orbit(Jupiter, epoch, label=Jupiter)
+jupiter_plots = plotter.plot_body_orbit(Jupiter, epoch, label=Jupiter);
 ```
 
 Here we get hold of the lines list from the `OrbitPlotter.plot` method this is a list of lines. The first is the orbit line. The second is the current position marker. With the matplotlib lines objects we can start changing the style. First we make the line solid but thin. Then we change the current position marker to a large hexagon.
@@ -114,5 +114,5 @@ plotter = OrbitPlotter(backend=backend)
 
 plotter.plot_body_orbit(Earth, epoch, label=Earth)
 plotter.plot_body_orbit(Mars, epoch, label=Mars)
-plotter.plot_body_orbit(Jupiter, epoch, label=Jupiter)
+plotter.plot_body_orbit(Jupiter, epoch, label=Jupiter);
 ```

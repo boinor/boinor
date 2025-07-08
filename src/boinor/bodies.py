@@ -32,7 +32,9 @@ from collections import namedtuple
 import math
 
 from astropy import units as u
-from astropy.constants import G
+from astropy.constants import (  # pylint: disable=no-name-in-module    # this is a false positive
+    G,
+)
 from astropy.units import Quantity
 
 from boinor import constants
@@ -115,6 +117,10 @@ class Body(
 
     def __repr__(self):
         return self.__str__()
+
+    def tmp_G(self):
+        """pylint detects an import error with G, so we add a test whether G is available"""
+        return G
 
     @classmethod
     @u.quantity_input(k=u.km**3 / u.s**2, R=u.km)
@@ -319,7 +325,7 @@ Phobos = Body(
     mean_a=constants.mean_a_phobos,
 )
 
-Deimoms = Body(
+Deimos = Body(
     parent=Mars,
     k=constants.GM_deimos,
     name="Deimos",

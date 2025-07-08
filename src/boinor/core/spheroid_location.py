@@ -23,13 +23,17 @@ def cartesian_cords(a, c, lon, lat, h):
     h : float
         Geodetic height
 
+
+    ND: float
+       prime vertical radius of curvature (normal distance from the ellipsoid surface to the polar axis)
+       sometimes called N
     """
     e2 = 1 - (c / a) ** 2
-    N = a / np.sqrt(1 - e2 * np.sin(lat) ** 2)
+    ND = a / np.sqrt(1 - e2 * np.sin(lat) ** 2)
 
-    x = (N + h) * np.cos(lat) * np.cos(lon)
-    y = (N + h) * np.cos(lat) * np.sin(lon)
-    z = ((1 - e2) * N + h) * np.sin(lat)
+    x = (ND + h) * np.cos(lat) * np.cos(lon)
+    y = (ND + h) * np.cos(lat) * np.sin(lon)
+    z = ((1 - e2) * ND + h) * np.sin(lat)
     return x, y, z
 
 
@@ -49,7 +53,7 @@ def f(a, c):
 
 
 @jit
-def N(a, b, c, cartesian_cords):
+def N(a, b, c, cartesian_cords_parameter):
     """Normal vector of the ellipsoid at the given location.
 
     Parameters
@@ -60,30 +64,30 @@ def N(a, b, c, cartesian_cords):
         Equatorial radius
     c : float
         Semi-minor axis
-    cartesian_cords : numpy.ndarray
+    cartesian_cords_parameter : numpy.ndarray
         Cartesian coordinates
 
     """
-    x, y, z = cartesian_cords
-    N = np.array([2 * x / a**2, 2 * y / b**2, 2 * z / c**2])
-    N /= norm(N)
-    return N
+    x, y, z = cartesian_cords_parameter
+    ND = np.array([2 * x / a**2, 2 * y / b**2, 2 * z / c**2])
+    ND /= norm(ND)
+    return ND
 
 
 @jit
-def tangential_vecs(N):
+def tangential_vecs(ND):
     """Returns orthonormal vectors tangential to the ellipsoid at the given location.
 
     Parameters
     ----------
-    N : numpy.ndarray
-        Normal vector of the ellipsoid
+    ND : numpy.ndarray
+         Normal vector of the ellipsoid
 
     """
     u = np.array([1.0, 0, 0])
-    u -= (u @ N) * N
+    u -= (u @ ND) * ND
     u /= norm(u)
-    v = np.cross(N, u)
+    v = np.cross(ND, u)
 
     return u, v
 
@@ -108,12 +112,12 @@ def radius_of_curvature(a, c, lat):
 
 
 @jit
-def distance(cartesian_cords, px, py, pz):
+def distance(cartesian_cords_parameter, px, py, pz):
     """Calculates the distance from an arbitrary point to the given location (Cartesian coordinates).
 
     Parameters
     ----------
-    cartesian_cords : numpy.ndarray
+    cartesian_cords_parameter : numpy.ndarray
         Cartesian coordinates
     px : float
         x-coordinate of the point
@@ -123,19 +127,19 @@ def distance(cartesian_cords, px, py, pz):
         z-coordinate of the point
 
     """
-    c = cartesian_cords
+    c = cartesian_cords_parameter
     u = np.array([px, py, pz])
     d = norm(c - u)
     return d
 
 
 @jit
-def is_visible(cartesian_cords, px, py, pz, N):
+def is_visible(cartesian_cords_parameter, px, py, pz, ND):
     """Determine whether an object located at a given point is visible from the given location.
 
     Parameters
     ----------
-    cartesian_cords : numpy.ndarray
+    cartesian_cords_parameter : numpy.ndarray
         Cartesian coordinates
     px : float
         x-coordinate of the point
@@ -143,15 +147,15 @@ def is_visible(cartesian_cords, px, py, pz, N):
         y-coordinate of the point
     pz : float
         z-coordinate of the point
-    N : numpy.ndarray
-        Normal vector of the ellipsoid at the given location.
+    ND : numpy.ndarray
+         Normal vector of the ellipsoid at the given location.
 
     """
-    c = cartesian_cords
+    c = cartesian_cords_parameter
     u = np.array([px, py, pz])
 
-    d = -(N @ c)
-    p = (N @ u) + d
+    d = -(ND @ c)
+    p = (ND @ u) + d
     return p >= 0
 
 

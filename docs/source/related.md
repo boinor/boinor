@@ -41,3 +41,8 @@ served as inspiration:
   Among all the wrappers available on the Internet, at the time of
   writing this is the most advanced and well-maintained one, although
   there are others.
+
+# Noteworthy forks of poliastro or boinor
+
+- [hapsira](https://github.com/pleiszenburg/hapsira) one of the first forks after poliastro was archived
+- [poliastro2](https://github.com/NRA-Research/poliastro2) might be good to share PRs with

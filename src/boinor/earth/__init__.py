@@ -50,7 +50,7 @@ class EarthSatellite:
         return self._spacecraft
 
     @u.quantity_input(tof=u.min)
-    def propagate(self, tof, atmosphere=None, gravity=None, *args):
+    def propagate(self, tof, *args, atmosphere=None, gravity=None):
         """Propagates an 'EarthSatellite Orbit' at a specified time.
 
         If value is true anomaly, propagate orbit to this anomaly and return the result.

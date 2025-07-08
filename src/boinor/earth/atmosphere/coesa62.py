@@ -206,7 +206,7 @@ class COESA62(COESA):
             Density at given altitude.
         """
         # Check if valid range and convert to geopotential
-        z, h = self._check_altitude(alt, r0, geometric=geometric)
+        z, _h = self._check_altitude(alt, r0, geometric=geometric)
 
         # Solve temperature and pressure
         T = self.temperature(z)
@@ -256,7 +256,7 @@ class COESA62(COESA):
             Speed of Sound at given height.
         """
         # Check if valid range and convert to geopotential
-        z, h = self._check_altitude(alt, r0, geometric=geometric)
+        z, _h = self._check_altitude(alt, r0, geometric=geometric)
 
         if z > 90 * u.km:
             raise ValueError(
@@ -284,7 +284,7 @@ class COESA62(COESA):
             Dynamic viscosity at given height.
         """
         # Check if valid range and convert to geopotential
-        z, h = self._check_altitude(alt, r0, geometric=geometric)
+        z, _h = self._check_altitude(alt, r0, geometric=geometric)
 
         if z > 90 * u.km:
             raise ValueError(
@@ -312,7 +312,7 @@ class COESA62(COESA):
             coefficient of thermal conductivity at given height.
         """
         # Check if valid range and convert to geopotential
-        z, h = self._check_altitude(alt, r0, geometric=geometric)
+        z, _h = self._check_altitude(alt, r0, geometric=geometric)
 
         if z > 90 * u.km:
             raise ValueError(

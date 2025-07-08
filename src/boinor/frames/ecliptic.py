@@ -1,5 +1,6 @@
 from astropy import units as u
 from astropy.coordinates import (
+    GCRS,
     BaseEclipticFrame,
     CartesianRepresentation,
     DynamicMatrixTransform,
@@ -18,7 +19,7 @@ from astropy.coordinates.matrix_utilities import (
 import erfa
 import numpy as np
 
-from boinor.frames.equatorial import GCRS
+# XXX used from astropy: from boinor.frames.equatorial import GCRS
 
 __all__ = [
     "GeocentricSolarEcliptic",

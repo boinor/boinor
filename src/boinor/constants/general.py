@@ -28,7 +28,7 @@ J2 for the Sun was obtained from:
 
 * https://hal.archives-ouvertes.fr/hal-00433235/document
   (New values of gravitational moments J2 and J4 deduced from helioseismology,
-   Redouane Mecheri et al)
+  Redouane Mecheri et al)
 
 """
 

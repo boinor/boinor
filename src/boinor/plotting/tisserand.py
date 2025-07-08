@@ -111,6 +111,7 @@ class TisserandPlotter:
         lines: list
             Plotting lines for the Tisserand
         """
+        lines = []
         # Plot desired kind lines
         if self.kind == TisserandKind.APSIS:
             # Generate apsis lines
@@ -123,6 +124,9 @@ class TisserandPlotter:
         elif self.kind == TisserandKind.PERIOD:
             # Generate period lines
             lines = self.ax.plot(RR_P.to(u.AU), TT.to(u.year), color=color)
+        else:
+            # this should not happen
+            assert lines == []
 
         return lines
 

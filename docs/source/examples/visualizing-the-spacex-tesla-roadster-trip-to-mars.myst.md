@@ -33,8 +33,7 @@ roadster = Ephem.from_horizons(
     epochs=time_range(EPOCH, end=EPOCH + 360 * u.day),
     attractor=Sun,
     plane=Planes.EARTH_ECLIPTIC,
-    id_type="majorbody",
-)
+);
 roadster
 ```
 
@@ -46,7 +45,7 @@ from boinor.plotting.misc import plot_solar_system
 :tags: [nbsphinx-thumbnail]
 
 frame = plot_solar_system(outer=False, epoch=EPOCH)
-frame.plot_ephem(roadster, EPOCH, label="SpaceX Roadster", color="black")
+frame.plot_ephem(roadster, EPOCH, label="SpaceX Roadster", color="black");
 ```
 
 ```{code-cell}

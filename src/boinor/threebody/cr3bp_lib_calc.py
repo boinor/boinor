@@ -46,37 +46,65 @@ def lib_pt_loc(SysChars, conv_tol=1e-12):
 
     initial_guess123 = np.array([0.9, 1.1, -1])  # Initial guess for L1, L2, L3
 
+    # nrl_tmp is needed to avoid a numpy deprecation warning:
+    #  Conversion of an array with ndim > 0 to a scalar is deprecated, and will error in future. (...)
+    # this is deprecated since numpy 1.2
+
     # computes L1
-    lib_loc[0, 0] = (
-        1
-        - mu
-        - newton_raphson_lib_calc(
-            initial_guess123[0],
-            f_lib123_coeffs[0, :],
-            df_lib123_coeffs[0, :],
-            conv_tol,
-        )
+    nrl_tmp = newton_raphson_lib_calc(
+        initial_guess123[0],
+        f_lib123_coeffs[0, :],
+        df_lib123_coeffs[0, :],
+        conv_tol,
     )
+    lib_loc[0, 0] = 1 - mu - nrl_tmp[0]
+    # XXX org
+    #    lib_loc[0, 0] = (
+    #        1
+    #        - mu
+    #        - newton_raphson_lib_calc(
+    #            initial_guess123[0],
+    #            f_lib123_coeffs[0, :],
+    #            df_lib123_coeffs[0, :],
+    #            conv_tol,
+    #        )
+    #    )
 
     # computes L2
-    lib_loc[1, 0] = (
-        1
-        - mu
-        + newton_raphson_lib_calc(
-            initial_guess123[1],
-            f_lib123_coeffs[1, :],
-            df_lib123_coeffs[1, :],
-            conv_tol,
-        )
+    nrl_tmp = newton_raphson_lib_calc(
+        initial_guess123[1],
+        f_lib123_coeffs[1, :],
+        df_lib123_coeffs[1, :],
+        conv_tol,
     )
+    lib_loc[1, 0] = 1 - mu + nrl_tmp[0]
+    # XXX org
+    #    lib_loc[1, 0] = (
+    #        1
+    #        - mu
+    #        + newton_raphson_lib_calc(
+    #            initial_guess123[1],
+    #            f_lib123_coeffs[1, :],
+    #            df_lib123_coeffs[1, :],
+    #            conv_tol,
+    #        )
+    #    )
 
     # computes L3
-    lib_loc[2, 0] = -mu - newton_raphson_lib_calc(
+    nrl_tmp = newton_raphson_lib_calc(
         initial_guess123[2],
         f_lib123_coeffs[2, :],
         df_lib123_coeffs[2, :],
         conv_tol,
     )
+    lib_loc[2, 0] = -mu - nrl_tmp[0]
+    # XXX org
+    #    lib_loc[2, 0] = -mu - newton_raphson_lib_calc(
+    #        initial_guess123[2],
+    #        f_lib123_coeffs[2, :],
+    #        df_lib123_coeffs[2, :],
+    #        conv_tol,
+    #    )
 
     # L4, analytical solution
     lib_loc[3, :] = [

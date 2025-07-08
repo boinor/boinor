@@ -55,7 +55,7 @@ C_MOON = "#999"
 ```
 
 ```{code-cell} ipython3
-Earth.plot(EPOCH)
+Earth.plot(EPOCH);
 ```
 
 Our first option to retrieve the orbit of the Florence asteroid is to use `Orbit.from_sbdb`, which gives us the osculating elements at a certain epoch:
@@ -123,7 +123,7 @@ And now we can plot!
 :tags: [nbsphinx-thumbnail]
 
 frame = plot_solar_system(outer=False, epoch=EPOCH)
-frame.plot_ephem(florence, EPOCH, label="Florence", color=C_FLORENCE)
+frame.plot_ephem(florence, EPOCH, label="Florence", color=C_FLORENCE);
 ```
 
 Finally, we are going to visualize the orbit of Florence with respect to the Earth. For that, we set a narrower time range, and specify that we want to retrieve the ephemerides with respect to our planet:
@@ -150,7 +150,7 @@ moon
 plotter = OrbitPlotter()
 plotter.set_attractor(Earth)
 plotter.set_body_frame(Moon)
-plotter.plot_ephem(moon, EPOCH, label=Moon, color=C_MOON)
+plotter.plot_ephem(moon, EPOCH, label=Moon, color=C_MOON);
 ```
 
 And now, the glorious final plot:
@@ -164,5 +164,5 @@ frame.set_attractor(Earth)
 frame.set_orbit_frame(Orbit.from_ephem(Earth, florence_e, EPOCH))
 
 frame.plot_ephem(florence_e, EPOCH, label="Florence", color=C_FLORENCE)
-frame.plot_ephem(moon, EPOCH, label=Moon, color=C_MOON)
+frame.plot_ephem(moon, EPOCH, label=Moon, color=C_MOON);
 ```

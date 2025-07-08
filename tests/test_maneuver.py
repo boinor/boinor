@@ -20,7 +20,7 @@ def test_maneuver_constructor_raises_error_if_invalid_delta_v():
         with warnings.catch_warnings():
             # Different length numpy arrays generate a deprecation warning.
             warnings.simplefilter(
-                "ignore", category=np.VisibleDeprecationWarning
+                "ignore", category=np.exceptions.VisibleDeprecationWarning
             )
             Maneuver((0 * u.s, dv1), (2 * u.s, dv2))
     assert "Delta-V must be three dimensions vectors" in excinfo.exconly()

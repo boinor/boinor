@@ -92,12 +92,12 @@ plotter.set_attractor(Sun)
 plotter.plot_ephem(earth, date_launch, label="Earth at launch position")
 plotter.plot_ephem(mars, date_arrival, label="Mars at arrival position")
 plotter.plot_trajectory(
-    orb_trans.sample(max_anomaly=180 * u.deg),
+    orb_trans.sample_with_anomaly(max_anomaly=180 * u.deg),
     color="black",
     label="Transfer orbit",
 )
 #plotter.set_view(30 * u.deg, 260 * u.deg, distance=3 * u.km)
-plotter.show()
+plotter.show();
 ```
 
 Not bad! Let's celebrate with some music!

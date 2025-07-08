@@ -85,16 +85,16 @@ def get_frame(attractor, plane, obstime=J2000):
     """
     try:
         frames = _FRAME_MAPPING[attractor]
-    except KeyError:
+    except KeyError as e:
         raise NotImplementedError(
             "Frames for orbits around custom bodies are not yet supported"
-        )
+        ) from e
 
     try:
         frame_class = frames[plane]
-    except KeyError:
+    except KeyError as e:
         raise NotImplementedError(
             f"A frame with plane {plane} around body {attractor} is not yet implemented"
-        )
+        ) from e
 
     return frame_class(obstime=obstime)

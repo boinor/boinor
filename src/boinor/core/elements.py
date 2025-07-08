@@ -78,8 +78,8 @@ def rv_pqw(k, p, ecc, nu):
 
     Notes
     -----
-    These formulas can be checked at Curtis 3rd. Edition, page 110. Also the
-    example proposed is 2.11 of Curtis 3rd Edition book.
+    These formulas can be checked at :cite:t:`Curtis2013`, 3rd Edition, page 110. Also the
+    example proposed is 2.11 of :cite:t:`Curtis2013`, 3rd Edition book.
 
     .. math::
 
@@ -159,12 +159,13 @@ def coe2rv(k, p, ecc, inc, raan, argp, nu):
     Notes
     -----
     .. math::
-        \begin{align}
+
+        \begin{aligned}
             \vec{r}_{IJK} &= [ROT3(-\Omega)][ROT1(-i)][ROT3(-\omega)]\vec{r}_{PQW}
                                = \left [ \frac{IJK}{PQW} \right ]\vec{r}_{PQW}\\
             \vec{v}_{IJK} &= [ROT3(-\Omega)][ROT1(-i)][ROT3(-\omega)]\vec{v}_{PQW}
                                = \left [ \frac{IJK}{PQW} \right ]\vec{v}_{PQW}\\
-        \end{align}
+        \end{aligned}
 
     Previous rotations (3-1-3) can be expressed in terms of a single rotation matrix:
 
@@ -207,7 +208,7 @@ def coe2rv_many(k, p, ecc, inc, raan, argp, nu):
 def coe2mee(p, ecc, inc, raan, argp, nu):
     r"""Converts from classical orbital elements to modified equinoctial orbital elements.
 
-    The definition of the modified equinoctial orbital elements is taken from [Walker, 1985].
+    The definition of the modified equinoctial orbital elements is taken from :cite:t:`Walker1985`.
 
     The modified equinoctial orbital elements are a set of orbital elements that are useful for
     trajectory analysis and optimization. They are valid for circular, elliptic, and hyperbolic
@@ -251,14 +252,14 @@ def coe2mee(p, ecc, inc, raan, argp, nu):
     The conversion equations are taken directly from the original paper:
 
     .. math::
-        \begin{align}
+        \begin{aligned}
         p &= a(1-e^2) \\
         f &= e\cos(\omega + \Omega) \\
         g &= e\sin(\omega + \Omega) \\
         h &= \tan(\frac{i}{2})\cos(\Omega) \\
         k &= \tan(\frac{i}{2})\sin(\Omega) \\
         L &= \Omega + \omega + \theta \\
-        \end{align}
+        \end{aligned}
 
     """
     if inc == np.pi:
@@ -307,8 +308,7 @@ def rv2coe(k, r, v, tol=1e-8):
 
     Notes
     -----
-    This example is a real exercise from Orbital Mechanics for Engineering
-    students by Howard D.Curtis. This exercise is 4.3 of 3rd. Edition, page 200.
+    This example is a real exercise from :cite:t:`Curtis2013`, 3rd Edition, exercise is 4.3, page 200.
 
     1. First the angular momentum is computed:
 
@@ -318,18 +318,18 @@ def rv2coe(k, r, v, tol=1e-8):
     2. With it the eccentricity can be solved:
 
     .. math::
-        \begin{align}
+        \begin{aligned}
         \vec{e} &= \frac{1}{\mu}\left [ \left ( v^{2} - \frac{\mu}{r}\right ) \vec{r}  - (\vec{r} \cdot \vec{v})\vec{v} \right ] \\
         e &= \sqrt{\vec{e}\cdot\vec{e}} \\
-        \end{align}
+        \end{aligned}
 
     3. The node vector line is solved:
 
     .. math::
-        \begin{align}
+        \begin{aligned}
         \vec{N} &= \vec{k} \times \vec{h} \\
         N &= \sqrt{\vec{N}\cdot\vec{N}}
-        \end{align}
+        \end{aligned}
 
     4. The rigth ascension node is computed:
 
@@ -446,18 +446,18 @@ def mee2coe(p, f, g, h, k, L):
     orbital elements.
 
     The definition of the modified equinoctial orbital elements is taken from
-    [Walker, 1985].
+    :cite:t:`Walker1985`.
 
     .. math::
 
-        \begin{align}
+        \begin{aligned}
             p &= a(1 - e^{2})\\
             e &= \sqrt{f^{2} + g^{2}}\\
             i &= 2\arctan{(\sqrt{h^{2} + k^{2}})}\\
             raan &= atan2(k, h) \pmod{2\pi}\\
             argp &= (atan2(g, f) - raan) \pmod{2\pi}\\
             nu &= (L - atan2(g, f)) \pmod{2\pi}\\
-        \end{align}
+        \end{aligned}
 
     Parameters
     ----------
@@ -505,11 +505,13 @@ def mee2coe(p, f, g, h, k, L):
 
 
 @jit
-def mee2rv(p, f, g, h, k, L):
+def mee2rv(mu, p, f, g, h, k, L):
     """Calculates position and velocity vector from modified equinoctial elements.
 
     Parameters
     ----------
+    mu: float
+        gravitational constant (k)
     p: float
         Semi-latus rectum
     f: float
@@ -548,7 +550,7 @@ def mee2rv(p, f, g, h, k, L):
 
     vx = (
         (-1 / s2)
-        * (np.sqrt(k / p))
+        * (np.sqrt(mu / p))
         * (
             np.sin(L)
             + alpha2 * np.sin(L)
@@ -560,7 +562,7 @@ def mee2rv(p, f, g, h, k, L):
     )
     vy = (
         (-1 / s2)
-        * (np.sqrt(k / p))
+        * (np.sqrt(mu / p))
         * (
             -np.cos(L)
             + alpha2 * np.cos(L)
@@ -572,8 +574,7 @@ def mee2rv(p, f, g, h, k, L):
     )
     vz = (
         (2 / s2)
-        * (np.sqrt(k / p))
+        * (np.sqrt(mu / p))
         * (h * np.cos(L) + k * np.sin(L) + f * h + g * k)
     )
-
     return np.array([rx, ry, rz]), np.array([vx, vy, vz])

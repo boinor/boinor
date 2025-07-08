@@ -33,7 +33,7 @@ class ValladoPropagator:
     Notes
     -----
     This algorithm is based on Vallado implementation, and does basic Newton
-    iteration on the Kepler equation written using universal variables. Battin
+    iteration on the Kepler equation written using universal variables. :cite:t:`Battin1999`
     claims his algorithm uses the same amount of memory but is between 40 %
     and 85 % faster.
 

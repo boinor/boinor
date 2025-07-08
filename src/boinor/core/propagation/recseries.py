@@ -59,7 +59,7 @@ def recseries_coe(
 
         # compute eccentric anomaly through recursive series
         E = M + ecc  # Using initial guess from vallado to improve convergence
-        for i in range(0, Niter):
+        for _i in range(0, Niter):
             En = M + ecc * np.sin(E)
             # check for break condition
             if method == "rtol" and (abs(En - E) / abs(E)) < rtol:

@@ -8,12 +8,14 @@ from boinor.twobody import Orbit
 from boinor.util import time_range
 
 
-class TestEarthSatellite(EarthSatellite):
+class CheckEarthSatellite(EarthSatellite):
     """Position and velocity of a body with respect to Earth
     at a given time.
     derived from EarthSatellite to do some testing with orbits here
     """
 
+    # we need a __init__() here, as the EarthSatellite checks whether the orbit is around
+    # Earth
     def __init__(self, orbit, spacecraft):
         """Constructor.
 
@@ -30,6 +32,7 @@ class TestEarthSatellite(EarthSatellite):
             If the orbit's attractor is not Earth
 
         """
+        # no need to check for Earth in this class
         #        if orbit.attractor is not Earth:
         #            raise ValueError("The attractor must be Earth")
 
@@ -59,7 +62,7 @@ def test_groundtrack_general():
         [7.37289205, 2.08223573, 4.39999794e-1] * u.km / u.s,
         time.Time("2013-03-18 12:00", scale="utc"),
     )
-    testOrbit1 = TestEarthSatellite(testBody1, None)
+    testOrbit1 = CheckEarthSatellite(testBody1, None)
 
     t_span = time_range(
         iss.epoch - 1.5 * u.h, num_values=150, end=iss.epoch + 1.5 * u.h

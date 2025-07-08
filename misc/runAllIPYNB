@@ -1,0 +1,46 @@
+#!/bin/bash
+
+NB="$1"
+
+# check whether we want to build everything or just one ipynb
+if [ ! -z "$NB" ]; then
+   if [ ! -f "$NB" ]; then
+     echo "E: notebook file ($NB) is not available"
+     exit 1
+   fi
+fi
+
+# create *.ipynb ...
+if [ ! -d docs ]; then
+  echo "E: directory docs needs to be a subdirectory"
+  exit 1
+fi
+
+cd docs
+# ... but only if we want to build everything
+if [ -z "$NB" ]; then
+  rm -rf build
+  make html
+fi
+cd ..
+if [ -z "$NB" ]; then
+   ipynb=`find ./docs/build/html/examples/*|grep "\.ipynb$"`
+else
+   ipynb="$NB"
+fi
+echo "I: complete list: $ipynb"
+
+# now do the hard work
+TMPOUTPUT=/tmp/pppppppp
+for i in $ipynb; do
+  if [ -f $i ]; then
+    echo -n "I: work on $i"
+    jupyter nbconvert --to notebook --execute $i &> $TMPOUTPUT
+    rc=$?
+    echo " -> $rc"
+    if [ "$rc" != "0" ]; then
+       cat $TMPOUTPUT
+    fi 
+  fi
+done
+rm -f $TMPOUTPUT

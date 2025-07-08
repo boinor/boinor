@@ -90,11 +90,7 @@ Plot of a [Molniya orbit](https://en.wikipedia.org/wiki/Molniya_orbit) around th
 The [source code](https://github.com/boinor/boinor), [issue
 tracker](https://github.com/boinor/boinor/issues) and
 [wiki](https://github.com/boinor/boinor/wiki/) are hosted on
-GitHub, and all contributions and feedback are more than welcome. You
-can test boinor in your browser using [Binder](https://mybinder.org/), a cloud Jupyter
-notebook server:
-
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/boinor/boinor/main?labpath=index.ipynb)
+GitHub, and all contributions and feedback are more than welcome.
 
 See [benchmarks](https://benchmarks.boinor.space/) for the
 performance analysis of boinor.

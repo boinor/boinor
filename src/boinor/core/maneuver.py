@@ -20,10 +20,10 @@ def hohmann(k, rv, r_f):
     The Hohmann maneuver velocities can be expressed as:
 
     .. math::
-        \begin{align}
+        \begin{aligned}
             \Delta v_{a} &= \sqrt{\frac{2\mu}{r_{i}} - \frac{\mu}{a_{trans}}} - v_{i}\\
             \Delta v_{b} &= \sqrt{\frac{\mu}{r_{f}}} - \sqrt{\frac{2\mu}{r_{f}} - \frac{\mu}{a_{trans}}}
-        \end{align}
+        \end{aligned}
 
     The time that takes to complete the maneuver can be computed as:
 
@@ -75,28 +75,28 @@ def bielliptic(k, r_b, r_f, rv):
     relationships as follows:
 
     .. math::
-        \begin{align}
+        \begin{aligned}
             a_{trans1} &= \frac{r_{i} + r_{b}}{2}\\
             a_{trans2} &= \frac{r_{b} + r_{f}}{2}\\
-        \end{align}
+        \end{aligned}
 
     The increments in the velocity are:
 
     .. math::
-        \begin{align}
+        \begin{aligned}
             \Delta v_{a} &= \sqrt{\frac{2\mu}{r_{i}} - \frac{\mu}{a_{trans1}}} - v_{i}\\
             \Delta v_{b} &= \sqrt{\frac{2\mu}{r_{b}} - \frac{\mu}{a_{trans2}}} - \sqrt{\frac{2\mu}{r_{b}} - \frac{\mu}{a_trans{1}}}\\
             \Delta v_{c} &= \sqrt{\frac{\mu}{r_{f}}} - \sqrt{\frac{2\mu}{r_{f}} - \frac{\mu}{a_{trans2}}}\\
-        \end{align}
+        \end{aligned}
 
     The time of flight for this maneuver is the addition of the time needed for both transition orbits, following the same formula as
     Hohmann:
 
     .. math::
-        \begin{align}
+        \begin{aligned}
             \tau_{trans1} &= \pi \sqrt{\frac{a_{trans1}^{3}}{\mu}}\\
             \tau_{trans2} &= \pi \sqrt{\frac{a_{trans2}^{3}}{\mu}}\\
-        \end{align}
+        \end{aligned}
 
     Parameters
     ----------
@@ -168,16 +168,15 @@ def correct_pericenter(k, R, J2, max_delta_r, v, a, inc, ecc):
 
     Notes
     -----
-    The algorithm was obtained from "Fundamentals of Astrodynamics and Applications, 4th ed (2013)" by David A.
-    Vallado, page 885.
-    Given a max_delta_r, we determine the maximum perigee drift before we do an orbit-adjustment burn
+    The algorithm was obtained from :cite:t:`Vallado2013`, page 885.
+    Given a ``max_delta_r``, we determine the maximum perigee drift before we do an orbit-adjustment burn
     to restore the perigee to its nominal value. We estimate the time until this burn using the allowable drift
     delta_w and the drift rate :math:`|dw|`.
-    For positive delta_v, the change in the eccentricity is positive for perigee burns and negative for apogee burns.
-    The opposite holds for a delta_v applied against the velocity vector, which decreases the satellite’s velocity.
+    For positive ``delta_v``, the change in the eccentricity is positive for perigee burns and negative for apogee burns.
+    The opposite holds for a ``delta_v`` applied against the velocity vector, which decreases the satellite’s velocity.
     Perigee drift are mainly due to the zonal harmonics, which cause variations in the altitude by changing the
     argument of perigee.
-    Please note that ecc ≈ 0.001, so the error incurred by assuming a small eccentricity is on the order of 0.1%.
+    Please note that ``ecc`` ≈ 0.001, so the error incurred by assuming a small eccentricity is on the order of 0.1%.
     This is smaller than typical variations in thruster performance between burns.
 
     """

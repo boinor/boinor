@@ -8,7 +8,7 @@ from boinor.threebody.restricted import lagrange_points_vec
 
 
 def test_lagrange_points_vec():
-    # Figure 2.36 from Curtis
+    # Figure 2.36 from Curtis (2013)
 
     deg60 = 60 * pi / 180
     expected_L1 = 326400 * ([1, 0, 0] * u.km)
@@ -20,7 +20,7 @@ def test_lagrange_points_vec():
     earth_mass = Earth.mass
     moon_mass = Moon.mass
 
-    # Values from Curtis
+    # Values from Curtis (2013)
     # earth_mass = 5.974e24 * u.kg
     # moon_mass = 73.48e21 * u.kg
 

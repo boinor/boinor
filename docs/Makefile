@@ -36,8 +36,11 @@ help:
 	@echo "  devhelp    to make HTML files and a Devhelp project"
 	@echo "  epub       to make an epub"
 	@echo "  latex      to make LaTeX files, you can set PAPER=a4 or PAPER=letter"
-	@echo "  latexpdf   to make LaTeX files and run them through pdflatex"
-	@echo "  latexpdfja to make LaTeX files and run them through platex/dvipdfmx"
+# pdflatex has problems to deal with UniCode characters like the one for pi
+# so using xelatex now
+#	@echo "  latexpdf   to make LaTeX files and run them through pdflatex"
+#	@echo "  latexpdfja to make LaTeX files and run them through platex/dvipdfmx"
+	@echo "  xelatexpdf to make LaTex Files and run them through xelatex (better with Unicode handling)"
 	@echo "  text       to make text files"
 	@echo "  man        to make manual pages"
 	@echo "  texinfo    to make Texinfo files"
@@ -119,16 +122,27 @@ latex:
 	      "(use \`make latexpdf' here to do that automatically)."
 
 latexpdf:
-	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
-	@echo "Running LaTeX files through pdflatex..."
-	$(MAKE) -C $(BUILDDIR)/latex all-pdf
-	@echo "pdflatex finished; the PDF files are in $(BUILDDIR)/latex."
+	@echo "due to handling of UniCode characters pdflatex is deprecated now"
+	@echo "better use xelatex with target xelatexpdf"
+#	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
+#	@echo "Running LaTeX files through pdflatex..."
+#	$(MAKE) -C $(BUILDDIR)/latex all-pdf
+#	@echo "pdflatex finished; the PDF files are in $(BUILDDIR)/latex."
 
 latexpdfja:
+	@echo "due to handling of UniCode characters pdflatex is deprecated now"
+	@echo "better use xelatex with target xelatexpdf"
+#	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
+#	@echo "Running LaTeX files through platex and dvipdfmx..."
+#	$(MAKE) -C $(BUILDDIR)/latex all-pdf-ja
+#	@echo "pdflatex finished; the PDF files are in $(BUILDDIR)/latex."
+
+xelatexpdf:
 	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
-	@echo "Running LaTeX files through platex and dvipdfmx..."
-	$(MAKE) -C $(BUILDDIR)/latex all-pdf-ja
-	@echo "pdflatex finished; the PDF files are in $(BUILDDIR)/latex."
+	@echo "Running LaTeX files through xelatexpdf..."
+	$(MAKE) -C $(BUILDDIR)/latex all-pdf
+	@echo "xelatex finished; the PDF files are in $(BUILDDIR)/latex."
+
 
 text:
 	$(SPHINXBUILD) -b text $(ALLSPHINXOPTS) $(BUILDDIR)/text

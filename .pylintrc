@@ -278,10 +278,10 @@ exclude-too-few-public-methods=
 ignored-parents=
 
 # Maximum number of arguments for function / method.
-max-args=5
+max-args=20
 
 # Maximum number of attributes for a class (see R0902).
-max-attributes=7
+max-attributes=16
 
 # Maximum number of boolean expressions in an if statement (see R0916).
 max-bool-expr=5
@@ -290,22 +290,22 @@ max-bool-expr=5
 max-branches=12
 
 # Maximum number of locals for function / method body.
-max-locals=15
+max-locals=100
 
 # Maximum number of parents for a class (see R0901).
 max-parents=7
 
 # Maximum number of public methods for a class (see R0904).
-max-public-methods=20
+max-public-methods=45
 
 # Maximum number of return / yield for function / method body.
 max-returns=6
 
 # Maximum number of statements in function / method body.
-max-statements=50
+max-statements=100
 
 # Minimum number of public methods for a class (see R0903).
-min-public-methods=2
+min-public-methods=1
 
 
 [EXCEPTIONS]
@@ -415,51 +415,19 @@ confidence=HIGH,
 # no Warning level messages displayed, use "--disable=all --enable=classes
 # --disable=W".
 ##
-# XXX everything after use-symbolic-message-instead is own definition
 # there is nothing wrong with messages up until line-too-long
 # at the moment I prefer not to fix them
-disable=too-many-locals,
-        too-many-arguments,
-        too-many-statements,
-        too-many-public-methods,
-        line-too-long,
-        R0801,
-        bad-inline-option,
-        file-ignored,
+# XXX no-member does not seem to work for astropy.units, so disabling it for now
+# XXX fixme <- remove for a moment
+disable=too-many-positional-arguments,
+        invalid-name,
+        unused-argument,
         missing-class-docstring,
         missing-function-docstring,
         missing-module-docstring,
-        invalid-name,
-        unused-variable,
-        unused-argument,
-        fixme,
-        non-ascii-name,
-        no-value-for-parameter,
-        attribute-defined-outside-init,
-        too-few-public-methods,
-        redefined-outer-name,
-        superfluous-parens,
-        use-dict-literal,
-        simplifiable-if-expression,
-        too-many-instance-attributes,
-        raise-missing-from,
-        cyclic-import,
-        abstract-method,
-        unnecessary-pass,
-        consider-using-in,
-        consider-using-f-string,
-        arguments-differ,
-        chained-comparison,
+        R0801,
         no-member,
-        unbalanced-tuple-unpacking,
-        useless-parent-delegation,
-        no-name-in-module,
-        invalid-unary-operand-type,
-        protected-access,
-        keyword-arg-before-vararg,
-        bad-classmethod-argument,
-        use-implicit-booleaness-not-len,
-        undefined-loop-variable
+        line-too-long
 
 
 # Enable the message, report, category or checker with the given id(s). You can

@@ -1,11 +1,11 @@
-# This workflow triggers poliastro/validation CI from poliastro/poliastro
-# everytime a new commit is introduced in poliastro:main branch
+# This workflow triggers boinor/validation CI from boinor/boinor
+# everytime a new commit is introduced in boinor:main branch
 name: Validation test cases
 
 on:
   # A collection of events which trigger the validation action
   push:
-    branches: [ main ]
+    branches: [ main, actions ]
   release:
 
   # Enable manually to execute the actions
@@ -13,17 +13,17 @@ on:
 
 jobs:
   
-  # Validate poliastro's new features
+  # Validate boinor's new features
   validation:
     runs-on: ubuntu-latest
     environment: validation-env
 
     # Steps to be followed during validation job
     steps:
-      - name: Trigger poliastro/validation
+      - name: Trigger boinor/validation
         run: |
-          curl -XPOST -u "${{ secrets.VALIDATION_USER }}:${{ secrets.VALIDATION_PASS }}" \
+          curl -XPOST -u "${{ secrets.VALIDATION_TOKEN_LOGIN }}" \
           -H "Accept: application/vnd.github.v3+json" \
-          -H "Content-Type: application/json" https://api.github.com/repos/poliastro/validation/actions/workflows/ci_actions.yml/dispatches \
+          -H "Content-Type: application/json" https://api.github.com/repos/boinor/validation/actions/workflows/158547455/dispatches \
           --data '{"ref": "main"}' \
           --fail

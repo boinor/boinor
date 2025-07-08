@@ -47,8 +47,8 @@ class Maneuver:
         try:
             if not all(len(dv) == 3 for dv in self._dvs):
                 raise ValueError
-        except (TypeError, ValueError):
-            raise ValueError("Delta-V must be three dimensions vectors")
+        except (TypeError, ValueError) as e:
+            raise ValueError("Delta-V must be three dimensions vectors") from e
 
     def __repr__(self):
         return f"Number of impulses: {len(self.impulses)}, Total cost: {self.get_total_cost():.6f}"

@@ -90,7 +90,7 @@ rr, _ = orbit.to_ephem(
 ```{code-cell} ipython3
 plt.ylabel("h(t)")
 plt.xlabel("t, days")
-plt.plot(tofs.value, norm(rr, axis=1) - Earth.R)
+plt.plot(tofs.value, norm(rr, axis=1) - Earth.R);
 ```
 
 ## Orbital Decay
@@ -130,7 +130,7 @@ print(
 
 plt.ylabel("h(t)")
 plt.xlabel("t, days")
-plt.plot(tofs[: len(rr)].value, norm(rr, axis=1) - Earth.R)
+plt.plot(tofs[: len(rr)].value, norm(rr, axis=1) - Earth.R);
 ```
 
 ## Evolution of RAAN due to the J2 perturbation
@@ -171,7 +171,7 @@ raans = [
 ```{code-cell} ipython3
 plt.ylabel("RAAN(t)")
 plt.xlabel("t, h")
-plt.plot(tofs.value, raans)
+plt.plot(tofs.value, raans);
 ```
 
 ## 3rd body

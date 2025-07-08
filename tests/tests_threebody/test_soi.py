@@ -27,7 +27,7 @@ from boinor.threebody.soi import hill_radius, laplace_radius
         (Uranus, 5.18e10 * u.m),
         (Neptune, 8.66e10 * u.m),
     ]
-    # Data from Table A.2., Curtis "Orbital Mechanics for Engineering Students"
+    # Data from Table A.2., Curtis (2013) "Orbital Mechanics for Engineering Students"
 )
 def test_laplace_radius(body, expected_r_SOI):
     r_SOI = laplace_radius(body)

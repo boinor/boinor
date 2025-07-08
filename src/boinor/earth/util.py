@@ -27,7 +27,7 @@ def raan_from_ltan(epoch, ltan=12.0):
     -----
     Calculations of the sun mean longitude and equation of time
     follow "Fundamentals of Astrodynamics and Applications"
-    Fourth edition by Vallado, David A.
+    Fourth edition by :cite:t:`Vallado2013`.
     """
     T_UT1 = ((epoch.ut1 - constants.J2000).value / 36525.0) * u.deg
     T_TDB = ((epoch.tdb - constants.J2000).value / 36525.0) * u.deg

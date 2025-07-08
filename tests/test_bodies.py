@@ -1,6 +1,7 @@
 import pickle
 
 from astropy import units as u
+from astropy.constants import G as G_import
 from astropy.tests.helper import assert_quantity_allclose
 import pytest
 
@@ -92,3 +93,8 @@ def test_attractor_identity_does_not_change_when_pickling(tmp_path):
         iss_pickle = pickle.load(fh)
 
     assert id(iss.attractor) == id(iss_pickle.attractor)
+
+
+def test_import_G():
+    btmp = Jupiter
+    assert G_import == btmp.tmp_G()

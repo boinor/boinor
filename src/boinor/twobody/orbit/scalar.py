@@ -10,9 +10,10 @@ from astropy.coordinates import (
 )
 import numpy as np
 
-from boinor.bodies import Earth
+# XXX avoid cycle import: from boinor.bodies import Earth
 from boinor.core.events import elevation_function as elevation_function_fast
-from boinor.ephem import Ephem
+
+# XXX avoid cycle import: from boinor.ephem import Ephem
 from boinor.frames.util import get_frame
 from boinor.threebody.soi import laplace_radius
 from boinor.twobody.elements import eccentricity_vector, energy, t_p
@@ -431,15 +432,21 @@ class Orbit(OrbitCreationMixin):
 
         # Check if propagator fulfills orbit requirements
         # Note there's a potential conversion here purely for convenience that could be skipped
-        if self.ecc < 1.0 and not (method.kind & PropagatorKind.ELLIPTIC):
+        if self.ecc < 1.0 and not (
+            method.kind & PropagatorKind.ELLIPTIC
+        ):  # pylint: disable=superfluous-parens   # for me it is easier to read this way
             raise ValueError(
                 "Can not use an parabolic/hyperbolic propagator for elliptical/circular orbits."
             )
-        if self.ecc == 1.0 and not (method.kind & PropagatorKind.PARABOLIC):
+        if self.ecc == 1.0 and not (
+            method.kind & PropagatorKind.PARABOLIC
+        ):  # pylint: disable=superfluous-parens  # for me it is easier to read this way
             raise ValueError(
                 "Can not use an elliptic/hyperbolic propagator for parabolic orbits."
             )
-        if self.ecc > 1.0 and not (method.kind & PropagatorKind.HYPERBOLIC):
+        if self.ecc > 1.0 and not (
+            method.kind & PropagatorKind.HYPERBOLIC
+        ):  # pylint: disable=superfluous-parens  # for me it is easier to read this way
             raise ValueError(
                 "Can not use an elliptic/parabolic propagator for hyperbolic orbits."
             )
@@ -526,6 +533,8 @@ class Orbit(OrbitCreationMixin):
         """
 
         coordinates, epochs = strategy.sample(self)
+        from boinor.ephem import Ephem  # HACK: avoid cylce import
+
         return Ephem(coordinates, epochs, self.plane)
 
     def sample(self, values=100, *, min_anomaly=None, max_anomaly=None):
@@ -574,6 +583,55 @@ class Orbit(OrbitCreationMixin):
                 stacklevel=2,
             )
 
+        ephem = self.to_ephem(
+            strategy=TrueAnomalyBounds(
+                min_nu=min_anomaly,
+                max_nu=max_anomaly,
+                num_values=values,
+            ),
+        )
+        # We call .sample() at the end to retrieve the coordinates for the same epochs
+        return ephem.sample()
+
+    def sample_with_anomaly(
+        self, values=100, *, min_anomaly=None, max_anomaly=None
+    ):
+        r"""Samples an orbit to some specified time values.
+
+        .. versionadded:: 0.8.0
+
+        Parameters
+        ----------
+        values : int
+            Number of interval points (default to 100).
+        min_anomaly, max_anomaly : ~astropy.units.Quantity, optional
+            Anomaly limits to sample the orbit.
+            For elliptic orbits the default will be :math:`E \in \left[0, 2 \pi \right]`,
+            and for hyperbolic orbits it will be :math:`\nu \in \left[-\nu_c, \nu_c \right]`,
+            where :math:`\nu_c` is either the current true anomaly
+            or a value that corresponds to :math:`r = 3p`.
+
+        Returns
+        -------
+        positions: ~astropy.coordinates.CartesianRepresentation
+            Array of x, y, z positions.
+
+        Notes
+        -----
+        When specifying a number of points, the initial and final
+        position is present twice inside the result (first and
+        last row). This is more useful for plotting.
+
+        Examples
+        --------
+        >>> from astropy import units as u
+        >>> from boinor.examples import iss
+        >>> iss.sample()  # doctest: +ELLIPSIS
+        <CartesianRepresentation (x, y, z) in km ...
+        >>> iss.sample(10)  # doctest: +ELLIPSIS
+        <CartesianRepresentation (x, y, z) in km ...
+
+        """
         ephem = self.to_ephem(
             strategy=TrueAnomalyBounds(
                 min_nu=min_anomaly,
@@ -695,6 +753,8 @@ class Orbit(OrbitCreationMixin):
         Local sideral time needs to be precomputed. If Earth is the attractor, it can
         be computed using `boinor.earth.util.get_local_sidereal_time`.
         """
+        from boinor.bodies import Earth  # HACK: to avoid cycle import
+
         if self.attractor != Earth:
             raise NotImplementedError(
                 "Elevation implementation is currently only supported for orbits having Earth as the attractor."

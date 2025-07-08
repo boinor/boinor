@@ -48,7 +48,7 @@ def change_argp(k, a, ecc, argp_0, argp_f, f):
     Returns
     -------
     a_d : function
-    delta_V : numpy.ndarray
+    delta_VV : numpy.ndarray
     t_f : float
     """
 
@@ -66,6 +66,6 @@ def change_argp(k, a, ecc, argp_0, argp_f, f):
         accel_v = f * (np.cos(alpha_) * s_ + np.sin(alpha_) * r_)
         return accel_v
 
-    delta_V, t_f = extra_quantities(k, a, ecc, argp_0, argp_f, f, A=0.0)
+    delta_VV, t_f = extra_quantities(k, a, ecc, argp_0, argp_f, f, A=0.0)
 
-    return a_d, delta_V, t_f
+    return a_d, delta_VV, t_f

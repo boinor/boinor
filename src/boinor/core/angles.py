@@ -62,7 +62,7 @@ def D_to_nu(D):
 
     Notes
     -----
-    From [1]_:
+    From :cite:t:`Farnocchia2013`:
 
     .. math::
 
@@ -96,28 +96,17 @@ def nu_to_D(nu):
     -----
     The treatment of the parabolic case is heterogeneous in the literature,
     and that includes the use of an equivalent quantity to the eccentric anomaly:
-    [1]_ calls it "parabolic eccentric anomaly" D,
-    [2]_ also uses the letter D but calls it just "parabolic anomaly",
-    [3]_ uses the letter B citing indirectly [4]_
+    :cite:t:`Farnocchia2013` calls it "parabolic eccentric anomaly" D,
+    :cite:t:`Bate_et_al2020` also uses the letter D but calls it just "parabolic anomaly",
+    :cite:p:`Vallado2013` uses the letter B citing indirectly :cite:t:`IAU_IV_GA_1938`
     (which however calls it "parabolic time argument"),
-    and [5]_ does not bother to define it.
+    and :cite:t:`Battin1999` does not bother to define it.
 
     We use this definition:
 
     .. math::
 
         B = \tan{\frac{\nu}{2}}
-
-    References
-    ----------
-    .. [1] Farnocchia, Davide, Davide Bracali Cioci, and Andrea Milani.
-       "Robust resolution of Kepler’s equation in all eccentricity regimes."
-    .. [2] Bate, Muller, White.
-    .. [3] Vallado, David. "Fundamentals of Astrodynamics and Applications",
-       2013.
-    .. [4] IAU VIth General Assembly, 1938.
-    .. [5] Battin, Richard H. "An introduction to the Mathematics and Methods
-       of Astrodynamics, Revised Edition", 1999.
 
     """
     # TODO: Rename to B
@@ -149,7 +138,7 @@ def nu_to_E(nu, ecc):
 
     Notes
     -----
-    The implementation uses the half-angle formula from [3]_:
+    The implementation uses the half-angle formula from :cite:t:`Vallado2013`:
 
     .. math::
         E = 2 \arctan \left ( \sqrt{\frac{1 - e}{1 + e}} \tan{\frac{\nu}{2}} \right)
@@ -186,7 +175,7 @@ def nu_to_F(nu, ecc):
 
     Notes
     -----
-    The implementation uses the half-angle formula from [3]_:
+    The implementation uses the half-angle formula from :cite:t:`Vallado2013`:
 
     .. math::
         F = 2 \operatorname{arctanh} \left( \sqrt{\frac{e-1}{e+1}} \tan{\frac{\nu}{2}} \right)
@@ -221,7 +210,7 @@ def E_to_nu(E, ecc):
 
     Notes
     -----
-    The implementation uses the half-angle formula from [3]_:
+    The implementation uses the half-angle formula from :cite:t:`Vallado2013`:
 
     .. math::
         \nu = 2 \arctan \left( \sqrt{\frac{1 + e}{1 - e}} \tan{\frac{E}{2}} \right)
@@ -250,7 +239,7 @@ def F_to_nu(F, ecc):
 
     Notes
     -----
-    The implementation uses the half-angle formula from [3]_:
+    The implementation uses the half-angle formula from :cite:t:`Vallado2013`:
 
     .. math::
         \nu = 2 \arctan \left( \sqrt{\frac{e + 1}{e - 1}} \tanh{\frac{F}{2}} \right)
@@ -336,7 +325,7 @@ def M_to_D(M):
 
     Notes
     -----
-    This uses the analytical solution of Barker's equation from [5]_.
+    This uses the analytical solution of Barker's equation from :cite:t:`Battin1999`.
 
     """
     B = 3.0 * M / 2.0
@@ -399,7 +388,7 @@ def F_to_M(F, ecc):
 
     Notes
     -----
-    As noted in [5]_, by manipulating
+    As noted in :cite:t:`Battin1999`, by manipulating
     the parametric equations of the hyperbola
     we can derive a quantity that is equivalent
     to the mean anomaly in the elliptic case:
@@ -464,7 +453,7 @@ def fp_angle(nu, ecc):
 
     Notes
     -----
-    From [3]_, pp. 113:
+    From :cite:t:`Vallado2013`, pp. 113:
 
     .. math::
 

@@ -28,7 +28,7 @@ For example, if you have the position and velocity vectors you can use
 {py:meth}`~boinor.twobody.orbit.scalar.Orbit.from_vectors`:
 
 ```python
-# Data from Curtis, example 4.3
+# Data from Curtis (2013), example 4.3
 r = [-6045, -3490, 2500] << u.km
 v = [-3.457, 6.618, 2.533] << u.km / u.s
 
@@ -258,7 +258,7 @@ directly in this way. For instance, to examine the effect of J2 perturbation:
 >>> final = initial.propagate(tofs, method=CowellPropagator(f=f))
 ```
 
-The J2 perturbation changes the orbit parameters (from Curtis example 12.2):
+The J2 perturbation changes the orbit parameters {cite:p}`Curtis2013{example 12.2}`:
 
 ```python
 >>> ((final.raan - initial.raan) / tofs).to(u.deg / u.h)

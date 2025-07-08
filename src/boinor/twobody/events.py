@@ -42,7 +42,7 @@ class Event:
     def last_t(self):
         return self._last_t << u.s
 
-    def __call__(self, t, u, k):
+    def __call__(self, t, uu, k):
         raise NotImplementedError
 
 
@@ -69,9 +69,9 @@ class AltitudeCrossEvent(Event):
         self._R = R
         self._alt = alt  # Threshold altitude from the ground.
 
-    def __call__(self, t, u, k):
+    def __call__(self, t, uu, k):
         self._last_t = t
-        r_norm = norm(u[:3])
+        r_norm = norm(uu[:3])
 
         return (
             r_norm - self._R - self._alt

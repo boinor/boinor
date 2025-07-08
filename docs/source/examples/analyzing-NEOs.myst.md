@@ -48,7 +48,7 @@ eros = Orbit.from_sbdb("2000433")  # Eros SPK-ID
 frame = OrbitPlotter(plane=Planes.EARTH_ECLIPTIC)
 frame.plot(ganymed, label="Ganymed")
 frame.plot(amor, label="Amor")
-frame.plot(eros, label="Eros")
+frame.plot(eros, label="Eros");
 ```
 
 You can use the wildcards from that browser: `*` and `?`.

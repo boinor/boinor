@@ -80,7 +80,11 @@ class _PlanetaryFixed(BaseRADecFrame):
             raise ValueError(
                 f"Equatorial coordinates must be of type `HCRS`, got `{type(equatorial_frame)}` instead."
             )
-        if fixed_coo.body != Sun and fixed_coo.body != equatorial_frame.body:
+        # XXX due to equatorial_frame not always having an attribute .body, this has to be the way it is
+        if (
+            fixed_coo.body != Sun  # pylint: disable=consider-using-in
+            and fixed_coo.body != equatorial_frame.body
+        ):
             raise ValueError(
                 "Fixed and equatorial coordinates must have the same body if the fixed frame body is not Sun"
             )
@@ -103,7 +107,11 @@ class _PlanetaryFixed(BaseRADecFrame):
             raise ValueError(
                 f"Equatorial coordinates must be of type `HCRS`, got `{type(equatorial_coo)}` instead."
             )
-        if fixed_frame.body != Sun and equatorial_coo.body != fixed_frame.body:
+        # XXX due to equatorial_frame not always having an attribute .body, this has to be the way it is
+        if (
+            fixed_frame.body != Sun  # pylint: disable=consider-using-in
+            and equatorial_coo.body != fixed_frame.body
+        ):
             raise ValueError(
                 "Fixed and equatorial coordinates must have the same body if the fixed frame body is not Sun"
             )

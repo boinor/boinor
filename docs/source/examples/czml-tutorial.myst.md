@@ -103,7 +103,7 @@ extractor.add_orbit(
 
 You can now export the extractor packets by simply calling ``extractor.packets`` and load it to the Cesium app as described [here](https://github.com/poliastro/cesium-app):
 
-```{raw-cell}
+```{code-cell}
   >>> extractor.packets
   [{
      "id": "document",
@@ -116,7 +116,7 @@ You can now export the extractor packets by simply calling ``extractor.packets``
          "range": "LOOP_STOP",
          "step": "SYSTEM_CLOCK_MULTIPLIER"
      }
- }, [...]
+  }], [...]
 ```
 
 ## Landing on Mars

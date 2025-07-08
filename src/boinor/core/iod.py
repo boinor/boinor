@@ -23,11 +23,11 @@ def vallado(k, r0, r, tof, M, prograde, lowpath, numiter, rtol):
 
     .. math::
 
-        \begin{align}
+        \begin{aligned}
             f = 1 -\frac{y}{r_{o}} \\
             g = A\sqrt{\frac{y}{\mu}} \\
             \dot{g} = 1 - \frac{y}{r} \\
-        \end{align}
+        \end{aligned}
 
     Where y(z) is a function that depends on the :py:mod:`boinor.core.stumpff` coefficients:
 
@@ -96,16 +96,16 @@ def vallado(k, r0, r, tof, M, prograde, lowpath, numiter, rtol):
 
     Notes
     -----
-    This procedure can be found in section 5.3 of Curtis, with all the
+    This procedure can be found in section 5.3 of :cite:t:`Curtis2013`, with all the
     theoretical description of the problem. Analytical example can be found
     in the same book under name Example 5.2.
 
     """
     # TODO: expand for the multi-revolution case.
-    # Issue: https://github.com/boinor/boinor/issues/858
+    # Issue: https://github.com/poliastro/poliastro/issues/858
     if M > 0:
         raise NotImplementedError(
-            "Multi-revolution scenario not supported for Vallado. See issue https://github.com/boinor/boinor/issues/858"
+            "Multi-revolution scenario not supported for Vallado. See issue https://github.com/poliastro/poliastro/issues/858"
         )
 
     t_m = 1 if prograde else -1
@@ -446,7 +446,7 @@ def _halley(p0, T0, ll, tol, maxiter):
     this module and is not really reusable.
 
     """
-    for ii in range(maxiter):
+    for _ii in range(maxiter):
         y = _compute_y(p0, ll)
         fder = _tof_equation_p(p0, y, T0, ll)
         fder2 = _tof_equation_p2(p0, y, T0, fder, ll)
@@ -474,7 +474,7 @@ def _householder(p0, T0, ll, M, tol, maxiter):
     this module and is not really reusable.
 
     """
-    for ii in range(maxiter):
+    for _ii in range(maxiter):
         y = _compute_y(p0, ll)
         fval = _tof_equation_y(p0, y, T0, ll, M)
         T = fval + T0
