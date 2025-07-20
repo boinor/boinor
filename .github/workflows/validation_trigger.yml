@@ -15,8 +15,7 @@ jobs:
   
   # Validate boinor's new features
   validation:
-# this gives an error on the validation side:    uses: boinor/validation/.github/workflows/trigger_validation.yml@main
-    uses: boinor/validation/.github/workflows/ci_actions.yml@main
+    uses: boinor/validation/.github/workflows/trigger_validation.yml@main
     with:
       boinor-branch: ${{ github.ref }}
 
