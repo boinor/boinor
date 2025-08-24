@@ -1,8 +1,8 @@
-[![boinor Logo](https://raw.githubusercontent.com/boinor/boinor/main/docs/source/_static/logo_readme.png)](https://docs.boinor.space/en/latest/)
+[![boinor Logo](https://raw.githubusercontent.com/boinor/boinor/0.19/docs/source/_static/logo_readme.png)](https://docs.boinor.space/en/latest/)
 
 | **Name**  |                        **Website**                         |                                                         **Authors**                                                       |                                      **Maintainers**                                      |                     **Version**                      |
 |:---------:|:----------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------:|:----------------------------------------------------:|
-| boinor | [https://www.boinor.space](https://www.boinor.space) | [Thorsten Alteholz](https://orcid.org/0000-0002-9570-7046) [![orcid_badge]](https://orcid.org/0000-0002-9570-7046) | [boinor development team](https://github.com/boinor/boinor/blob/main/AUTHORS.md) | [0.19.0](https://github.com/boinor/boinor/) |
+| boinor | [https://www.boinor.space](https://www.boinor.space) | [Thorsten Alteholz](https://orcid.org/0000-0002-9570-7046) [![orcid_badge]](https://orcid.org/0000-0002-9570-7046) | [boinor development team](https://github.com/boinor/boinor/blob/0.19/AUTHORS.md) | [0.19.0](https://github.com/boinor/boinor/) |
 
 [![boinor_badge]](https://github.com/boinor/boinor)
 [![CircleCI_badge]]()
@@ -42,7 +42,7 @@ boinor in your publications:
 
     Thorsten Alteholz, et al.. (2025). boinor: boinor 0.19.0. Zenodo. 10.5281/zenodo.12809724
 
-![Multiple examples image](https://github.com/boinor/boinor/raw/main/docs/source/_static/examples.png)
+![Multiple examples image](https://github.com/boinor/boinor/raw/0.19/docs/source/_static/examples.png)
 
 ## Requirements
 
@@ -213,12 +213,12 @@ If you would like to support boinor, consider [becoming a backer] or
 [Read the docs]: https://readthedocs.org
 [binder]: https://mybinder.org/
 [issue tracker]: https://github.com/boinor/boinor/issues 
-[CONTRIBUTING.md]: https://github.com/boinor/boinor/blob/main/CONTRIBUTING.md
-[COPYING]: https://github.com/boinor/boinor/blob/main/COPYING
+[CONTRIBUTING.md]: https://github.com/boinor/boinor/blob/0.19/CONTRIBUTING.md
+[COPYING]: https://github.com/boinor/boinor/blob/0.19/COPYING
 [mailing list]: https://groups.io/g/boinor-dev
 [chat room]: http://chat.boinor.space/
 [let us know]: mailto:boinor@alteholz.dev
-[examples directory]: https://github.com/boinor/boinor/tree/main/docs/source/examples
+[examples directory]: https://github.com/boinor/boinor/tree/0.19/docs/source/examples
 [become a sponsor]: https://opencollective.com/boinor/sponsor/0/website
 [that are validated]: https://github.com/boinor/validation/
 [open an issue]: https://github.com/boinor/boinor/issues/new
