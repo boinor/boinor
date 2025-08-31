@@ -1,6 +1,6 @@
 # What's new
 
-## boinor 0.19.0 (28.08.2025)
+## boinor 0.19.0 (31.08.2025)
 
 ### Highlights
 
