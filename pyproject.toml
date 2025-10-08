@@ -76,7 +76,7 @@ Changelog = "https://docs.boinor.space/en/stable/changelog.html"
 
 [project.optional-dependencies]
 jupyter = ["notebook", "ipywidgets>=7.6"]
-cesium = ["czml3 ~=0.5.3"]
+cesium = ["czml3 ~=2.3.6"]
 doc = [
     "httpx",
     "ipython>=5.0",
