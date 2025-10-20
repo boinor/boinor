@@ -105,7 +105,7 @@ test = [
     "interrogate",
     "mypy>=0.740",
     "pre-commit",
-    "pytest<8.0,>=7.3", # due to pytest-timestamp
+    "pytest>=7.3,<9.0", # due to pytest-timestamp
     "pytest-cov<2.6.0",  # https://github.com/pytest-dev/pytest-cov/issues/222
     "pytest-doctestplus>=0.8",  # https://github.com/astropy/pytest-doctestplus/issues/118
     "pytest-mpl",
