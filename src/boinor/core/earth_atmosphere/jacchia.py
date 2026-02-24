@@ -10,12 +10,7 @@ Jacchia [Ja77].  H-atom densities are returned as non-zero
 for altitudes of 150 km and above if the maximum altitude
 requested is 500 km or more.
 
-References
-----------
-Ja77    L. G. Jacchia, "Thermospheric Temperature, Density
-        and Composition: New Models," SAO Special Report No.
-        375 (Smithsonian Institution Astrophysical
-        Observatory, Cambridge, MA, March 15, 1977).
+References: :cite:t:`Ja77`:
 
 Fortran Implementation:
 https://ccmc.gsfc.nasa.gov/pub/modelweb/atmospheric/jacchia/jacchia-77/

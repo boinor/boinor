@@ -31,17 +31,19 @@ class Jacchia77:
         # set some values to silence pylint
         self.Z = 0 * u.km
         self.T = 273.15 * u.K
-        self.CN2 = np.zeros(3) * 1e6 * (u.m) ** -3
-        self.CO2 = np.zeros(3) * 1e6 * (u.m) ** -3
-        self.CO = np.zeros(3) * 1e6 * (u.m) ** -3
-        self.CAr = np.zeros(3) * 1e6 * (u.m) ** -3
-        self.CHe = np.zeros(3) * 1e6 * (u.m) ** -3
-        self.CH = np.zeros(3) * 1e6 * (u.m) ** -3
-        self.CM = np.zeros(3) * 1e6 * (u.m) ** -3
-        self.WM = np.zeros(3) * 1e6 * (u.m) ** -3
+        """according to :cite:t:`Ja77`: the unit of these values is 1/cc"""
+        self.CN2 = np.zeros(3) * (u.cm) ** -3
+        self.CO2 = np.zeros(3) * (u.cm) ** -3
+        self.CO = np.zeros(3) * (u.cm) ** -3
+        self.CAr = np.zeros(3) * (u.cm) ** -3
+        self.CHe = np.zeros(3) * (u.cm) ** -3
+        self.CH = np.zeros(3) * (u.cm) ** -3
+        self.CM = np.zeros(3) * (u.cm) ** -3
+        self.WM = np.zeros(3) * (u.cm) ** -3
 
     def _altitude_profile(self, alt):
-        """set altitude profile"""
+        """set altitude profile
+           according to :cite:t:`Ja77`: the unit of these values is 1/cc"""
         Z, T, CN2, CO2, CO, CAr, CHe, CH, CM, WM = _altitude_profile_fast(
             alt, self.Texo.to_value(u.K), self.x, self.y, self.E5M, self.E6P
         )
@@ -59,13 +61,13 @@ class Jacchia77:
         ) = (
             Z * u.km,
             T * u.K,
-            np.array(CN2) * 1e6 * (u.m) ** -3,
-            np.array(CO2) * 1e6 * (u.m) ** -3,
-            np.array(CO) * 1e6 * (u.m) ** -3,
-            np.array(CAr) * 1e6 * (u.m) ** -3,
-            np.array(CHe) * 1e6 * (u.m) ** -3,
-            np.array(CH) * 1e6 * (u.m) ** -3,
-            np.array(CM) * 1e6 * (u.m) ** -3,
+            np.array(CN2) * (u.cm) ** -3,
+            np.array(CO2) * (u.cm) ** -3,
+            np.array(CO) * (u.cm) ** -3,
+            np.array(CAr) * (u.cm) ** -3,
+            np.array(CHe) * (u.cm) ** -3,
+            np.array(CH) * (u.cm) ** -3,
+            np.array(CM) * (u.cm) ** -3,
             np.array(WM) * 1e-3 * (u.kg / u.mol),
         )
         return (

@@ -492,32 +492,28 @@ def test_values():
             jacchia_CM,
             jacchia_WM,
         ) = Jacchia77(1000 * u.K).altitude_profile(Z * u.km)
-        print("XXX Z", Z, properties)
-        print(
-            "XXX ",
-            CN2,
-            jacchia_CN2,
-            CO2,
-            jacchia_CO2,
-            CO,
-            jacchia_CO,
-            CAr,
-            jacchia_CAr,
-            CHe,
-            jacchia_CHe,
-            CH,
-            jacchia_CH,
-            CM,
-            jacchia_CM,
-            WM,
-            jacchia_WM,
-        )
         assert_quantity_allclose(T, jacchia_T, rtol=1e-5)
-        # XXX does not work yet: assert_quantity_allclose(CN2, jacchia_CN2, rtol=1e-5)
-        # XXX does not work yet: assert_quantity_allclose(CO2, jacchia_CO2, rtol=1e-5)
-        # XXX does not work yet: assert_quantity_allclose(CO, jacchia_CO, rtol=1e-5)
-        # XXX does not work yet: assert_quantity_allclose(CAr, jacchia_CAr, rtol=1e-5)
-        # XXX does not work yet: assert_quantity_allclose(CHe, jacchia_CHe, rtol=1e-5)
-        # XXX does not work yet: assert_quantity_allclose(CH, jacchia_CH, rtol=1e-5)
-        # XXX does not work yet: assert_quantity_allclose(CM, jacchia_CM, rtol=1e-5)
+        # according to https://git.smce.nasa.gov/ccmc-share/modelwebarchive/-/raw/main/Jacchi-Reference-Atmosphere/testj77.for
+        # the computed values need to be converted to match the values from the table
+        compare_CN2=(np.log10(jacchia_CN2.value)+6) * jacchia_CN2.unit
+        assert_quantity_allclose(CN2, compare_CN2, rtol=1e-5)
+
+        compare_CO2=(np.log10(jacchia_CO2.value)+6) * jacchia_CO2.unit
+        assert_quantity_allclose(CO2, compare_CO2, rtol=1e-5)
+
+        compare_CO=(np.log10(jacchia_CO.value)+6) * jacchia_CO.unit
+        assert_quantity_allclose(CO, compare_CO, rtol=1e-5)
+
+        compare_CAr=(np.log10(jacchia_CAr.value)+6) * jacchia_CAr.unit
+        assert_quantity_allclose(CAr, compare_CAr, rtol=1e-5)
+
+        compare_CHe=(np.log10(jacchia_CHe.value)+6) * jacchia_CHe.unit
+        assert_quantity_allclose(CHe, compare_CHe, rtol=1e-5)
+
+        compare_CH=(np.log10(jacchia_CH.value)+6) * jacchia_CH.unit
+        assert_quantity_allclose(CH, compare_CH, rtol=1e-5)
+
+        compare_CM=(np.log10(jacchia_CM.value)+6) * jacchia_CM.unit
+        assert_quantity_allclose(CM, compare_CM, rtol=1e-5)
+
         assert_quantity_allclose(WM, jacchia_WM, rtol=1e-4)
