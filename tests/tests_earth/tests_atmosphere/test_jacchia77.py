@@ -360,7 +360,7 @@ def test_jacchia77(z):
 
     for i in range(2, len(properties) - 1):
         if properties[i].value > 1.26e-16:
-            properties[i] = (np.log10(properties[i].value)+6) * properties[i].unit
+            properties[i] = (np.log10(properties[i].value) + 6) * properties[i].unit
         else:
             properties[i] = -9.9 * properties[i].unit
 
@@ -466,7 +466,6 @@ def test_outside_lower_limit_coesa76():
     assert "ValueError: Jacchia77 has been implemented in range 90km - 2500km." in excinfo.exconly()
 
 
-# XXX
 def test_values():
     cube = u.cm * u.cm * u.cm
     for i in range(50, 75):
@@ -480,7 +479,6 @@ def test_values():
         CH = jacchia_test_values[i][7] / cube
         CM = jacchia_test_values[i][8] / cube
         WM = jacchia_test_values[i][9] * u.g / u.mol
-        properties = Jacchia77(1000 * u.K).altitude_profile(Z * u.km)
         (
             jacchia_Z,
             jacchia_T,
@@ -496,25 +494,25 @@ def test_values():
         assert_quantity_allclose(T, jacchia_T, rtol=1e-5)
         # according to https://git.smce.nasa.gov/ccmc-share/modelwebarchive/-/raw/main/Jacchi-Reference-Atmosphere/testj77.for
         # the computed values need to be converted to match the values from the table
-        compare_CN2=(np.log10(jacchia_CN2.value)+6) * jacchia_CN2.unit
+        compare_CN2 = (np.log10(jacchia_CN2.value) + 6) * jacchia_CN2.unit
         assert_quantity_allclose(CN2, compare_CN2, rtol=1e-5)
 
-        compare_CO2=(np.log10(jacchia_CO2.value)+6) * jacchia_CO2.unit
+        compare_CO2 = (np.log10(jacchia_CO2.value) + 6) * jacchia_CO2.unit
         assert_quantity_allclose(CO2, compare_CO2, rtol=1e-5)
 
-        compare_CO=(np.log10(jacchia_CO.value)+6) * jacchia_CO.unit
+        compare_CO = (np.log10(jacchia_CO.value) + 6) * jacchia_CO.unit
         assert_quantity_allclose(CO, compare_CO, rtol=1e-5)
 
-        compare_CAr=(np.log10(jacchia_CAr.value)+6) * jacchia_CAr.unit
+        compare_CAr = (np.log10(jacchia_CAr.value) + 6) * jacchia_CAr.unit
         assert_quantity_allclose(CAr, compare_CAr, rtol=1e-5)
 
-        compare_CHe=(np.log10(jacchia_CHe.value)+6) * jacchia_CHe.unit
+        compare_CHe = (np.log10(jacchia_CHe.value) + 6) * jacchia_CHe.unit
         assert_quantity_allclose(CHe, compare_CHe, rtol=1e-5)
 
-        compare_CH=(np.log10(jacchia_CH.value)+6) * jacchia_CH.unit
+        compare_CH = (np.log10(jacchia_CH.value) + 6) * jacchia_CH.unit
         assert_quantity_allclose(CH, compare_CH, rtol=1e-5)
 
-        compare_CM=(np.log10(jacchia_CM.value)+6) * jacchia_CM.unit
+        compare_CM = (np.log10(jacchia_CM.value) + 6) * jacchia_CM.unit
         assert_quantity_allclose(CM, compare_CM, rtol=1e-5)
 
         assert_quantity_allclose(WM, jacchia_WM, rtol=1e-4)

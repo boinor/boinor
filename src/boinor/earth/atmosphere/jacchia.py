@@ -43,7 +43,8 @@ class Jacchia77:
 
     def _altitude_profile(self, alt):
         """set altitude profile
-           according to :cite:t:`Ja77`: the unit of these values is 1/cc"""
+        according to :cite:t:`Ja77`: the unit of these values is 1/cci
+        """
         Z, T, CN2, CO2, CO, CAr, CHe, CH, CM, WM = _altitude_profile_fast(
             alt, self.Texo.to_value(u.K), self.x, self.y, self.E5M, self.E6P
         )
