@@ -25,6 +25,7 @@ The code coverage increased from 96.47% to XX.XX%.
 - all (except a few that I don't intend to fix) disabled pylint message are gone from .pylintrc now ({github}`boinor issue #4 <boinor/boinor#4>`).
 - Test failure on Guix ({github}`poliastro issue #1618 <poliastro/poliastro#1618>`).
   old URL replaced by URL of existing image
+- add tests for Jacchia77 and fix units ({github}`boinor issue #7 <boinor/boinor#7>`).
 
 - Review naming conventions in light of PEP8 ({github}`poliastro issue #1522 <poliastro/poliastro#1522>`) has been done and there won't be a change
   of variable names. In this case physics is more important than PEP8.
