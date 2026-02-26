@@ -38,14 +38,6 @@ jobs:
     environment:
       TOXENV: tests312
 
-  tests313:
-    <<: *test-template
-    description: Tests - Python 3.13
-    docker:
-      - image: python:3.13
-    environment:
-      TOXENV: tests313
-
   tests313-fast:
     <<: *test-template
     description: Tests fast - Python 3.13
