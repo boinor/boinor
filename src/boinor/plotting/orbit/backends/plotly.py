@@ -265,6 +265,11 @@ class Plotly2D(BasePlotly):
             yaxis={"scaleanchor": "x"},
             template=theme,
         )
+
+        # Properly allow overloading layouts
+        if figure is not None and figure.layout is not None:
+            layout = figure.layout
+
         super().__init__(figure, layout)
 
     def draw_marker(self, position, *, color, label, marker_symbol, size):
@@ -426,6 +431,11 @@ class Plotly3D(BasePlotly):
             scene={"aspectmode": "data"},
             template=theme,
         )
+
+        # Properly allow overloading layouts
+        if figure is not None and figure.layout is not None:
+            layout = figure.layout
+
         super().__init__(figure, layout)
 
     def draw_marker(self, position, *, color, marker_symbol, label, size):
