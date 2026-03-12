@@ -9,7 +9,8 @@
 - instead of needing to shovel units back and forth, a new property exists: Event.last_t_without_unit
 - make all functions in twobody/angles.py usable with vectors, especially M_to_E() and M_to_F()
 - testing will be done with pre releases of astropy, numba, numpy and scipy as well
-
+- added Aitoff Projection of Solar System bodies and spacecraft
+- added using SPICE dsk kernel to render for a few small,irregularly shaped objects
 
 ### Coverage
 
@@ -26,6 +27,7 @@ The code coverage increased from 96.47% to XX.XX%.
 - Test failure on Guix ({github}`poliastro issue #1618 <poliastro/poliastro#1618>`).
   old URL replaced by URL of existing image
 - add tests for Jacchia77 and fix units ({github}`boinor issue #7 <boinor/boinor#7>`).
+- remove double Circleci tests ({github}`boinor issue #55 <boinor/boinor#55>`).
 
 - Review naming conventions in light of PEP8 ({github}`poliastro issue #1522 <poliastro/poliastro#1522>`) has been done and there won't be a change
   of variable names. In this case physics is more important than PEP8.
@@ -40,6 +42,7 @@ The code coverage increased from 96.47% to XX.XX%.
 - Using SPICE dsk kernel to render for a few small,irregularly shaped objects ({github}`boinor issue #46 <boinor/boinor#46>`) created by @rahulranjansah
 - FIX: Resolve CircleCI failures ({github}`boinor issue #49 <boinor/boinor#49>`) created by @rahulranjansah
 - Aitoff projections: Aitoff Projection of Solar System bodies and spacecraft ({github}`boinor issue #48 <boinor/boinor#48>`) created by @rahulranjansah
+  (related to {github}`boinor issue #47 <boinor/boinor#47>`).
 - Fix aitoff plotting init ({github}`boinor issue #50 <boinor/boinor#50>`) created by @rahulranjansah
 - Allow users to overwrite plotly layouts if passing in a figure ({github}`boinor issue #58 <boinor/boinor#58>`) created by @Just-a-Unity-Dev
 
