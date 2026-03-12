@@ -41,6 +41,7 @@ The code coverage increased from 96.47% to XX.XX%.
 - FIX: Resolve CircleCI failures ({github}`boinor issue #49 <boinor/boinor#49>`) created by @rahulranjansah
 - Aitoff projections: Aitoff Projection of Solar System bodies and spacecraft ({github}`boinor issue #48 <boinor/boinor#48>`) created by @rahulranjansah
 - Fix aitoff plotting init ({github}`boinor issue #50 <boinor/boinor#50>`) created by @rahulranjansah
+- Allow users to overwrite plotly layouts if passing in a figure ({github}`boinor issue #58 <boinor/boinor#58>`) created by @Just-a-Unity-Dev
 
 ### Contributors
 
@@ -50,6 +51,7 @@ release, with a + sign indicating first contribution.
 - Thorsten Alteholz
 - Manuel López-Ibáñez
 - Rahul Ranjan Sah
+- rain
 
 
 ## boinor 0.19.0 (31.08.2025)
