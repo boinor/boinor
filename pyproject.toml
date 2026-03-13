@@ -102,11 +102,14 @@ doc = [
     "sphinxcontrib-bibtex",
 ]
 test = [
+    "build",
     "coverage",
+    "flit",
     "hypothesis",
     "import-linter[toml]",
     "interrogate",
     "mypy>=0.740",
+    "pip-review",
     "pre-commit",
     "pytest<8.0,>=7.3", # due to pytest-timestamp
     "pytest-cov<2.6.0",  # https://github.com/pytest-dev/pytest-cov/issues/222
@@ -118,7 +121,9 @@ test = [
     "pytest-timestamps",
     "pytest-benchmark",
     "tox",
+    "twine",
     "vulture",
+    "wheel",
 ]
 
 [tool.flit.sdist]
