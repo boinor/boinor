@@ -13,6 +13,20 @@ import numpy as np
 #: this is only the value without unit
 core_zetaB = 122.5
 
+#: convert degree to radian
+deg2rad = np.pi / 180.0
+
+#: transformation between geodetic and ellipsoidal coordinates
+#: calculation is using reference ellipsoid WGS-84
+#: see :cite:t:`Featherstone2008ClosedformTB`:
+# XXX can we use these values from somewhere else?
+a = 6378137  # equatorial radius (m) = semi-major axis of ellipsoid
+f_inverse = 298.257223563  # inverse flattening 1/f
+f = 1 / f_inverse  # flattening
+b = a * (1 - f)  # semi-minor axis of ellipsoid
+e = np.sqrt(2 * f - f * f)  # numerical eccentricity of ellipsoid
+E = a * e  # linear eccentricity of ellipsoid
+
 
 @dataclass
 class Bates_temperature_profile:
@@ -39,3 +53,58 @@ def t_of_zeta(zeta, tp):
 
     message = "how did we arrive here"
     raise NotImplementedError(message)
+
+
+def alt_to_gph(latitude, altitude):
+    """convert geodetic latitude and altitude to geopotential height
+       see :cite:t:`NRLMSIS`: Appendix A
+
+    in: latitude, float    geodetic latitude, unit = rad
+    in: altitude, float    altitude
+
+    out: geopotential height, float
+    """
+
+    """ convert geodetic latitude and altitude to ellipsoidal coordinates
+
+    see :cite:t:`Featherstone2008ClosedformTB`:
+    """
+
+    sinlat = np.sin(latitude)
+    coslat = np.cos(latitude)
+
+    #: radius of curvature in the prime vertival of the surface of the geodetic ellipsoid
+    v = a / np.sqrt(1 - e * e * sinlat * sinlat)
+
+    x = (v + altitude) * coslat  # XXX is this ok? in featherstone (1) there is also a sin(lambda)
+    z = (v * (1 - e * e) + altitude) * sinlat
+
+    r2 = x * x + z * z
+    u2 = (r2 - E * E) / 2.0 + np.sqrt((r2 - E * E) * (r2 - E * E) / 4.0 + z * z * E * E)
+    print(u2)
+
+
+def alt_to_gph_deg(latitude, altitude):
+    """convert geodetic latitude and altitude to geopotential height
+       see :cite:t:`NRLMSIS`: Appendix A
+
+    in: latitude, float    geodetic latitude, unit = deg
+    in: altitude, float    altitude
+
+    out: geopotential height, float
+    """
+
+    return alt_to_gph(latitude * deg2rad, altitude)
+
+
+def alt_to_gph_rad(latitude, altitude):
+    """convert geodetic latitude and altitude to geopotential height
+       see :cite:t:`NRLMSIS`: Appendix A
+
+    in: latitude, float    geodetic latitude, unit = rad
+    in: altitude, float    altitude
+
+    out: geopotential height, float
+    """
+
+    return alt_to_gph(latitude, altitude)
