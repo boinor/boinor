@@ -13,8 +13,13 @@ import numpy as np
 #: this is only the value without unit
 core_zetaB = 122.5
 
-#: convert degree to radian
+#: Convert degree to radian
 deg2rad = np.pi / 180.0
+
+#: Earth's gravitational constant
+GM = 398600.4418  # km^3/s^2
+#: Angular rotation speed of Earth
+omega = 7292115.0e-11  # rad/s
 
 #: transformation between geodetic and ellipsoidal coordinates
 #: calculation is using reference ellipsoid WGS-84
@@ -65,8 +70,8 @@ def alt_to_gph(latitude, altitude):
     out: geopotential height, float
     """
 
+    """-----------------------------------------------------------"""
     """ convert geodetic latitude and altitude to ellipsoidal coordinates
-
     see :cite:t:`Featherstone2008ClosedformTB`:
     """
 
@@ -76,12 +81,29 @@ def alt_to_gph(latitude, altitude):
     #: radius of curvature in the prime vertival of the surface of the geodetic ellipsoid
     v = a / np.sqrt(1 - e * e * sinlat * sinlat)
 
+    #: distance from rotation axis
     x = (v + altitude) * coslat  # XXX is this ok? in featherstone (1) there is also a sin(lambda)
+    #: distance from equatorial plane
     z = (v * (1 - e * e) + altitude) * sinlat
 
     r2 = x * x + z * z
+    #: ellipsodial parameter
     u2 = (r2 - E * E) / 2.0 + np.sqrt((r2 - E * E) * (r2 - E * E) / 4.0 + z * z * E * E)
-    print(u2)
+    u = np.sqrt(u2)
+    #: ellipsodial colatitude
+    cos2delta = (z * z) / u2
+
+    """-----------------------------------------------------------"""
+    """ calculate geopotential U
+    see :cite:t:`Jekeli2007`:
+    """
+
+    q = 0  # XXX
+    q0 = 0  # XXX
+    U = -1 * (
+        GM / E * np.atan(E / u) + 0.5 * omega * a * a * q / q0 * (cos2delta - 1 / 3) + 0.5 * omega * omega * x * x
+    )  # XXX take care of units
+    print(q, q0, U)
 
 
 def alt_to_gph_deg(latitude, altitude):
