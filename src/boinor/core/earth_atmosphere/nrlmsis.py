@@ -20,7 +20,10 @@ deg2rad = np.pi / 180.0
 GM = 398600.4418  # km^3/s^2
 #: Angular rotation speed of Earth
 omega = 7292115.0e-11  # rad/s
-
+#: Potenial on the reference ellipsoid
+U0 = -62.63685171  # km2/s2
+#: standardd gravity
+g0 = 9.80665e-3  # km/s2
 #: transformation between geodetic and ellipsoidal coordinates
 #: calculation is using reference ellipsoid WGS-84
 #: see :cite:t:`Featherstone2008ClosedformTB`:
@@ -98,12 +101,18 @@ def alt_to_gph(latitude, altitude):
     see :cite:t:`Jekeli2007`:
     """
 
-    q = 0  # XXX
-    q0 = 0  # XXX
+    q = 0.5 * ((1 + 3 * u2 / (E * E)) * np.atan(E / u) - 3 * u / E)
+    q0 = 0.5 * ((1 + 3 * b * b / (E * E)) * np.atan(E / b) - 3 * b / E)
     U = -1 * (
         GM / E * np.atan(E / u) + 0.5 * omega * a * a * q / q0 * (cos2delta - 1 / 3) + 0.5 * omega * omega * x * x
     )  # XXX take care of units
-    print(q, q0, U)
+
+    """-----------------------------------------------------------"""
+    """ calculate geopotential height zeta
+    """
+    zeta = (U - U0) / g0
+
+    return zeta
 
 
 def alt_to_gph_deg(latitude, altitude):
