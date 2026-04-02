@@ -267,4 +267,5 @@ class PorkchopPlotter:
         )
 
     def porkchop(self):
+        """create the plot"""
         return self.plot()

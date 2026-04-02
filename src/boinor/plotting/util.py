@@ -17,6 +17,7 @@ BODY_COLORS = {
 
 
 def generate_label(epoch, label):
+    """utility function to create a lable depending on epoch"""
     label_ = f"{epoch.to_value('iso', subfmt='date_hm')}"
     if label:
         label_ += f" ({label})"
@@ -25,6 +26,7 @@ def generate_label(epoch, label):
 
 
 def generate_sphere(radius, center, num=20):
+    """utility function to create a sphere with radius around center"""
     u1 = np.linspace(0, 2 * np.pi, num)
     v1 = u1.copy()
     uu, vv = np.meshgrid(u1, v1)
