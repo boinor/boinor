@@ -75,6 +75,7 @@ class SamplingStrategy:
     """parent class just for definition of available methods"""
 
     def sample(self, orbit):
+        """just a dummy function that must be implemented in a derived class"""
         raise NotImplementedError
 
 
