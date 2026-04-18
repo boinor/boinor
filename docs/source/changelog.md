@@ -28,6 +28,7 @@ The code coverage increased from 96.47% to XX.XX%.
   old URL replaced by URL of existing image
 - add tests for Jacchia77 and fix units ({github}`boinor issue #7 <boinor/boinor#7>`).
 - remove double Circleci tests ({github}`boinor issue #55 <boinor/boinor#55>`).
+- enlarging plot area in OrbitPlotter ({github}`boinor issue #44 <boinor/boinor#44>`).
 
 - Review naming conventions in light of PEP8 ({github}`poliastro issue #1522 <poliastro/poliastro#1522>`) has been done and there won't be a change
   of variable names. In this case physics is more important than PEP8.
