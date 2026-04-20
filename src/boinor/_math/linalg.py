@@ -5,4 +5,5 @@ import numpy as np
 
 @jit
 def norm(arr):
+    """calculate norm of matrix or vector"""
     return np.sqrt(arr @ arr)

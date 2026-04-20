@@ -74,6 +74,7 @@ class _PlanetaryFixed(BaseRADecFrame):
 
     @staticmethod
     def to_equatorial(fixed_coo, equatorial_frame):
+        """convert coordinates of a fixed coordinate system to an equatorial one"""
         # TODO replace w/ something smart (Sun/Earth special cased)
         if fixed_coo.body == Sun and not isinstance(equatorial_frame, HCRS):
             raise ValueError(f"Equatorial coordinates must be of type `HCRS`, got `{type(equatorial_frame)}` instead.")
@@ -96,6 +97,7 @@ class _PlanetaryFixed(BaseRADecFrame):
 
     @staticmethod
     def from_equatorial(equatorial_coo, fixed_frame):
+        """convert coordinates of an equatorial coordinate system to a fixed one"""
         # TODO replace w/ something smart (Sun/Earth special cased)
         if fixed_frame.body == Sun and not isinstance(equatorial_coo, HCRS):
             raise ValueError(f"Equatorial coordinates must be of type `HCRS`, got `{type(equatorial_coo)}` instead.")
@@ -138,6 +140,7 @@ class _PlanetaryFixed(BaseRADecFrame):
 
     @staticmethod
     def _rot_elements_at_epoch(T, d):
+        """internal function that needs to be implemented in the derived class."""
         raise NotImplementedError
 
 
