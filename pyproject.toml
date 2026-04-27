@@ -93,7 +93,7 @@ doc = [
     "sgp4",
     "sphinx<9.0", #!=3.5,!=4.0,<5.1",  # https://github.com/readthedocs/sphinx-hoverxref/issues/119
     "sphinx-autoapi", # >=3.0.0",
-    "sphinx-gallery<=0.20.0",  # Just to avoid the jupytext warning
+    "sphinx-gallery<=0.21.0",  # Just to avoid the jupytext warning
     "sphinx_rtd_theme", # ~=1.0.0",
     "sphinx-hoverxref", # ==0.7b1",
     "sphinx-notfound-page",
