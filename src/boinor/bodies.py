@@ -128,10 +128,12 @@ class Body(
     @classmethod
     @u.quantity_input(k=u.km**3 / u.s**2, R=u.km)
     def from_parameters(cls, parent, k, name, symbol, R, **kwargs):
+        """create body object from parameters"""
         return cls(parent, k, name, symbol, R, **kwargs)
 
     @classmethod
     def from_relative(cls, reference, parent, k, name, symbol=None, R=0, **kwargs):
+        """create body object from relative object"""
         k = k * reference.k
         R = R * reference.R
         return cls(parent, k, name, symbol, R, **kwargs)

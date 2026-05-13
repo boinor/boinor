@@ -43,12 +43,14 @@ class Event:
 
     @property
     def last_t(self):
+        """get timestamp of last event"""
         return self._last_t << u.s
 
     # at some point last_t is needed without unit
     # instead of needing to shove units back and forth, we introduce a new property: last_t without unit
     @property
     def last_t_without_unit(self):
+        """get timestamp of last event without unit"""
         return self._last_t
 
     def __call__(self, t, uu, k):
