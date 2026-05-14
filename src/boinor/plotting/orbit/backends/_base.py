@@ -167,19 +167,20 @@ class OrbitPlotterBackend:
         """Remove the attractor from the scene."""
         raise NotImplementedError("This method is expected to be overridden by a plotting backend class.")
 
-    def draw_coordinates(self, coordinates, *, colors, label, size):
+    def draw_coordinates(self, coordinates, *, colors, dashed, label):
         """Draw desired coordinates into the scene.
 
         Parameters
         ----------
-        position : list[list[float, float, float], ...]
-            A set of lists containing the x, y and z coordinates of the sphere location.
+        coordinates : list[list[float, float, float]]
+            A set of lists containing the x, y and z coordinates.
         colors : list[str]
-            A string representing the hexadecimal color for the coordinates.
+            A list of string representing the hexadecimal color for the coordinates.
+        dashed : bool
+            Whether to use a dashed or solid line style for the coordiantes.
         label : str
-            The name to be used in the legend for the marker.
-        size : float
-            The size of the marker for drawing the coordinates.
+            The name to be used to identify the coordinates in the legend of the
+            figure.
 
         """
         raise NotImplementedError("This method is expected to be overridden by a specific plotting backend.")

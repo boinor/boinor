@@ -115,7 +115,7 @@ def test_orbit_backends_base():
         NotImplementedError,
         match="This method is expected to be overridden by a specific plotting backend.",
     ):
-        _ = opb.draw_coordinates(1, colors=2, label=3, size=4)  # just dummy parameter and not needed in this function
+        _ = opb.draw_coordinates(1, colors=2, dashed=3, label=4)  # just dummy parameter and not needed in this function
 
     with pytest.raises(
         NotImplementedError,
