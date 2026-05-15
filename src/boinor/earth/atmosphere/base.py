@@ -24,26 +24,32 @@ class COESA:
 
     @property
     def b_levels(self):
+        """getter of COESA table[0]"""
         return self.tables[0]
 
     @property
     def zb_levels(self):
+        """getter of COESA table[1]"""
         return self.tables[1]
 
     @property
     def hb_levels(self):
+        """getter of COESA table[2]"""
         return self.tables[2]
 
     @property
     def Tb_levels(self):
+        """getter of COESA table[3]"""
         return self.tables[3]
 
     @property
     def Lb_levels(self):
+        """getter of COESA table[4]"""
         return self.tables[4]
 
     @property
     def pb_levels(self):
+        """getter of COESA table[5]"""
         return self.tables[5]
 
     def _check_altitude(self, alt, r0, geometric=True):

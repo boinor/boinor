@@ -96,6 +96,7 @@ class _PlanetaryICRS(BaseRADecFrame):
 
     @staticmethod
     def self_transform(from_coo, to_frame):
+        """self transformation of COO to ICRS to frame"""
         if np.all(from_coo.obstime == to_frame.obstime):
             return to_frame.realize_frame(from_coo.data)
 
