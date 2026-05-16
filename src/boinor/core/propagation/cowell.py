@@ -6,6 +6,7 @@ from boinor.core.propagation.base import func_twobody
 
 
 def cowell(k, r, v, tofs, rtol=1e-11, *, events=None, f=func_twobody):
+    """Cowell's method to calculate the propagation of an orbit"""
     x, y, z = r
     vx, vy, vz = v
 

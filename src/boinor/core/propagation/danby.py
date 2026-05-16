@@ -8,6 +8,7 @@ from boinor.core.elements import coe2rv, rv2coe
 
 @jit
 def danby_coe(k, p, ecc, inc, raan, argp, nu, tof, numiter=20, rtol=1e-8):
+    """Danby's method to propagate an orbit using classical orbital elements"""
     semi_axis_a = p / (1 - ecc**2)
     n = np.sqrt(k / np.abs(semi_axis_a) ** 3)
 
