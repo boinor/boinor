@@ -144,9 +144,9 @@ class AitoffPlotter:
         if isinstance(longitude_rad, np.ndarray):
             normalized = longitude_rad % (2 * np.pi)
             return np.array([-1 * ((x % np.pi) - np.pi) if x > np.pi else -1 * x for x in normalized])
-        else:
-            normalized = longitude_rad % (2 * np.pi)
-            return -1 * ((normalized % np.pi) - np.pi) if normalized > np.pi else -1 * normalized
+
+        normalized = longitude_rad % (2 * np.pi)
+        return -1 * ((normalized % np.pi) - np.pi) if normalized > np.pi else -1 * normalized
 
     def plot_ra_dec(self, ra, dec, label=None, color=None, marker="o", markersize=12, **kwargs):
         """Plot a point on the sky map using right ascension and declination.
