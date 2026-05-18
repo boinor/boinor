@@ -21,6 +21,7 @@ def recseries_coe(
     numiter=100,
     rtol=1e-8,
 ):
+    """using the recursive series approximation method to propagate an orbit using classical orbital elements"""
     # semi-major axis
     semi_axis_a = p / (1 - ecc**2)
     # mean angular motion
