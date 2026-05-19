@@ -24,6 +24,8 @@ def _kepler_equation_prime_hyper(F, M, ecc):
 
 
 def newton_factory(func, fprime):
+    """core function for the Newton method of finding zeroes"""
+
     @jit
     def jit_newton_wrapper(x0, args=(), tol=1.48e-08, maxiter=50):
         p0 = float(x0)

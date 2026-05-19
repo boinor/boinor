@@ -47,6 +47,7 @@ def delta_t(delta_v, f):
 
 
 def change_ecc_inc(k, a, ecc_0, ecc_f, inc_0, inc_f, argp, r, v, f):
+    """core functions of simultaneous eccentricity and inclination changes towards a given final value"""
     # We fix the inertial direction at the beginning
     if ecc_0 > 0.001:  # Arbitrary tolerance
         e_vec = eccentricity_vector(k, r, v)
