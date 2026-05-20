@@ -309,12 +309,18 @@ def M_to_E_vector(M, ecc):
         raise ValueError("M and ecc must be the same length")
 
     E = np.zeros(M.shape)
-    for index in range(0, len(M)):
-        if -np.pi < M[index] < 0 or np.pi < M[index]:
-            E0 = M[index] - ecc[index]
+    # XXX original: for index in range(0, len(M)):
+    #    original:     if -np.pi < M[index] < 0 or np.pi < M[index]:
+    #    original:         E0 = M[index] - ecc[index]
+    #    original:     else:
+    #    original:         E0 = M[index] + ecc[index]
+    #    original:     E[index] = _newton_elliptic(E0, args=(M[index], ecc[index]))
+    for index, m_value in enumerate(M):
+        if -np.pi < m_value < 0 or np.pi < m_value:
+            E0 = m_value - ecc[index]
         else:
-            E0 = M[index] + ecc[index]
-        E[index] = _newton_elliptic(E0, args=(M[index], ecc[index]))
+            E0 = m_value + ecc[index]
+        E[index] = _newton_elliptic(E0, args=(m_value, ecc[index]))
 
     return E
 
@@ -368,9 +374,12 @@ def M_to_F_vector(M, ecc):
     """
     # XXX check whether M and ecc have the same length
     F = np.zeros(M.shape)
-    for index in range(0, len(M)):
-        F0 = np.arcsinh(M[index] / ecc[index])
-        F[index] = _newton_hyperbolic(F0, args=(M[index], ecc[index]), maxiter=100)
+    # XXX original: for index in range(0, len(M)):
+    #    original:     F0 = np.arcsinh(M[index] / ecc[index])
+    #    original:     F[index] = _newton_hyperbolic(F0, args=(M[index], ecc[index]), maxiter=100)
+    for index, m_value in enumerate(M):
+        F0 = np.arcsinh(m_value / ecc[index])
+        F[index] = _newton_hyperbolic(F0, args=(m_value, ecc[index]), maxiter=100)
 
     return F
 
