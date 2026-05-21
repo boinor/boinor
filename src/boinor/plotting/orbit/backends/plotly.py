@@ -210,9 +210,8 @@ class BasePlotly(OrbitPlotterBackend):
     def show(self):
         """Display the scene."""
         self.update_layout(self._layout)
-        if (
-            not self.figure._in_batch_mode
-        ):  # pylint: disable=protected-access # we do need this information and have to use the function
+        # we do need this information and have to use the function
+        if not self.figure._in_batch_mode:  # pylint: disable=protected-access
             return self.figure.show()
         return None
 

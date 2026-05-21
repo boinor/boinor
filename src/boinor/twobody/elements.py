@@ -73,6 +73,7 @@ def t_p(nu, ecc, k, r_p):
     inc=u.rad,
 )
 def heliosynchronous(k, R, J2, n_sunsync, a=None, ecc=None, inc=None):
+    """check whether Sun-synchronous orbit can be calculated and try to do it"""
     with np.errstate(invalid="raise"):
         if a is None and (ecc is not None) and (inc is not None):
             a = (-3 * R**2 * J2 * np.sqrt(k) / (2 * n_sunsync * (1 - ecc**2) ** 2) * np.cos(inc)) ** (2 / 7)
@@ -169,6 +170,38 @@ def get_eccentricity_critical_inc(ecc=None):
 
 
 def coe2rv(k, p, ecc, inc, raan, argp, nu):
+    r"""Converts from classical orbital to state vectors.
+
+    Classical orbital elements are converted into position and velocity
+    vectors by `rv_pqw` algorithm. A rotation matrix is applied to position
+    and velocity vectors to get them expressed in terms of an IJK basis.
+
+    Parameters
+    ----------
+    k : float
+        Standard gravitational parameter (km^3 / s^2).
+    p : float
+        Semi-latus rectum or parameter (km).
+    ecc : float
+        Eccentricity.
+    inc : float
+        Inclination (rad).
+    raan : float
+        Longitude of ascending node, omega (rad).
+    argp : float
+        Argument of perigee (rad).
+    nu : float
+        True anomaly (rad).
+
+    Returns
+    -------
+    rr: numpy.ndarray
+        Position vector in basis ijk.
+    vv: numpy.ndarray
+        Velocity vector in basis ijk.
+
+    For more information about the math, see explanation in corresponding core function
+    """
     rr, vv = coe2rv_fast(
         k.to_value(u_km3s2),
         p.to_value(u.km),
@@ -186,6 +219,7 @@ def coe2rv(k, p, ecc, inc, raan, argp, nu):
 
 
 def coe2rv_many(k_arr, p_arr, ecc_arr, inc_arr, raan_arr, argp_arr, nu_arr):
+    r"""Parallel version of coe2rv"""
     rr_arr, vv_arr = coe2rv_many_fast(
         k_arr.to_value(u_km3s2),
         p_arr.to_value(u.km),
