@@ -1,6 +1,6 @@
 # What's new
 
-## boinor 0.20.0 (XX.XX.XXXX)
+## boinor 0.20.0 (01.06.2026)
 
 ### Highlights
 
@@ -15,7 +15,7 @@
 ### Coverage
 
 New tests have been added or improved all over the code.
-The code coverage increased from 96.47% to XX.XX%.
+The code coverage increased from 96.47% to 97.14%.
 
 ### Bugs fixed
 
