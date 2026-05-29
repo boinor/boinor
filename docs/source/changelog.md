@@ -1,6 +1,6 @@
 # What's new
 
-## boinor 0.20.0 (01.06.2026)
+## boinor 0.20.0 (08.06.2026)
 
 ### Highlights
 
