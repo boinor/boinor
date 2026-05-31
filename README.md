@@ -1,4 +1,4 @@
-[![boinor Logo](https://raw.githubusercontent.com/boinor/boinor/0.20/docs/source/_static/logo_readme.png)](https://docs.boinor.space/en/latest/)
+[![boinor Logo](https://raw.githubusercontent.com/boinor/boinor/0.20/docs/source/_static/logo_readme.png)](https://docs.boinor.space/en/0.20/)
 
 | **Name**  |                        **Website**                         |                                                         **Authors**                                                       |                                      **Maintainers**                                      |                     **Version**                      |
 |:---------:|:----------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------:|:----------------------------------------------------:|
@@ -12,7 +12,7 @@
 [![code_badge]]()
 [![pypi_badge]](https://pypi.org/project/boinor)
 [![mailing_badge]](https://groups.io/g/boinor-dev)
-[![docs_badge]](https://readthedocs.org/projects/boinor/badge/?version=latest)
+[![docs_badge]](https://readthedocs.org/projects/boinor/badge/?version=0.20)
 [![coverage_badge]](https://codecov.io/github/boinor/boinor?branch=0.20)
 [![doi_badge]](https://doi.org/10.5281/zenodo.12809724)
 [![FAIR checklist badge]](https://fairsoftwarechecklist.net/v0.2?f=31&a=32112&i=32311&r=132)
@@ -207,11 +207,11 @@ If you would like to support boinor, consider [becoming a backer] or
 
 <!-- LINKS AND REFERENCES -->
 
-[quickstart guide]: https://docs.boinor.space/en/latest/quickstart.html
-[API reference]: https://docs.boinor.space/en/latest/api.html
-[alternative installation methods]: https://docs.boinor.space/en/latest/installation.html#alternative-installation-methods
-[commonly used Astrodynamics software]: https://docs.boinor.space/en/latest/related.html
-[Development documentation]: https://docs.boinor.space/en/latest/
+[quickstart guide]: https://docs.boinor.space/en/0.20/quickstart.html
+[API reference]: https://docs.boinor.space/en/0.20/api.html
+[alternative installation methods]: https://docs.boinor.space/en/0.20/installation.html#alternative-installation-methods
+[commonly used Astrodynamics software]: https://docs.boinor.space/en/0.20/related.html
+[Development documentation]: https://docs.boinor.space/en/0.20/
 [Stable documentation]: https://docs.boinor.space/en/0.20.0/
 [Read the docs]: https://readthedocs.org
 [binder]: https://mybinder.org/
@@ -227,7 +227,7 @@ If you would like to support boinor, consider [becoming a backer] or
 [open an issue]: https://github.com/boinor/boinor/issues/new
 [milestones]: https://github.com/boinor/boinor/milestones
 [Want to be a backer]: https://opencollective.com/boinor#backer
-[gallery of examples]: https://docs.boinor.space/en/latest/gallery.html
+[gallery of examples]: https://docs.boinor.space/en/0.20/gallery.html
 [becoming a backer]: https://opencollective.com/boinor#backer
 [becoming a sponsor]: https://opencollective.com/boinor#sponsor
 [acknowledgement from the original author]: https://docs.boinor.space/en/stable/history.html#acknowledgement-from-the-original-author
@@ -241,7 +241,7 @@ If you would like to support boinor, consider [becoming a backer] or
 
 [boinor_badge]: https://img.shields.io/badge/boinor-gray.svg?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAbxJREFUOE+Vk79LAmEYx7/njzulHKLQQIKwiyLuohykxqJBaHMNwvorcmltbG6LhnBqrMiWlmYl0SydaoqgwbLz9DS/B++heUI98A73vs/zfZ7n8zwndXsGF6tUKojFYvD7/W7Pzp00SiCXyyGTySCZTCKVSiEej7sKjRSgdzqdRq1WQzabRTQa/b8Ag8vlMsLhMBKJxN8F2u02LMtyAur1OqqFe+jaEsYi6oDQUAuGYcDn89nHsR7nq+N9zKxsQdvcGS3QbDYhyzJYQafTGSzZMvBQeoau61AUZXgKLJkTZaDX64XH40Gr1bIdKWqaJorFIjRNs995aE4LIjsdOXsGK9YT0HqHoawjEAggf3OJ2eUVBCcmnSoGBEQ2BsteA6juAY08unNn+HgN4fboEItqDAsHR6MF2B+rkMnwcRtov6E7fwGzM42781PEdQ2h1TV3AZInB6nX/8l1AbsbixhXJBgmUCqV7GWKRCJguwKk0wLhESQnEAwGcVd8wZTnE9+NLxuoqqo2B0mSHMgDEPnB0kmXDPp3gfesjHCZgFMRNrRIdKYxq9hGESgg9y+I68/EdsQOCGeKUPS3/QDL/fnRmszmsAAAAABJRU5ErkJggg== "boinor"
 [CircleCI_badge]: https://dl.circleci.com/status-badge/img/circleci/9wE8FEEBmTs6KrznLADUmx/EX84xKHFPudDeazG3q2XVw/tree/main.svg?style=svg
-[docs_badge]: https://readthedocs.org/projects/boinor/badge/?version=latest "docs badge"
+[docs_badge]: https://readthedocs.org/projects/boinor/badge/?version=0.20 "docs badge"
 [coverage_badge]:  https://img.shields.io/codecov/c/github/boinor/boinor.svg?logo=Codecov&logoColor=white "coverage badge"
 [pre_commit_badge]: https://results.pre-commit.ci/badge/github/boinor/boinor/main.svg "pre-commit badge"
 [doi_badge]: https://zenodo.org/badge/DOI/10.5281/zenodo.12809724.svg "doi badge"
