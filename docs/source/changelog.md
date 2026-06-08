@@ -1,5 +1,27 @@
 # What's new
 
+## boinor 0.21.0 (xx.xx.xxxx)
+
+### Highlights
+
+### Coverage
+
+New tests have been added or improved all over the code.
+The code coverage increased from 97.14% to 97.14%.
+
+### Bugs fixed
+
+### Pull requests
+
+### Contributors
+
+This is the complete list of the people that contributed to this
+release, with a + sign indicating first contribution.
+
+- Thorsten Alteholz
+
+
+
 ## boinor 0.20.0 (08.06.2026)
 
 ### Highlights
