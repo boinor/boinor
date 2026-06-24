@@ -140,6 +140,37 @@ def test_plot_2d_trajectory_plots_a_trajectory(Backend):
 
 
 @pytest.mark.parametrize("Backend", DEFAULT_ORBIT_PLOTTER_BACKENDS_3D.values())
+def test_plot_3d_maneuver_plots_a_maneuver(Backend):
+    plotter = OrbitPlotter(backend=Backend())
+    assert len(plotter.trajectories) == 0
+
+    orb = Orbit.circular(Earth, alt=700 << u.km)
+    man = Maneuver.hohmann(orb, 36000 << u.km)
+
+    plotter.set_attractor(Earth)
+    plotter.plot_maneuver(orb, man)
+
+    assert len(plotter.trajectories) == 1
+    assert plotter._attractor == Earth
+
+
+@pytest.mark.parametrize("Backend", DEFAULT_ORBIT_PLOTTER_BACKENDS_2D.values())
+def test_plot_2d_maneuver_plots_a_maneuver(Backend):
+    plotter = OrbitPlotter(backend=Backend())
+    assert len(plotter.trajectories) == 0
+
+    orb = Orbit.circular(Earth, alt=700 << u.km)
+    man = Maneuver.hohmann(orb, 36000 << u.km)
+
+    plotter.set_attractor(Earth)
+    plotter.set_orbit_frame(orb)
+    plotter.plot_maneuver(orb, man)
+
+    assert len(plotter.trajectories) == 1
+    assert plotter._attractor == Earth
+
+
+@pytest.mark.parametrize("Backend", DEFAULT_ORBIT_PLOTTER_BACKENDS_3D.values())
 def test_set_view(Backend):
     plotter = OrbitPlotter(backend=Backend())
     plotter.set_view(0 * u.deg, 0 * u.deg, 1000 * u.m)

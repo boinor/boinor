@@ -572,10 +572,6 @@ class OrbitPlotter:
             )
             lines_list.append((impulse_label, impulse_lines))
 
-            # HACK: if no color is provided, get the one randomly generated
-            # for previous impulse lines
-            color = impulse_lines[0][0].get_color() if color is None else color
-
             # Get the propagation time required before next impulse
             time_to_next_impulse, _ = maneuver.impulses[ith_impulse + 1]
 

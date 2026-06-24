@@ -298,8 +298,8 @@ class Plotly2D(BasePlotly):
         """
         marker_style = {"size": size, "color": color, "symbol": marker_symbol}
         marker_trace = go.Scatter(
-            x=position[0],
-            y=position[1],
+            x=(position[0],),
+            y=(position[1],),
             marker=marker_style,
             name=label,
             showlegend=label is not None,
@@ -445,8 +445,8 @@ class Plotly3D(BasePlotly):
 
         Parameters
         ----------
-        position : list[float, float]
-            A list containing the x and y coordinates of the point.
+        position : list[float, float, float]
+            A list containing the x, y, and z coordinates of the point.
         color : str
             A string representing the hexadecimal color for the point.
         marker_symbol : str
@@ -464,9 +464,9 @@ class Plotly3D(BasePlotly):
         """
         marker_style = {"size": size, "color": color, "symbol": marker_symbol}
         marker_trace = go.Scatter3d(
-            x=position[0],
-            y=position[1],
-            z=position[2],
+            x=(position[0],),
+            y=(position[1],),
+            z=(position[2],),
             marker=marker_style,
             name=label,
             showlegend=label is not None,

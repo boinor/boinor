@@ -40,19 +40,19 @@ def test_orbit_backends_plotly():
     ):
         _ = bp.draw_impulse(1, color=2, label=3, size=4)  # just dummy parameter and not needed in this function
 
-    x = (10.0, 11.1, 12.2)
-    y = (20.1, 21.2, 22.3)
-    z = (30.1, 31.2, 32.3)
+    x = 10.0
+    y = 20.1
+    z = 30.1
     p2d = Plotly2D()
     v = p2d.draw_marker([x, y], color=2, label=None, marker_symbol="x", size=5)
-    assert v.x == x
-    assert v.y == y
+    assert v.x[0] == x
+    assert v.y[0] == y
 
     p3d = Plotly3D()
     v = p3d.draw_marker([x, y, z], color=2, label=None, marker_symbol="x", size=5)
-    assert v.x == x
-    assert v.y == y
-    assert v.z == z
+    assert v.x[0] == x
+    assert v.y[0] == y
+    assert v.z[0] == z
 
     # at the moment this does not give any exception
     _ = Dummy2D(None, width=234, height=345)
