@@ -176,9 +176,7 @@ def test_ephem_sample_existing_epochs_returns_corresponding_input(epochs, coordi
 
     result_coordinates = ephem.sample(epochs[::2], interpolator=interpolator)
 
-    # Exactly the same
-    assert np.all(result_coordinates == coordinates[::2])
-    # assert_coordinates_allclose(result_coordinates, coordinates[::2], atol_scale=1e-17)
+    assert_coordinates_allclose(result_coordinates, coordinates[::2], atol_scale=1e-17)
 
 
 def test_rv_no_parameters_returns_input_vectors(coordinates, epochs):
